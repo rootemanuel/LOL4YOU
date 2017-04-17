@@ -7,13 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17E3A7E34EFF375E6CE4213B /* Pods_LOL4YOUUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B8BB042ACBB5423013FEC3B /* Pods_LOL4YOUUITests.framework */; };
+		4289DC60B5B9382572992C34 /* Pods_LOL4YOU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EFD371BBE2A7AC48949FCB3 /* Pods_LOL4YOU.framework */; };
+		4C0FD50F2E61BC48463FCE49 /* Pods_LOL4YOUTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62BEFD983671AB73E196863F /* Pods_LOL4YOUTests.framework */; };
 		A0027FF61E9D91BD003175A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0027FF51E9D91BD003175A7 /* AppDelegate.swift */; };
-		A0027FF81E9D91BD003175A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0027FF71E9D91BD003175A7 /* ViewController.swift */; };
 		A0027FFB1E9D91BD003175A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0027FF91E9D91BD003175A7 /* Main.storyboard */; };
 		A0027FFD1E9D91BD003175A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0027FFC1E9D91BD003175A7 /* Assets.xcassets */; };
 		A00280001E9D91BD003175A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0027FFE1E9D91BD003175A7 /* LaunchScreen.storyboard */; };
 		A002800B1E9D91BE003175A7 /* LOL4YOUTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A002800A1E9D91BE003175A7 /* LOL4YOUTests.swift */; };
 		A00280161E9D91BE003175A7 /* LOL4YOUUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00280151E9D91BE003175A7 /* LOL4YOUUITests.swift */; };
+		A00280241E9D981B003175A7 /* rootclass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00280231E9D981B003175A7 /* rootclass.swift */; };
+		A00280291E9DAE08003175A7 /* statsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00280281E9DAE08003175A7 /* statsTVC.swift */; };
+		A002802B1E9DAE27003175A7 /* statsTVCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A002802A1E9DAE27003175A7 /* statsTVCC.swift */; };
+		A017A8741EA5456700C325F7 /* perfilCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A017A8731EA5456700C325F7 /* perfilCVC.swift */; };
+		A017A8761EA546B600C325F7 /* perfilVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A017A8751EA546B600C325F7 /* perfilVC.swift */; };
+		A06CD86D1E9E5FC000D4362E /* statsdetTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06CD86C1E9E5FC000D4362E /* statsdetTVC.swift */; };
+		A09D99F01EA3D0360054E988 /* searchsummonerTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09D99EF1EA3D0360054E988 /* searchsummonerTVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +43,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B8BB042ACBB5423013FEC3B /* Pods_LOL4YOUUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LOL4YOUUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D8C7653D0AE1D6DD09A232E /* Pods-LOL4YOU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LOL4YOU.release.xcconfig"; path = "Pods/Target Support Files/Pods-LOL4YOU/Pods-LOL4YOU.release.xcconfig"; sourceTree = "<group>"; };
+		62BEFD983671AB73E196863F /* Pods_LOL4YOUTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LOL4YOUTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7007F806A0F288D12F452558 /* Pods-LOL4YOUTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LOL4YOUTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LOL4YOUTests/Pods-LOL4YOUTests.release.xcconfig"; sourceTree = "<group>"; };
+		9EFD371BBE2A7AC48949FCB3 /* Pods_LOL4YOU.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LOL4YOU.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0027FF21E9D91BD003175A7 /* LOL4YOU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LOL4YOU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0027FF51E9D91BD003175A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A0027FF71E9D91BD003175A7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A0027FFA1E9D91BD003175A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A0027FFC1E9D91BD003175A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0027FFF1E9D91BD003175A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +60,17 @@
 		A00280111E9D91BE003175A7 /* LOL4YOUUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LOL4YOUUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A00280151E9D91BE003175A7 /* LOL4YOUUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LOL4YOUUITests.swift; sourceTree = "<group>"; };
 		A00280171E9D91BE003175A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A00280231E9D981B003175A7 /* rootclass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rootclass.swift; sourceTree = "<group>"; };
+		A00280281E9DAE08003175A7 /* statsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = statsTVC.swift; sourceTree = "<group>"; };
+		A002802A1E9DAE27003175A7 /* statsTVCC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = statsTVCC.swift; sourceTree = "<group>"; };
+		A017A8731EA5456700C325F7 /* perfilCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = perfilCVC.swift; sourceTree = "<group>"; };
+		A017A8751EA546B600C325F7 /* perfilVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = perfilVC.swift; sourceTree = "<group>"; };
+		A06CD86C1E9E5FC000D4362E /* statsdetTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = statsdetTVC.swift; sourceTree = "<group>"; };
+		A09D99EF1EA3D0360054E988 /* searchsummonerTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = searchsummonerTVC.swift; sourceTree = "<group>"; };
+		A6BFB153ADEC2999EECF69C7 /* Pods-LOL4YOUUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LOL4YOUUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LOL4YOUUITests/Pods-LOL4YOUUITests.release.xcconfig"; sourceTree = "<group>"; };
+		AC8C668551E0C102D198AF48 /* Pods-LOL4YOU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LOL4YOU.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LOL4YOU/Pods-LOL4YOU.debug.xcconfig"; sourceTree = "<group>"; };
+		E6BC6E124B7C5F434839A596 /* Pods-LOL4YOUUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LOL4YOUUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LOL4YOUUITests/Pods-LOL4YOUUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F9E5C8E6FC02AA52AEB93D22 /* Pods-LOL4YOUTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LOL4YOUTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LOL4YOUTests/Pods-LOL4YOUTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4289DC60B5B9382572992C34 /* Pods_LOL4YOU.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C0FD50F2E61BC48463FCE49 /* Pods_LOL4YOUTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +94,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17E3A7E34EFF375E6CE4213B /* Pods_LOL4YOUUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B030B1585D762344FAA6351 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9EFD371BBE2A7AC48949FCB3 /* Pods_LOL4YOU.framework */,
+				62BEFD983671AB73E196863F /* Pods_LOL4YOUTests.framework */,
+				3B8BB042ACBB5423013FEC3B /* Pods_LOL4YOUUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A0027FE91E9D91BD003175A7 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +118,8 @@
 				A00280091E9D91BD003175A7 /* LOL4YOUTests */,
 				A00280141E9D91BE003175A7 /* LOL4YOUUITests */,
 				A0027FF31E9D91BD003175A7 /* Products */,
+				E4B4D2BBD01263CC199BB13D /* Pods */,
+				2B030B1585D762344FAA6351 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,8 +136,9 @@
 		A0027FF41E9D91BD003175A7 /* LOL4YOU */ = {
 			isa = PBXGroup;
 			children = (
+				A00280261E9DADDD003175A7 /* view */,
+				A00280251E9D9F38003175A7 /* model */,
 				A0027FF51E9D91BD003175A7 /* AppDelegate.swift */,
-				A0027FF71E9D91BD003175A7 /* ViewController.swift */,
 				A0027FF91E9D91BD003175A7 /* Main.storyboard */,
 				A0027FFC1E9D91BD003175A7 /* Assets.xcassets */,
 				A0027FFE1E9D91BD003175A7 /* LaunchScreen.storyboard */,
@@ -125,6 +165,64 @@
 			path = LOL4YOUUITests;
 			sourceTree = "<group>";
 		};
+		A00280251E9D9F38003175A7 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				A00280231E9D981B003175A7 /* rootclass.swift */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		A00280261E9DADDD003175A7 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				A017A86E1EA543CC00C325F7 /* perfil */,
+				A09D99EE1EA3CFFC0054E988 /* search */,
+				A00280271E9DADE5003175A7 /* stats */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		A00280271E9DADE5003175A7 /* stats */ = {
+			isa = PBXGroup;
+			children = (
+				A00280281E9DAE08003175A7 /* statsTVC.swift */,
+				A002802A1E9DAE27003175A7 /* statsTVCC.swift */,
+				A06CD86C1E9E5FC000D4362E /* statsdetTVC.swift */,
+			);
+			name = stats;
+			sourceTree = "<group>";
+		};
+		A017A86E1EA543CC00C325F7 /* perfil */ = {
+			isa = PBXGroup;
+			children = (
+				A017A8731EA5456700C325F7 /* perfilCVC.swift */,
+				A017A8751EA546B600C325F7 /* perfilVC.swift */,
+			);
+			name = perfil;
+			sourceTree = "<group>";
+		};
+		A09D99EE1EA3CFFC0054E988 /* search */ = {
+			isa = PBXGroup;
+			children = (
+				A09D99EF1EA3D0360054E988 /* searchsummonerTVC.swift */,
+			);
+			name = search;
+			sourceTree = "<group>";
+		};
+		E4B4D2BBD01263CC199BB13D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AC8C668551E0C102D198AF48 /* Pods-LOL4YOU.debug.xcconfig */,
+				4D8C7653D0AE1D6DD09A232E /* Pods-LOL4YOU.release.xcconfig */,
+				F9E5C8E6FC02AA52AEB93D22 /* Pods-LOL4YOUTests.debug.xcconfig */,
+				7007F806A0F288D12F452558 /* Pods-LOL4YOUTests.release.xcconfig */,
+				E6BC6E124B7C5F434839A596 /* Pods-LOL4YOUUITests.debug.xcconfig */,
+				A6BFB153ADEC2999EECF69C7 /* Pods-LOL4YOUUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +230,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A002801A1E9D91BE003175A7 /* Build configuration list for PBXNativeTarget "LOL4YOU" */;
 			buildPhases = (
+				A8892486F2DF5726620B4E2A /* [CP] Check Pods Manifest.lock */,
 				A0027FEE1E9D91BD003175A7 /* Sources */,
 				A0027FEF1E9D91BD003175A7 /* Frameworks */,
 				A0027FF01E9D91BD003175A7 /* Resources */,
+				66DBA0712CC9291B27B7E544 /* [CP] Embed Pods Frameworks */,
+				DE51FAD9C5569008B1E6B6D1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,9 +250,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A002801D1E9D91BE003175A7 /* Build configuration list for PBXNativeTarget "LOL4YOUTests" */;
 			buildPhases = (
+				A08635B2714E6D1BB847E580 /* [CP] Check Pods Manifest.lock */,
 				A00280021E9D91BD003175A7 /* Sources */,
 				A00280031E9D91BD003175A7 /* Frameworks */,
 				A00280041E9D91BD003175A7 /* Resources */,
+				076DA660898B88A45B080B52 /* [CP] Embed Pods Frameworks */,
+				2196B8ECBB5A3C5A732ACC2C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +271,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A00280201E9D91BE003175A7 /* Build configuration list for PBXNativeTarget "LOL4YOUUITests" */;
 			buildPhases = (
+				DC67614F34550095C282B5B4 /* [CP] Check Pods Manifest.lock */,
 				A002800D1E9D91BE003175A7 /* Sources */,
 				A002800E1E9D91BE003175A7 /* Frameworks */,
 				A002800F1E9D91BE003175A7 /* Resources */,
+				5841E859B7487A6E9AAE171E /* [CP] Embed Pods Frameworks */,
+				CD62A63DBDDD7F194C291B16 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -193,6 +300,7 @@
 				TargetAttributes = {
 					A0027FF11E9D91BD003175A7 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = URE3KY7SLW;
 						ProvisioningStyle = Automatic;
 					};
 					A00280051E9D91BD003175A7 = {
@@ -254,13 +362,157 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		076DA660898B88A45B080B52 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LOL4YOUTests/Pods-LOL4YOUTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2196B8ECBB5A3C5A732ACC2C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LOL4YOUTests/Pods-LOL4YOUTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5841E859B7487A6E9AAE171E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LOL4YOUUITests/Pods-LOL4YOUUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		66DBA0712CC9291B27B7E544 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LOL4YOU/Pods-LOL4YOU-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A08635B2714E6D1BB847E580 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A8892486F2DF5726620B4E2A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CD62A63DBDDD7F194C291B16 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LOL4YOUUITests/Pods-LOL4YOUUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC67614F34550095C282B5B4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DE51FAD9C5569008B1E6B6D1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LOL4YOU/Pods-LOL4YOU-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A0027FEE1E9D91BD003175A7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0027FF81E9D91BD003175A7 /* ViewController.swift in Sources */,
+				A017A8741EA5456700C325F7 /* perfilCVC.swift in Sources */,
+				A00280291E9DAE08003175A7 /* statsTVC.swift in Sources */,
+				A002802B1E9DAE27003175A7 /* statsTVCC.swift in Sources */,
 				A0027FF61E9D91BD003175A7 /* AppDelegate.swift in Sources */,
+				A017A8761EA546B600C325F7 /* perfilVC.swift in Sources */,
+				A00280241E9D981B003175A7 /* rootclass.swift in Sources */,
+				A06CD86D1E9E5FC000D4362E /* statsdetTVC.swift in Sources */,
+				A09D99F01EA3D0360054E988 /* searchsummonerTVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,8 +660,10 @@
 		};
 		A002801B1E9D91BE003175A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC8C668551E0C102D198AF48 /* Pods-LOL4YOU.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = URE3KY7SLW;
 				INFOPLIST_FILE = LOL4YOU/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = root.LOL4YOU;
@@ -420,8 +674,10 @@
 		};
 		A002801C1E9D91BE003175A7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4D8C7653D0AE1D6DD09A232E /* Pods-LOL4YOU.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = URE3KY7SLW;
 				INFOPLIST_FILE = LOL4YOU/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = root.LOL4YOU;
@@ -432,6 +688,7 @@
 		};
 		A002801E1E9D91BE003175A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9E5C8E6FC02AA52AEB93D22 /* Pods-LOL4YOUTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -446,6 +703,7 @@
 		};
 		A002801F1E9D91BE003175A7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7007F806A0F288D12F452558 /* Pods-LOL4YOUTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -460,6 +718,7 @@
 		};
 		A00280211E9D91BE003175A7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6BC6E124B7C5F434839A596 /* Pods-LOL4YOUUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = LOL4YOUUITests/Info.plist;
@@ -473,6 +732,7 @@
 		};
 		A00280221E9D91BE003175A7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6BFB153ADEC2999EECF69C7 /* Pods-LOL4YOUUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = LOL4YOUUITests/Info.plist;
@@ -503,6 +763,7 @@
 				A002801C1E9D91BE003175A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A002801D1E9D91BE003175A7 /* Build configuration list for PBXNativeTarget "LOL4YOUTests" */ = {
 			isa = XCConfigurationList;
@@ -511,6 +772,7 @@
 				A002801F1E9D91BE003175A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A00280201E9D91BE003175A7 /* Build configuration list for PBXNativeTarget "LOL4YOUUITests" */ = {
 			isa = XCConfigurationList;
@@ -519,6 +781,7 @@
 				A00280221E9D91BE003175A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

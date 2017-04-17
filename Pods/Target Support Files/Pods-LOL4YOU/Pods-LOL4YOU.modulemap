@@ -1,0 +1,6 @@
+framework module Pods_LOL4YOU {
+  umbrella header "Pods-LOL4YOU-umbrella.h"
+
+  export *
+  module * { export * }
+}
