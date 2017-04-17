@@ -243,6 +243,10 @@ class rootclass: NSObject {
                                 Summoner.summonerID = summonerID
                             }
                             
+                            if let name = jsummoner["name"].string {
+                                Summoner.name = name
+                            }
+                            
                             rtn.id = 1
                             rtn.msg = "Sucess"
 

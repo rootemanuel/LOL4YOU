@@ -373,13 +373,17 @@
                                     <constraint firstAttribute="width" constant="87" id="mis-Xb-oJf"/>
                                 </constraints>
                             </pageControl>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sxk-Eu-hQ1">
-                                <frame key="frameInset" minX="137" minY="134" width="100" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sxk-Eu-hQ1">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="AwI-ys-OyB"/>
+                                    <constraint firstAttribute="height" constant="100" id="gS3-F2-9P5"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Queue" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DOm-YL-lcz">
-                                <frame key="frameInset" minX="112" minY="105" width="150" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Queue" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DOm-YL-lcz">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="fl5-DH-4RU"/>
+                                    <constraint firstAttribute="width" constant="150" id="t2B-gV-x1K"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -387,8 +391,12 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="Sxk-Eu-hQ1" firstAttribute="centerX" secondItem="fHt-1A-yvi" secondAttribute="centerX" id="AL7-SR-fVF"/>
+                            <constraint firstItem="DOm-YL-lcz" firstAttribute="centerX" secondItem="fHt-1A-yvi" secondAttribute="centerX" id="CRe-Mn-TBH"/>
+                            <constraint firstItem="DOm-YL-lcz" firstAttribute="top" secondItem="eZq-oc-XWv" secondAttribute="bottom" constant="41" id="DaM-p2-Sda"/>
                             <constraint firstItem="ny0-7D-GDE" firstAttribute="top" secondItem="SB5-MF-5Bt" secondAttribute="bottom" id="Jfb-dV-ZGT"/>
                             <constraint firstAttribute="trailing" secondItem="SB5-MF-5Bt" secondAttribute="trailing" id="Jhn-Wm-JmR"/>
+                            <constraint firstItem="Sxk-Eu-hQ1" firstAttribute="top" secondItem="eZq-oc-XWv" secondAttribute="bottom" constant="70" id="OYy-Uo-Xkc"/>
                             <constraint firstItem="SB5-MF-5Bt" firstAttribute="top" secondItem="eZq-oc-XWv" secondAttribute="bottom" constant="223" id="Zm5-G6-Ezu"/>
                             <constraint firstItem="iaX-6X-stF" firstAttribute="top" secondItem="eZq-oc-XWv" secondAttribute="bottom" constant="178" id="f9E-FC-uTc"/>
                             <constraint firstItem="iaX-6X-stF" firstAttribute="centerX" secondItem="fHt-1A-yvi" secondAttribute="centerX" id="rUv-hP-8dN"/>
