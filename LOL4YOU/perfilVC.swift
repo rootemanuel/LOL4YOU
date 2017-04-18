@@ -8,11 +8,10 @@
 
 import UIKit
 
-class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,UIScrollViewDelegate {
+class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
     
-    @IBOutlet weak var queue: UILabel!
-    @IBOutlet weak var pageControl: UIPageControl!
-    @IBOutlet weak var imgTier: UIImageView!
+    @IBOutlet weak var pControl: UIPageControl!
+    @IBOutlet weak var slideScrollView: UIScrollView!
     @IBOutlet weak var collectionView: UICollectionView!
     
     var rt = rootclass.sharedInstance
@@ -28,6 +27,14 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.slideScrollView.isPagingEnabled = true
+        self.slideScrollView.showsVerticalScrollIndicator = false
+        self.slideScrollView.showsHorizontalScrollIndicator = true
+        self.slideScrollView.delegate = self
+        
+        let perfils:[perfilV] = self.createPerfil()
+        self.setupPerfil(slides: perfils)
         
         self.title = rootclass.Summoner.name
     }
@@ -54,4 +61,48 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
+    
+    func createPerfil() -> [perfilV] {
+        var rtn = Array<perfilV>()
+        
+        let perfil1:perfilV = Bundle.main.loadNibNamed("perfil", owner: self, options: nil)?.first as! perfilV
+        
+        let perfil2:perfilV = Bundle.main.loadNibNamed("perfil", owner: self, options: nil)?.first as! perfilV
+        
+        let perfil3:perfilV = Bundle.main.loadNibNamed("perfil", owner: self, options: nil)?.first as! perfilV
+        
+        perfil1.imgPerfil.image = UIImage(named: "tier_goldI")
+        perfil1.lblPerfil.text = "Gold I"
+        
+        perfil2.imgPerfil.image = UIImage(named: "tier_goldII")
+        perfil2.lblPerfil.text = "Gold II"
+        
+        perfil3.imgPerfil.image = UIImage(named: "tier_masterI")
+        perfil3.lblPerfil.text = "Master"
+        
+        rtn.append(perfil1)
+        rtn.append(perfil2)
+        rtn.append(perfil3)
+        
+        self.pControl.numberOfPages = rtn.count
+        
+        return rtn
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let page = scrollView.contentOffset.x / scrollView.frame.size.width
+        
+        self.pControl.currentPage = Int(page)
+    }
+    
+    func setupPerfil(slides:[perfilV]){
+        self.slideScrollView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 170)
+        self.slideScrollView.contentSize = CGSize(width: view.frame.width * CGFloat(slides.count), height: 170)
+        
+        for i in 0 ..< slides.count {
+            slides[i].frame = CGRect(x: view.frame.width * CGFloat(i), y: 0, width: view.frame.width, height: 170)
+            slideScrollView.addSubview(slides[i])
+        }
+    }
+
 }

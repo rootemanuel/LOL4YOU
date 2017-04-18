@@ -21,6 +21,8 @@
 		A002802B1E9DAE27003175A7 /* statsTVCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A002802A1E9DAE27003175A7 /* statsTVCC.swift */; };
 		A017A8741EA5456700C325F7 /* perfilCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A017A8731EA5456700C325F7 /* perfilCVC.swift */; };
 		A017A8761EA546B600C325F7 /* perfilVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A017A8751EA546B600C325F7 /* perfilVC.swift */; };
+		A053900B1EA58E1B00657E55 /* perfil.xib in Resources */ = {isa = PBXBuildFile; fileRef = A053900A1EA58E1B00657E55 /* perfil.xib */; };
+		A053900D1EA58E8900657E55 /* perfilV.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053900C1EA58E8900657E55 /* perfilV.swift */; };
 		A06CD86D1E9E5FC000D4362E /* statsdetTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06CD86C1E9E5FC000D4362E /* statsdetTVC.swift */; };
 		A09D99F01EA3D0360054E988 /* searchsummonerTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09D99EF1EA3D0360054E988 /* searchsummonerTVC.swift */; };
 /* End PBXBuildFile section */
@@ -65,6 +67,8 @@
 		A002802A1E9DAE27003175A7 /* statsTVCC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = statsTVCC.swift; sourceTree = "<group>"; };
 		A017A8731EA5456700C325F7 /* perfilCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = perfilCVC.swift; sourceTree = "<group>"; };
 		A017A8751EA546B600C325F7 /* perfilVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = perfilVC.swift; sourceTree = "<group>"; };
+		A053900A1EA58E1B00657E55 /* perfil.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = perfil.xib; sourceTree = "<group>"; };
+		A053900C1EA58E8900657E55 /* perfilV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = perfilV.swift; sourceTree = "<group>"; };
 		A06CD86C1E9E5FC000D4362E /* statsdetTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = statsdetTVC.swift; sourceTree = "<group>"; };
 		A09D99EF1EA3D0360054E988 /* searchsummonerTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = searchsummonerTVC.swift; sourceTree = "<group>"; };
 		A6BFB153ADEC2999EECF69C7 /* Pods-LOL4YOUUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LOL4YOUUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LOL4YOUUITests/Pods-LOL4YOUUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -198,6 +202,8 @@
 			children = (
 				A017A8731EA5456700C325F7 /* perfilCVC.swift */,
 				A017A8751EA546B600C325F7 /* perfilVC.swift */,
+				A053900A1EA58E1B00657E55 /* perfil.xib */,
+				A053900C1EA58E8900657E55 /* perfilV.swift */,
 			);
 			name = perfil;
 			sourceTree = "<group>";
@@ -341,6 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A00280001E9D91BD003175A7 /* LaunchScreen.storyboard in Resources */,
+				A053900B1EA58E1B00657E55 /* perfil.xib in Resources */,
 				A0027FFD1E9D91BD003175A7 /* Assets.xcassets in Resources */,
 				A0027FFB1E9D91BD003175A7 /* Main.storyboard in Resources */,
 			);
@@ -509,6 +516,7 @@
 				A00280291E9DAE08003175A7 /* statsTVC.swift in Sources */,
 				A002802B1E9DAE27003175A7 /* statsTVCC.swift in Sources */,
 				A0027FF61E9D91BD003175A7 /* AppDelegate.swift in Sources */,
+				A053900D1EA58E8900657E55 /* perfilV.swift in Sources */,
 				A017A8761EA546B600C325F7 /* perfilVC.swift in Sources */,
 				A00280241E9D981B003175A7 /* rootclass.swift in Sources */,
 				A06CD86D1E9E5FC000D4362E /* statsdetTVC.swift in Sources */,

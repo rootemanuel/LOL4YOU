@@ -205,6 +205,11 @@ class rootclass: NSObject {
         var firstblood:String = ""
     }
     
+    class BELeague {
+        var tier:String = ""
+        var queue:String = ""
+    }
+    
     class BEErro {
         var msg:String = ""
         var id:Int = 0
