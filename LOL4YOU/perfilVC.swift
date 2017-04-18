@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
     
@@ -28,15 +29,10 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.slideScrollView.isPagingEnabled = true
-        self.slideScrollView.showsVerticalScrollIndicator = false
-        self.slideScrollView.showsHorizontalScrollIndicator = true
-        self.slideScrollView.delegate = self
+        self.initView()
+        self.teste()
+        //self.loadingView()
         
-        let perfils:[perfilV] = self.createPerfil()
-        self.setupPerfil(slides: perfils)
-        
-        self.title = rootclass.Summoner.name
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -62,46 +58,65 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
         }
     }
     
-    func createPerfil() -> [perfilV] {
-        var rtn = Array<perfilV>()
+    func loadingView(){
+        var slides = Array<perfilV>()
         
-        let perfil1:perfilV = Bundle.main.loadNibNamed("perfil", owner: self, options: nil)?.first as! perfilV
+        SVProgressHUD.show()
+  
+        rt.listarLeague() {(league) in
+            
+            for i in 0 ..< league.count {
+                
+                let r = Bundle.main.loadNibNamed("perfil", owner: self, options: nil)?.first as! perfilV
+                
+                r.imgPerfil.image = UIImage(named: "tier_\(league[i].tier.lowercased())\(league[i].division)")
+                r.lblPerfil.text = "\(league[i].tier) \(league[i].division)"
+                
+                slides.append(r)
+            }
+            
+            self.slideScrollView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.slideScrollView.frame.height)
+            self.slideScrollView.contentSize = CGSize(width: self.view.frame.width * CGFloat(slides.count), height: self.slideScrollView.frame.height)
+            
+            if slides.count == 0 {
+                let r = Bundle.main.loadNibNamed("perfil", owner: self, options: nil)?.first as! perfilV
+                
+                r.imgPerfil.image = UIImage(named: "tier_unranked")
+                r.lblPerfil.text = "Unranked"
+                
+                slides.append(r)
+            }
+            
+            self.pControl.numberOfPages = slides.count
+            
+            for i in 0 ..< slides.count {
+                slides[i].frame = CGRect(x: self.view.frame.width * CGFloat(i), y: 0, width: self.view.frame.width, height: self.slideScrollView.frame.height)
+                self.slideScrollView.addSubview(slides[i])
+            }
+            
+            SVProgressHUD.dismiss()
+        }
+    }
+    
+    func initView(){
         
-        let perfil2:perfilV = Bundle.main.loadNibNamed("perfil", owner: self, options: nil)?.first as! perfilV
+        self.title = rootclass.Summoner.name
         
-        let perfil3:perfilV = Bundle.main.loadNibNamed("perfil", owner: self, options: nil)?.first as! perfilV
-        
-        perfil1.imgPerfil.image = UIImage(named: "tier_goldI")
-        perfil1.lblPerfil.text = "Gold I"
-        
-        perfil2.imgPerfil.image = UIImage(named: "tier_goldII")
-        perfil2.lblPerfil.text = "Gold II"
-        
-        perfil3.imgPerfil.image = UIImage(named: "tier_masterI")
-        perfil3.lblPerfil.text = "Master"
-        
-        rtn.append(perfil1)
-        rtn.append(perfil2)
-        rtn.append(perfil3)
-        
-        self.pControl.numberOfPages = rtn.count
-        
-        return rtn
+        self.slideScrollView.isPagingEnabled = true
+        self.slideScrollView.showsVerticalScrollIndicator = false
+        self.slideScrollView.showsHorizontalScrollIndicator = false
+        self.slideScrollView.delegate = self
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let page = scrollView.contentOffset.x / scrollView.frame.size.width
-        
         self.pControl.currentPage = Int(page)
     }
     
-    func setupPerfil(slides:[perfilV]){
-        self.slideScrollView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 170)
-        self.slideScrollView.contentSize = CGSize(width: view.frame.width * CGFloat(slides.count), height: 170)
+    func teste(){
         
-        for i in 0 ..< slides.count {
-            slides[i].frame = CGRect(x: view.frame.width * CGFloat(i), y: 0, width: view.frame.width, height: 170)
-            slideScrollView.addSubview(slides[i])
+        rt.listarMatchDet(matchid: 1062956272) {(matchdet) in
+            print("root")
         }
     }
 

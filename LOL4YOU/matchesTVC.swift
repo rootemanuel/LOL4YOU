@@ -1,19 +1,19 @@
 //
-//  statsTVC.swift
+//  matchesTVC.swift
 //  LOL4YOU
 //
-//  Created by Emanuel Root on 11/04/17.
+//  Created by Emanuel Root on 18/04/17.
 //  Copyright © 2017 Emanuel Root. All rights reserved.
 //
 
 import UIKit
 import SVProgressHUD
 
-class statsTVC: UITableViewController {
-    
+class matchesTVC: UITableViewController {
+
     var rt = rootclass.sharedInstance
     
-    var stats = Array<rootclass.BEStats>()
+    var matchs = Array<rootclass.BEMatch>()
     var emptytableview:emptytableview? = nil
     
     override func viewDidLoad() {
@@ -24,17 +24,19 @@ class statsTVC: UITableViewController {
         
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "statsdet") as! statsdetTVC
-        
-        vc.statsdet = stats[indexPath.row]
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let vc = storyboard.instantiateViewController(withIdentifier: "statsdet") as! statsdetTVC
+//        
+//        vc.statsdet = stats[indexPath.row]
+//        self.navigationController?.pushViewController(vc, animated: true)
+//    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let lstats = tableView.dequeueReusableCell(withIdentifier: "statscell", for: indexPath as IndexPath) as! statsTVCC
+        
+        self.stats = matchs[indexPath.row].participants.filter { p in p.championID == $0. }
         
         lstats.win.text = stats[indexPath.row].win
         lstats.loss.text = stats[indexPath.row].loss
@@ -52,8 +54,8 @@ class statsTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var numOfSections: Int = 0
         
-        if stats.count > 0 {
-            numOfSections = stats.count
+        if matchs.count > 0 {
+            numOfSections = matchs.count
             tableView.separatorStyle = .singleLine
             tableView.backgroundView?.isHidden = true
         } else {
@@ -72,9 +74,9 @@ class statsTVC: UITableViewController {
         
         SVProgressHUD.show()
         
-        rt.listarStats() {(stats) in
+        rt.listarMatchDet(matchid:1062956272) {(matchdet) in
             
-            self.stats = stats.filter { n in n.championID != 0 }
+            self.matchs = matchdet
             self.initemptytableview()
             self.tableView.reloadData()
             SVProgressHUD.dismiss()
@@ -83,10 +85,10 @@ class statsTVC: UITableViewController {
     
     func initemptytableview() {
         emptytableview = Bundle.main.loadNibNamed("emptytableview", owner: self, options: nil)?.first as? emptytableview
-            self.tableView.backgroundView = emptytableview
+        self.tableView.backgroundView = emptytableview
     }
     
     func initView(){
-        self.title = "Stats"
+        self.title = "Matches"
     }
 }
