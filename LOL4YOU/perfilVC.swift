@@ -23,15 +23,15 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
     }
     
     let menus = [
-        menu.init(title: "Stats", image: "static_menu_stats")
+        menu.init(title: "Stats", image: "static_menu_stats"),
+        menu.init(title: "Matches", image: "static_menu_stats")
     ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.initView()
-        self.teste()
-        //self.loadingView()
+        self.loadingView()
         
     }
     
@@ -54,6 +54,11 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "stats") as! statsTVC
                     
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "matches") as! matchesTVC
+            
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -112,12 +117,4 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
         let page = scrollView.contentOffset.x / scrollView.frame.size.width
         self.pControl.currentPage = Int(page)
     }
-    
-    func teste(){
-        
-        rt.listarMatchDet(matchid: 1062956272) {(matchdet) in
-            print("root")
-        }
-    }
-
 }

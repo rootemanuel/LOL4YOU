@@ -273,6 +273,7 @@ class rootclass: NSObject {
         var tripleKills:Int = 0
         var quadraKills:Int = 0
         var pentaKills:Int = 0
+        var minionsKilled:Int = 0
         var neutralMinionsKilled:Int = 0
         var neutralMinionsKilledTeamJungle:Int = 0
         var neutralMinionsKilledEnemyJungle:Int = 0
@@ -581,7 +582,7 @@ class rootclass: NSObject {
                             rtn.append(r)
                             partidas += 1
                             
-                            if partidas == 14 {
+                            if partidas == 15 {
                                 break
                             }
                         }
@@ -596,284 +597,287 @@ class rootclass: NSObject {
         }
     }
     
-    func listarMatchDet(matchid:Int, matchdet:@escaping (Array<BEMatch>) -> ()) {
-        
-        var rtn = Array<BEMatch>()
-        
-        let url = "https://\(Region.REGION_BR.rawValue.lowercased()).api.riotgames.com/api/lol/\(Region.REGION_BR.rawValue.uppercased())/v2.2/match/\(matchid)?api_key=\(Summoner.api_key)"
-        
-        Alamofire.request(url).responseJSON { response in
-            
-            switch response.result {
-            case .success( _):
-                let jmatchdet = JSON(response.result.value!)
-                
-                if jmatchdet != JSON.null {
-                    if(!jmatchdet.isEmpty){
-                        let match = BEMatch()
-                        
-                        if let matchCreation = jmatchdet["matchCreation"].int {
-                            match.matchCreation = matchCreation
-                        }
-                        
-                        if let matchDuration = jmatchdet["matchDuration"].int {
-                            match.matchDuration = matchDuration
-                        }
-                        
-                        if let queueType = jmatchdet["queueType"].string {
-                            match.queueType = queueType
-                        }
-                        
-                        //Participants
-                        for a in 0 ..< jmatchdet["participants"].count {
-                            
-                            let participant = BEParticipants()
-                            
-                            //Match
-                            if let teamId = jmatchdet["participants"][a]["teamId"].int {
-                                participant.teamId = teamId
-                            }
-                            
-                            if let spell1Id = jmatchdet["participants"][a]["spell1Id"].int {
-                                participant.spell1Id = spell1Id
-                            }
-                            
-                            if let spell2Id = jmatchdet["participants"][a]["spell2Id"].int {
-                                participant.spell2Id = spell2Id
-                            }
-                            
-                            if let championId = jmatchdet["participants"][a]["championId"].int {
-                                participant.championId = championId
-                            }
-                            
-                            if let participantId = jmatchdet["participants"][a]["participantId"].int {
-                                participant.participantId = participantId
-                            }
-                            
-                            //Stats
-                            if let winner = jmatchdet["participants"][a]["stats"]["winner"].bool {
-                                participant.stats.winner = winner
-                            }
-                            
-                            if let champLevel = jmatchdet["participants"][a]["stats"]["champLevel"].int {
-                                participant.stats.champLevel = champLevel
-                            }
-                            
-                            if let item0 = jmatchdet["participants"][a]["stats"]["item0"].int {
-                                participant.stats.item0 = item0
-                            }
-                            
-                            if let item1 = jmatchdet["participants"][a]["stats"]["item1"].int {
-                                participant.stats.item1 = item1
-                            }
-                            
-                            if let item2 = jmatchdet["participants"][a]["stats"]["item2"].int {
-                                participant.stats.item2 = item2
-                            }
-                            
-                            if let item3 = jmatchdet["participants"][a]["stats"]["item3"].int {
-                                participant.stats.item3 = item3
-                            }
-                            
-                            if let item4 = jmatchdet["participants"][a]["stats"]["item4"].int {
-                                participant.stats.item4 = item4
-                            }
-                            
-                            if let item5 = jmatchdet["participants"][a]["stats"]["item5"].int {
-                                participant.stats.item5 = item5
-                            }
-                            
-                            if let item6 = jmatchdet["participants"][a]["stats"]["item6"].int {
-                                participant.stats.item6 = item6
-                            }
-                            
-                            if let kills = jmatchdet["participants"][a]["stats"]["kills"].int {
-                                participant.stats.kills = kills
-                            }
-                            
-                            if let deaths = jmatchdet["participants"][a]["stats"]["deaths"].int {
-                                participant.stats.deaths = deaths
-                            }
-                            
-                            if let assists = jmatchdet["participants"][a]["stats"]["assists"].int {
-                                participant.stats.assists = assists
-                            }
-                            
-                            if let doubleKills = jmatchdet["participants"][a]["stats"]["doubleKills"].int {
-                                participant.stats.doubleKills = doubleKills
-                            }
-                            
-                            if let tripleKills = jmatchdet["participants"][a]["stats"]["tripleKills"].int {
-                                participant.stats.tripleKills = tripleKills
-                            }
-                            
-                            if let quadraKills = jmatchdet["participants"][a]["stats"]["quadraKills"].int {
-                                participant.stats.quadraKills = quadraKills
-                            }
-                            
-                            if let pentaKills = jmatchdet["participants"][a]["stats"]["pentaKills"].int {
-                                participant.stats.pentaKills = pentaKills
-                            }
-                            
-                            if let neutralMinionsKilled = jmatchdet["participants"][a]["stats"]["neutralMinionsKilled"].int {
-                                participant.stats.neutralMinionsKilled = neutralMinionsKilled
-                            }
-                            
-                            if let neutralMinionsKilledTeamJungle = jmatchdet["participants"][a]["stats"]["neutralMinionsKilledTeamJungle"].int {
-                                participant.stats.neutralMinionsKilledTeamJungle = neutralMinionsKilledTeamJungle
-                            }
-                            
-                            if let neutralMinionsKilledEnemyJungle = jmatchdet["participants"][a]["stats"]["neutralMinionsKilledEnemyJungle"].int {
-                                participant.stats.neutralMinionsKilledEnemyJungle = neutralMinionsKilledEnemyJungle
-                            }
-                            
-                            if let goldEarned = jmatchdet["participants"][a]["stats"]["goldEarned"].double {
-                                participant.stats.goldEarned = goldEarned
-                            }
-                            
-                            if let towerKills = jmatchdet["participants"][a]["stats"]["towerKills"].int {
-                                participant.stats.towerKills = towerKills
-                            }
-                            
-                            if let visionWardsBoughtInGame = jmatchdet["participants"][a]["stats"]["visionWardsBoughtInGame"].int {
-                                participant.stats.visionWardsBoughtInGame = visionWardsBoughtInGame
-                            }
+//    func listarMatchDet(matchids:Array<Int>, matchdet:@escaping (Array<BEMatch>) -> ()) {
+//        
+//        var rtn = Array<BEMatch>()
+//        
+//        for i in 0 ..< matchids.count {
+//            
+//            let url = "https://\(Region.REGION_BR.rawValue.lowercased()).api.riotgames.com/api/lol/\(Region.REGION_BR.rawValue.uppercased())/v2.2/match/\(matchids[i])?api_key=\(Summoner.api_key)"
+//            
+//            Alamofire.request(url).responseJSON { response in
+//                
+//                switch response.result {
+//                case .success( _):
+//                    let jmatchdet = JSON(response.result.value!)
+//                    
+//                    if jmatchdet != JSON.null {
+//                        if(!jmatchdet.isEmpty){
+//                            let match = BEMatch()
+//                            
+//                            if let matchCreation = jmatchdet["matchCreation"].int {
+//                                match.matchCreation = matchCreation
+//                            }
+//                            
+//                            if let matchDuration = jmatchdet["matchDuration"].int {
+//                                match.matchDuration = matchDuration
+//                            }
+//                            
+//                            if let queueType = jmatchdet["queueType"].string {
+//                                match.queueType = queueType
+//                            }
+//                            
+//                            //Participants
+//                            for a in 0 ..< jmatchdet["participants"].count {
+//                                
+//                                let participant = BEParticipants()
+//                                
+//                                //Match
+//                                if let teamId = jmatchdet["participants"][a]["teamId"].int {
+//                                    participant.teamId = teamId
+//                                }
+//                                
+//                                if let spell1Id = jmatchdet["participants"][a]["spell1Id"].int {
+//                                    participant.spell1Id = spell1Id
+//                                }
+//                                
+//                                if let spell2Id = jmatchdet["participants"][a]["spell2Id"].int {
+//                                    participant.spell2Id = spell2Id
+//                                }
+//                                
+//                                if let championId = jmatchdet["participants"][a]["championId"].int {
+//                                    participant.championId = championId
+//                                }
+//                                
+//                                if let participantId = jmatchdet["participants"][a]["participantId"].int {
+//                                    participant.participantId = participantId
+//                                }
+//                                
+//                                //Stats
+//                                if let winner = jmatchdet["participants"][a]["stats"]["winner"].bool {
+//                                    participant.stats.winner = winner
+//                                }
+//                                
+//                                if let champLevel = jmatchdet["participants"][a]["stats"]["champLevel"].int {
+//                                    participant.stats.champLevel = champLevel
+//                                }
+//                                
+//                                if let item0 = jmatchdet["participants"][a]["stats"]["item0"].int {
+//                                    participant.stats.item0 = item0
+//                                }
+//                                
+//                                if let item1 = jmatchdet["participants"][a]["stats"]["item1"].int {
+//                                    participant.stats.item1 = item1
+//                                }
+//                                
+//                                if let item2 = jmatchdet["participants"][a]["stats"]["item2"].int {
+//                                    participant.stats.item2 = item2
+//                                }
+//                                
+//                                if let item3 = jmatchdet["participants"][a]["stats"]["item3"].int {
+//                                    participant.stats.item3 = item3
+//                                }
+//                                
+//                                if let item4 = jmatchdet["participants"][a]["stats"]["item4"].int {
+//                                    participant.stats.item4 = item4
+//                                }
+//                                
+//                                if let item5 = jmatchdet["participants"][a]["stats"]["item5"].int {
+//                                    participant.stats.item5 = item5
+//                                }
+//                                
+//                                if let item6 = jmatchdet["participants"][a]["stats"]["item6"].int {
+//                                    participant.stats.item6 = item6
+//                                }
+//                                
+//                                if let kills = jmatchdet["participants"][a]["stats"]["kills"].int {
+//                                    participant.stats.kills = kills
+//                                }
+//                                
+//                                if let deaths = jmatchdet["participants"][a]["stats"]["deaths"].int {
+//                                    participant.stats.deaths = deaths
+//                                }
+//                                
+//                                if let assists = jmatchdet["participants"][a]["stats"]["assists"].int {
+//                                    participant.stats.assists = assists
+//                                }
+//                                
+//                                if let doubleKills = jmatchdet["participants"][a]["stats"]["doubleKills"].int {
+//                                    participant.stats.doubleKills = doubleKills
+//                                }
+//                                
+//                                if let tripleKills = jmatchdet["participants"][a]["stats"]["tripleKills"].int {
+//                                    participant.stats.tripleKills = tripleKills
+//                                }
+//                                
+//                                if let quadraKills = jmatchdet["participants"][a]["stats"]["quadraKills"].int {
+//                                    participant.stats.quadraKills = quadraKills
+//                                }
+//                                
+//                                if let pentaKills = jmatchdet["participants"][a]["stats"]["pentaKills"].int {
+//                                    participant.stats.pentaKills = pentaKills
+//                                }
+//                                
+//                                if let neutralMinionsKilled = jmatchdet["participants"][a]["stats"]["neutralMinionsKilled"].int {
+//                                    participant.stats.neutralMinionsKilled = neutralMinionsKilled
+//                                }
+//                                
+//                                if let neutralMinionsKilledTeamJungle = jmatchdet["participants"][a]["stats"]["neutralMinionsKilledTeamJungle"].int {
+//                                    participant.stats.neutralMinionsKilledTeamJungle = neutralMinionsKilledTeamJungle
+//                                }
+//                                
+//                                if let neutralMinionsKilledEnemyJungle = jmatchdet["participants"][a]["stats"]["neutralMinionsKilledEnemyJungle"].int {
+//                                    participant.stats.neutralMinionsKilledEnemyJungle = neutralMinionsKilledEnemyJungle
+//                                }
+//                                
+//                                if let goldEarned = jmatchdet["participants"][a]["stats"]["goldEarned"].double {
+//                                    participant.stats.goldEarned = goldEarned
+//                                }
+//                                
+//                                if let towerKills = jmatchdet["participants"][a]["stats"]["towerKills"].int {
+//                                    participant.stats.towerKills = towerKills
+//                                }
+//                                
+//                                if let visionWardsBoughtInGame = jmatchdet["participants"][a]["stats"]["visionWardsBoughtInGame"].int {
+//                                    participant.stats.visionWardsBoughtInGame = visionWardsBoughtInGame
+//                                }
+//                                
+//                                
+//                                if let wardsPlaced = jmatchdet["participants"][a]["stats"]["wardsPlaced"].int {
+//                                    participant.stats.wardsPlaced = wardsPlaced
+//                                }
+//                                
+//                                if let wardsKilled = jmatchdet["participants"][a]["stats"]["wardsKilled"].int {
+//                                    participant.stats.wardsKilled = wardsKilled
+//                                }
+//                                
+//                                //Runes
+//                                
+//                                for b in 0 ..< jmatchdet["participants"][a]["runes"].count {
+//                                    
+//                                    let rune = BERune()
+//                                    
+//                                    if let runeId = jmatchdet["participants"][a]["runes"][b]["runeId"].int {
+//                                        rune.runeId = runeId
+//                                    }
+//                                    
+//                                    if let rank = jmatchdet["participants"][a]["runes"][b]["rank"].int {
+//                                        rune.rank = rank
+//                                    }
+//                                    
+//                                    participant.runes.append(rune)
+//                                    
+//                                }
+//                                
+//                                //Mastery
+//                                
+//                                for c in 0 ..< jmatchdet["participants"][a]["masteries"].count {
+//                                    
+//                                    let mastery = BEMastery()
+//                                    
+//                                    if let masteryId = jmatchdet["participants"][a]["masteries"][c]["masteryId"].int {
+//                                        mastery.masteryId = masteryId
+//                                    }
+//                                    
+//                                    if let rank = jmatchdet["participants"][a]["masteries"][c]["rank"].int {
+//                                        mastery.rank = rank
+//                                    }
+//                                    
+//                                    participant.masterys.append(mastery)
+//                                    
+//                                }
+//                                
+//                                match.participants.append(participant)
+//                            }
+//                            
+//                            //Participants Identities
+//                            for d in 0 ..< jmatchdet["participantIdentities"].count {
+//                                let participantident = BEParticipantsIdent()
+//                                
+//                                if let participantId = jmatchdet["participantIdentities"][d]["participantId"].int {
+//                                    participantident.participantId = participantId
+//                                }
+//                                
+//                                if let summonerId = jmatchdet["participantIdentities"][d]["player"]["summonerId"].int {
+//                                    participantident.summonerId = summonerId
+//                                }
+//                                
+//                                if let summonerName = jmatchdet["participantIdentities"][d]["player"]["summonerName"].string {
+//                                    participantident.summonerName = summonerName
+//                                }
+//                                
+//                                match.participantsIdentities.append(participantident)
+//                            }
+//                            
+//                            //Participants Teams
+//                            for e in 0 ..< jmatchdet["teams"].count {
+//                                let team = BETeams()
+//                                
+//                                if let winner = jmatchdet["teams"][e]["winner"].bool {
+//                                    team.winner = winner
+//                                }
+//                                
+//                                if let firstBlood = jmatchdet["teams"][e]["firstBlood"].bool {
+//                                    team.firstBlood = firstBlood
+//                                }
+//                                
+//                                if let firstTower = jmatchdet["teams"][e]["firstTower"].bool {
+//                                    team.firstTower = firstTower
+//                                }
+//                                
+//                                if let firstBaron = jmatchdet["teams"][e]["firstBaron"].bool {
+//                                    team.firstBaron = firstBaron
+//                                }
+//                                
+//                                if let firstDragon = jmatchdet["teams"][e]["firstDragon"].bool {
+//                                    team.firstDragon = firstDragon
+//                                }
+//                                
+//                                if let inhibitorKills = jmatchdet["teams"][e]["inhibitorKills"].int {
+//                                    team.inhibitorKills = inhibitorKills
+//                                }
+//                                
+//                                if let inhibitorKills = jmatchdet["teams"][e]["inhibitorKills"].int {
+//                                    team.inhibitorKills = inhibitorKills
+//                                }
+//                                
+//                                if let baronKills = jmatchdet["teams"][e]["baronKills"].int {
+//                                    team.baronKills = baronKills
+//                                }
+//                                
+//                                if let dragonKills = jmatchdet["teams"][e]["dragonKills"].int {
+//                                    team.dragonKills = dragonKills
+//                                }
+//                                
+//                                for f in 0 ..< jmatchdet["teams"][e]["bans"].count {
+//                                    let ban = BEBan()
+//                                    
+//                                    if let championId = jmatchdet["teams"][e]["bans"][f]["championId"].int {
+//                                        ban.championId = championId
+//                                    }
+//                                    
+//                                    if let pickTurn = jmatchdet["teams"][e]["bans"][f]["pickTurn"].int {
+//                                        ban.championId = pickTurn
+//                                    }
+//                                    
+//                                    team.bans.append(ban)
+//                                }
+//                                
+//                                match.teams.append(team)
+//                            }
+//                            
+//                            rtn.append(match)
+//                        }
+//                    }
+//                    
+//                case .failure(let error):
+//                    NSLog(error as! String)
+//                }
+//            }
+//        }
+//        matchdet(rtn)
+//    }
 
-                            
-                            if let wardsPlaced = jmatchdet["participants"][a]["stats"]["wardsPlaced"].int {
-                                participant.stats.wardsPlaced = wardsPlaced
-                            }
-                            
-                            if let wardsKilled = jmatchdet["participants"][a]["stats"]["wardsKilled"].int {
-                                participant.stats.wardsKilled = wardsKilled
-                            }
-
-                            //Runes
-                            
-                            for b in 0 ..< jmatchdet["participants"][a]["runes"].count {
-                                
-                                let rune = BERune()
-                                
-                                if let runeId = jmatchdet["participants"][a]["runes"][b]["runeId"].int {
-                                    rune.runeId = runeId
-                                }
-                                
-                                if let rank = jmatchdet["participants"][a]["runes"][b]["rank"].int {
-                                     rune.rank = rank
-                                }
-                                
-                                participant.runes.append(rune)
-                                
-                            }
-                            
-                            //Mastery
-                            
-                            for c in 0 ..< jmatchdet["participants"][a]["masteries"].count {
-                                
-                                let mastery = BEMastery()
-                                
-                                if let masteryId = jmatchdet["participants"][a]["masteries"][c]["masteryId"].int {
-                                    mastery.masteryId = masteryId
-                                }
-                                
-                                if let rank = jmatchdet["participants"][a]["masteries"][c]["rank"].int {
-                                    mastery.rank = rank
-                                }
-                                
-                                participant.masterys.append(mastery)
-                                
-                            }
-
-                            match.participants.append(participant)
-                        }
-                        
-                        //Participants Identities
-                        for d in 0 ..< jmatchdet["participantIdentities"].count {
-                            let participantident = BEParticipantsIdent()
-                            
-                            if let participantId = jmatchdet["participantIdentities"][d]["participantId"].int {
-                                participantident.participantId = participantId
-                            }
-                            
-                            if let summonerId = jmatchdet["participantIdentities"][d]["participantId"]["player"]["summonerId"].int {
-                                participantident.summonerId = summonerId
-                            }
-                            
-                            if let summonerName = jmatchdet["participantIdentities"][d]["participantId"]["player"]["summonerName"].string {
-                                participantident.summonerName = summonerName
-                            }
-                            
-                            match.participantsIdentities.append(participantident)
-                        }
-                        
-                        //Participants Teams
-                        for e in 0 ..< jmatchdet["teams"].count {
-                            let team = BETeams()
-                            
-                            if let winner = jmatchdet["teams"][e]["winner"].bool {
-                                team.winner = winner
-                            }
-                            
-                            if let firstBlood = jmatchdet["teams"][e]["firstBlood"].bool {
-                                team.firstBlood = firstBlood
-                            }
-                            
-                            if let firstTower = jmatchdet["teams"][e]["firstTower"].bool {
-                                team.firstTower = firstTower
-                            }
-                            
-                            if let firstBaron = jmatchdet["teams"][e]["firstBaron"].bool {
-                                team.firstBaron = firstBaron
-                            }
-                            
-                            if let firstDragon = jmatchdet["teams"][e]["firstDragon"].bool {
-                                team.firstDragon = firstDragon
-                            }
-                            
-                            if let inhibitorKills = jmatchdet["teams"][e]["inhibitorKills"].int {
-                                team.inhibitorKills = inhibitorKills
-                            }
-                            
-                            if let inhibitorKills = jmatchdet["teams"][e]["inhibitorKills"].int {
-                                team.inhibitorKills = inhibitorKills
-                            }
-                            
-                            if let baronKills = jmatchdet["teams"][e]["baronKills"].int {
-                                team.baronKills = baronKills
-                            }
-                            
-                            if let dragonKills = jmatchdet["teams"][e]["dragonKills"].int {
-                                team.dragonKills = dragonKills
-                            }
-                            
-                            for f in 0 ..< jmatchdet["teams"][e]["bans"].count {
-                                let ban = BEBan()
-                                
-                                if let championId = jmatchdet["teams"][e]["bans"][f]["championId"].int {
-                                    ban.championId = championId
-                                }
-                                
-                                if let pickTurn = jmatchdet["teams"][e]["bans"][f]["pickTurn"].int {
-                                    ban.championId = pickTurn
-                                }
-                                
-                                team.bans.append(ban)
-                            }
-                            
-                            match.teams.append(team)
-                        }
-                        
-                        rtn.append(match)
-                    }
-                }
-                
-            case .failure(let error):
-                NSLog(error as! String)
-            }
-            
-            matchdet(rtn)
-        }
-    }
     
     func listaChamp(id:Int) -> champions{
         var rtn = champions.init(id: 0, key: "", name: "")
