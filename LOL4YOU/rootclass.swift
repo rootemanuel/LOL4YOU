@@ -17,6 +17,7 @@ class rootclass: NSObject {
     
     static let sharedInstance: rootclass = rootclass()
     
+    let const_zeros_i = 0
     let const_zeros_s = "0"
     let const_matches_qtds = 15
     
@@ -208,7 +209,7 @@ class rootclass: NSObject {
         var deaths:String = ""
         var assists:String = ""
         var creeps:String = ""
-        var gold:String = ""
+        var gold:Int = 0
         var doublekill:String = ""
         var triplekill:String = ""
         var quadrakill:String = ""
@@ -446,9 +447,9 @@ class rootclass: NSObject {
                             }
                             
                             if let gold = jstats["champions"][i]["stats"]["totalGoldEarned"].int {
-                                r.gold = "\(gold / 100) K"
+                                r.gold = gold
                             } else {
-                                r.gold = self.const_zeros_s
+                                r.gold = self.const_zeros_i
                             }
                             
                             if let wins = jstats["champions"][i]["stats"]["totalSessionsWon"].int {

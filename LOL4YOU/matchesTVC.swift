@@ -50,11 +50,15 @@ class matchesTVC: UITableViewController {
             let masterys = tparticipants[0].masterys
             
             lmatches.queue.text = tmatchs.queueType.replacingOccurrences(of: "_", with: " ")
-            lmatches.gold.text = "\(matches.goldEarned)"
             lmatches.kda.text = "\(matches.kills)/\(matches.deaths)/\(matches.assists)"
             lmatches.minions.text = "\(matches.minionsKilled + matches.neutralMinionsKilled)"
-
             
+            if matches.goldEarned >= 1000 {
+                lmatches.gold.text = String(format:"%.1f K", Double(matches.goldEarned) / Double(1000))
+            } else {
+                lmatches.gold.text = String(format:"%.1f K", Double(matches.goldEarned))
+            }
+
             if tmatchs.matchDuration > 0 {
                 let (h,m,s) = rt.secondsToHoursMinutesSeconds(seconds: tmatchs.matchDuration)
                 if h > 0 {
@@ -260,7 +264,6 @@ class matchesTVC: UITableViewController {
                 
                 let queue = DispatchQueue.global(qos: .background)
                 Alamofire.request(url).responseJSON(queue: queue) { response in
-                    
                     
                     switch response.result {
                     case .success( _):

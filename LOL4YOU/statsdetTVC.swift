@@ -64,8 +64,14 @@ class statsdetTVC: UITableViewController {
         self.wins.text = statsdet.win
         self.losses.text = statsdet.loss
         self.kda.text = "\(statsdet.kills)/\(statsdet.deaths)/\(statsdet.assists)"
-        self.gold.text = statsdet.gold
         self.minion.text = statsdet.creeps
+        
+        if statsdet.gold >= 1000 {
+            self.gold.text = String(format:"%.1f K", Double(statsdet.gold) / Double(1000))
+        } else {
+            self.gold.text = String(format:"%.1f K", Double(statsdet.gold))
+        }
+        
         
         self.dkill.text = statsdet.doublekill
         self.tkill.text = statsdet.triplekill

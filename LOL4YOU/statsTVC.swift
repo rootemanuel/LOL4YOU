@@ -42,7 +42,12 @@ class statsTVC: UITableViewController {
         lstats.loss.text = stats[indexPath.row].loss
         lstats.kda.text = "\(stats[indexPath.row].kills)/\(stats[indexPath.row].deaths)/\(stats[indexPath.row].assists)"
         lstats.minion.text = stats[indexPath.row].creeps
-        lstats.gold.text = stats[indexPath.row].gold
+        
+        if stats[indexPath.row].gold >= 1000 {
+            lstats.gold.text = String(format:"%.1f K", Double(stats[indexPath.row].gold) / Double(1000))
+        } else {
+            lstats.gold.text = String(format:"%.1f K", Double(stats[indexPath.row].gold))
+        }
         
         let champ = rt.listaChamp(id: stats[indexPath.row].championID)
         lstats.lblChamp.text = champ.name
