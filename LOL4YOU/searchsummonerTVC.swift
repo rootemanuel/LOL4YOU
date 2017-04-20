@@ -20,14 +20,7 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.summonernick.delegate = self
-        self.summonerserver.delegate = self
-
-        self.title = "Search Summoner"
-        
-        self.summonernick.addTarget(self, action: #selector(validadados(_:)), for: .editingChanged)
-//#R00T - RETIRAR
-//        self.summonerserver.addTarget(self, action: Selector(("validaDados:")), for: UIControlEvents.editingChanged)
+        self.initView()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -74,4 +67,21 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate  {
         self.srchsummoner.alpha = 1
         
     }
+    
+    func initView(){
+        let attnav = [
+            NSForegroundColorAttributeName: UIColor(hex:rootclass.colors.TEXTO_TOP_BAR.rawValue),
+            NSFontAttributeName: UIFont(name: "Friz Quadrata TT", size: 15)!
+        ]
+        
+        self.summonernick.delegate = self
+        self.summonerserver.delegate = self
+        
+        self.title = "Search Summoner"
+        self.summonernick.addTarget(self, action: #selector(validadados(_:)), for: .editingChanged)
+        
+        self.navigationController?.navigationBar.barTintColor = UIColor(hex: rootclass.colors.FUNDO.rawValue)
+        self.navigationController?.navigationBar.titleTextAttributes = attnav
+    }
+
 }

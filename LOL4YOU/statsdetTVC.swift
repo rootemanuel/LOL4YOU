@@ -32,11 +32,8 @@ class statsdetTVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let champ = rt.listaChamp(id: statsdet.championID)
-        
-        self.title = champ.name
-        
+ 
+        self.initView()
         self.loadingView()
     }
     
@@ -60,6 +57,9 @@ class statsdetTVC: UITableViewController {
         
         let champ = rt.listaChamp(id: statsdet.championID)
         self.champ.image = UIImage(named: "champion_\(champ.key)")
+        self.champ.layer.borderWidth = 2
+        self.champ.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
+
         
         self.wins.text = statsdet.win
         self.losses.text = statsdet.loss
@@ -75,5 +75,29 @@ class statsdetTVC: UITableViewController {
         self.firstblood.text = statsdet.firstblood
         
         SVProgressHUD.dismiss()
+    }
+    
+    func initView(){
+        let attnav = [
+            NSForegroundColorAttributeName: UIColor(hex:rootclass.colors.TEXTO_TOP_BAR.rawValue),
+            NSFontAttributeName: UIFont(name: "Friz Quadrata TT", size: 15)!
+        ]
+        
+        let button = UIButton.init(type: .custom)
+        button.setImage(UIImage(named:"static_button_back"), for: UIControlState.normal)
+        button.addTarget(self, action:#selector(spopViewController), for: UIControlEvents.touchUpInside)
+        button.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
+        let barButton = UIBarButtonItem.init(customView: button)
+        self.navigationItem.leftBarButtonItem = barButton
+        
+        self.navigationController?.navigationBar.barTintColor = UIColor(hex: rootclass.colors.FUNDO.rawValue)
+        self.navigationController?.navigationBar.titleTextAttributes = attnav
+        
+        let champ = rt.listaChamp(id: statsdet.championID)
+        self.title = champ.name
+    }
+    
+    func spopViewController(){
+        self.navigationController?.popViewController(animated: true)
     }
 }

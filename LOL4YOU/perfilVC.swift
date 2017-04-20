@@ -104,6 +104,10 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
     }
     
     func initView(){
+        let attnav = [
+            NSForegroundColorAttributeName: UIColor(hex:rootclass.colors.TEXTO_TOP_BAR.rawValue),
+            NSFontAttributeName: UIFont(name: "Friz Quadrata TT", size: 15)!
+        ]
         
         self.title = rootclass.Summoner.name
         
@@ -111,6 +115,20 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
         self.slideScrollView.showsVerticalScrollIndicator = false
         self.slideScrollView.showsHorizontalScrollIndicator = false
         self.slideScrollView.delegate = self
+        
+        let button = UIButton.init(type: .custom)
+        button.setImage(UIImage(named:"static_button_back"), for: UIControlState.normal)
+        button.addTarget(self, action:#selector(spopViewController), for: UIControlEvents.touchUpInside)
+        button.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
+        let barButton = UIBarButtonItem.init(customView: button)
+        self.navigationItem.leftBarButtonItem = barButton
+        
+        self.navigationController?.navigationBar.barTintColor = UIColor(hex: rootclass.colors.FUNDO.rawValue)
+        self.navigationController?.navigationBar.titleTextAttributes = attnav
+    }
+
+    func spopViewController(){
+        self.navigationController?.popViewController(animated: true)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

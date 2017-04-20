@@ -6,21 +6,27 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="friz_quadrata_r.ttf">
+            <string>FrizQuadrataTT</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--StatsTVC-->
         <scene sceneID="ANf-Wu-jZJ">
             <objects>
                 <tableViewController storyboardIdentifier="stats" id="ppo-Qu-wN2" customClass="statsTVC" customModule="LOL4YOU" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ld5-LO-vm8">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ld5-LO-vm8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" red="0.086274509799999996" green="0.10980392160000001" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="statscell" rowHeight="70" id="f3c-27-flm" customClass="statsTVCC" customModule="LOL4YOU" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="320" height="70"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="statscell" rowHeight="90" id="f3c-27-flm" customClass="statsTVCC" customModule="LOL4YOU" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="320" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f3c-27-flm" id="Rag-Ch-bbS">
-                                    <frame key="frameInset" width="287" height="69"/>
+                                    <frame key="frameInset" width="287" height="89"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="g7t-W7-c74">
@@ -35,22 +41,49 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="K.D.A." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0YJ-Of-ael">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WIN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YPz-Lb-DZP">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="35" id="HOJ-qN-VPy"/>
-                                                <constraint firstAttribute="height" constant="21" id="YAZ-pb-3cO"/>
+                                                <constraint firstAttribute="width" constant="25" id="0rA-OX-IK8"/>
+                                                <constraint firstAttribute="height" constant="21" id="Ku6-I9-dkU"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
-                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="10"/>
+                                            <color key="textColor" red="0.1176470588" green="0.52156862749999999" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/0/0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6OQ-gF-PI3">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6a-Jb-Pky">
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="ag2-26-Egl"/>
-                                                <constraint firstAttribute="width" constant="60" id="iPZ-9n-Q0b"/>
+                                                <constraint firstAttribute="height" constant="21" id="65i-pn-MiB"/>
+                                                <constraint firstAttribute="width" constant="35" id="w0d-1h-ZOA"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
-                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="10"/>
+                                            <color key="textColor" red="0.1176470588" green="0.52156862749999999" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbl-Tz-S0f">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="35" id="Xht-7l-76U"/>
+                                                <constraint firstAttribute="height" constant="21" id="YPy-vF-UKZ"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="10"/>
+                                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOSS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EVv-To-aOJ">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="35" id="2cT-JJ-CHd"/>
+                                                <constraint firstAttribute="height" constant="21" id="n2G-SR-HZo"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="10"/>
+                                            <color key="textColor" red="0.56862745100000001" green="0.035294117649999998" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vi9-2h-fS5">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="157" id="5BS-Uo-a77"/>
+                                                <constraint firstAttribute="height" constant="21" id="g7w-MD-bUe"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="12"/>
+                                            <color key="textColor" red="0.92941176469999998" green="0.87843137250000003" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5z3-vk-vvD">
@@ -58,11 +91,11 @@
                                                 <constraint firstAttribute="height" constant="21" id="Yl0-3z-VAp"/>
                                                 <constraint firstAttribute="width" constant="60" id="lS0-bp-78h"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
-                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="10"/>
+                                            <color key="textColor" red="0.92941176469999998" green="0.87843137250000003" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="static_minion" translatesAutoresizingMaskIntoConstraints="NO" id="iwy-gU-n19">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="static_minions" translatesAutoresizingMaskIntoConstraints="NO" id="iwy-gU-n19">
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="15" id="nER-fc-27F"/>
                                                 <constraint firstAttribute="height" constant="15" id="pYS-hc-Xbg"/>
@@ -73,8 +106,8 @@
                                                 <constraint firstAttribute="height" constant="21" id="IUo-Y2-EAm"/>
                                                 <constraint firstAttribute="width" constant="60" id="yy3-37-z2s"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
-                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="10"/>
+                                            <color key="textColor" red="0.92941176469999998" green="0.87843137250000003" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="static_gold" translatesAutoresizingMaskIntoConstraints="NO" id="kae-t0-gas">
@@ -83,79 +116,50 @@
                                                 <constraint firstAttribute="width" constant="15" id="yfh-z9-YPe"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WIN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YPz-Lb-DZP">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="static_kda" translatesAutoresizingMaskIntoConstraints="NO" id="Vc6-tq-sDq">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="25" id="0rA-OX-IK8"/>
-                                                <constraint firstAttribute="height" constant="21" id="Ku6-I9-dkU"/>
+                                                <constraint firstAttribute="width" constant="15" id="f5Z-Cd-wNO"/>
+                                                <constraint firstAttribute="height" constant="15" id="rE5-Fl-NwE"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
-                                            <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e6a-Jb-Pky">
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/0/0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6OQ-gF-PI3">
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="65i-pn-MiB"/>
-                                                <constraint firstAttribute="width" constant="35" id="w0d-1h-ZOA"/>
+                                                <constraint firstAttribute="height" constant="21" id="ag2-26-Egl"/>
+                                                <constraint firstAttribute="width" constant="60" id="iPZ-9n-Q0b"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
-                                            <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbl-Tz-S0f">
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="35" id="Xht-7l-76U"/>
-                                                <constraint firstAttribute="height" constant="21" id="YPy-vF-UKZ"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
-                                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOSS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EVv-To-aOJ">
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="35" id="2cT-JJ-CHd"/>
-                                                <constraint firstAttribute="height" constant="21" id="n2G-SR-HZo"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
-                                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vi9-2h-fS5">
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="157" id="5BS-Uo-a77"/>
-                                                <constraint firstAttribute="height" constant="21" id="g7w-MD-bUe"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="10"/>
+                                            <color key="textColor" red="0.92941176469999998" green="0.87843137250000003" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="YAF-5D-oZj" secondAttribute="trailing" constant="8" id="487-c3-HL8"/>
                                         <constraint firstItem="g7t-W7-c74" firstAttribute="leading" secondItem="Rag-Ch-bbS" secondAttribute="leading" constant="8" id="5Kl-V7-Qke"/>
-                                        <constraint firstItem="e6a-Jb-Pky" firstAttribute="top" secondItem="Rag-Ch-bbS" secondAttribute="top" constant="22" id="5cI-q5-tKu"/>
-                                        <constraint firstItem="5z3-vk-vvD" firstAttribute="leading" secondItem="0YJ-Of-ael" secondAttribute="trailing" constant="8" id="7Jd-IZ-lXw"/>
-                                        <constraint firstItem="EVv-To-aOJ" firstAttribute="top" secondItem="Rag-Ch-bbS" secondAttribute="top" constant="38" id="8FR-cC-AaF"/>
+                                        <constraint firstItem="e6a-Jb-Pky" firstAttribute="top" secondItem="Rag-Ch-bbS" secondAttribute="top" constant="40" id="5cI-q5-tKu"/>
+                                        <constraint firstItem="EVv-To-aOJ" firstAttribute="top" secondItem="Rag-Ch-bbS" secondAttribute="top" constant="56" id="8FR-cC-AaF"/>
                                         <constraint firstItem="Vi9-2h-fS5" firstAttribute="top" secondItem="Rag-Ch-bbS" secondAttribute="top" constant="7" id="DAc-jf-Vy1"/>
-                                        <constraint firstItem="YPz-Lb-DZP" firstAttribute="top" secondItem="Rag-Ch-bbS" secondAttribute="top" constant="22" id="DRg-SQ-GNH"/>
-                                        <constraint firstItem="Vi9-2h-fS5" firstAttribute="leading" secondItem="g7t-W7-c74" secondAttribute="trailing" constant="8" id="GcX-af-qpd"/>
-                                        <constraint firstItem="kae-t0-gas" firstAttribute="top" secondItem="Rag-Ch-bbS" secondAttribute="top" constant="26" id="Nfj-79-c3i"/>
+                                        <constraint firstItem="YPz-Lb-DZP" firstAttribute="top" secondItem="Rag-Ch-bbS" secondAttribute="top" constant="40" id="DRg-SQ-GNH"/>
+                                        <constraint firstItem="Vc6-tq-sDq" firstAttribute="leading" secondItem="g7t-W7-c74" secondAttribute="trailing" constant="118" id="Fme-mQ-6yP"/>
+                                        <constraint firstItem="Vi9-2h-fS5" firstAttribute="leading" secondItem="g7t-W7-c74" secondAttribute="trailing" constant="-42" id="GcX-af-qpd"/>
+                                        <constraint firstItem="kae-t0-gas" firstAttribute="top" secondItem="Rag-Ch-bbS" secondAttribute="top" constant="46" id="Nfj-79-c3i"/>
                                         <constraint firstItem="e6a-Jb-Pky" firstAttribute="leading" secondItem="EVv-To-aOJ" secondAttribute="trailing" constant="4" id="Qbv-ll-rVS"/>
+                                        <constraint firstItem="Vc6-tq-sDq" firstAttribute="top" secondItem="Rag-Ch-bbS" secondAttribute="topMargin" constant="20" id="RgJ-QP-xWd"/>
                                         <constraint firstItem="5z3-vk-vvD" firstAttribute="leading" secondItem="kae-t0-gas" secondAttribute="trailing" constant="28" id="Vuz-Ae-4GF"/>
                                         <constraint firstItem="jbl-Tz-S0f" firstAttribute="leading" secondItem="EVv-To-aOJ" secondAttribute="trailing" constant="4" id="Z47-JA-C7E"/>
                                         <constraint firstAttribute="trailing" secondItem="6OQ-gF-PI3" secondAttribute="trailing" constant="8" id="ZLx-bA-Z01"/>
-                                        <constraint firstItem="YAF-5D-oZj" firstAttribute="top" secondItem="6OQ-gF-PI3" secondAttribute="bottom" constant="12" id="bAR-no-uOc"/>
-                                        <constraint firstItem="jbl-Tz-S0f" firstAttribute="top" secondItem="Rag-Ch-bbS" secondAttribute="topMargin" constant="29" id="dMe-IY-8yP"/>
+                                        <constraint firstItem="YAF-5D-oZj" firstAttribute="top" secondItem="6OQ-gF-PI3" secondAttribute="bottom" constant="13" id="bAR-no-uOc"/>
+                                        <constraint firstItem="jbl-Tz-S0f" firstAttribute="top" secondItem="Rag-Ch-bbS" secondAttribute="topMargin" constant="47" id="dMe-IY-8yP"/>
                                         <constraint firstItem="YAF-5D-oZj" firstAttribute="leading" secondItem="iwy-gU-n19" secondAttribute="trailing" constant="28" id="eNO-Wv-AQH"/>
-                                        <constraint firstItem="g7t-W7-c74" firstAttribute="top" secondItem="Rag-Ch-bbS" secondAttribute="topMargin" constant="1" id="kbu-hr-n3o"/>
+                                        <constraint firstItem="g7t-W7-c74" firstAttribute="top" secondItem="Rag-Ch-bbS" secondAttribute="topMargin" constant="23" id="kbu-hr-n3o"/>
                                         <constraint firstItem="iwy-gU-n19" firstAttribute="top" secondItem="kae-t0-gas" secondAttribute="bottom" constant="2" id="nth-cm-4f9"/>
                                         <constraint firstItem="EVv-To-aOJ" firstAttribute="leading" secondItem="g7t-W7-c74" secondAttribute="trailing" constant="8" id="nzi-2K-Qm6"/>
-                                        <constraint firstItem="6OQ-gF-PI3" firstAttribute="top" secondItem="Rag-Ch-bbS" secondAttribute="top" constant="7" id="qvV-u7-oFa"/>
-                                        <constraint firstItem="5z3-vk-vvD" firstAttribute="top" secondItem="Rag-Ch-bbS" secondAttribute="top" constant="23" id="t4m-YC-44h"/>
-                                        <constraint firstItem="0YJ-Of-ael" firstAttribute="top" secondItem="Rag-Ch-bbS" secondAttribute="top" constant="7" id="wwG-YZ-hs9"/>
+                                        <constraint firstItem="6OQ-gF-PI3" firstAttribute="top" secondItem="Rag-Ch-bbS" secondAttribute="top" constant="26" id="qvV-u7-oFa"/>
+                                        <constraint firstItem="5z3-vk-vvD" firstAttribute="top" secondItem="Rag-Ch-bbS" secondAttribute="top" constant="43" id="t4m-YC-44h"/>
                                         <constraint firstItem="YPz-Lb-DZP" firstAttribute="leading" secondItem="g7t-W7-c74" secondAttribute="trailing" constant="8" id="xEm-d8-qRh"/>
                                         <constraint firstAttribute="trailing" secondItem="5z3-vk-vvD" secondAttribute="trailing" constant="8" id="zqc-9s-Dhn"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.0078431372550000003" green="0.039215686270000001" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="gold" destination="5z3-vk-vvD" id="lHm-aG-9L1"/>
                                     <outlet property="imgChamp" destination="g7t-W7-c74" id="AnG-d4-htc"/>
@@ -176,14 +180,14 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JQ7-HL-IOe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6741" y="-2415"/>
+            <point key="canvasLocation" x="6740.625" y="-2415"/>
         </scene>
         <!--SearchsummonerTVC-->
         <scene sceneID="TN0-as-XTX">
             <objects>
                 <tableViewController storyboardIdentifier="searchsummoner" id="ho0-kp-aqh" customClass="searchsummonerTVC" customModule="LOL4YOU" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="iZK-AI-Ahy">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="431"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="separatorColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -197,13 +201,13 @@
                                             <frame key="frameInset" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="println gg" placeholder="Summoner Nick" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0OA-Xo-nnr">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="println gg" placeholder="Summoner Nick" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0OA-Xo-nnr">
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="150" id="N9S-WU-enU"/>
                                                         <constraint firstAttribute="height" constant="30" id="uAZ-q6-8G3"/>
                                                     </constraints>
                                                     <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="12"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summoner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l5e-pF-hUN">
@@ -211,7 +215,7 @@
                                                         <constraint firstAttribute="height" constant="21" id="ZAq-dT-v54"/>
                                                         <constraint firstAttribute="width" constant="76" id="f7t-OM-FKY"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -231,13 +235,13 @@
                                             <frame key="frameInset" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Server" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ijU-7R-ofe">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Server" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ijU-7R-ofe">
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="150" id="IAU-5j-Vxo"/>
                                                         <constraint firstAttribute="height" constant="30" id="Zdx-ps-Wwi"/>
                                                     </constraints>
                                                     <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="12"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Server" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W5G-jA-u3g">
@@ -245,7 +249,7 @@
                                                         <constraint firstAttribute="height" constant="21" id="NXT-BI-tnx"/>
                                                         <constraint firstAttribute="width" constant="76" id="S5w-Fy-cff"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -266,12 +270,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fsh-1e-dsD">
-                                                    <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.086274509799999996" green="0.10980392160000001" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="7M5-WJ-CcP"/>
                                                     </constraints>
+                                                    <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="15"/>
                                                     <state key="normal" title="Search">
-                                                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <color key="titleColor" red="0.92941176469999998" green="0.87843137250000003" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="btnsrchsummoner:" destination="ho0-kp-aqh" eventType="touchUpInside" id="JvY-af-gby"/>
@@ -318,7 +323,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SB5-MF-5Bt">
-                                <frame key="frameInset" minX="-0.94%" minY="249" width="100.94%" height="99.57%"/>
+                                <frame key="frameInset" minX="-0.94%" minY="248" width="101.88%" height="99.57%"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Qwd-ML-dVx">
@@ -336,7 +341,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LMr-wJ-b2h">
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
+                                                    <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -370,7 +375,7 @@
                                 </connections>
                             </collectionView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fDQ-af-eFQ">
-                                <frame key="frameInset" minX="0.94%" width="99.06%" height="250"/>
+                                <frame key="frameInset" minX="0.94%" width="100.00%" height="250"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </scrollView>
                             <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="1" translatesAutoresizingMaskIntoConstraints="NO" id="K15-5O-nYR">
@@ -400,7 +405,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SWy-ma-z3d" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="3bU-ng-sm6"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uP2-f1-rLS">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="uP2-f1-rLS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -413,15 +418,16 @@
             </objects>
             <point key="canvasLocation" x="5798" y="-2415"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="0t3-Gs-se5">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="g8j-j8-aoU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="MRf-Mb-DKY"/>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="MRf-Mb-DKY"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bo3-Iv-28S">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Bo3-Iv-28S">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0078431372550000003" green="0.039215686270000001" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -439,16 +445,16 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="RlD-3L-HYP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="separatorColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.086274509799999996" green="0.10980392160000001" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" red="0.086274509799999996" green="0.10980392160000001" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection footerTitle="" id="f7R-0p-FZ1">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="85" id="fU2-tM-849">
-                                        <rect key="frame" x="0.0" y="99" width="320" height="85"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="100" id="fU2-tM-849">
+                                        <rect key="frame" x="0.0" y="99" width="320" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fU2-tM-849" id="pqZ-xZ-iVN">
-                                            <frame key="frameInset" width="320" height="84"/>
+                                            <frame key="frameInset" width="320" height="99"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cyx-r9-wzG">
@@ -465,55 +471,53 @@
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Cyx-r9-wzG" firstAttribute="centerX" secondItem="pqZ-xZ-iVN" secondAttribute="centerX" constant="-11.5" id="02F-Oq-Zqc"/>
-                                                <constraint firstItem="Cyx-r9-wzG" firstAttribute="centerY" secondItem="pqZ-xZ-iVN" secondAttribute="centerY" id="3Lr-j5-fLJ"/>
+                                                <constraint firstItem="Cyx-r9-wzG" firstAttribute="centerX" secondItem="pqZ-xZ-iVN" secondAttribute="centerX" constant="0.5" id="02F-Oq-Zqc"/>
+                                                <constraint firstItem="Cyx-r9-wzG" firstAttribute="centerY" secondItem="pqZ-xZ-iVN" secondAttribute="centerY" constant="1" id="3Lr-j5-fLJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.086274509799999996" green="0.10980392160000001" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Details" id="5jr-Wx-eky">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="nLI-Jr-iyq">
-                                        <rect key="frame" x="0.0" y="241" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="256" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="nLI-Jr-iyq" id="pyj-xL-b37">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nLI-Jr-iyq" id="pyj-xL-b37">
                                             <frame key="frameInset" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="WINS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBl-Os-uhy">
-                                                    <frame key="frameInset" width="1000" height="1000"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WINS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBl-Os-uhy">
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="e4D-iL-FHo"/>
-                                                        <constraint firstAttribute="width" constant="76" id="nOh-b2-IgD"/>
+                                                        <constraint firstAttribute="width" constant="76" id="Sju-J4-NIY"/>
+                                                        <constraint firstAttribute="height" constant="21" id="vXl-dk-dsv"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                    <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="14"/>
+                                                    <color key="textColor" red="0.1176470588" green="0.52156862749999999" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nf6-Cm-E5a">
-                                                    <frame key="frameInset" width="1000" height="1000"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nf6-Cm-E5a">
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="GPf-5w-dqs"/>
-                                                        <constraint firstAttribute="width" constant="76" id="peF-ch-xow"/>
+                                                        <constraint firstAttribute="height" constant="21" id="3qc-eJ-Eb8"/>
+                                                        <constraint firstAttribute="width" constant="76" id="fYy-Oz-gNC"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                    <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="12"/>
+                                                    <color key="textColor" red="0.1176470588" green="0.52156862749999999" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Nf6-Cm-E5a" firstAttribute="top" secondItem="pyj-xL-b37" secondAttribute="top" constant="11" id="CzZ-ml-ykL"/>
-                                                <constraint firstItem="mBl-Os-uhy" firstAttribute="leading" secondItem="pyj-xL-b37" secondAttribute="leading" constant="15" id="K4S-lT-UrO"/>
-                                                <constraint firstAttribute="trailing" secondItem="Nf6-Cm-E5a" secondAttribute="trailing" constant="23" id="bbP-8e-qDh"/>
-                                                <constraint firstAttribute="bottom" secondItem="Nf6-Cm-E5a" secondAttribute="bottom" constant="12" id="e0N-5T-I6N"/>
-                                                <constraint firstItem="mBl-Os-uhy" firstAttribute="top" secondItem="pyj-xL-b37" secondAttribute="top" constant="11" id="rgi-d0-89k"/>
+                                                <constraint firstAttribute="trailing" secondItem="Nf6-Cm-E5a" secondAttribute="trailing" constant="23" id="9ps-dH-viF"/>
+                                                <constraint firstItem="Nf6-Cm-E5a" firstAttribute="top" secondItem="pyj-xL-b37" secondAttribute="top" constant="11" id="E3W-XN-Dz1"/>
+                                                <constraint firstItem="mBl-Os-uhy" firstAttribute="top" secondItem="pyj-xL-b37" secondAttribute="top" constant="11" id="I7V-g9-a0C"/>
+                                                <constraint firstItem="mBl-Os-uhy" firstAttribute="leading" secondItem="pyj-xL-b37" secondAttribute="leading" constant="15" id="T3g-ah-jKu"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.0078431372550000003" green="0.039215686270000001" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="upZ-35-QC7">
-                                        <rect key="frame" x="0.0" y="285" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="300" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="upZ-35-QC7" id="2Gy-5m-aoe">
                                             <frame key="frameInset" width="320" height="43"/>
@@ -524,8 +528,8 @@
                                                         <constraint firstAttribute="width" constant="76" id="jFK-IB-fL5"/>
                                                         <constraint firstAttribute="height" constant="21" id="pv4-ha-bbq"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="14"/>
+                                                    <color key="textColor" red="0.56862745100000001" green="0.035294117649999998" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mF-88-2sb">
@@ -533,8 +537,8 @@
                                                         <constraint firstAttribute="height" constant="21" id="p03-cZ-Gij"/>
                                                         <constraint firstAttribute="width" constant="76" id="wKo-yx-7H3"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="12"/>
+                                                    <color key="textColor" red="0.56862745100000001" green="0.035294117649999998" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -545,43 +549,42 @@
                                                 <constraint firstAttribute="trailing" secondItem="7mF-88-2sb" secondAttribute="trailing" constant="23" id="cgD-mb-fJm"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.0078431372550000003" green="0.039215686270000001" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="pxc-xi-8Wc">
-                                        <rect key="frame" x="0.0" y="329" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="344" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pxc-xi-8Wc" id="kMK-eP-mHl">
                                             <frame key="frameInset" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="K.D.A." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LOt-Fp-yun">
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="Gr8-PX-UaF"/>
-                                                        <constraint firstAttribute="width" constant="76" id="R1y-OZ-GdH"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/0/0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9f4-Em-CvV">
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="76" id="BUp-QR-z5F"/>
                                                         <constraint firstAttribute="height" constant="21" id="vOt-V1-SCE"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="12"/>
+                                                    <color key="textColor" red="0.92941176469999998" green="0.87843137250000003" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="static_kda" translatesAutoresizingMaskIntoConstraints="NO" id="C1C-XN-ybe">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="15" id="Eqc-ln-BtU"/>
+                                                        <constraint firstAttribute="height" constant="15" id="mul-Hi-cPD"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="9f4-Em-CvV" secondAttribute="trailing" constant="23" id="BBA-ba-x6s"/>
+                                                <constraint firstItem="C1C-XN-ybe" firstAttribute="top" secondItem="kMK-eP-mHl" secondAttribute="top" constant="14" id="NrS-F9-g4H"/>
                                                 <constraint firstItem="9f4-Em-CvV" firstAttribute="top" secondItem="kMK-eP-mHl" secondAttribute="top" constant="11" id="Vbd-3d-boR"/>
-                                                <constraint firstItem="LOt-Fp-yun" firstAttribute="top" secondItem="kMK-eP-mHl" secondAttribute="top" constant="11" id="Zqy-bb-KPw"/>
-                                                <constraint firstItem="LOt-Fp-yun" firstAttribute="leading" secondItem="kMK-eP-mHl" secondAttribute="leading" constant="15" id="eo3-pd-1Je"/>
+                                                <constraint firstItem="C1C-XN-ybe" firstAttribute="leading" secondItem="kMK-eP-mHl" secondAttribute="leading" constant="16" id="ciS-Lh-w3t"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.0078431372550000003" green="0.039215686270000001" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="AaI-PQ-iWx">
-                                        <rect key="frame" x="0.0" y="373" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="388" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AaI-PQ-iWx" id="ZHv-Rj-fx7">
                                             <frame key="frameInset" width="320" height="43"/>
@@ -589,8 +592,8 @@
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="static_gold" translatesAutoresizingMaskIntoConstraints="NO" id="sVh-hm-oy5">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="25" id="6m6-2q-WGj"/>
-                                                        <constraint firstAttribute="height" constant="25" id="ann-XA-rGc"/>
+                                                        <constraint firstAttribute="width" constant="15" id="6m6-2q-WGj"/>
+                                                        <constraint firstAttribute="height" constant="15" id="ann-XA-rGc"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXh-9d-8xh">
@@ -598,8 +601,8 @@
                                                         <constraint firstAttribute="width" constant="76" id="1dY-40-Egy"/>
                                                         <constraint firstAttribute="height" constant="21" id="wts-wZ-7IB"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="12"/>
+                                                    <color key="textColor" red="0.92941176469999998" green="0.87843137250000003" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -610,18 +613,19 @@
                                                 <constraint firstAttribute="trailing" secondItem="KXh-9d-8xh" secondAttribute="trailing" constant="23" id="ub7-oI-fgH"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.0078431372550000003" green="0.039215686270000001" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="b4U-m5-kJm">
-                                        <rect key="frame" x="0.0" y="417" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="432" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b4U-m5-kJm" id="2ug-MC-9cj">
                                             <frame key="frameInset" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="static_minion" translatesAutoresizingMaskIntoConstraints="NO" id="VIz-gG-25A">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="static_minions" translatesAutoresizingMaskIntoConstraints="NO" id="VIz-gG-25A">
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="25" id="jbZ-P5-GUM"/>
-                                                        <constraint firstAttribute="width" constant="25" id="qly-bV-r5w"/>
+                                                        <constraint firstAttribute="height" constant="15" id="jbZ-P5-GUM"/>
+                                                        <constraint firstAttribute="width" constant="15" id="qly-bV-r5w"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vU0-LB-Y6m">
@@ -629,8 +633,8 @@
                                                         <constraint firstAttribute="width" constant="76" id="Qq7-Pz-GzO"/>
                                                         <constraint firstAttribute="height" constant="21" id="p4D-gn-FU7"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="12"/>
+                                                    <color key="textColor" red="0.92941176469999998" green="0.87843137250000003" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -641,13 +645,14 @@
                                                 <constraint firstItem="vU0-LB-Y6m" firstAttribute="top" secondItem="2ug-MC-9cj" secondAttribute="top" constant="11" id="WBv-Ak-sc6"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.0078431372550000003" green="0.039215686270000001" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="More Details" id="Shy-qv-lPP">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="rCQ-I3-fqE">
-                                        <rect key="frame" x="0.0" y="518" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="533" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rCQ-I3-fqE" id="z49-M0-BxX">
                                             <frame key="frameInset" width="320" height="43"/>
@@ -658,8 +663,8 @@
                                                         <constraint firstAttribute="height" constant="21" id="clm-h4-v0d"/>
                                                         <constraint firstAttribute="width" constant="76" id="hNY-Ax-Lz7"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="12"/>
+                                                    <color key="textColor" red="0.92941176469999998" green="0.87843137250000003" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ve6-tn-xOJ">
@@ -667,8 +672,8 @@
                                                         <constraint firstAttribute="height" constant="21" id="W1F-Ke-Lm3"/>
                                                         <constraint firstAttribute="width" constant="76" id="WuM-7s-dju"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="12"/>
+                                                    <color key="textColor" red="0.92941176469999998" green="0.87843137250000003" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -679,9 +684,10 @@
                                                 <constraint firstItem="7VG-i6-M5O" firstAttribute="top" secondItem="z49-M0-BxX" secondAttribute="top" constant="11" id="tHb-7r-xfT"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.0078431372550000003" green="0.039215686270000001" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="3Hw-RR-0UB">
-                                        <rect key="frame" x="0.0" y="562" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="577" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Hw-RR-0UB" id="wBa-NI-aTc">
                                             <frame key="frameInset" width="320" height="43"/>
@@ -692,8 +698,8 @@
                                                         <constraint firstAttribute="height" constant="21" id="inD-Nd-1sp"/>
                                                         <constraint firstAttribute="width" constant="76" id="kJH-5a-qId"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="12"/>
+                                                    <color key="textColor" red="0.92941176469999998" green="0.87843137250000003" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgh-8Y-d7I">
@@ -701,8 +707,8 @@
                                                         <constraint firstAttribute="width" constant="76" id="KIF-nD-J6D"/>
                                                         <constraint firstAttribute="height" constant="21" id="yME-ZF-wyb"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="12"/>
+                                                    <color key="textColor" red="0.92941176469999998" green="0.87843137250000003" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -713,9 +719,10 @@
                                                 <constraint firstItem="zgh-8Y-d7I" firstAttribute="top" secondItem="wBa-NI-aTc" secondAttribute="top" constant="11" id="wdE-SS-uZF"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.0078431372550000003" green="0.039215686270000001" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="FGb-iN-fYT">
-                                        <rect key="frame" x="0.0" y="606" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="621" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FGb-iN-fYT" id="VcV-xn-eg8">
                                             <frame key="frameInset" width="320" height="43"/>
@@ -726,8 +733,8 @@
                                                         <constraint firstAttribute="width" constant="76" id="LmD-Ij-o3m"/>
                                                         <constraint firstAttribute="height" constant="21" id="VEZ-8m-wJ7"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="12"/>
+                                                    <color key="textColor" red="0.92941176469999998" green="0.87843137250000003" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6RY-dN-GXR">
@@ -735,8 +742,8 @@
                                                         <constraint firstAttribute="height" constant="21" id="6iT-Sm-Br7"/>
                                                         <constraint firstAttribute="width" constant="76" id="8SM-8f-f0P"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="12"/>
+                                                    <color key="textColor" red="0.92941176469999998" green="0.87843137250000003" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -747,9 +754,10 @@
                                                 <constraint firstItem="6RY-dN-GXR" firstAttribute="top" secondItem="VcV-xn-eg8" secondAttribute="top" constant="11" id="pgN-vu-rTJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.0078431372550000003" green="0.039215686270000001" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="8Fz-Eg-VIV">
-                                        <rect key="frame" x="0.0" y="650" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="665" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8Fz-Eg-VIV" id="3cg-zw-I5R">
                                             <frame key="frameInset" width="320" height="43"/>
@@ -760,8 +768,8 @@
                                                         <constraint firstAttribute="height" constant="21" id="Oht-u8-QBy"/>
                                                         <constraint firstAttribute="width" constant="76" id="ufI-FL-fGr"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="12"/>
+                                                    <color key="textColor" red="0.92941176469999998" green="0.87843137250000003" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KdU-Qs-NSu">
@@ -769,8 +777,8 @@
                                                         <constraint firstAttribute="height" constant="21" id="2rd-nb-Wj6"/>
                                                         <constraint firstAttribute="width" constant="76" id="f5Z-qr-ST9"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="12"/>
+                                                    <color key="textColor" red="0.92941176469999998" green="0.87843137250000003" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -781,9 +789,10 @@
                                                 <constraint firstItem="KdU-Qs-NSu" firstAttribute="top" secondItem="3cg-zw-I5R" secondAttribute="top" constant="11" id="sbZ-vp-pkK"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.0078431372550000003" green="0.039215686270000001" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="tvX-Lt-LJI">
-                                        <rect key="frame" x="0.0" y="694" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="709" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tvX-Lt-LJI" id="CQB-Rk-xBH">
                                             <frame key="frameInset" width="320" height="43"/>
@@ -794,8 +803,8 @@
                                                         <constraint firstAttribute="width" constant="100" id="7d3-V8-3Do"/>
                                                         <constraint firstAttribute="height" constant="21" id="rHW-dj-6OL"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="12"/>
+                                                    <color key="textColor" red="0.92941176469999998" green="0.87843137250000003" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nWw-ph-7la">
@@ -803,8 +812,8 @@
                                                         <constraint firstAttribute="height" constant="21" id="3ee-O8-7VK"/>
                                                         <constraint firstAttribute="width" constant="76" id="ch0-sl-kLo"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="12"/>
+                                                    <color key="textColor" red="0.92941176469999998" green="0.87843137250000003" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -815,9 +824,10 @@
                                                 <constraint firstItem="nWw-ph-7la" firstAttribute="top" secondItem="CQB-Rk-xBH" secondAttribute="top" constant="11" id="wZs-mH-USQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.0078431372550000003" green="0.039215686270000001" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="L18-It-Bo1">
-                                        <rect key="frame" x="0.0" y="738" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="753" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="L18-It-Bo1" id="rme-Q8-WCr">
                                             <frame key="frameInset" width="320" height="43"/>
@@ -828,8 +838,8 @@
                                                         <constraint firstAttribute="width" constant="76" id="h9W-8H-ngn"/>
                                                         <constraint firstAttribute="height" constant="21" id="thf-HI-Ng3"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="12"/>
+                                                    <color key="textColor" red="0.92941176469999998" green="0.87843137250000003" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DmT-WG-xiA">
@@ -837,8 +847,8 @@
                                                         <constraint firstAttribute="width" constant="76" id="LXf-ZJ-xH8"/>
                                                         <constraint firstAttribute="height" constant="21" id="Qjg-qF-Tgh"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="12"/>
+                                                    <color key="textColor" red="0.92941176469999998" green="0.87843137250000003" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -849,6 +859,7 @@
                                                 <constraint firstItem="huH-K7-bpx" firstAttribute="top" secondItem="rme-Q8-WCr" secondAttribute="top" constant="11" id="kYu-eP-3tR"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.0078431372550000003" green="0.039215686270000001" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -883,10 +894,13 @@
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="3fE-63-tMi" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="mf6-Nm-oPv">
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="mf6-Nm-oPv">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.086274509799999996" green="0.10980392160000001" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.92941176469999998" green="0.87843137250000003" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.086274509799999996" green="0.10980392160000001" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" red="0.92941176469999998" green="0.87843137250000003" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="g8j-j8-aoU" kind="relationship" relationship="viewControllers" id="gRi-4K-s0o"/>
@@ -901,7 +915,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="i1B-rD-tj3" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Mjv-ow-2Ow">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Mjv-ow-2Ow">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -919,7 +933,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="413-Fr-ls1" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4SV-VC-4QD">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="4SV-VC-4QD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -936,246 +950,232 @@
         <scene sceneID="mMv-Lv-kQJ">
             <objects>
                 <tableViewController storyboardIdentifier="matches" id="SmU-q6-FGe" customClass="matchesTVC" customModule="LOL4YOU" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="GLb-QR-BDm">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="175" sectionHeaderHeight="28" sectionFooterHeight="28" id="GLb-QR-BDm">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.086274509799999996" green="0.10980392160000001" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" red="0.086274509799999996" green="0.10980392160000001" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="matchescell" rowHeight="100" id="VY4-py-Pvl" customClass="matchesTVCC" customModule="LOL4YOU" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="320" height="100"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="matchescell" rowHeight="175" id="VY4-py-Pvl" customClass="matchesTVCC" customModule="LOL4YOU" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="320" height="175"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VY4-py-Pvl" id="5sp-X6-qub">
-                                    <frame key="frameInset" width="287" height="99"/>
+                                    <frame key="frameInset" width="287" height="174"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2GF-6i-NbL">
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="15" id="5pf-K8-5Lk"/>
-                                                <constraint firstAttribute="height" constant="50" id="MXl-Mo-peA"/>
-                                            </constraints>
-                                        </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PCP-Fi-d2q">
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="50" id="fgd-6z-4hz"/>
-                                                <constraint firstAttribute="width" constant="50" id="xTd-Xk-1SQ"/>
-                                            </constraints>
-                                        </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fgW-Vu-qSS">
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="15" id="qwA-h2-Tdv"/>
-                                                <constraint firstAttribute="height" constant="15" id="w0B-2p-pZd"/>
+                                                <constraint firstAttribute="height" constant="50" id="38I-D4-6WQ"/>
+                                                <constraint firstAttribute="width" constant="50" id="3Be-3s-Ns9"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <integer key="value" value="5"/>
+                                                    <integer key="value" value="25"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oDs-QT-hIW">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="static_null" translatesAutoresizingMaskIntoConstraints="NO" id="fgW-Vu-qSS">
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="15" id="8F6-w4-tX3"/>
-                                                <constraint firstAttribute="width" constant="15" id="Agq-xS-80H"/>
+                                                <constraint firstAttribute="width" constant="25" id="46z-Le-bDQ"/>
+                                                <constraint firstAttribute="height" constant="25" id="SX2-Wb-hPh"/>
                                             </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <integer key="value" value="5"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FM5-MR-eKD">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="static_null" translatesAutoresizingMaskIntoConstraints="NO" id="oDs-QT-hIW">
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="15" id="4rV-DJ-EwW"/>
-                                                <constraint firstAttribute="width" constant="15" id="7hd-Vk-55Q"/>
+                                                <constraint firstAttribute="height" constant="25" id="UEh-0O-bda"/>
+                                                <constraint firstAttribute="width" constant="25" id="uAb-NW-SXi"/>
                                             </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <integer key="value" value="5"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PqL-zU-loV">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="static_null" translatesAutoresizingMaskIntoConstraints="NO" id="FM5-MR-eKD">
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="15" id="PUB-uZ-ss5"/>
-                                                <constraint firstAttribute="width" constant="15" id="rs8-En-rwj"/>
+                                                <constraint firstAttribute="width" constant="25" id="ezz-iu-j6u"/>
+                                                <constraint firstAttribute="height" constant="25" id="uhB-rO-fnV"/>
                                             </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <integer key="value" value="5"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gOv-AV-ZFW">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="static_null" translatesAutoresizingMaskIntoConstraints="NO" id="PqL-zU-loV">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="15" id="Y7m-8W-RGa"/>
-                                                <constraint firstAttribute="height" constant="15" id="cl7-EX-YcI"/>
+                                                <constraint firstAttribute="height" constant="25" id="9hQ-qL-jd3"/>
+                                                <constraint firstAttribute="width" constant="25" id="m1J-7Y-HqY"/>
                                             </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <integer key="value" value="5"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZhQ-rV-2Fn">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="static_null" translatesAutoresizingMaskIntoConstraints="NO" id="gOv-AV-ZFW">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="15" id="CKA-ga-mW7"/>
-                                                <constraint firstAttribute="height" constant="15" id="upN-av-bgP"/>
+                                                <constraint firstAttribute="height" constant="25" id="CRq-Ph-5tV"/>
+                                                <constraint firstAttribute="width" constant="25" id="naa-Eb-9je"/>
                                             </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <integer key="value" value="5"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Nl-wg-cYL">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="static_null" translatesAutoresizingMaskIntoConstraints="NO" id="ZhQ-rV-2Fn">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="15" id="cmh-jH-Ra2"/>
-                                                <constraint firstAttribute="height" constant="15" id="i4Z-um-cA3"/>
+                                                <constraint firstAttribute="height" constant="25" id="Pxr-gm-lA6"/>
+                                                <constraint firstAttribute="width" constant="25" id="aRe-lO-E6D"/>
                                             </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <integer key="value" value="5"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zba-eZ-K7j">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="static_null" translatesAutoresizingMaskIntoConstraints="NO" id="QUL-Wc-BsG">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="15" id="emW-tS-Nw5"/>
-                                                <constraint firstAttribute="height" constant="15" id="waM-xS-ai4"/>
+                                                <constraint firstAttribute="width" constant="15" id="Nkr-Ex-ofL"/>
+                                                <constraint firstAttribute="height" constant="15" id="zCm-eX-jqJ"/>
                                             </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <integer key="value" value="5"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QUL-Wc-BsG">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="static_null" translatesAutoresizingMaskIntoConstraints="NO" id="NjS-Cf-88y">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="15" id="UfX-J1-1OM"/>
-                                                <constraint firstAttribute="height" constant="15" id="Y7m-BX-zqp"/>
+                                                <constraint firstAttribute="width" constant="15" id="StZ-y4-gxg"/>
+                                                <constraint firstAttribute="height" constant="15" id="zKK-Eb-Wce"/>
                                             </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <integer key="value" value="5"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NjS-Cf-88y">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Queue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="877-KO-owL">
+                                            <frame key="frameInset" minX="0.027900000000000001" minY="8" width="0.94079999999999997" height="21"/>
+                                            <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="15"/>
+                                            <color key="textColor" red="0.92941176470588238" green="0.8784313725490196" blue="0.7803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="static_null" translatesAutoresizingMaskIntoConstraints="NO" id="7Nl-wg-cYL">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="15" id="dBc-U0-zoG"/>
-                                                <constraint firstAttribute="height" constant="15" id="uNl-l8-CSq"/>
+                                                <constraint firstAttribute="width" constant="25" id="J3a-Zz-f9K"/>
+                                                <constraint firstAttribute="height" constant="25" id="awY-Fu-5eF"/>
                                             </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <integer key="value" value="5"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Queue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="877-KO-owL">
-                                            <frame key="frameInset" minX="2.79%" minY="8" width="94.08%" height="21"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="static_null" translatesAutoresizingMaskIntoConstraints="NO" id="Zba-eZ-K7j">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="15" id="Giz-TD-y3O"/>
+                                                <constraint firstAttribute="width" constant="15" id="eun-uc-Snq"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Days" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZv-YO-8WB">
+                                            <frame key="frameInset" minX="23.00%" minY="53" width="34.84%" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="12"/>
+                                            <color key="textColor" red="0.5568627451" green="0.54117647059999996" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Minutes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ujc-bs-y4m">
+                                            <frame key="frameInset" minX="23.00%" minY="71" width="34.84%" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="12"/>
+                                            <color key="textColor" red="0.5568627451" green="0.54117647059999996" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2N8-TX-Qxm">
+                                            <frame key="frameInset" minX="23.00%" minY="34" width="34.84%" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="15"/>
+                                            <color key="textColor" red="0.56862745098039214" green="0.035294117647058823" blue="0.14117647058823529" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/0/0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lag-ax-bYX">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="60" id="Cl2-lu-Fpc"/>
-                                                <constraint firstAttribute="height" constant="21" id="OT5-iU-ClD"/>
+                                                <constraint firstAttribute="height" constant="21" id="3lT-00-78w"/>
+                                                <constraint firstAttribute="width" constant="75" id="RJr-oy-OXy"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="8"/>
-                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="15"/>
+                                            <color key="textColor" red="0.5568627451" green="0.54117647059999996" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="static_minion" translatesAutoresizingMaskIntoConstraints="NO" id="qn2-nH-cKE">
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="10" id="HO7-sq-gC0"/>
-                                                <constraint firstAttribute="width" constant="10" id="vxR-bC-4qr"/>
-                                            </constraints>
-                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mPk-5M-cMi">
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="aIK-1K-c37"/>
-                                                <constraint firstAttribute="width" constant="60" id="nES-nV-Dgg"/>
+                                                <constraint firstAttribute="width" constant="75" id="Vzd-ic-wT1"/>
+                                                <constraint firstAttribute="height" constant="21" id="sqC-4U-fYK"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="8"/>
-                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="15"/>
+                                            <color key="textColor" red="0.5568627451" green="0.54117647059999996" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="static_gold" translatesAutoresizingMaskIntoConstraints="NO" id="pz9-QG-ltA">
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="10" id="jSS-tF-9QX"/>
-                                                <constraint firstAttribute="width" constant="10" id="vIR-5A-gyY"/>
+                                                <constraint firstAttribute="height" constant="15" id="6YZ-7B-uDK"/>
+                                                <constraint firstAttribute="width" constant="15" id="Xgn-s4-vAx"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="K.D.A." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5XL-ZF-SKh">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="static_kda" translatesAutoresizingMaskIntoConstraints="NO" id="2ys-jn-nc7">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="35" id="PJp-N7-cK7"/>
-                                                <constraint firstAttribute="height" constant="21" id="s4t-6w-LWC"/>
+                                                <constraint firstAttribute="width" constant="15" id="SSB-VQ-fPA"/>
+                                                <constraint firstAttribute="height" constant="15" id="eoh-pL-tvv"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="8"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="static_minions" translatesAutoresizingMaskIntoConstraints="NO" id="qn2-nH-cKE">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="15" id="OPH-wA-3bt"/>
+                                                <constraint firstAttribute="height" constant="15" id="n7U-yw-jbm"/>
+                                            </constraints>
+                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l9N-nK-lVL">
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="Cc8-4Z-M2J"/>
-                                                <constraint firstAttribute="width" constant="60" id="RoR-NF-r7B"/>
+                                                <constraint firstAttribute="height" constant="21" id="Eib-fA-DYp"/>
+                                                <constraint firstAttribute="width" constant="75" id="FMS-WX-hi2"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="8"/>
-                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="15"/>
+                                            <color key="textColor" red="0.5568627451" green="0.54117647059999996" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lvo-Xb-X7X">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="23" id="GTo-QP-KwW"/>
+                                                <constraint firstAttribute="height" constant="23" id="hJC-Nr-sDL"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="12"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVF-45-h9y">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="14" id="7Kj-W1-Qnm"/>
+                                                <constraint firstAttribute="height" constant="12" id="HiX-IZ-xR6"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="10"/>
+                                            <color key="textColor" red="0.5568627451" green="0.54117647059999996" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="ZhQ-rV-2Fn" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="68" id="5WD-na-xqY"/>
-                                        <constraint firstItem="PqL-zU-loV" firstAttribute="leading" secondItem="FM5-MR-eKD" secondAttribute="trailing" constant="2" id="6Yv-fV-5Qa"/>
-                                        <constraint firstItem="lag-ax-bYX" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="18" id="7je-Ay-GPA"/>
-                                        <constraint firstItem="7Nl-wg-cYL" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="68" id="8gT-Av-gqB"/>
-                                        <constraint firstItem="7Nl-wg-cYL" firstAttribute="leading" secondItem="ZhQ-rV-2Fn" secondAttribute="trailing" constant="2" id="A1i-GV-uw2"/>
-                                        <constraint firstItem="qn2-nH-cKE" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="51" id="E6q-Vl-0JH"/>
-                                        <constraint firstItem="PCP-Fi-d2q" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="33" id="EWf-iS-k94"/>
-                                        <constraint firstItem="5XL-ZF-SKh" firstAttribute="leading" secondItem="PCP-Fi-d2q" secondAttribute="trailing" constant="8" id="IrA-cc-WhJ"/>
-                                        <constraint firstItem="5XL-ZF-SKh" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="18" id="K9g-hV-IFu"/>
-                                        <constraint firstItem="fgW-Vu-qSS" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="68" id="Lg2-Gt-8jT"/>
-                                        <constraint firstItem="FM5-MR-eKD" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="68" id="NoA-JU-XuK"/>
-                                        <constraint firstItem="Zba-eZ-K7j" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="68" id="P16-x7-oii"/>
-                                        <constraint firstItem="pz9-QG-ltA" firstAttribute="leading" secondItem="PCP-Fi-d2q" secondAttribute="trailing" constant="8" id="Pd3-J8-tbl"/>
-                                        <constraint firstItem="qn2-nH-cKE" firstAttribute="leading" secondItem="PCP-Fi-d2q" secondAttribute="trailing" constant="8" id="TJn-Pu-Oa2"/>
-                                        <constraint firstItem="FM5-MR-eKD" firstAttribute="leading" secondItem="oDs-QT-hIW" secondAttribute="trailing" constant="2" id="Yan-i7-EpK"/>
-                                        <constraint firstItem="QUL-Wc-BsG" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="68" id="YnK-Bb-CQW"/>
-                                        <constraint firstItem="2GF-6i-NbL" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="33" id="acd-sh-cYo"/>
-                                        <constraint firstItem="fgW-Vu-qSS" firstAttribute="leading" secondItem="PCP-Fi-d2q" secondAttribute="trailing" constant="8" id="axu-yY-3li"/>
-                                        <constraint firstItem="NjS-Cf-88y" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="68" id="bB6-kl-3ce"/>
-                                        <constraint firstItem="gOv-AV-ZFW" firstAttribute="leading" secondItem="PqL-zU-loV" secondAttribute="trailing" constant="2" id="bL5-XW-HRW"/>
-                                        <constraint firstItem="PCP-Fi-d2q" firstAttribute="leading" secondItem="2GF-6i-NbL" secondAttribute="trailing" id="beD-8o-3dk"/>
-                                        <constraint firstItem="NjS-Cf-88y" firstAttribute="leading" secondItem="QUL-Wc-BsG" secondAttribute="trailing" constant="2" id="cIB-5p-vnm"/>
-                                        <constraint firstItem="PqL-zU-loV" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="68" id="csW-MF-V3s"/>
-                                        <constraint firstItem="mPk-5M-cMi" firstAttribute="leading" secondItem="5XL-ZF-SKh" secondAttribute="trailing" constant="1" id="drt-FA-KYK"/>
-                                        <constraint firstItem="QUL-Wc-BsG" firstAttribute="leading" secondItem="Zba-eZ-K7j" secondAttribute="trailing" constant="2" id="dxZ-Vx-Hgk"/>
-                                        <constraint firstItem="oDs-QT-hIW" firstAttribute="leading" secondItem="fgW-Vu-qSS" secondAttribute="trailing" constant="18" id="e59-Tq-lZM"/>
-                                        <constraint firstItem="mPk-5M-cMi" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="32" id="hGI-pa-avl"/>
-                                        <constraint firstItem="oDs-QT-hIW" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="68" id="mWe-8r-2EM"/>
-                                        <constraint firstItem="2GF-6i-NbL" firstAttribute="leading" secondItem="5sp-X6-qub" secondAttribute="leading" constant="7" id="nMz-3u-kiN"/>
-                                        <constraint firstItem="gOv-AV-ZFW" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="68" id="pKZ-ar-Fbf"/>
-                                        <constraint firstItem="l9N-nK-lVL" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="45" id="q7O-it-gaQ"/>
-                                        <constraint firstItem="Zba-eZ-K7j" firstAttribute="leading" secondItem="7Nl-wg-cYL" secondAttribute="trailing" constant="16" id="qix-Vw-rTD"/>
-                                        <constraint firstItem="lag-ax-bYX" firstAttribute="leading" secondItem="5XL-ZF-SKh" secondAttribute="trailing" constant="1" id="r0g-wH-MFr"/>
-                                        <constraint firstItem="ZhQ-rV-2Fn" firstAttribute="leading" secondItem="gOv-AV-ZFW" secondAttribute="trailing" constant="2" id="u3h-3n-HFh"/>
-                                        <constraint firstItem="l9N-nK-lVL" firstAttribute="leading" secondItem="qn2-nH-cKE" secondAttribute="trailing" constant="26" id="uMr-Ph-efG"/>
-                                        <constraint firstItem="pz9-QG-ltA" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="37" id="xKr-ea-Urf"/>
+                                        <constraint firstItem="mPk-5M-cMi" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="136" id="39y-mu-7qW"/>
+                                        <constraint firstItem="gOv-AV-ZFW" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="96" id="3r5-dh-vmm"/>
+                                        <constraint firstItem="PqL-zU-loV" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="96" id="5Gc-W7-9ai"/>
+                                        <constraint firstItem="mPk-5M-cMi" firstAttribute="leading" secondItem="pz9-QG-ltA" secondAttribute="trailing" constant="5" id="6av-It-XPy"/>
+                                        <constraint firstItem="NjS-Cf-88y" firstAttribute="leading" secondItem="5sp-X6-qub" secondAttribute="leading" constant="8" id="700-lI-sS8"/>
+                                        <constraint firstItem="QUL-Wc-BsG" firstAttribute="leading" secondItem="NjS-Cf-88y" secondAttribute="trailing" constant="3" id="84O-Wu-WJl"/>
+                                        <constraint firstItem="2ys-jn-nc7" firstAttribute="leading" secondItem="5sp-X6-qub" secondAttribute="leading" constant="8" id="9KN-I3-pyc"/>
+                                        <constraint firstItem="PCP-Fi-d2q" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="30" id="A2M-vn-Yym"/>
+                                        <constraint firstItem="PCP-Fi-d2q" firstAttribute="leading" secondItem="5sp-X6-qub" secondAttribute="leading" constant="8" id="DG9-Q8-MDp"/>
+                                        <constraint firstItem="FM5-MR-eKD" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="96" id="JR9-ZS-3Z1"/>
+                                        <constraint firstAttribute="topMargin" secondItem="877-KO-owL" secondAttribute="top" id="K5n-oD-jbh"/>
+                                        <constraint firstItem="Zba-eZ-K7j" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="87" id="KLF-2s-81z"/>
+                                        <constraint firstItem="fgW-Vu-qSS" firstAttribute="leading" secondItem="Zba-eZ-K7j" secondAttribute="trailing" constant="8" id="ML9-QK-bVm"/>
+                                        <constraint firstItem="lvo-Xb-X7X" firstAttribute="leading" secondItem="YVF-45-h9y" secondAttribute="trailing" constant="-18" id="Opq-ZV-QLv"/>
+                                        <constraint firstItem="ZhQ-rV-2Fn" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="96" id="PMg-d0-PAd"/>
+                                        <constraint firstItem="QUL-Wc-BsG" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="110" id="R9w-WI-wez"/>
+                                        <constraint firstItem="l9N-nK-lVL" firstAttribute="leading" secondItem="qn2-nH-cKE" secondAttribute="trailing" constant="4" id="REa-WD-NgB"/>
+                                        <constraint firstItem="NjS-Cf-88y" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="101" id="ROa-t3-b6v"/>
+                                        <constraint firstItem="FM5-MR-eKD" firstAttribute="leading" secondItem="oDs-QT-hIW" secondAttribute="trailing" constant="8" id="TNQ-z4-78w"/>
+                                        <constraint firstItem="ZhQ-rV-2Fn" firstAttribute="leading" secondItem="gOv-AV-ZFW" secondAttribute="trailing" constant="8" id="Ty2-1B-du0"/>
+                                        <constraint firstItem="qn2-nH-cKE" firstAttribute="leading" secondItem="mPk-5M-cMi" secondAttribute="trailing" constant="2" id="U9W-8a-dn8"/>
+                                        <constraint firstItem="qn2-nH-cKE" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="140" id="Up2-9T-SoJ"/>
+                                        <constraint firstItem="pz9-QG-ltA" firstAttribute="leading" secondItem="lag-ax-bYX" secondAttribute="trailing" constant="8" id="VZd-Vd-NsJ"/>
+                                        <constraint firstItem="877-KO-owL" firstAttribute="leading" secondItem="5sp-X6-qub" secondAttribute="leading" constant="8" id="YLl-YC-y25"/>
+                                        <constraint firstItem="lvo-Xb-X7X" firstAttribute="top" secondItem="YVF-45-h9y" secondAttribute="bottom" constant="-17" id="YqK-ee-aHl"/>
+                                        <constraint firstItem="7Nl-wg-cYL" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="96" id="YwA-ou-Klo"/>
+                                        <constraint firstAttribute="trailing" secondItem="877-KO-owL" secondAttribute="trailing" constant="9" id="b40-WJ-vam"/>
+                                        <constraint firstItem="lvo-Xb-X7X" firstAttribute="leading" secondItem="5sp-X6-qub" secondAttribute="leading" constant="35" id="b5H-Kd-tKL"/>
+                                        <constraint firstItem="gOv-AV-ZFW" firstAttribute="leading" secondItem="PqL-zU-loV" secondAttribute="trailing" constant="8" id="gsm-Gb-DZR"/>
+                                        <constraint firstItem="pz9-QG-ltA" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="139" id="kNF-cX-aHl"/>
+                                        <constraint firstItem="PqL-zU-loV" firstAttribute="leading" secondItem="FM5-MR-eKD" secondAttribute="trailing" constant="8" id="lMT-jV-YQv"/>
+                                        <constraint firstItem="fgW-Vu-qSS" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="96" id="lcm-We-Ngv"/>
+                                        <constraint firstItem="Zba-eZ-K7j" firstAttribute="leading" secondItem="5sp-X6-qub" secondAttribute="leading" constant="26" id="ljN-Ir-RRe"/>
+                                        <constraint firstItem="lag-ax-bYX" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="136" id="nwP-EI-292"/>
+                                        <constraint firstItem="l9N-nK-lVL" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="136" id="pxH-Oy-f6M"/>
+                                        <constraint firstItem="oDs-QT-hIW" firstAttribute="leading" secondItem="fgW-Vu-qSS" secondAttribute="trailing" constant="8" id="vo1-Ny-F3W"/>
+                                        <constraint firstItem="7Nl-wg-cYL" firstAttribute="leading" secondItem="ZhQ-rV-2Fn" secondAttribute="trailing" constant="8" id="vwZ-Xn-4Cw"/>
+                                        <constraint firstItem="lag-ax-bYX" firstAttribute="leading" secondItem="2ys-jn-nc7" secondAttribute="trailing" constant="4" id="xsQ-Vc-7bT"/>
+                                        <constraint firstItem="2ys-jn-nc7" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="139" id="y6Q-4z-m0M"/>
+                                        <constraint firstItem="oDs-QT-hIW" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="96" id="ynN-C5-3zv"/>
+                                        <constraint firstItem="lvo-Xb-X7X" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="57" id="zOE-op-7PR"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.0078431372550000003" green="0.039215686270000001" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
+                                    <outlet property="day" destination="AZv-YO-8WB" id="7SE-fe-qrA"/>
                                     <outlet property="gold" destination="mPk-5M-cMi" id="gab-t6-MoC"/>
                                     <outlet property="imgchamp" destination="PCP-Fi-d2q" id="gVU-6h-emR"/>
                                     <outlet property="imgitem0" destination="oDs-QT-hIW" id="8sk-6Z-LvB"/>
@@ -1184,14 +1184,17 @@
                                     <outlet property="imgitem3" destination="gOv-AV-ZFW" id="bgb-42-Bwk"/>
                                     <outlet property="imgitem4" destination="ZhQ-rV-2Fn" id="uOT-dz-b9p"/>
                                     <outlet property="imgitem5" destination="7Nl-wg-cYL" id="VFE-ah-4dH"/>
+                                    <outlet property="imglvl" destination="lvo-Xb-X7X" id="8gL-sy-NV4"/>
                                     <outlet property="imgtlt0" destination="Zba-eZ-K7j" id="p7O-3L-w64"/>
                                     <outlet property="imgtlt1" destination="QUL-Wc-BsG" id="Ok9-os-fdA"/>
                                     <outlet property="imgtltmast" destination="NjS-Cf-88y" id="MH3-M7-j12"/>
                                     <outlet property="imgtrinket" destination="fgW-Vu-qSS" id="jmM-Va-fba"/>
-                                    <outlet property="imgwinloss" destination="2GF-6i-NbL" id="UGk-BC-vQp"/>
                                     <outlet property="kda" destination="lag-ax-bYX" id="iac-gd-HeW"/>
+                                    <outlet property="lvl" destination="YVF-45-h9y" id="seP-yi-bY8"/>
                                     <outlet property="minions" destination="l9N-nK-lVL" id="8Zh-tA-rYx"/>
+                                    <outlet property="minutes" destination="ujc-bs-y4m" id="Gzz-47-b1w"/>
                                     <outlet property="queue" destination="877-KO-owL" id="axs-yV-c8p"/>
+                                    <outlet property="winloss" destination="2N8-TX-Qxm" id="ezH-rf-smX"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1206,15 +1209,18 @@
             </objects>
             <point key="canvasLocation" x="6740.625" y="-1630"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="XqS-RK-FVr">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="reI-IC-O7S" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="kNG-gf-GcJ"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="s4V-KT-4sc">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="s4V-KT-4sc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="15"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1227,7 +1233,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="static_gold" width="23" height="18"/>
-        <image name="static_minion" width="20" height="23"/>
+        <image name="static_gold" width="30" height="30"/>
+        <image name="static_kda" width="30" height="30"/>
+        <image name="static_minions" width="30" height="30"/>
+        <image name="static_null" width="67" height="67"/>
     </resources>
 </document>

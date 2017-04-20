@@ -36,6 +36,8 @@ class statsTVC: UITableViewController {
         
         let lstats = tableView.dequeueReusableCell(withIdentifier: "statscell", for: indexPath as IndexPath) as! statsTVCC
         
+        lstats.selectionStyle = UITableViewCellSelectionStyle.none
+        
         lstats.win.text = stats[indexPath.row].win
         lstats.loss.text = stats[indexPath.row].loss
         lstats.kda.text = "\(stats[indexPath.row].kills)/\(stats[indexPath.row].deaths)/\(stats[indexPath.row].assists)"
@@ -45,6 +47,8 @@ class statsTVC: UITableViewController {
         let champ = rt.listaChamp(id: stats[indexPath.row].championID)
         lstats.lblChamp.text = champ.name
         lstats.imgChamp.image = UIImage(named: "champion_\(champ.key)")
+        lstats.imgChamp.layer.borderWidth = 2
+        lstats.imgChamp.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
         
         return lstats
     }
@@ -56,9 +60,11 @@ class statsTVC: UITableViewController {
             numOfSections = stats.count
             tableView.separatorStyle = .singleLine
             tableView.backgroundView?.isHidden = true
+            tableView.backgroundColor = UIColor(hex: rootclass.colors.FUNDO.rawValue)
         } else {
             tableView.separatorStyle = .none
             tableView.backgroundView?.isHidden = false
+            tableView.backgroundColor = UIColor(hex: rootclass.colors.FUNDO_EMPTY_TABLEVIEW.rawValue)
         }
         
         return numOfSections
@@ -87,6 +93,24 @@ class statsTVC: UITableViewController {
     }
     
     func initView(){
+        let attnav = [
+            NSForegroundColorAttributeName: UIColor(hex:rootclass.colors.TEXTO_TOP_BAR.rawValue),
+            NSFontAttributeName: UIFont(name: "Friz Quadrata TT", size: 15)!
+        ]
+        
+        let button = UIButton.init(type: .custom)
+        button.setImage(UIImage(named:"static_button_back"), for: UIControlState.normal)
+        button.addTarget(self, action:#selector(spopViewController), for: UIControlEvents.touchUpInside)
+        button.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
+        let barButton = UIBarButtonItem.init(customView: button)
+        self.navigationItem.leftBarButtonItem = barButton
+        
+        self.navigationController?.navigationBar.barTintColor = UIColor(hex: rootclass.colors.FUNDO.rawValue)
+        self.navigationController?.navigationBar.titleTextAttributes = attnav
         self.title = "Stats"
+    }
+    
+    func spopViewController(){
+        self.navigationController?.popViewController(animated: true)
     }
 }

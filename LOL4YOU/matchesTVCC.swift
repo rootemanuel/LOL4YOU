@@ -10,7 +10,6 @@ import UIKit
 
 class matchesTVCC: UITableViewCell {
 
-    @IBOutlet weak var imgwinloss: UIImageView!
     @IBOutlet weak var imgchamp: UIImageView!
     
     @IBOutlet weak var imgtrinket: UIImageView!
@@ -23,11 +22,15 @@ class matchesTVCC: UITableViewCell {
     @IBOutlet weak var imgtlt0: UIImageView!
     @IBOutlet weak var imgtlt1: UIImageView!
     @IBOutlet weak var imgtltmast: UIImageView!
+    @IBOutlet weak var imglvl: UIImageView!
     
-    
+    @IBOutlet weak var winloss: UILabel!
     @IBOutlet weak var queue: UILabel!
     @IBOutlet weak var kda: UILabel!
     @IBOutlet weak var gold: UILabel!
     @IBOutlet weak var minions: UILabel!
+    @IBOutlet weak var day: UILabel!
+    @IBOutlet weak var minutes: UILabel!
+    @IBOutlet weak var lvl: UILabel!
     
 }
