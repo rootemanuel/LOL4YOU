@@ -19,6 +19,8 @@
 		A00280241E9D981B003175A7 /* rootclass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00280231E9D981B003175A7 /* rootclass.swift */; };
 		A00280291E9DAE08003175A7 /* statsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00280281E9DAE08003175A7 /* statsTVC.swift */; };
 		A002802B1E9DAE27003175A7 /* statsTVCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A002802A1E9DAE27003175A7 /* statsTVCC.swift */; };
+		A011B5971EACEA860083FDD3 /* matchesdetTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A011B5961EACEA860083FDD3 /* matchesdetTVC.swift */; };
+		A011B5991EACED040083FDD3 /* matchesdetTVCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A011B5981EACED040083FDD3 /* matchesdetTVCC.swift */; };
 		A017A8741EA5456700C325F7 /* perfilCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A017A8731EA5456700C325F7 /* perfilCVC.swift */; };
 		A017A8761EA546B600C325F7 /* perfilVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A017A8751EA546B600C325F7 /* perfilVC.swift */; };
 		A053900B1EA58E1B00657E55 /* perfil.xib in Resources */ = {isa = PBXBuildFile; fileRef = A053900A1EA58E1B00657E55 /* perfil.xib */; };
@@ -82,6 +84,8 @@
 		A00280231E9D981B003175A7 /* rootclass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rootclass.swift; sourceTree = "<group>"; };
 		A00280281E9DAE08003175A7 /* statsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = statsTVC.swift; sourceTree = "<group>"; };
 		A002802A1E9DAE27003175A7 /* statsTVCC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = statsTVCC.swift; sourceTree = "<group>"; };
+		A011B5961EACEA860083FDD3 /* matchesdetTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matchesdetTVC.swift; sourceTree = "<group>"; };
+		A011B5981EACED040083FDD3 /* matchesdetTVCC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matchesdetTVCC.swift; sourceTree = "<group>"; };
 		A017A8731EA5456700C325F7 /* perfilCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = perfilCVC.swift; sourceTree = "<group>"; };
 		A017A8751EA546B600C325F7 /* perfilVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = perfilVC.swift; sourceTree = "<group>"; };
 		A053900A1EA58E1B00657E55 /* perfil.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = perfil.xib; sourceTree = "<group>"; };
@@ -276,6 +280,8 @@
 			children = (
 				A0BF02FE1EA6B20000DB84E9 /* matchesTVC.swift */,
 				A0BF03001EA6B21900DB84E9 /* matchesTVCC.swift */,
+				A011B5961EACEA860083FDD3 /* matchesdetTVC.swift */,
+				A011B5981EACED040083FDD3 /* matchesdetTVCC.swift */,
 			);
 			name = matches;
 			sourceTree = "<group>";
@@ -633,6 +639,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A017A8741EA5456700C325F7 /* perfilCVC.swift in Sources */,
+				A011B5971EACEA860083FDD3 /* matchesdetTVC.swift in Sources */,
 				A0BF02FC1EA643DC00DB84E9 /* emptytableview.swift in Sources */,
 				A00280291E9DAE08003175A7 /* statsTVC.swift in Sources */,
 				A002802B1E9DAE27003175A7 /* statsTVCC.swift in Sources */,
@@ -640,6 +647,7 @@
 				A0BF03011EA6B21900DB84E9 /* matchesTVCC.swift in Sources */,
 				A0D97AF31EA78FCE00273C10 /* UIColorExtension.swift in Sources */,
 				A053900D1EA58E8900657E55 /* perfilV.swift in Sources */,
+				A011B5991EACED040083FDD3 /* matchesdetTVCC.swift in Sources */,
 				A017A8761EA546B600C325F7 /* perfilVC.swift in Sources */,
 				A00280241E9D981B003175A7 /* rootclass.swift in Sources */,
 				A06CD86D1E9E5FC000D4362E /* statsdetTVC.swift in Sources */,

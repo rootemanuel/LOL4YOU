@@ -208,15 +208,14 @@ class matchesTVC: UITableViewController {
         SVProgressHUD.show(withStatus: "Loading Matches")
     
         rt.listarMatch() {(match) in
-            self.listarMatchDet(matchs: match)
-//            self.rt.listarMatchDet(matchs: match) {(matchdet) in
-//                
-//                DispatchQueue.main.async {
-//                    self.matchs = matchdet
-//                    self.tableView.reloadData()
-//                    SVProgressHUD.dismiss()
-//                }
-//            }
+            self.rt.listarMatchDet(matchs: match) {(matchdet) in
+                
+                DispatchQueue.main.async {
+                    self.matchs = matchdet
+                    self.tableView.reloadData()
+                    SVProgressHUD.dismiss()
+                }
+            }
         }
     }
     

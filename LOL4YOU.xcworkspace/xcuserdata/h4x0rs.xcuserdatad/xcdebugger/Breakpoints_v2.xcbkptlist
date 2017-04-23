@@ -57,14 +57,62 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LOL4YOU/matchesTVC.swift"
-            timestampString = "514412266.579974"
+            filePath = "LOL4YOU/rootclass.swift"
+            timestampString = "514643518.080144"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "265"
-            endingLineNumber = "265"
-            landmarkName = "listarMatchDet(matchs:)"
+            startingLineNumber = "635"
+            endingLineNumber = "635"
+            landmarkName = "listarMatchDet(matchs:matchdet:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LOL4YOU/rootclass.swift"
+            timestampString = "514643522.230003"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "639"
+            endingLineNumber = "639"
+            landmarkName = "listarMatchDet(matchs:matchdet:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LOL4YOU.rootclass.listarMatchDet (matchs : Swift.Array&lt;Swift.Int&gt;, matchdet : (Swift.Array&lt;LOL4YOU.rootclass.BEMatch&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "LOL4YOU"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/h4x0rs/Desktop/LOL4YOU/LOL4YOU/rootclass.swift"
+                  timestampString = "514643522.445535"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "639"
+                  endingLineNumber = "639"
+                  offsetFromSymbolStart = "1700">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LOL4YOU.rootclass.(listarMatchDet (matchs : Swift.Array&lt;Swift.Int&gt;, matchdet : (Swift.Array&lt;LOL4YOU.rootclass.BEMatch&gt;) -&gt; ()) -&gt; ()).(closure #1)"
+                  moduleName = "LOL4YOU"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/h4x0rs/Desktop/LOL4YOU/LOL4YOU/rootclass.swift"
+                  timestampString = "514643522.447978"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "621"
+                  endingLineNumber = "621"
+                  offsetFromSymbolStart = "43">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
