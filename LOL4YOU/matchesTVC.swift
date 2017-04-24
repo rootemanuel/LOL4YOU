@@ -26,13 +26,14 @@ class matchesTVC: UITableViewController {
         
     }
     
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let vc = storyboard.instantiateViewController(withIdentifier: "statsdet") as! statsdetTVC
-//        
-//        vc.statsdet = stats[indexPath.row]
-//        self.navigationController?.pushViewController(vc, animated: true)
-//    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "matchesdet") as! matchesdetTVC
+        
+        vc.matchdet = matchs[indexPath.row]
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         

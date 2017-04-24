@@ -24,6 +24,7 @@ class rootclass: NSObject {
     
     enum colors:String {
         case FUNDO = "010a12"
+        case FUNDO_CLARO = "252d33"
         case TEXTO_TOP_BAR = "f2e6d4"
         case BORDA_OFUSCADA = "795930"
         case BORDA_BRILHANTE = "ca9a4d"
@@ -897,7 +898,7 @@ class rootclass: NSObject {
                                         }
                                         
                                         if let pickTurn = jmatchdet["teams"][e]["bans"][f]["pickTurn"].int {
-                                            ban.championId = pickTurn
+                                            ban.pickTurn = pickTurn
                                         }
                                         
                                         team.bans.append(ban)

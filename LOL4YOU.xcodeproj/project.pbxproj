@@ -19,12 +19,19 @@
 		A00280241E9D981B003175A7 /* rootclass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00280231E9D981B003175A7 /* rootclass.swift */; };
 		A00280291E9DAE08003175A7 /* statsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00280281E9DAE08003175A7 /* statsTVC.swift */; };
 		A002802B1E9DAE27003175A7 /* statsTVCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A002802A1E9DAE27003175A7 /* statsTVCC.swift */; };
-		A011B5971EACEA860083FDD3 /* matchesdetTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A011B5961EACEA860083FDD3 /* matchesdetTVC.swift */; };
-		A011B5991EACED040083FDD3 /* matchesdetTVCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A011B5981EACED040083FDD3 /* matchesdetTVCC.swift */; };
 		A017A8741EA5456700C325F7 /* perfilCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A017A8731EA5456700C325F7 /* perfilCVC.swift */; };
 		A017A8761EA546B600C325F7 /* perfilVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A017A8751EA546B600C325F7 /* perfilVC.swift */; };
 		A053900B1EA58E1B00657E55 /* perfil.xib in Resources */ = {isa = PBXBuildFile; fileRef = A053900A1EA58E1B00657E55 /* perfil.xib */; };
 		A053900D1EA58E8900657E55 /* perfilV.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053900C1EA58E8900657E55 /* perfilV.swift */; };
+		A056E76D1EAE252E007FDB9F /* matchesdetinfoTVCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A056E76B1EAE252E007FDB9F /* matchesdetinfoTVCC.swift */; };
+		A056E76E1EAE252E007FDB9F /* matchesdetinfoTVCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A056E76C1EAE252E007FDB9F /* matchesdetinfoTVCC.xib */; };
+		A056E7711EAE2B92007FDB9F /* matchesdetplayersTVCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A056E76F1EAE2B92007FDB9F /* matchesdetplayersTVCC.swift */; };
+		A056E7721EAE2B92007FDB9F /* matchesdetplayersTVCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A056E7701EAE2B92007FDB9F /* matchesdetplayersTVCC.xib */; };
+		A056E7741EAE3901007FDB9F /* matchesdetTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A056E7731EAE3901007FDB9F /* matchesdetTVC.swift */; };
+		A056E77D1EAE8722007FDB9F /* hmatchesdetTVH.swift in Sources */ = {isa = PBXBuildFile; fileRef = A056E77C1EAE8722007FDB9F /* hmatchesdetTVH.swift */; };
+		A056E77F1EAE8733007FDB9F /* hmatchesdetTVH.xib in Resources */ = {isa = PBXBuildFile; fileRef = A056E77E1EAE8733007FDB9F /* hmatchesdetTVH.xib */; };
+		A056E7821EAE94DD007FDB9F /* matchesdetbansTVCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A056E7801EAE94DD007FDB9F /* matchesdetbansTVCC.swift */; };
+		A056E7831EAE94DD007FDB9F /* matchesdetbansTVCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A056E7811EAE94DD007FDB9F /* matchesdetbansTVCC.xib */; };
 		A06CD86D1E9E5FC000D4362E /* statsdetTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06CD86C1E9E5FC000D4362E /* statsdetTVC.swift */; };
 		A09D99F01EA3D0360054E988 /* searchsummonerTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09D99EF1EA3D0360054E988 /* searchsummonerTVC.swift */; };
 		A0BF02FA1EA6422600DB84E9 /* emptytableview.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0BF02F91EA6422600DB84E9 /* emptytableview.xib */; };
@@ -84,12 +91,19 @@
 		A00280231E9D981B003175A7 /* rootclass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rootclass.swift; sourceTree = "<group>"; };
 		A00280281E9DAE08003175A7 /* statsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = statsTVC.swift; sourceTree = "<group>"; };
 		A002802A1E9DAE27003175A7 /* statsTVCC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = statsTVCC.swift; sourceTree = "<group>"; };
-		A011B5961EACEA860083FDD3 /* matchesdetTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matchesdetTVC.swift; sourceTree = "<group>"; };
-		A011B5981EACED040083FDD3 /* matchesdetTVCC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matchesdetTVCC.swift; sourceTree = "<group>"; };
 		A017A8731EA5456700C325F7 /* perfilCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = perfilCVC.swift; sourceTree = "<group>"; };
 		A017A8751EA546B600C325F7 /* perfilVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = perfilVC.swift; sourceTree = "<group>"; };
 		A053900A1EA58E1B00657E55 /* perfil.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = perfil.xib; sourceTree = "<group>"; };
 		A053900C1EA58E8900657E55 /* perfilV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = perfilV.swift; sourceTree = "<group>"; };
+		A056E76B1EAE252E007FDB9F /* matchesdetinfoTVCC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matchesdetinfoTVCC.swift; sourceTree = "<group>"; };
+		A056E76C1EAE252E007FDB9F /* matchesdetinfoTVCC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = matchesdetinfoTVCC.xib; sourceTree = "<group>"; };
+		A056E76F1EAE2B92007FDB9F /* matchesdetplayersTVCC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matchesdetplayersTVCC.swift; sourceTree = "<group>"; };
+		A056E7701EAE2B92007FDB9F /* matchesdetplayersTVCC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = matchesdetplayersTVCC.xib; sourceTree = "<group>"; };
+		A056E7731EAE3901007FDB9F /* matchesdetTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matchesdetTVC.swift; sourceTree = "<group>"; };
+		A056E77C1EAE8722007FDB9F /* hmatchesdetTVH.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = hmatchesdetTVH.swift; sourceTree = "<group>"; };
+		A056E77E1EAE8733007FDB9F /* hmatchesdetTVH.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = hmatchesdetTVH.xib; sourceTree = "<group>"; };
+		A056E7801EAE94DD007FDB9F /* matchesdetbansTVCC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matchesdetbansTVCC.swift; sourceTree = "<group>"; };
+		A056E7811EAE94DD007FDB9F /* matchesdetbansTVCC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = matchesdetbansTVCC.xib; sourceTree = "<group>"; };
 		A06CD86C1E9E5FC000D4362E /* statsdetTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = statsdetTVC.swift; sourceTree = "<group>"; };
 		A09D99EF1EA3D0360054E988 /* searchsummonerTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = searchsummonerTVC.swift; sourceTree = "<group>"; };
 		A0BF02F91EA6422600DB84E9 /* emptytableview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = emptytableview.xib; sourceTree = "<group>"; };
@@ -249,6 +263,22 @@
 			name = perfil;
 			sourceTree = "<group>";
 		};
+		A056E7751EAE3C47007FDB9F /* matchesdet */ = {
+			isa = PBXGroup;
+			children = (
+				A056E76B1EAE252E007FDB9F /* matchesdetinfoTVCC.swift */,
+				A056E76C1EAE252E007FDB9F /* matchesdetinfoTVCC.xib */,
+				A056E76F1EAE2B92007FDB9F /* matchesdetplayersTVCC.swift */,
+				A056E7701EAE2B92007FDB9F /* matchesdetplayersTVCC.xib */,
+				A056E7731EAE3901007FDB9F /* matchesdetTVC.swift */,
+				A056E77C1EAE8722007FDB9F /* hmatchesdetTVH.swift */,
+				A056E77E1EAE8733007FDB9F /* hmatchesdetTVH.xib */,
+				A056E7801EAE94DD007FDB9F /* matchesdetbansTVCC.swift */,
+				A056E7811EAE94DD007FDB9F /* matchesdetbansTVCC.xib */,
+			);
+			name = matchesdet;
+			sourceTree = "<group>";
+		};
 		A09D99EE1EA3CFFC0054E988 /* search */ = {
 			isa = PBXGroup;
 			children = (
@@ -278,10 +308,9 @@
 		A0BF02FD1EA6ACA600DB84E9 /* matches */ = {
 			isa = PBXGroup;
 			children = (
+				A056E7751EAE3C47007FDB9F /* matchesdet */,
 				A0BF02FE1EA6B20000DB84E9 /* matchesTVC.swift */,
 				A0BF03001EA6B21900DB84E9 /* matchesTVCC.swift */,
-				A011B5961EACEA860083FDD3 /* matchesdetTVC.swift */,
-				A011B5981EACED040083FDD3 /* matchesdetTVCC.swift */,
 			);
 			name = matches;
 			sourceTree = "<group>";
@@ -462,18 +491,22 @@
 				A0D97B0B1EA7A28700273C10 /* profileicon.json in Resources */,
 				A0D97B0A1EA7A28700273C10 /* mastery.json in Resources */,
 				A0D97AF91EA792D300273C10 /* friz_quadrata_r.ttf in Resources */,
+				A056E76E1EAE252E007FDB9F /* matchesdetinfoTVCC.xib in Resources */,
 				A0D97B0C1EA7A28700273C10 /* rune.json in Resources */,
 				A00280001E9D91BD003175A7 /* LaunchScreen.storyboard in Resources */,
 				A0D97B091EA7A28700273C10 /* map.json in Resources */,
+				A056E77F1EAE8733007FDB9F /* hmatchesdetTVH.xib in Resources */,
 				A0D97B071EA7A28700273C10 /* item.json in Resources */,
 				A0D97AF81EA792D300273C10 /* friz_quadrata_m.otf in Resources */,
 				A053900B1EA58E1B00657E55 /* perfil.xib in Resources */,
 				A0D97B0D1EA7A28700273C10 /* sticker.json in Resources */,
 				A0D97B051EA7A28700273C10 /* champion.json in Resources */,
 				A0027FFD1E9D91BD003175A7 /* Assets.xcassets in Resources */,
+				A056E7721EAE2B92007FDB9F /* matchesdetplayersTVCC.xib in Resources */,
 				A0027FFB1E9D91BD003175A7 /* Main.storyboard in Resources */,
 				A0BF02FA1EA6422600DB84E9 /* emptytableview.xib in Resources */,
 				A0D97B0E1EA7A28700273C10 /* summoner.json in Resources */,
+				A056E7831EAE94DD007FDB9F /* matchesdetbansTVCC.xib in Resources */,
 				A0D97B061EA7A28700273C10 /* championFull.json in Resources */,
 				A0D97B081EA7A28700273C10 /* language.json in Resources */,
 			);
@@ -639,18 +672,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				A017A8741EA5456700C325F7 /* perfilCVC.swift in Sources */,
-				A011B5971EACEA860083FDD3 /* matchesdetTVC.swift in Sources */,
+				A056E76D1EAE252E007FDB9F /* matchesdetinfoTVCC.swift in Sources */,
+				A056E7711EAE2B92007FDB9F /* matchesdetplayersTVCC.swift in Sources */,
 				A0BF02FC1EA643DC00DB84E9 /* emptytableview.swift in Sources */,
 				A00280291E9DAE08003175A7 /* statsTVC.swift in Sources */,
+				A056E77D1EAE8722007FDB9F /* hmatchesdetTVH.swift in Sources */,
 				A002802B1E9DAE27003175A7 /* statsTVCC.swift in Sources */,
 				A0027FF61E9D91BD003175A7 /* AppDelegate.swift in Sources */,
 				A0BF03011EA6B21900DB84E9 /* matchesTVCC.swift in Sources */,
 				A0D97AF31EA78FCE00273C10 /* UIColorExtension.swift in Sources */,
 				A053900D1EA58E8900657E55 /* perfilV.swift in Sources */,
-				A011B5991EACED040083FDD3 /* matchesdetTVCC.swift in Sources */,
 				A017A8761EA546B600C325F7 /* perfilVC.swift in Sources */,
 				A00280241E9D981B003175A7 /* rootclass.swift in Sources */,
 				A06CD86D1E9E5FC000D4362E /* statsdetTVC.swift in Sources */,
+				A056E7741EAE3901007FDB9F /* matchesdetTVC.swift in Sources */,
+				A056E7821EAE94DD007FDB9F /* matchesdetbansTVCC.swift in Sources */,
 				A09D99F01EA3D0360054E988 /* searchsummonerTVC.swift in Sources */,
 				A0BF02FF1EA6B20000DB84E9 /* matchesTVC.swift in Sources */,
 			);
