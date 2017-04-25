@@ -169,9 +169,9 @@ class rootclass: NSObject {
     
     static let sharedInstance: rootclass = rootclass()
     
-    let const_zeros_i = 0
-    let const_zeros_s = "0"
-    let const_matches_qtds = 15
+    public let const_zeros_i = 0
+    public let const_zeros_s = "0"
+    public let const_matches_qtds = 15
     
     enum colors:String {
         case FUNDO = "010a12"
@@ -343,6 +343,7 @@ class rootclass: NSObject {
         var firstTower:Bool = false
         var firstBaron:Bool = false
         var firstDragon:Bool = false
+        var towerKills:Int = 0
         var inhibitorKills:Int = 0
         var baronKills:Int = 0
         var dragonKills:Int = 0
@@ -655,11 +656,9 @@ class rootclass: NSObject {
     func listarMatchDetUni(matchid:Int, matchdet:@escaping (BEMatch?) -> ()) {
 
         let match = rootclass.BEMatch()
-        let semaphore = DispatchSemaphore(value: 0)
         let url = "https://\(rootclass.Region.REGION_BR.rawValue.lowercased()).api.riotgames.com/api/lol/\(rootclass.Region.REGION_BR.rawValue.uppercased())/v2.2/match/\(matchid)?api_key=\(rootclass.Summoner.api_key)"
 
-        let queue = DispatchQueue.global(qos: .background)
-        Alamofire.request(url).responseJSON(queue: queue) { response in
+        Alamofire.request(url).responseJSON { response in
             
             switch response.result {
             case .success( _):
@@ -894,8 +893,8 @@ class rootclass: NSObject {
                                 team.inhibitorKills = inhibitorKills
                             }
                             
-                            if let inhibitorKills = jmatchdet["teams"][e]["inhibitorKills"].int {
-                                team.inhibitorKills = inhibitorKills
+                            if let towerKills = jmatchdet["teams"][e]["towerKills"].int {
+                                team.towerKills = towerKills
                             }
                             
                             if let baronKills = jmatchdet["teams"][e]["baronKills"].int {
@@ -922,16 +921,13 @@ class rootclass: NSObject {
                             
                             match.teams.append(team)
                         }
-                        semaphore.signal()
                         matchdet(match)
                     }
                 }
             case .failure(let error):
-                semaphore.signal()
                 matchdet(nil)
             }
         }
-        semaphore.wait(timeout: .distantFuture)
     }
     
     func listarMatchDet(matchs:Array<Int>, matchdet:@escaping (Array<BEMatch>) -> ()) {
@@ -1193,8 +1189,8 @@ class rootclass: NSObject {
                                         team.inhibitorKills = inhibitorKills
                                     }
                                     
-                                    if let inhibitorKills = jmatchdet["teams"][e]["inhibitorKills"].int {
-                                        team.inhibitorKills = inhibitorKills
+                                    if let towerKills = jmatchdet["teams"][e]["towerKills"].int {
+                                        team.towerKills = towerKills
                                     }
                                     
                                     if let baronKills = jmatchdet["teams"][e]["baronKills"].int {

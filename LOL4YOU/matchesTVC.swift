@@ -27,12 +27,21 @@ class matchesTVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "matchesdet") as! matchesdetTVC
+        SVProgressHUD.show()
         
-        vc.matchdetsmall = matchs[indexPath.row]
-        
-        self.navigationController?.pushViewController(vc, animated: true)
+        rt.listarMatchDetUni(matchid: matchs[indexPath.row].gameId) {(matchdet) in
+            if matchdet != nil  {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "matchesdet") as! matchesdetTVC
+                
+                vc.matchdet = matchdet!
+                
+                self.navigationController?.pushViewController(vc, animated: true)
+            } else {
+                print("errasdasd")
+            }
+            SVProgressHUD.dismiss()
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

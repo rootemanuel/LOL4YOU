@@ -16,12 +16,12 @@ class matchesdetTVC: UITableViewController {
     var matchdetsmall = rootclass.BEMatchSmall()
     
     var sections = ["Winning Team","Losing Team"]
+    let static_cell_rows_count = 9
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.initView()
-        self.loadingView()
         
     }
     
@@ -38,8 +38,12 @@ class matchesdetTVC: UITableViewController {
                 let cell = Bundle.main.loadNibNamed("matchesdetinfoTVCC", owner: self, options: nil)?.first as! matchesdetinfoTVCC
                 
                 cell.item.text = "First Blood"
-                if twinner[0].firstBlood {
-                    cell.valor.text = "Yes"
+                if twinner.count > 0 {
+                    if twinner[0].firstBlood {
+                        cell.valor.text = "Yes"
+                    } else {
+                        cell.valor.text = "No"
+                    }
                 } else {
                     cell.valor.text = "No"
                 }
@@ -50,8 +54,12 @@ class matchesdetTVC: UITableViewController {
                 let cell = Bundle.main.loadNibNamed("matchesdetinfoTVCC", owner: self, options: nil)?.first as! matchesdetinfoTVCC
                 
                 cell.item.text = "First Tower"
-                if twinner[0].firstTower {
-                    cell.valor.text = "Yes"
+                if twinner.count > 0 {
+                    if twinner[0].firstTower {
+                        cell.valor.text = "Yes"
+                    } else {
+                        cell.valor.text = "No"
+                    }
                 } else {
                     cell.valor.text = "No"
                 }
@@ -62,8 +70,12 @@ class matchesdetTVC: UITableViewController {
                 let cell = Bundle.main.loadNibNamed("matchesdetinfoTVCC", owner: self, options: nil)?.first as! matchesdetinfoTVCC
                 
                 cell.item.text = "First Baron"
-                if twinner[0].firstBaron {
-                    cell.valor.text = "Yes"
+                if twinner.count > 0 {
+                    if twinner[0].firstBaron {
+                        cell.valor.text = "Yes"
+                    } else {
+                        cell.valor.text = "No"
+                    }
                 } else {
                     cell.valor.text = "No"
                 }
@@ -74,8 +86,12 @@ class matchesdetTVC: UITableViewController {
                 let cell = Bundle.main.loadNibNamed("matchesdetinfoTVCC", owner: self, options: nil)?.first as! matchesdetinfoTVCC
                 
                 cell.item.text = "First Dragon"
-                if twinner[0].firstDragon {
-                    cell.valor.text = "Yes"
+                if twinner.count > 0 {
+                    if twinner[0].firstDragon {
+                        cell.valor.text = "Yes"
+                    } else {
+                        cell.valor.text = "No"
+                    }
                 } else {
                     cell.valor.text = "No"
                 }
@@ -86,58 +102,87 @@ class matchesdetTVC: UITableViewController {
                 let cell = Bundle.main.loadNibNamed("matchesdetinfoTVCC", owner: self, options: nil)?.first as! matchesdetinfoTVCC
                 
                 cell.item.text = "Inhibitor Kills"
-                cell.valor.text = "\(twinner[0].inhibitorKills)"
+                if twinner.count > 0 {
+                    cell.valor.text = "\(twinner[0].inhibitorKills)"
+                } else {
+                    cell.valor.text = rt.const_zeros_s
+                }
 
-                
                 return cell
             case 5:
+                //Tower Kills
+                let cell = Bundle.main.loadNibNamed("matchesdetinfoTVCC", owner: self, options: nil)?.first as! matchesdetinfoTVCC
+                
+                cell.item.text = "Tower Kills"
+                if twinner.count > 0 {
+                    cell.valor.text = "\(twinner[0].towerKills)"
+                } else {
+                    cell.valor.text = rt.const_zeros_s
+                }
+                
+                return cell
+            case 6:
                 //Baron Kills
                 let cell = Bundle.main.loadNibNamed("matchesdetinfoTVCC", owner: self, options: nil)?.first as! matchesdetinfoTVCC
                 
                 cell.item.text = "Baron Kills"
-                cell.valor.text = "\(twinner[0].baronKills)"
+                if twinner.count > 0 {
+                    cell.valor.text = "\(twinner[0].baronKills)"
+                } else {
+                    cell.valor.text = rt.const_zeros_s
+                }
                 
                 return cell
-            case 6:
+            case 7:
                 //Dragon Kills
                 let cell = Bundle.main.loadNibNamed("matchesdetinfoTVCC", owner: self, options: nil)?.first as! matchesdetinfoTVCC
                 
                 cell.item.text = "Dragon Kills"
-                cell.valor.text = "\(twinner[0].dragonKills)"
+                if twinner.count > 0 {
+                    cell.valor.text = "\(twinner[0].dragonKills)"
+                } else {
+                    cell.valor.text = rt.const_zeros_s
+                }
                 
                 return cell
-            case 7:
+            case 8:
                 //Bans Champions
                 let cell = Bundle.main.loadNibNamed("matchesdetbansTVCC", owner: self, options: nil)?.first as! matchesdetbansTVCC
                 
-                if twinner[0].bans.count > 0 {
-                    for i in 0 ..< twinner[0].bans.count {
-                        switch i {
-                        case 0:
-                            let champ = rt.listaChamp(id: twinner[0].bans[0].championId)
-                            cell.imgchamp1.image = UIImage(named:"champion_\(champ.key)")
-                            cell.imgchamp1.layer.borderWidth = 1
-                            cell.imgchamp1.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
-                        case 1:
-                            let champ = rt.listaChamp(id: twinner[0].bans[1].championId)
-                            cell.imgchamp2.image = UIImage(named:"champion_\(champ.key)")
-                            cell.imgchamp2.layer.borderWidth = 1
-                            cell.imgchamp2.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
-                        case 2:
-                            let champ = rt.listaChamp(id: twinner[0].bans[2].championId)
-                            cell.imgchamp3.image = UIImage(named:"champion_\(champ.key)")
-                            cell.imgchamp3.layer.borderWidth = 1
-                            cell.imgchamp3.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
-                        default:
-                            print("R00T - INVALID")
+                if twinner.count > 0 {
+                    if twinner[0].bans.count > 0 {
+                        for i in 0 ..< twinner[0].bans.count {
+                            switch i {
+                            case 0:
+                                let champ = rt.listaChamp(id: twinner[0].bans[0].championId)
+                                cell.imgchamp1.image = UIImage(named:"champion_\(champ.key)")
+                                cell.imgchamp1.layer.borderWidth = 1
+                                cell.imgchamp1.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
+                            case 1:
+                                let champ = rt.listaChamp(id: twinner[0].bans[1].championId)
+                                cell.imgchamp2.image = UIImage(named:"champion_\(champ.key)")
+                                cell.imgchamp2.layer.borderWidth = 1
+                                cell.imgchamp2.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
+                            case 2:
+                                let champ = rt.listaChamp(id: twinner[0].bans[2].championId)
+                                cell.imgchamp3.image = UIImage(named:"champion_\(champ.key)")
+                                cell.imgchamp3.layer.borderWidth = 1
+                                cell.imgchamp3.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
+                            default:
+                                print("R00T - INVALID")
+                            }
                         }
+                    } else {
+                        cell.imgchamp1.isHidden = true
+                        cell.imgchamp2.isHidden = true
+                        cell.imgchamp3.isHidden = true
                     }
                 } else {
                     cell.imgchamp1.isHidden = true
                     cell.imgchamp2.isHidden = true
                     cell.imgchamp3.isHidden = true
                 }
-            
+                
                 return cell
             default:
                 let cell = Bundle.main.loadNibNamed("matchesdetplayersTVCC", owner: self, options: nil)?.first as! matchesdetplayersTVCC
@@ -157,122 +202,129 @@ class matchesdetTVC: UITableViewController {
                 let tstats = matchdet.participants.filter{ p in p.stats.winner == true }
                 
                 if tstats.count > 0 {
-                    let summoner = rt.listaChamp(id: tstats[indexPath.row - 8].championId)
-                    let tsummonername = matchdet.participantsIdentities.filter{ p in p.participantId == tstats[indexPath.row - 8].participantId }
-                    
-                    if tsummonername.count > 0 {
-                        cell.summonername.text = tsummonername[0].summonerName
-                    }
-                    
-                    cell.kda.text = "\(tstats[indexPath.row - 8].stats.kills)/\(tstats[indexPath.row - 8].stats.deaths)/\(tstats[indexPath.row - 8].stats.assists)"
-                    cell.minions.text = "\(tstats[indexPath.row - 8].stats.minionsKilled + tstats[indexPath.row - 8].stats.neutralMinionsKilled)"
-                    
-                    if tstats[indexPath.row - 8].stats.goldEarned >= 1000 {
-                        cell.gold.text = String(format:"%.1f K", Double(tstats[indexPath.row - 8].stats.goldEarned) / Double(1000))
-                    } else {
-                        cell.gold.text = String(format:"%.1f K", Double(tstats[indexPath.row - 8].stats.goldEarned))
-                    }
-                    
-                    if tstats[indexPath.row - 8].stats.champLevel > 0 {
-                        cell.lvl.text = "\(tstats[indexPath.row - 8].stats.champLevel)"
-                        cell.imglvl.backgroundColor = UIColor(hex: rootclass.colors.FUNDO.rawValue)
-                        cell.imglvl.layer.borderWidth = 1
-                        cell.imglvl.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
-                    } else {
-                        cell.imglvl.isHidden = true
-                        cell.lvl.isHidden = true
-                    }
-                    
-                    if let imgchamp = UIImage(named:"champion_\(summoner.key)") {
-                        cell.imgchampion.image = imgchamp
-                        cell.imgchampion.layer.borderWidth = 2
-                        cell.imgchampion.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
-                    }
-                    
-                    if let imgitem0 = UIImage(named:"item_\(tstats[indexPath.row - 8].stats.item0)") {
-                        cell.imgitem0.image = imgitem0
-                        cell.imgitem0.layer.borderWidth = 1
-                        cell.imgitem0.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
-                    }
-                    
-                    if let imgitem1 = UIImage(named:"item_\(tstats[indexPath.row - 8].stats.item1)") {
-                        cell.imgitem1.image = imgitem1
-                        cell.imgitem1.layer.borderWidth = 1
-                        cell.imgitem1.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
-                    }
-                    
-                    if let imgitem2 = UIImage(named:"item_\(tstats[indexPath.row - 8].stats.item2)") {
-                        cell.imgitem2.image = imgitem2
-                        cell.imgitem2.layer.borderWidth = 1
-                        cell.imgitem2.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
-                    }
-                    
-                    if let imgitem3 = UIImage(named:"item_\(tstats[indexPath.row - 8].stats.item3)") {
-                        cell.imgitem3.image = imgitem3
-                        cell.imgitem3.layer.borderWidth = 1
-                        cell.imgitem3.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
-                    }
-                    
-                    if let imgitem4 = UIImage(named:"item_\(tstats[indexPath.row - 8].stats.item4)") {
-                        cell.imgitem4.image = imgitem4
-                        cell.imgitem4.layer.borderWidth = 1
-                        cell.imgitem4.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
-                    }
-                    
-                    if let imgitem5 = UIImage(named:"item_\(tstats[indexPath.row - 8].stats.item5)") {
-                        cell.imgitem5.image = imgitem5
-                        cell.imgitem5.layer.borderWidth = 1
-                        cell.imgitem5.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
-                    }
-                    
-                    if let imgitem6 = UIImage(named:"item_\(tstats[indexPath.row - 8].stats.item6)") {
-                        cell.imgtrinket.image = imgitem6
-                        cell.imgtrinket.layer.borderWidth = 1
-                        cell.imgtrinket.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
-                    }
-                    
-                    if let spell1 = UIImage(named:"spell_summoner_\( tstats[indexPath.row - 8].spell1Id)") {
-                        cell.imgtlt0.image = spell1
-                        cell.imgtlt0.layer.borderWidth = 1
-                        cell.imgtlt0.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
-                    }
-                    
-                    if let spell2 = UIImage(named:"spell_summoner_\(tstats[indexPath.row - 8].spell2Id)") {
-                        cell.imgtlt1.image = spell2
-                        cell.imgtlt1.layer.borderWidth = 1
-                        cell.imgtlt1.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
-                    }
-                    
-                    let masterys = tstats[indexPath.row - 8].masterys
-                    
-                    let masteryf = masterys.filter{
+                    if (indexPath.row - static_cell_rows_count) < tstats.count {
+                        let summoner = rt.listaChamp(id: tstats[indexPath.row - static_cell_rows_count].championId)
+                        let tsummonername = matchdet.participantsIdentities.filter{ p in p.participantId == tstats[indexPath.row - static_cell_rows_count].participantId }
                         
-                        if ($0.masteryId == 6161 ||
-                            $0.masteryId == 6162 ||
-                            $0.masteryId == 6164 ||
-                            $0.masteryId == 6363 ||
-                            $0.masteryId == 6362 ||
-                            $0.masteryId == 6361 ||
-                            $0.masteryId == 6263 ||
-                            $0.masteryId == 6262 ||
-                            $0.masteryId == 6261 ) {
-                            return true
+                        if tsummonername.count > 0 {
+                            if tsummonername[0].summonerName.isEmpty {
+                                cell.summonername.text = summoner.name
+                            } else {
+                                cell.summonername.text = tsummonername[0].summonerName
+                            }
+                        }
+                        
+                        cell.kda.text = "\(tstats[indexPath.row - static_cell_rows_count].stats.kills)/\(tstats[indexPath.row - static_cell_rows_count].stats.deaths)/\(tstats[indexPath.row - static_cell_rows_count].stats.assists)"
+                        cell.minions.text = "\(tstats[indexPath.row - static_cell_rows_count].stats.minionsKilled + tstats[indexPath.row - static_cell_rows_count].stats.neutralMinionsKilled)"
+                        
+                        if tstats[indexPath.row - static_cell_rows_count].stats.goldEarned >= 1000 {
+                            cell.gold.text = String(format:"%.1f K", Double(tstats[indexPath.row - static_cell_rows_count].stats.goldEarned) / Double(1000))
                         } else {
-                            return false
+                            cell.gold.text = String(format:"%.1f K", Double(tstats[indexPath.row - static_cell_rows_count].stats.goldEarned))
                         }
-                    }
-                    
-                    if masteryf.count > 0 {
-                        if let spellm = UIImage(named:"mastery_\(masteryf[0].masteryId)") {
-                            cell.imgtltmast.image = spellm
-                            cell.imgtltmast.layer.borderWidth = 1
-                            cell.imgtltmast.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
+                        
+                        if tstats[indexPath.row - static_cell_rows_count].stats.champLevel > 0 {
+                            
+                            cell.imglvl.isHidden = false
+                            cell.lvl.isHidden = false
+                            
+                            cell.lvl.text = "\(tstats[indexPath.row - static_cell_rows_count].stats.champLevel)"
+                            cell.imglvl.backgroundColor = UIColor(hex: rootclass.colors.FUNDO.rawValue)
+                            cell.imglvl.layer.borderWidth = 1
+                            cell.imglvl.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
                         }
-                    } else {
-                        cell.imgtltmast.isHidden = true
+                        
+                        if let imgchamp = UIImage(named:"champion_\(summoner.key)") {
+                            cell.imgchampion.isHidden = false
+                            cell.imgchampion.image = imgchamp
+                            cell.imgchampion.layer.borderWidth = 2
+                            cell.imgchampion.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
+                        }
+                        
+                        if let imgitem0 = UIImage(named:"item_\(tstats[indexPath.row - static_cell_rows_count].stats.item0)") {
+                            cell.imgitem0.image = imgitem0
+                            cell.imgitem0.layer.borderWidth = 1
+                            cell.imgitem0.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
+                        }
+                        
+                        if let imgitem1 = UIImage(named:"item_\(tstats[indexPath.row - static_cell_rows_count].stats.item1)") {
+                            cell.imgitem1.image = imgitem1
+                            cell.imgitem1.layer.borderWidth = 1
+                            cell.imgitem1.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
+                        }
+                        
+                        if let imgitem2 = UIImage(named:"item_\(tstats[indexPath.row - static_cell_rows_count].stats.item2)") {
+                            cell.imgitem2.image = imgitem2
+                            cell.imgitem2.layer.borderWidth = 1
+                            cell.imgitem2.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
+                        }
+                        
+                        if let imgitem3 = UIImage(named:"item_\(tstats[indexPath.row - static_cell_rows_count].stats.item3)") {
+                            cell.imgitem3.image = imgitem3
+                            cell.imgitem3.layer.borderWidth = 1
+                            cell.imgitem3.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
+                        }
+                        
+                        if let imgitem4 = UIImage(named:"item_\(tstats[indexPath.row - static_cell_rows_count].stats.item4)") {
+                            cell.imgitem4.image = imgitem4
+                            cell.imgitem4.layer.borderWidth = 1
+                            cell.imgitem4.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
+                        }
+                        
+                        if let imgitem5 = UIImage(named:"item_\(tstats[indexPath.row - static_cell_rows_count].stats.item5)") {
+                            cell.imgitem5.image = imgitem5
+                            cell.imgitem5.layer.borderWidth = 1
+                            cell.imgitem5.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
+                        }
+                        
+                        if let imgitem6 = UIImage(named:"item_\(tstats[indexPath.row - static_cell_rows_count].stats.item6)") {
+                            cell.imgtrinket.image = imgitem6
+                            cell.imgtrinket.layer.borderWidth = 1
+                            cell.imgtrinket.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
+                        }
+                        
+                        if let spell1 = UIImage(named:"spell_summoner_\( tstats[indexPath.row - static_cell_rows_count].spell1Id)") {
+                            cell.imgtlt0.image = spell1
+                            cell.imgtlt0.layer.borderWidth = 1
+                            cell.imgtlt0.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
+                        }
+                        
+                        if let spell2 = UIImage(named:"spell_summoner_\(tstats[indexPath.row - static_cell_rows_count].spell2Id)") {
+                            cell.imgtlt1.image = spell2
+                            cell.imgtlt1.layer.borderWidth = 1
+                            cell.imgtlt1.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
+                        }
+                        
+                        let masterys = tstats[indexPath.row - static_cell_rows_count].masterys
+                        
+                        let masteryf = masterys.filter{
+                            
+                            if ($0.masteryId == 6161 ||
+                                $0.masteryId == 6162 ||
+                                $0.masteryId == 6164 ||
+                                $0.masteryId == 6363 ||
+                                $0.masteryId == 6362 ||
+                                $0.masteryId == 6361 ||
+                                $0.masteryId == 6263 ||
+                                $0.masteryId == 6262 ||
+                                $0.masteryId == 6261 ) {
+                                return true
+                            } else {
+                                return false
+                            }
+                        }
+                        
+                        if masteryf.count > 0 {
+                            if let spellm = UIImage(named:"mastery_\(masteryf[0].masteryId)") {
+                                cell.imgtltmast.image = spellm
+                                cell.imgtltmast.layer.borderWidth = 1
+                                cell.imgtltmast.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
+                            }
+                        } else {
+                            cell.imgtltmast.isHidden = true
+                        }
                     }
                 }
-                
                 return cell
             }
         case 1:
@@ -282,8 +334,12 @@ class matchesdetTVC: UITableViewController {
                 let cell = Bundle.main.loadNibNamed("matchesdetinfoTVCC", owner: self, options: nil)?.first as! matchesdetinfoTVCC
                 
                 cell.item.text = "First Blood"
-                if tlosing[0].firstBlood {
-                    cell.valor.text = "Yes"
+                if tlosing.count > 0 {
+                    if tlosing[0].firstBlood {
+                        cell.valor.text = "Yes"
+                    } else {
+                        cell.valor.text = "No"
+                    }
                 } else {
                     cell.valor.text = "No"
                 }
@@ -294,8 +350,12 @@ class matchesdetTVC: UITableViewController {
                 let cell = Bundle.main.loadNibNamed("matchesdetinfoTVCC", owner: self, options: nil)?.first as! matchesdetinfoTVCC
                 
                 cell.item.text = "First Tower"
-                if tlosing[0].firstTower {
-                    cell.valor.text = "Yes"
+                if tlosing.count > 0 {
+                    if tlosing[0].firstTower {
+                        cell.valor.text = "Yes"
+                    } else {
+                        cell.valor.text = "No"
+                    }
                 } else {
                     cell.valor.text = "No"
                 }
@@ -306,8 +366,12 @@ class matchesdetTVC: UITableViewController {
                 let cell = Bundle.main.loadNibNamed("matchesdetinfoTVCC", owner: self, options: nil)?.first as! matchesdetinfoTVCC
                 
                 cell.item.text = "First Baron"
-                if tlosing[0].firstBaron {
-                    cell.valor.text = "Yes"
+                if tlosing.count > 0 {
+                    if tlosing[0].firstBaron {
+                        cell.valor.text = "Yes"
+                    } else {
+                        cell.valor.text = "No"
+                    }
                 } else {
                     cell.valor.text = "No"
                 }
@@ -318,8 +382,12 @@ class matchesdetTVC: UITableViewController {
                 let cell = Bundle.main.loadNibNamed("matchesdetinfoTVCC", owner: self, options: nil)?.first as! matchesdetinfoTVCC
                 
                 cell.item.text = "First Dragon"
-                if tlosing[0].firstDragon {
-                    cell.valor.text = "Yes"
+                if tlosing.count > 0 {
+                    if tlosing[0].firstDragon {
+                        cell.valor.text = "Yes"
+                    } else {
+                        cell.valor.text = "No"
+                    }
                 } else {
                     cell.valor.text = "No"
                 }
@@ -330,52 +398,82 @@ class matchesdetTVC: UITableViewController {
                 let cell = Bundle.main.loadNibNamed("matchesdetinfoTVCC", owner: self, options: nil)?.first as! matchesdetinfoTVCC
                 
                 cell.item.text = "Inhibitor Kills"
-                cell.valor.text = "\(tlosing[0].inhibitorKills)"
+                if tlosing.count > 0 {
+                    cell.valor.text = "\(tlosing[0].inhibitorKills)"
+                } else {
+                    cell.valor.text = rt.const_zeros_s
+                }
                 
                 
                 return cell
             case 5:
+                //Tower Kills
+                let cell = Bundle.main.loadNibNamed("matchesdetinfoTVCC", owner: self, options: nil)?.first as! matchesdetinfoTVCC
+                
+                cell.item.text = "Tower Kills"
+                if tlosing.count > 0 {
+                    cell.valor.text = "\(tlosing[0].towerKills)"
+                } else {
+                    cell.valor.text = rt.const_zeros_s
+                }
+                
+                return cell
+            case 6:
                 //Baron Kills
                 let cell = Bundle.main.loadNibNamed("matchesdetinfoTVCC", owner: self, options: nil)?.first as! matchesdetinfoTVCC
                 
                 cell.item.text = "Baron Kills"
-                cell.valor.text = "\(tlosing[0].baronKills)"
+                if tlosing.count > 0 {
+                    cell.valor.text = "\(tlosing[0].baronKills)"
+                } else {
+                    cell.valor.text = rt.const_zeros_s
+                }
                 
                 return cell
-            case 6:
+            case 7:
                 //Dragon Kills
                 let cell = Bundle.main.loadNibNamed("matchesdetinfoTVCC", owner: self, options: nil)?.first as! matchesdetinfoTVCC
                 
                 cell.item.text = "Dragon Kills"
-                cell.valor.text = "\(tlosing[0].dragonKills)"
+                if tlosing.count > 0 {
+                    cell.valor.text = "\(tlosing[0].dragonKills)"
+                } else {
+                    cell.valor.text = rt.const_zeros_s
+                }
                 
                 return cell
-            case 7:
+            case 8:
             //Bans Champions
                 //Bans Champions
                 let cell = Bundle.main.loadNibNamed("matchesdetbansTVCC", owner: self, options: nil)?.first as! matchesdetbansTVCC
                 
-                if tlosing[0].bans.count > 0 {
-                    for i in 0 ..< tlosing[0].bans.count {
-                        switch i {
-                        case 0:
-                            let champ = rt.listaChamp(id: tlosing[0].bans[0].championId)
-                            cell.imgchamp1.image = UIImage(named:"champion_\(champ.key)")
-                            cell.imgchamp1.layer.borderWidth = 1
-                            cell.imgchamp1.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
-                        case 1:
-                            let champ = rt.listaChamp(id: tlosing[0].bans[1].championId)
-                            cell.imgchamp2.image = UIImage(named:"champion_\(champ.key)")
-                            cell.imgchamp2.layer.borderWidth = 1
-                            cell.imgchamp2.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
-                        case 2:
-                            let champ = rt.listaChamp(id: tlosing[0].bans[2].championId)
-                            cell.imgchamp3.image = UIImage(named:"champion_\(champ.key)")
-                            cell.imgchamp3.layer.borderWidth = 1
-                            cell.imgchamp3.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
-                        default:
-                            print("R00T - INVALID")
+                if tlosing.count > 0 {
+                    if tlosing[0].bans.count > 0 {
+                        for i in 0 ..< tlosing[0].bans.count {
+                            switch i {
+                            case 0:
+                                let champ = rt.listaChamp(id: tlosing[0].bans[0].championId)
+                                cell.imgchamp1.image = UIImage(named:"champion_\(champ.key)")
+                                cell.imgchamp1.layer.borderWidth = 1
+                                cell.imgchamp1.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
+                            case 1:
+                                let champ = rt.listaChamp(id: tlosing[0].bans[1].championId)
+                                cell.imgchamp2.image = UIImage(named:"champion_\(champ.key)")
+                                cell.imgchamp2.layer.borderWidth = 1
+                                cell.imgchamp2.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
+                            case 2:
+                                let champ = rt.listaChamp(id: tlosing[0].bans[2].championId)
+                                cell.imgchamp3.image = UIImage(named:"champion_\(champ.key)")
+                                cell.imgchamp3.layer.borderWidth = 1
+                                cell.imgchamp3.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
+                            default:
+                                print("R00T - INVALID")
+                            }
                         }
+                    } else {
+                        cell.imgchamp1.isHidden = true
+                        cell.imgchamp2.isHidden = true
+                        cell.imgchamp3.isHidden = true
                     }
                 } else {
                     cell.imgchamp1.isHidden = true
@@ -402,123 +500,127 @@ class matchesdetTVC: UITableViewController {
                 let tstats = matchdet.participants.filter{ p in p.stats.winner == false }
                 
                 if tstats.count > 0 {
-                    let summoner = rt.listaChamp(id: tstats[indexPath.row - 8].championId)
-                    let tsummonername = matchdet.participantsIdentities.filter{ p in p.participantId == tstats[indexPath.row - 8].participantId }
-                    
-                    if tsummonername.count > 0 {
-                        if tsummonername[0].summonerName.isEmpty {
-                            cell.summonername.text = summoner.name
-                        } else {
-                            cell.summonername.text = tsummonername[0].summonerName
-                        }
-                    }
-                
-                    cell.kda.text = "\(tstats[indexPath.row - 8].stats.kills)/\(tstats[indexPath.row - 8].stats.deaths)/\(tstats[indexPath.row - 8].stats.assists)"
-                    cell.minions.text = "\(tstats[indexPath.row - 8].stats.minionsKilled + tstats[indexPath.row - 8].stats.neutralMinionsKilled)"
-                    
-                    if tstats[indexPath.row - 8].stats.goldEarned >= 1000 {
-                        cell.gold.text = String(format:"%.1f K", Double(tstats[indexPath.row - 8].stats.goldEarned) / Double(1000))
-                    } else {
-                        cell.gold.text = String(format:"%.1f K", Double(tstats[indexPath.row - 8].stats.goldEarned))
-                    }
-                    
-                    if tstats[indexPath.row - 8].stats.champLevel > 0 {
-                        cell.lvl.text = "\(tstats[indexPath.row - 8].stats.champLevel)"
-                        cell.imglvl.backgroundColor = UIColor(hex: rootclass.colors.FUNDO.rawValue)
-                        cell.imglvl.layer.borderWidth = 1
-                        cell.imglvl.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
-                    } else {
-                        cell.imglvl.isHidden = true
-                        cell.lvl.isHidden = true
-                    }
-                    
-                    if let imgchamp = UIImage(named:"champion_\(summoner.key)") {
-                        cell.imgchampion.image = imgchamp
-                        cell.imgchampion.layer.borderWidth = 2
-                        cell.imgchampion.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
-                    }
-                    
-                    if let imgitem0 = UIImage(named:"item_\(tstats[indexPath.row - 8].stats.item0)") {
-                        cell.imgitem0.image = imgitem0
-                        cell.imgitem0.layer.borderWidth = 1
-                        cell.imgitem0.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
-                    }
-                    
-                    if let imgitem1 = UIImage(named:"item_\(tstats[indexPath.row - 8].stats.item1)") {
-                        cell.imgitem1.image = imgitem1
-                        cell.imgitem1.layer.borderWidth = 1
-                        cell.imgitem1.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
-                    }
-                    
-                    if let imgitem2 = UIImage(named:"item_\(tstats[indexPath.row - 8].stats.item2)") {
-                        cell.imgitem2.image = imgitem2
-                        cell.imgitem2.layer.borderWidth = 1
-                        cell.imgitem2.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
-                    }
-                    
-                    if let imgitem3 = UIImage(named:"item_\(tstats[indexPath.row - 8].stats.item3)") {
-                        cell.imgitem3.image = imgitem3
-                        cell.imgitem3.layer.borderWidth = 1
-                        cell.imgitem3.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
-                    }
-                    
-                    if let imgitem4 = UIImage(named:"item_\(tstats[indexPath.row - 8].stats.item4)") {
-                        cell.imgitem4.image = imgitem4
-                        cell.imgitem4.layer.borderWidth = 1
-                        cell.imgitem4.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
-                    }
-                    
-                    if let imgitem5 = UIImage(named:"item_\(tstats[indexPath.row - 8].stats.item5)") {
-                        cell.imgitem5.image = imgitem5
-                        cell.imgitem5.layer.borderWidth = 1
-                        cell.imgitem5.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
-                    }
-                    
-                    if let imgitem6 = UIImage(named:"item_\(tstats[indexPath.row - 8].stats.item6)") {
-                        cell.imgtrinket.image = imgitem6
-                        cell.imgtrinket.layer.borderWidth = 1
-                        cell.imgtrinket.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
-                    }
-                    
-                    if let spell1 = UIImage(named:"spell_summoner_\( tstats[indexPath.row - 8].spell1Id)") {
-                        cell.imgtlt0.image = spell1
-                        cell.imgtlt0.layer.borderWidth = 1
-                        cell.imgtlt0.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
-                    }
-                    
-                    if let spell2 = UIImage(named:"spell_summoner_\(tstats[indexPath.row - 8].spell2Id)") {
-                        cell.imgtlt1.image = spell2
-                        cell.imgtlt1.layer.borderWidth = 1
-                        cell.imgtlt1.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
-                    }
-                    
-                    let masterys = tstats[indexPath.row - 8].masterys
-                    
-                    let masteryf = masterys.filter{
+                    if (indexPath.row - static_cell_rows_count) < tstats.count {
+                        let summoner = rt.listaChamp(id: tstats[indexPath.row - static_cell_rows_count].championId)
+                        let tsummonername = matchdet.participantsIdentities.filter{ p in p.participantId == tstats[indexPath.row - static_cell_rows_count].participantId }
                         
-                        if ($0.masteryId == 6161 ||
-                            $0.masteryId == 6162 ||
-                            $0.masteryId == 6164 ||
-                            $0.masteryId == 6363 ||
-                            $0.masteryId == 6362 ||
-                            $0.masteryId == 6361 ||
-                            $0.masteryId == 6263 ||
-                            $0.masteryId == 6262 ||
-                            $0.masteryId == 6261 ) {
-                            return true
-                        } else {
-                            return false
+                        if tsummonername.count > 0 {
+                            if tsummonername[0].summonerName.isEmpty {
+                                cell.summonername.text = summoner.name
+                            } else {
+                                cell.summonername.text = tsummonername[0].summonerName
+                            }
                         }
-                    }
                     
-                    if masteryf.count > 0 {
-                        if let spellm = UIImage(named:"mastery_\(masteryf[0].masteryId)") {
-                            cell.imgtltmast.image = spellm
-                            cell.imgtltmast.layer.borderWidth = 1
-                            cell.imgtltmast.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
+                        cell.kda.text = "\(tstats[indexPath.row - static_cell_rows_count].stats.kills)/\(tstats[indexPath.row - static_cell_rows_count].stats.deaths)/\(tstats[indexPath.row - static_cell_rows_count].stats.assists)"
+                        cell.minions.text = "\(tstats[indexPath.row - static_cell_rows_count].stats.minionsKilled + tstats[indexPath.row - static_cell_rows_count].stats.neutralMinionsKilled)"
+                        
+                        if tstats[indexPath.row - static_cell_rows_count].stats.goldEarned >= 1000 {
+                            cell.gold.text = String(format:"%.1f K", Double(tstats[indexPath.row - static_cell_rows_count].stats.goldEarned) / Double(1000))
+                        } else {
+                            cell.gold.text = String(format:"%.1f K", Double(tstats[indexPath.row - static_cell_rows_count].stats.goldEarned))
                         }
-                    } else {
-                        cell.imgtltmast.isHidden = true
+                        
+                        if tstats[indexPath.row - static_cell_rows_count].stats.champLevel > 0 {
+                            
+                            cell.imglvl.isHidden = false
+                            cell.lvl.isHidden = false
+                            
+                            cell.lvl.text = "\(tstats[indexPath.row - static_cell_rows_count].stats.champLevel)"
+                            cell.imglvl.backgroundColor = UIColor(hex: rootclass.colors.FUNDO.rawValue)
+                            cell.imglvl.layer.borderWidth = 1
+                            cell.imglvl.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
+                        }
+                        
+                        if let imgchamp = UIImage(named:"champion_\(summoner.key)") {
+                            cell.imgchampion.isHidden = false
+                            cell.imgchampion.image = imgchamp
+                            cell.imgchampion.layer.borderWidth = 2
+                            cell.imgchampion.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
+                        }
+                        
+                        if let imgitem0 = UIImage(named:"item_\(tstats[indexPath.row - static_cell_rows_count].stats.item0)") {
+                            cell.imgitem0.image = imgitem0
+                            cell.imgitem0.layer.borderWidth = 1
+                            cell.imgitem0.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
+                        }
+                        
+                        if let imgitem1 = UIImage(named:"item_\(tstats[indexPath.row - static_cell_rows_count].stats.item1)") {
+                            cell.imgitem1.image = imgitem1
+                            cell.imgitem1.layer.borderWidth = 1
+                            cell.imgitem1.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
+                        }
+                        
+                        if let imgitem2 = UIImage(named:"item_\(tstats[indexPath.row - static_cell_rows_count].stats.item2)") {
+                            cell.imgitem2.image = imgitem2
+                            cell.imgitem2.layer.borderWidth = 1
+                            cell.imgitem2.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
+                        }
+                        
+                        if let imgitem3 = UIImage(named:"item_\(tstats[indexPath.row - static_cell_rows_count].stats.item3)") {
+                            cell.imgitem3.image = imgitem3
+                            cell.imgitem3.layer.borderWidth = 1
+                            cell.imgitem3.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
+                        }
+                        
+                        if let imgitem4 = UIImage(named:"item_\(tstats[indexPath.row - static_cell_rows_count].stats.item4)") {
+                            cell.imgitem4.image = imgitem4
+                            cell.imgitem4.layer.borderWidth = 1
+                            cell.imgitem4.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
+                        }
+                        
+                        if let imgitem5 = UIImage(named:"item_\(tstats[indexPath.row - static_cell_rows_count].stats.item5)") {
+                            cell.imgitem5.image = imgitem5
+                            cell.imgitem5.layer.borderWidth = 1
+                            cell.imgitem5.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
+                        }
+                        
+                        if let imgitem6 = UIImage(named:"item_\(tstats[indexPath.row - static_cell_rows_count].stats.item6)") {
+                            cell.imgtrinket.image = imgitem6
+                            cell.imgtrinket.layer.borderWidth = 1
+                            cell.imgtrinket.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
+                        }
+                        
+                        if let spell1 = UIImage(named:"spell_summoner_\( tstats[indexPath.row - static_cell_rows_count].spell1Id)") {
+                            cell.imgtlt0.image = spell1
+                            cell.imgtlt0.layer.borderWidth = 1
+                            cell.imgtlt0.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
+                        }
+                        
+                        if let spell2 = UIImage(named:"spell_summoner_\(tstats[indexPath.row - static_cell_rows_count].spell2Id)") {
+                            cell.imgtlt1.image = spell2
+                            cell.imgtlt1.layer.borderWidth = 1
+                            cell.imgtlt1.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
+                        }
+                        
+                        let masterys = tstats[indexPath.row - static_cell_rows_count].masterys
+                        
+                        let masteryf = masterys.filter{
+                            
+                            if ($0.masteryId == 6161 ||
+                                $0.masteryId == 6162 ||
+                                $0.masteryId == 6164 ||
+                                $0.masteryId == 6363 ||
+                                $0.masteryId == 6362 ||
+                                $0.masteryId == 6361 ||
+                                $0.masteryId == 6263 ||
+                                $0.masteryId == 6262 ||
+                                $0.masteryId == 6261 ) {
+                                return true
+                            } else {
+                                return false
+                            }
+                        }
+                        
+                        if masteryf.count > 0 {
+                            if let spellm = UIImage(named:"mastery_\(masteryf[0].masteryId)") {
+                                cell.imgtltmast.image = spellm
+                                cell.imgtltmast.layer.borderWidth = 1
+                                cell.imgtltmast.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
+                            }
+                        } else {
+                            cell.imgtltmast.isHidden = true
+                        }
                     }
                 }
                 
@@ -538,9 +640,9 @@ class matchesdetTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return 13
+            return 14
         case 1:
-            return 13
+            return 14
         default:
             return 0
         }
@@ -582,18 +684,18 @@ class matchesdetTVC: UITableViewController {
         switch indexPath.section {
         case 0:
             switch indexPath.row {
-            case (0...6):
+            case (0...7):
                 return 44
-            case 7:
+            case 8:
                  return 55
             default:
                 return 95
             }
         case 1:
             switch indexPath.row {
-            case (0...6):
+            case (0...7):
                 return 44
-            case 7:
+            case 8:
                 return 55
             default:
                 return 95
@@ -630,19 +732,6 @@ class matchesdetTVC: UITableViewController {
         self.title = "Match Details"
     }
     
-    func loadingView() {
-        SVProgressHUD.show()
-        
-        rt.listarMatchDetUni(matchid: matchdetsmall.gameId) {(matchdet) in
-            if matchdet != nil  {
-                self.matchdet = matchdet!
-            } else {
-                self.spopViewController()
-            }
-            SVProgressHUD.dismiss()
-        }
-    }
-
     func spopViewController(){
         self.navigationController?.popViewController(animated: true)
     }
