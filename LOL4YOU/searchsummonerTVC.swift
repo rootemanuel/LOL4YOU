@@ -71,7 +71,7 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate  {
     func initView(){
         let attnav = [
             NSForegroundColorAttributeName: UIColor(hex:rootclass.colors.TEXTO_TOP_BAR.rawValue),
-            NSFontAttributeName: UIFont(name: "Friz Quadrata TT", size: 15)!
+            NSFontAttributeName: UIFont(name: "Friz Quadrata TT", size: 17)!
         ]
         
         self.summonernick.delegate = self

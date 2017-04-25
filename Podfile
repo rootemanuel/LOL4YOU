@@ -7,6 +7,7 @@ target 'LOL4YOU' do
   pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'SVProgressHUD'
+  pod 'Kingfisher', '~> 3.0'
 
   # Pods for LOL4YOU
 

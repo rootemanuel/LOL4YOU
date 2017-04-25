@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class matchesdetTVC: UITableViewController {
     
     let rt = rootclass.sharedInstance
     var matchdet = rootclass.BEMatch()
+    var matchdetsmall = rootclass.BEMatchSmall()
     
     var sections = ["Winning Team","Losing Team"]
 
@@ -19,6 +21,8 @@ class matchesdetTVC: UITableViewController {
         super.viewDidLoad()
         
         self.initView()
+        self.loadingView()
+        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -106,31 +110,49 @@ class matchesdetTVC: UITableViewController {
                 //Bans Champions
                 let cell = Bundle.main.loadNibNamed("matchesdetbansTVCC", owner: self, options: nil)?.first as! matchesdetbansTVCC
                 
-                for i in 0 ..< twinner[0].bans.count {
-                    switch i {
-                    case 0:
-                        let champ = rt.listaChamp(id: twinner[0].bans[0].championId)
-                        cell.imgchamp1.image = UIImage(named:"champion_\(champ.key)")
-                        cell.imgchamp1.layer.borderWidth = 1
-                        cell.imgchamp1.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
-                    case 1:
-                        let champ = rt.listaChamp(id: twinner[0].bans[1].championId)
-                        cell.imgchamp2.image = UIImage(named:"champion_\(champ.key)")
-                        cell.imgchamp2.layer.borderWidth = 1
-                        cell.imgchamp2.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
-                    case 2:
-                        let champ = rt.listaChamp(id: twinner[0].bans[2].championId)
-                        cell.imgchamp3.image = UIImage(named:"champion_\(champ.key)")
-                        cell.imgchamp3.layer.borderWidth = 1
-                        cell.imgchamp3.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
-                    default:
-                        print("R00T - INVALID")
+                if twinner[0].bans.count > 0 {
+                    for i in 0 ..< twinner[0].bans.count {
+                        switch i {
+                        case 0:
+                            let champ = rt.listaChamp(id: twinner[0].bans[0].championId)
+                            cell.imgchamp1.image = UIImage(named:"champion_\(champ.key)")
+                            cell.imgchamp1.layer.borderWidth = 1
+                            cell.imgchamp1.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
+                        case 1:
+                            let champ = rt.listaChamp(id: twinner[0].bans[1].championId)
+                            cell.imgchamp2.image = UIImage(named:"champion_\(champ.key)")
+                            cell.imgchamp2.layer.borderWidth = 1
+                            cell.imgchamp2.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
+                        case 2:
+                            let champ = rt.listaChamp(id: twinner[0].bans[2].championId)
+                            cell.imgchamp3.image = UIImage(named:"champion_\(champ.key)")
+                            cell.imgchamp3.layer.borderWidth = 1
+                            cell.imgchamp3.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
+                        default:
+                            print("R00T - INVALID")
+                        }
                     }
+                } else {
+                    cell.imgchamp1.isHidden = true
+                    cell.imgchamp2.isHidden = true
+                    cell.imgchamp3.isHidden = true
                 }
-                
+            
                 return cell
             default:
                 let cell = Bundle.main.loadNibNamed("matchesdetplayersTVCC", owner: self, options: nil)?.first as! matchesdetplayersTVCC
+                
+                cell.imgchampion.image = UIImage(named:"static_null")
+                cell.imgitem0.image = UIImage(named:"static_null")
+                cell.imgitem1.image = UIImage(named:"static_null")
+                cell.imgitem2.image = UIImage(named:"static_null")
+                cell.imgitem3.image = UIImage(named:"static_null")
+                cell.imgitem4.image = UIImage(named:"static_null")
+                cell.imgitem5.image = UIImage(named:"static_null")
+                cell.imgtrinket.image = UIImage(named:"static_null")
+                cell.imgtlt0.image = UIImage(named:"static_null")
+                cell.imgtlt1.image = UIImage(named:"static_null")
+                cell.imgtltmast.image = UIImage(named:"static_null")
                 
                 let tstats = matchdet.participants.filter{ p in p.stats.winner == true }
                 
@@ -246,6 +268,8 @@ class matchesdetTVC: UITableViewController {
                             cell.imgtltmast.layer.borderWidth = 1
                             cell.imgtltmast.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
                         }
+                    } else {
+                        cell.imgtltmast.isHidden = true
                     }
                 }
                 
@@ -331,31 +355,49 @@ class matchesdetTVC: UITableViewController {
                 //Bans Champions
                 let cell = Bundle.main.loadNibNamed("matchesdetbansTVCC", owner: self, options: nil)?.first as! matchesdetbansTVCC
                 
-                for i in 0 ..< tlosing[0].bans.count {
-                    switch i {
-                    case 0:
-                        let champ = rt.listaChamp(id: tlosing[0].bans[0].championId)
-                        cell.imgchamp1.image = UIImage(named:"champion_\(champ.key)")
-                        cell.imgchamp1.layer.borderWidth = 1
-                        cell.imgchamp1.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
-                    case 1:
-                        let champ = rt.listaChamp(id: tlosing[0].bans[1].championId)
-                        cell.imgchamp2.image = UIImage(named:"champion_\(champ.key)")
-                        cell.imgchamp2.layer.borderWidth = 1
-                        cell.imgchamp2.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
-                    case 2:
-                        let champ = rt.listaChamp(id: tlosing[0].bans[2].championId)
-                        cell.imgchamp3.image = UIImage(named:"champion_\(champ.key)")
-                        cell.imgchamp3.layer.borderWidth = 1
-                        cell.imgchamp3.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
-                    default:
-                        print("R00T - INVALID")
+                if tlosing[0].bans.count > 0 {
+                    for i in 0 ..< tlosing[0].bans.count {
+                        switch i {
+                        case 0:
+                            let champ = rt.listaChamp(id: tlosing[0].bans[0].championId)
+                            cell.imgchamp1.image = UIImage(named:"champion_\(champ.key)")
+                            cell.imgchamp1.layer.borderWidth = 1
+                            cell.imgchamp1.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
+                        case 1:
+                            let champ = rt.listaChamp(id: tlosing[0].bans[1].championId)
+                            cell.imgchamp2.image = UIImage(named:"champion_\(champ.key)")
+                            cell.imgchamp2.layer.borderWidth = 1
+                            cell.imgchamp2.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
+                        case 2:
+                            let champ = rt.listaChamp(id: tlosing[0].bans[2].championId)
+                            cell.imgchamp3.image = UIImage(named:"champion_\(champ.key)")
+                            cell.imgchamp3.layer.borderWidth = 1
+                            cell.imgchamp3.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
+                        default:
+                            print("R00T - INVALID")
+                        }
                     }
+                } else {
+                    cell.imgchamp1.isHidden = true
+                    cell.imgchamp2.isHidden = true
+                    cell.imgchamp3.isHidden = true
                 }
                 
                 return cell
             default:
                 let cell = Bundle.main.loadNibNamed("matchesdetplayersTVCC", owner: self, options: nil)?.first as! matchesdetplayersTVCC
+                
+                cell.imgchampion.image = UIImage(named:"static_null")
+                cell.imgitem0.image = UIImage(named:"static_null")
+                cell.imgitem1.image = UIImage(named:"static_null")
+                cell.imgitem2.image = UIImage(named:"static_null")
+                cell.imgitem3.image = UIImage(named:"static_null")
+                cell.imgitem4.image = UIImage(named:"static_null")
+                cell.imgitem5.image = UIImage(named:"static_null")
+                cell.imgtrinket.image = UIImage(named:"static_null")
+                cell.imgtlt0.image = UIImage(named:"static_null")
+                cell.imgtlt1.image = UIImage(named:"static_null")
+                cell.imgtltmast.image = UIImage(named:"static_null")
                 
                 let tstats = matchdet.participants.filter{ p in p.stats.winner == false }
                 
@@ -364,7 +406,11 @@ class matchesdetTVC: UITableViewController {
                     let tsummonername = matchdet.participantsIdentities.filter{ p in p.participantId == tstats[indexPath.row - 8].participantId }
                     
                     if tsummonername.count > 0 {
-                        cell.summonername.text = tsummonername[0].summonerName
+                        if tsummonername[0].summonerName.isEmpty {
+                            cell.summonername.text = summoner.name
+                        } else {
+                            cell.summonername.text = tsummonername[0].summonerName
+                        }
                     }
                 
                     cell.kda.text = "\(tstats[indexPath.row - 8].stats.kills)/\(tstats[indexPath.row - 8].stats.deaths)/\(tstats[indexPath.row - 8].stats.assists)"
@@ -471,6 +517,8 @@ class matchesdetTVC: UITableViewController {
                             cell.imgtltmast.layer.borderWidth = 1
                             cell.imgtltmast.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
                         }
+                    } else {
+                        cell.imgtltmast.isHidden = true
                     }
                 }
                 
@@ -537,7 +585,7 @@ class matchesdetTVC: UITableViewController {
             case (0...6):
                 return 44
             case 7:
-                return 55
+                 return 55
             default:
                 return 95
             }
@@ -563,7 +611,7 @@ class matchesdetTVC: UITableViewController {
     func initView(){
         let attnav = [
             NSForegroundColorAttributeName: UIColor(hex:rootclass.colors.TEXTO_TOP_BAR.rawValue),
-            NSFontAttributeName: UIFont(name: "Friz Quadrata TT", size: 15)!
+            NSFontAttributeName: UIFont(name: "Friz Quadrata TT", size: 17)!
         ]
         
         let button = UIButton.init(type: .custom)
@@ -582,6 +630,19 @@ class matchesdetTVC: UITableViewController {
         self.title = "Match Details"
     }
     
+    func loadingView() {
+        SVProgressHUD.show()
+        
+        rt.listarMatchDetUni(matchid: matchdetsmall.gameId) {(matchdet) in
+            if matchdet != nil  {
+                self.matchdet = matchdet!
+            } else {
+                self.spopViewController()
+            }
+            SVProgressHUD.dismiss()
+        }
+    }
+
     func spopViewController(){
         self.navigationController?.popViewController(animated: true)
     }

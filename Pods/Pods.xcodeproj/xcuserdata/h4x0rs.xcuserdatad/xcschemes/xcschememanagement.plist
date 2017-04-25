@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Kingfisher.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-LOL4YOU.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,12 +42,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0F2CBD2C81A94E7D2A7F1DD52BEAF148</key>
+		<key>3C0BFE81D8DAA7B662914987F26A4098</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3C0BFE81D8DAA7B662914987F26A4098</key>
+		<key>490AE9F150D366AEBE3E483538852F3D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7C96CE8B4E52AC70538D86D76FB9E609</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -52,7 +62,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A7E7D6A0A5FB1B2D42F53826074E8A58</key>
+		<key>A03FB77EC557CBD8C0476C61BBCC1076</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,7 +72,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C9B42A1BFF2DB1981341E291B22B4E08</key>
+		<key>C4944FEC314D1A66588651D006273ADE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
