@@ -9,11 +9,11 @@
 import UIKit
 import SVProgressHUD
 
-class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
+class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout { 
     
-    @IBOutlet weak var pControl: UIPageControl!
-    @IBOutlet weak var slideScrollView: UIScrollView!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var imgperfil: UIImageView!
+    @IBOutlet weak var lvl: UILabel!
     
     var rt = rootclass.sharedInstance
     
@@ -23,6 +23,7 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
     }
     
     let menus = [
+        menu.init(title: "Profile", image: "static_menu_stats"),
         menu.init(title: "Stats", image: "static_menu_stats"),
         menu.init(title: "Matches", image: "static_menu_stats")
     ]
@@ -31,7 +32,6 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
         super.viewDidLoad()
         
         self.initView()
-        self.loadingView()
         
     }
     
@@ -50,56 +50,51 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        var tiers = Array<perfilstatusV>()
+        
         if indexPath.item == 0 {
+            
+            rt.listarLeague() {(league) in
+                
+                for i in 0 ..< league.count {
+                    
+                    let r = Bundle.main.loadNibNamed("perfilstatusV", owner: self, options: nil)?.first as! perfilstatusV
+                    
+                    r.imgtier.image = UIImage(named: "tier_\(league[i].tier.lowercased())\(league[i].division)")
+                    r.tier.text = "\(league[i].tier) \(league[i].division)"
+                    r.nameleague.text = league[i].name
+                    r.queue.text = league[i].queue.replacingOccurrences(of: "_", with: " ")
+                    r.leaguepoints.text = "\(league[i].leaguePoints)"
+                    
+                    tiers.append(r)
+                }
+                
+                if tiers.count == 0 {
+                    let r = Bundle.main.loadNibNamed("perfilstatusV", owner: self, options: nil)?.first as! perfilstatusV
+                    
+                    r.imgtier.image = UIImage(named: "tier_unranked")
+                    r.tier.text = "Unranked"
+                    
+                    tiers.append(r)
+                }
+
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "perfilstats") as! perfilstatsTVC
+                
+                vc.tiers = tiers
+                
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        } else if indexPath.item == 1 {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "stats") as! statsTVC
                     
             self.navigationController?.pushViewController(vc, animated: true)
-        } else {
+        } else if indexPath.item == 2 {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "matches") as! matchesTVC
             
             self.navigationController?.pushViewController(vc, animated: true)
-        }
-    }
-    
-    func loadingView(){
-        var slides = Array<perfilV>()
-        
-        SVProgressHUD.show()
-  
-        rt.listarLeague() {(league) in
-            
-            for i in 0 ..< league.count {
-                
-                let r = Bundle.main.loadNibNamed("perfil", owner: self, options: nil)?.first as! perfilV
-                
-                r.imgPerfil.image = UIImage(named: "tier_\(league[i].tier.lowercased())\(league[i].division)")
-                r.lblPerfil.text = "\(league[i].tier) \(league[i].division)"
-                
-                slides.append(r)
-            }
-            
-            self.slideScrollView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.slideScrollView.frame.height)
-            self.slideScrollView.contentSize = CGSize(width: self.view.frame.width * CGFloat(slides.count), height: self.slideScrollView.frame.height)
-            
-            if slides.count == 0 {
-                let r = Bundle.main.loadNibNamed("perfil", owner: self, options: nil)?.first as! perfilV
-                
-                r.imgPerfil.image = UIImage(named: "tier_unranked")
-                r.lblPerfil.text = "Unranked"
-                
-                slides.append(r)
-            }
-            
-            self.pControl.numberOfPages = slides.count
-            
-            for i in 0 ..< slides.count {
-                slides[i].frame = CGRect(x: self.view.frame.width * CGFloat(i), y: 0, width: self.view.frame.width, height: self.slideScrollView.frame.height)
-                self.slideScrollView.addSubview(slides[i])
-            }
-            
-            SVProgressHUD.dismiss()
         }
     }
     
@@ -110,12 +105,7 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
         ]
         
         self.title = rootclass.Summoner.name
-        
-        self.slideScrollView.isPagingEnabled = true
-        self.slideScrollView.showsVerticalScrollIndicator = false
-        self.slideScrollView.showsHorizontalScrollIndicator = false
-        self.slideScrollView.delegate = self
-        
+ 
         let button = UIButton.init(type: .custom)
         button.setImage(UIImage(named:"static_button_back"), for: UIControlState.normal)
         button.addTarget(self, action:#selector(spopViewController), for: UIControlEvents.touchUpInside)
@@ -125,14 +115,20 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
         
         self.navigationController?.navigationBar.barTintColor = UIColor(hex: rootclass.colors.FUNDO.rawValue)
         self.navigationController?.navigationBar.titleTextAttributes = attnav
+        
+        if let imgperfil = UIImage(named:"profile_icon_\(rootclass.Summoner.profileIconId)") {
+            self.imgperfil.image = imgperfil
+            self.imgperfil.layer.borderWidth = 4
+            self.imgperfil.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
+        } else {
+            self.imgperfil.isHidden = true
+        }
+        
+        self.lvl.text = ("Level \(rootclass.Summoner.summonerLevel)")
+        
     }
 
     func spopViewController(){
         self.navigationController?.popViewController(animated: true)
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let page = scrollView.contentOffset.x / scrollView.frame.size.width
-        self.pControl.currentPage = Int(page)
     }
 }

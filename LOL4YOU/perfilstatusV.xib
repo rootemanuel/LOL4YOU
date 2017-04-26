@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="friz_quadrata_r.ttf">
+            <string>FrizQuadrataTT</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="perfilstatusV" customModule="LOL4YOU" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="170"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tier_challengerI" translatesAutoresizingMaskIntoConstraints="NO" id="x9l-m1-eQw">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="115" id="IWy-jr-Hcb"/>
+                        <constraint firstAttribute="height" constant="115" id="iwk-9z-1qk"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Queue" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLt-wY-fUH">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="NH8-zx-RZj"/>
+                        <constraint firstAttribute="height" constant="21" id="di1-WO-ux4"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="12"/>
+                    <color key="textColor" red="0.92941176469999998" green="0.87843137250000003" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name League" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UHs-Qk-8n4">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="9HY-o2-xjx"/>
+                        <constraint firstAttribute="width" constant="150" id="lLs-Kq-5FC"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="12"/>
+                    <color key="textColor" red="0.92941176469999998" green="0.87843137250000003" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6EL-0J-1cA">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="HSp-R0-sPB"/>
+                        <constraint firstAttribute="height" constant="21" id="hkR-4P-vYl"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="12"/>
+                    <color key="textColor" red="0.92941176469999998" green="0.87843137250000003" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="League Points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QU1-Si-kbM">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="0sO-jZ-B5B"/>
+                        <constraint firstAttribute="height" constant="21" id="4m8-3w-V8A"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="12"/>
+                    <color key="textColor" red="0.1176470588" green="0.52156862749999999" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tier" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qyR-Hh-dJP">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="DhR-78-CXr"/>
+                        <constraint firstAttribute="width" constant="110" id="L6T-jL-yzf"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="10"/>
+                    <color key="textColor" red="0.92941176469999998" green="0.87843137250000003" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.0078431372550000003" green="0.039215686270000001" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="QU1-Si-kbM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="111" id="4fs-v7-l6r"/>
+                <constraint firstItem="fLt-wY-fUH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="154" id="5Xm-x4-fmw"/>
+                <constraint firstItem="qyR-Hh-dJP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="127" id="A1m-Ph-IRB"/>
+                <constraint firstItem="UHs-Qk-8n4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="154" id="O5v-Pz-2CL"/>
+                <constraint firstItem="6EL-0J-1cA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="129" id="VfZ-jo-V6u"/>
+                <constraint firstItem="6EL-0J-1cA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="154" id="X7o-gv-yEV"/>
+                <constraint firstItem="fLt-wY-fUH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="33" id="ZMs-yh-9Yb"/>
+                <constraint firstItem="UHs-Qk-8n4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="62" id="bGy-Nz-y8v"/>
+                <constraint firstItem="x9l-m1-eQw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="bTc-J9-h3e"/>
+                <constraint firstItem="x9l-m1-eQw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="dea-uC-xK3"/>
+                <constraint firstItem="QU1-Si-kbM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="154" id="n1D-Kj-cQ1"/>
+                <constraint firstItem="qyR-Hh-dJP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="18" id="wxm-kE-6JM"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="imgtier" destination="x9l-m1-eQw" id="qfs-xL-3oy"/>
+                <outlet property="leaguepoints" destination="6EL-0J-1cA" id="ksr-bH-hGn"/>
+                <outlet property="nameleague" destination="UHs-Qk-8n4" id="NzR-fz-3wz"/>
+                <outlet property="queue" destination="fLt-wY-fUH" id="9uC-bY-rWe"/>
+                <outlet property="tier" destination="qyR-Hh-dJP" id="o2X-0q-WC5"/>
+            </connections>
+            <point key="canvasLocation" x="63.5" y="74"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="tier_challengerI" width="192" height="192"/>
+    </resources>
+</document>
