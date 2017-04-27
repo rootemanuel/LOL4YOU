@@ -38,6 +38,10 @@
 		A0A499571EB21C1400977541 /* headerTVH.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A499561EB21C1400977541 /* headerTVH.xib */; };
 		A0A4995A1EB2313700977541 /* imageTVCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A499581EB2313700977541 /* imageTVCC.swift */; };
 		A0A4995B1EB2313700977541 /* imageTVCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A499591EB2313700977541 /* imageTVCC.xib */; };
+		A0A4995E1EB2877900977541 /* runesTVCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A4995C1EB2877900977541 /* runesTVCC.swift */; };
+		A0A4995F1EB2877900977541 /* runesTVCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A4995D1EB2877900977541 /* runesTVCC.xib */; };
+		A0A499621EB28FBD00977541 /* masteryTVCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A499601EB28FBD00977541 /* masteryTVCC.swift */; };
+		A0A499631EB28FBD00977541 /* masteryTVCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A499611EB28FBD00977541 /* masteryTVCC.xib */; };
 		A0BCAA691EB13281008F4D01 /* perfilstatstiersnullTVCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BCAA671EB13281008F4D01 /* perfilstatstiersnullTVCC.swift */; };
 		A0BCAA6A1EB13281008F4D01 /* perfilstatstiersnullTVCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0BCAA681EB13281008F4D01 /* perfilstatstiersnullTVCC.xib */; };
 		A0BCAA6C1EB14772008F4D01 /* perfilstatusV.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BCAA6B1EB14772008F4D01 /* perfilstatusV.swift */; };
@@ -118,6 +122,10 @@
 		A0A499561EB21C1400977541 /* headerTVH.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = headerTVH.xib; sourceTree = "<group>"; };
 		A0A499581EB2313700977541 /* imageTVCC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = imageTVCC.swift; sourceTree = "<group>"; };
 		A0A499591EB2313700977541 /* imageTVCC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = imageTVCC.xib; sourceTree = "<group>"; };
+		A0A4995C1EB2877900977541 /* runesTVCC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = runesTVCC.swift; sourceTree = "<group>"; };
+		A0A4995D1EB2877900977541 /* runesTVCC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = runesTVCC.xib; sourceTree = "<group>"; };
+		A0A499601EB28FBD00977541 /* masteryTVCC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = masteryTVCC.swift; sourceTree = "<group>"; };
+		A0A499611EB28FBD00977541 /* masteryTVCC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = masteryTVCC.xib; sourceTree = "<group>"; };
 		A0BCAA671EB13281008F4D01 /* perfilstatstiersnullTVCC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = perfilstatstiersnullTVCC.swift; sourceTree = "<group>"; };
 		A0BCAA681EB13281008F4D01 /* perfilstatstiersnullTVCC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = perfilstatstiersnullTVCC.xib; sourceTree = "<group>"; };
 		A0BCAA6B1EB14772008F4D01 /* perfilstatusV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = perfilstatusV.swift; sourceTree = "<group>"; };
@@ -322,6 +330,10 @@
 				A0A499561EB21C1400977541 /* headerTVH.xib */,
 				A0A499581EB2313700977541 /* imageTVCC.swift */,
 				A0A499591EB2313700977541 /* imageTVCC.xib */,
+				A0A4995C1EB2877900977541 /* runesTVCC.swift */,
+				A0A4995D1EB2877900977541 /* runesTVCC.xib */,
+				A0A499601EB28FBD00977541 /* masteryTVCC.swift */,
+				A0A499611EB28FBD00977541 /* masteryTVCC.xib */,
 			);
 			name = generics;
 			sourceTree = "<group>";
@@ -536,6 +548,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0A4995F1EB2877900977541 /* runesTVCC.xib in Resources */,
 				A0D97B0B1EA7A28700273C10 /* profileicon.json in Resources */,
 				A0D97B0A1EA7A28700273C10 /* mastery.json in Resources */,
 				A0D97AF91EA792D300273C10 /* friz_quadrata_r.ttf in Resources */,
@@ -544,6 +557,7 @@
 				A00280001E9D91BD003175A7 /* LaunchScreen.storyboard in Resources */,
 				A0BCAA6A1EB13281008F4D01 /* perfilstatstiersnullTVCC.xib in Resources */,
 				A0D97B091EA7A28700273C10 /* map.json in Resources */,
+				A0A499631EB28FBD00977541 /* masteryTVCC.xib in Resources */,
 				A0BCAA6E1EB14785008F4D01 /* perfilstatusV.xib in Resources */,
 				A0D97B071EA7A28700273C10 /* item.json in Resources */,
 				A0D97AF81EA792D300273C10 /* friz_quadrata_m.otf in Resources */,
@@ -727,6 +741,7 @@
 				A0BF02FC1EA643DC00DB84E9 /* emptytableview.swift in Sources */,
 				A00280291E9DAE08003175A7 /* statsTVC.swift in Sources */,
 				A0A499551EB21BEA00977541 /* headerTVH.swift in Sources */,
+				A0A499621EB28FBD00977541 /* masteryTVCC.swift in Sources */,
 				A002802B1E9DAE27003175A7 /* statsTVCC.swift in Sources */,
 				A0027FF61E9D91BD003175A7 /* AppDelegate.swift in Sources */,
 				A0BF03011EA6B21900DB84E9 /* matchesTVCC.swift in Sources */,
@@ -745,6 +760,7 @@
 				A0A4995A1EB2313700977541 /* imageTVCC.swift in Sources */,
 				A0A4994F1EB2155300977541 /* infoTVCC.swift in Sources */,
 				A0BF02FF1EA6B20000DB84E9 /* matchesTVC.swift in Sources */,
+				A0A4995E1EB2877900977541 /* runesTVCC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -51,7 +51,7 @@ class statsTVC: UITableViewController {
         
         let champ = rt.listaChamp(id: stats[indexPath.row].championID)
         lstats.lblChamp.text = champ.name
-        lstats.imgChamp.image = UIImage(named: "champion_\(champ.key)")
+        lstats.imgChamp.image = UIImage(named: champ.imagefull)
         lstats.imgChamp.layer.borderWidth = 2
         lstats.imgChamp.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
         

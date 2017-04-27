@@ -39,8 +39,8 @@ class matchesdetTVC: UITableViewController {
                     
                     if summoner.count > 0 {
                         if summoner[0].summonerName.isEmpty {
-                            let champion = rt.listaChamp(id: participant[0].championId)
-                            vc.title = champion.name
+                            let champ = rt.listaChamp(id: participant[0].championId)
+                            vc.title = champ.name
                         } else {
                             vc.title = "\(summoner[0].summonerName)"
                         }
@@ -193,17 +193,17 @@ class matchesdetTVC: UITableViewController {
                             switch i {
                             case 0:
                                 let champ = rt.listaChamp(id: twinner[0].bans[0].championId)
-                                cell.imgchamp1.image = UIImage(named:"champion_\(champ.key)")
+                                cell.imgchamp1.image = UIImage(named:champ.imagefull)
                                 cell.imgchamp1.layer.borderWidth = 1
                                 cell.imgchamp1.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
                             case 1:
                                 let champ = rt.listaChamp(id: twinner[0].bans[1].championId)
-                                cell.imgchamp2.image = UIImage(named:"champion_\(champ.key)")
+                                cell.imgchamp2.image = UIImage(named:champ.imagefull)
                                 cell.imgchamp2.layer.borderWidth = 1
                                 cell.imgchamp2.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
                             case 2:
                                 let champ = rt.listaChamp(id: twinner[0].bans[2].championId)
-                                cell.imgchamp3.image = UIImage(named:"champion_\(champ.key)")
+                                cell.imgchamp3.image = UIImage(named:champ.imagefull)
                                 cell.imgchamp3.layer.borderWidth = 1
                                 cell.imgchamp3.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
                             default:
@@ -503,17 +503,17 @@ class matchesdetTVC: UITableViewController {
                             switch i {
                             case 0:
                                 let champ = rt.listaChamp(id: tlosing[0].bans[0].championId)
-                                cell.imgchamp1.image = UIImage(named:"champion_\(champ.key)")
+                                cell.imgchamp1.image = UIImage(named:champ.imagefull)
                                 cell.imgchamp1.layer.borderWidth = 1
                                 cell.imgchamp1.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
                             case 1:
                                 let champ = rt.listaChamp(id: tlosing[0].bans[1].championId)
-                                cell.imgchamp2.image = UIImage(named:"champion_\(champ.key)")
+                                cell.imgchamp2.image = UIImage(named:champ.imagefull)
                                 cell.imgchamp2.layer.borderWidth = 1
                                 cell.imgchamp2.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
                             case 2:
                                 let champ = rt.listaChamp(id: tlosing[0].bans[2].championId)
-                                cell.imgchamp3.image = UIImage(named:"champion_\(champ.key)")
+                                cell.imgchamp3.image = UIImage(named:champ.imagefull)
                                 cell.imgchamp3.layer.borderWidth = 1
                                 cell.imgchamp3.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
                             default:

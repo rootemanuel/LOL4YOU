@@ -109,9 +109,9 @@ class matchesTVC: UITableViewController {
             lmatches.lvl.isHidden = true
         }
         
-        let champion = rt.listaChamp(id: tmatchs.championId)
+        let champ = rt.listaChamp(id: tmatchs.championId)
         
-        if let imgchamp = UIImage(named:"champion_\(champion.key)") {
+        if let imgchamp = UIImage(named:champ.imagefull) {
             lmatches.imgchamp.image = imgchamp
             lmatches.imgchamp.layer.borderWidth = 2
             lmatches.imgchamp.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor

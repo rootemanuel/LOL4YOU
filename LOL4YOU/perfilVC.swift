@@ -125,7 +125,7 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
         self.navigationController?.navigationBar.barTintColor = UIColor(hex: rootclass.colors.FUNDO.rawValue)
         self.navigationController?.navigationBar.titleTextAttributes = attnav
         
-        if let imgperfil = UIImage(named:"profile_icon_\(rootclass.Summoner.profileIconId)") {
+        if let imgperfil = UIImage(named:rootclass.Summoner.imagefull) {
             self.imgperfil.image = imgperfil
             self.imgperfil.layer.borderWidth = 4
             self.imgperfil.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor

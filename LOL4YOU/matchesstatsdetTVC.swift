@@ -10,7 +10,7 @@ import UIKit
 
 class matchesstatsdetTVC: UITableViewController {
 
-    var sections = ["Champion","Details"]
+    var sections = ["Champion","Details","Runes","Masterys"]
     
     let rt = rootclass.sharedInstance
     
@@ -32,8 +32,8 @@ class matchesstatsdetTVC: UITableViewController {
                 let cell = Bundle.main.loadNibNamed("imageTVCC", owner: self, options: nil)?.first as! imageTVCC
                 
                 cell.selectionStyle = UITableViewCellSelectionStyle.none
-                let champion = rt.listaChamp(id: participant.championId)
-                if let img = UIImage(named:"champion_\(champion.key)") {
+                let champ = rt.listaChamp(id: participant.championId)
+                if let img = UIImage(named:champ.imagefull) {
                     cell.img.image = img
                     cell.img.layer.borderWidth = 2
                     cell.img.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
@@ -182,6 +182,35 @@ class matchesstatsdetTVC: UITableViewController {
                 
                 return cell
             }
+        case 2:
+            //Runes
+            let cell = Bundle.main.loadNibNamed("runesTVCC", owner: self, options: nil)?.first as! runesTVCC
+            
+            cell.selectionStyle = UITableViewCellSelectionStyle.none
+            
+            let rune = rt.listaRune(id: participant.runes[indexPath.row].runeId)
+            cell.imgrune.image = UIImage(named: rune.imagefull)
+            cell.qtd.text = "x \(participant.runes[indexPath.row].rank)"
+            cell.desc.text = rune.description
+            
+            return cell
+        case 3:
+            //Masterys
+            let cell = Bundle.main.loadNibNamed("masteryTVCC", owner: self, options: nil)?.first as! masteryTVCC
+            
+            cell.selectionStyle = UITableViewCellSelectionStyle.none
+            
+            let mast = rt.listaMastery(id: participant.masterys[indexPath.row].masteryId)
+            let count = participant.masterys[indexPath.row].rank
+            
+            cell.img.image = UIImage(named: mast.imagefull)
+            cell.img.layer.borderWidth = 1
+            cell.img.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
+            cell.qtd.text = "x \(participant.masterys[indexPath.row].rank)"
+            cell.desc.text =  mast.description[ count - 1]
+            cell.name.text = mast.name
+            
+            return cell
         default:
             let cell = Bundle.main.loadNibNamed("infoTVCC", owner: self, options: nil)?.first as! infoTVCC
             
@@ -201,6 +230,10 @@ class matchesstatsdetTVC: UITableViewController {
             return 1
         case 1:
             return 14
+        case 2:
+            return participant.runes.count
+        case 3:
+            return participant.masterys.count
         default:
             return 0
         }
@@ -230,6 +263,10 @@ class matchesstatsdetTVC: UITableViewController {
             return 150
         case 1:
             return 55
+        case 2:
+            return 60
+        case 3:
+            return 60
         default:
             return 0
         }
