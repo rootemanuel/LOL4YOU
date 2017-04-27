@@ -205,7 +205,7 @@ class rootclass: NSObject {
         static internal var profileIconId:Int = 0
         static internal var summonerID:Int = 0
         static internal var accountId:Int = 0
-        static internal var api_key:String = "b09887a4-ee19-431e-8bd6-cbe721358e62"
+        static internal var api_key:String = "RGAPI-50a56712-a157-44cc-9760-0a4649629dff"
     }
     
     class BEStats {

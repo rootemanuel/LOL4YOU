@@ -21,8 +21,8 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Bans" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Nc-BK-Va8">
-                        <frame key="frameInset" minX="8" minY="15" width="167" height="21"/>
-                        <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="15"/>
+                        <frame key="frameInset" minX="13" minY="15" width="130" height="21"/>
+                        <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="12"/>
                         <color key="textColor" red="0.92941176469999998" green="0.87843137250000003" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -64,9 +64,9 @@
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="2Nc-BK-Va8" secondAttribute="trailing" constant="145" id="5ee-7F-WI0"/>
+                    <constraint firstAttribute="trailing" secondItem="2Nc-BK-Va8" secondAttribute="trailing" constant="177" id="5ee-7F-WI0"/>
                     <constraint firstItem="tlJ-2j-Osq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="7X1-aH-Ycv"/>
-                    <constraint firstItem="2Nc-BK-Va8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="976-3f-mux"/>
+                    <constraint firstItem="2Nc-BK-Va8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="13" id="976-3f-mux"/>
                     <constraint firstItem="V0R-8Y-zsR" firstAttribute="leading" secondItem="tlJ-2j-Osq" secondAttribute="trailing" constant="8" id="K0x-r7-kO2"/>
                     <constraint firstItem="V0R-8Y-zsR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="Nxt-hy-Zrl"/>
                     <constraint firstItem="eGA-No-Rhq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="OKz-hD-TZ4"/>

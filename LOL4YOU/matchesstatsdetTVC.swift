@@ -1,20 +1,20 @@
 //
-//  perfilstatsTVC.swift
+//  matchesstatsdetTVC.swift
 //  LOL4YOU
 //
-//  Created by Emanuel Root on 26/04/17.
+//  Created by Emanuel Root on 27/04/17.
 //  Copyright © 2017 Emanuel Root. All rights reserved.
 //
 
 import UIKit
 
-class perfilstatsTVC: UITableViewController {
+class matchesstatsdetTVC: UITableViewController {
 
-    let rt = rootclass.sharedInstance
-    var stats = Array<rootclass.BEStats>()
-    var tiers = Array<perfilstatusV>()
+    var sections = ["Champion","Details"]
     
-    let sections = ["Icon","Queues","Details","More Details"]
+    let rt = rootclass.sharedInstance
+    
+    var participant = rootclass.BEParticipants()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,19 +24,18 @@ class perfilstatsTVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let statsaux = self.stats.filter{p in p.championID == 0 }
-
         switch indexPath.section {
         case 0:
             switch indexPath.row {
             case 0:
-                //Icon Image
+                //Kills
                 let cell = Bundle.main.loadNibNamed("imageTVCC", owner: self, options: nil)?.first as! imageTVCC
                 
                 cell.selectionStyle = UITableViewCellSelectionStyle.none
-                if let img = UIImage(named:"profile_icon_\(rootclass.Summoner.profileIconId)") {
+                let champion = rt.listaChamp(id: participant.championId)
+                if let img = UIImage(named:"champion_\(champion.key)") {
                     cell.img.image = img
-                    cell.img.layer.borderWidth = 4
+                    cell.img.layer.borderWidth = 2
                     cell.img.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
                 }
                 
@@ -48,26 +47,7 @@ class perfilstatsTVC: UITableViewController {
                 
                 return cell
             }
-            
         case 1:
-            switch indexPath.row {
-            case 0:
-                //Tiers
-                let cell = Bundle.main.loadNibNamed("perfilstatstiersnullTVCC", owner: self, options: nil)?.first as! perfilstatstiersnullTVCC
-                
-                cell.selectionStyle = UITableViewCellSelectionStyle.none
-                cell.tiers = self.tiers
-                cell.updatescrollview()
-                
-                return cell
-            default:
-                let cell = Bundle.main.loadNibNamed("infoTVCC", owner: self, options: nil)?.first as! infoTVCC
-                
-                cell.selectionStyle = UITableViewCellSelectionStyle.none
-                
-                return cell
-            }
-        case 2:
             switch indexPath.row {
             case 0:
                 //Kills
@@ -75,12 +55,8 @@ class perfilstatsTVC: UITableViewController {
                 
                 cell.selectionStyle = UITableViewCellSelectionStyle.none
                 cell.item.text = "Kills"
-                if statsaux.count > 0 {
-                    cell.valor.text = "\(statsaux[0].kills)"
-                } else {
-                    cell.valor.text = rt.const_zeros_s
-                }
-                
+                cell.valor.text = "\(participant.stats.kills)"
+                    
                 return cell
             case 1:
                 //Deaths
@@ -88,11 +64,7 @@ class perfilstatsTVC: UITableViewController {
                 
                 cell.selectionStyle = UITableViewCellSelectionStyle.none
                 cell.item.text = "Deaths"
-                if statsaux.count > 0 {
-                    cell.valor.text = "\(statsaux[0].deaths)"
-                } else {
-                    cell.valor.text = rt.const_zeros_s
-                }
+                cell.valor.text = "\(participant.stats.deaths)"
                 
                 return cell
             case 2:
@@ -101,137 +73,106 @@ class perfilstatsTVC: UITableViewController {
                 
                 cell.selectionStyle = UITableViewCellSelectionStyle.none
                 cell.item.text = "Assists"
-                if statsaux.count > 0 {
-                    cell.valor.text = "\(statsaux[0].assists)"
-                } else {
-                    cell.valor.text = rt.const_zeros_s
-                }
+                cell.valor.text = "\(participant.stats.assists)"
                 
                 return cell
             case 3:
-                //Minions
-                let cell = Bundle.main.loadNibNamed("infoTVCC", owner: self, options: nil)?.first as! infoTVCC
-                
-                cell.selectionStyle = UITableViewCellSelectionStyle.none
-                cell.item.text = "Minions"
-                if statsaux.count > 0 {
-                    cell.valor.text = "\(statsaux[0].creeps)"
-                } else {
-                    cell.valor.text = rt.const_zeros_s
-                }
-                
-                return cell
-            case 4:
-                //Gold
-                let cell = Bundle.main.loadNibNamed("infoTVCC", owner: self, options: nil)?.first as! infoTVCC
-                
-                cell.selectionStyle = UITableViewCellSelectionStyle.none
-                cell.item.text = "Gold"
-                if statsaux.count > 0 {
-                    cell.valor.text = "\(statsaux[0].gold)"
-                } else {
-                    cell.valor.text = rt.const_zeros_s
-                }
-                
-                return cell
-            default:
-                let cell = Bundle.main.loadNibNamed("infoTVCC", owner: self, options: nil)?.first as! infoTVCC
-                
-                cell.selectionStyle = UITableViewCellSelectionStyle.none
-                
-                return cell
-            }
-        case 3:
-            switch indexPath.row {
-            case 0:
-                //Wins
-                let cell = Bundle.main.loadNibNamed("infoTVCC", owner: self, options: nil)?.first as! infoTVCC
-                
-                cell.selectionStyle = UITableViewCellSelectionStyle.none
-                cell.item.text = "Wins"
-                if statsaux.count > 0 {
-                    cell.valor.text = "\(statsaux[0].win)"
-                } else {
-                    cell.valor.text = rt.const_zeros_s
-                }
-                
-                return cell
-            case 1:
-                //Losses
-                let cell = Bundle.main.loadNibNamed("infoTVCC", owner: self, options: nil)?.first as! infoTVCC
-                
-                cell.selectionStyle = UITableViewCellSelectionStyle.none
-                cell.item.text = "Losses"
-                if statsaux.count > 0 {
-                    cell.valor.text = "\(statsaux[0].loss)"
-                } else {
-                    cell.valor.text = rt.const_zeros_s
-                }
-                
-                return cell
-            case 2:
                 //Double Kill
                 let cell = Bundle.main.loadNibNamed("infoTVCC", owner: self, options: nil)?.first as! infoTVCC
                 
                 cell.selectionStyle = UITableViewCellSelectionStyle.none
                 cell.item.text = "Double Kill"
-                if statsaux.count > 0 {
-                    cell.valor.text = "\(statsaux[0].doublekill)"
-                } else {
-                    cell.valor.text = rt.const_zeros_s
-                }
+                cell.valor.text = "\(participant.stats.doubleKills)"
                 
                 return cell
-            case 3:
+            case 4:
                 //Triple Kill
                 let cell = Bundle.main.loadNibNamed("infoTVCC", owner: self, options: nil)?.first as! infoTVCC
                 
                 cell.selectionStyle = UITableViewCellSelectionStyle.none
                 cell.item.text = "Triple Kill"
-                if statsaux.count > 0 {
-                    cell.valor.text = "\(statsaux[0].triplekill)"
-                } else {
-                    cell.valor.text = rt.const_zeros_s
-                }
+                cell.valor.text = "\(participant.stats.tripleKills)"
                 
                 return cell
-            case 4:
+            case 5:
                 //Quadra Kill
                 let cell = Bundle.main.loadNibNamed("infoTVCC", owner: self, options: nil)?.first as! infoTVCC
                 
                 cell.selectionStyle = UITableViewCellSelectionStyle.none
                 cell.item.text = "Quadra Kill"
-                if statsaux.count > 0 {
-                    cell.valor.text = "\(statsaux[0].quadrakill)"
-                } else {
-                    cell.valor.text = rt.const_zeros_s
-                }
+                cell.valor.text = "\(participant.stats.quadraKills)"
                 
                 return cell
-            case 5:
+            case 6:
                 //Penta Kill
                 let cell = Bundle.main.loadNibNamed("infoTVCC", owner: self, options: nil)?.first as! infoTVCC
                 
                 cell.selectionStyle = UITableViewCellSelectionStyle.none
                 cell.item.text = "Penta Kill"
-                if statsaux.count > 0 {
-                    cell.valor.text = "\(statsaux[0].pentakill)"
-                } else {
-                    cell.valor.text = rt.const_zeros_s
-                }
+                cell.valor.text = "\(participant.stats.pentaKills)"
                 
                 return cell
-            case 6:
-                //Turrets Kill
+            case 7:
+                //Minions Killed
                 let cell = Bundle.main.loadNibNamed("infoTVCC", owner: self, options: nil)?.first as! infoTVCC
                 
                 cell.selectionStyle = UITableViewCellSelectionStyle.none
-                cell.item.text = "Turrets Kill"
-                if statsaux.count > 0 {
-                    cell.valor.text = "\(statsaux[0].turretskilled)"
-                } else {
-                    cell.valor.text = rt.const_zeros_s
-                }
+                cell.item.text = "Minions Killed"
+                cell.valor.text = "\(participant.stats.minionsKilled + participant.stats.neutralMinionsKilled)"
+                
+                return cell
+            case 8:
+                //Minions Team Jungle
+                let cell = Bundle.main.loadNibNamed("infoTVCC", owner: self, options: nil)?.first as! infoTVCC
+                
+                cell.selectionStyle = UITableViewCellSelectionStyle.none
+                cell.item.text = "Minions Team Jungle"
+                cell.valor.text = "\(participant.stats.neutralMinionsKilledTeamJungle)"
+                
+                return cell
+            case 9:
+                //Minions Enemy Jungle
+                let cell = Bundle.main.loadNibNamed("infoTVCC", owner: self, options: nil)?.first as! infoTVCC
+                
+                cell.selectionStyle = UITableViewCellSelectionStyle.none
+                cell.item.text = "Minions Enemy Jungle"
+                cell.valor.text = "\(participant.stats.neutralMinionsKilledEnemyJungle)"
+                
+                return cell
+            case 10:
+                //Towers Killed
+                let cell = Bundle.main.loadNibNamed("infoTVCC", owner: self, options: nil)?.first as! infoTVCC
+                
+                cell.selectionStyle = UITableViewCellSelectionStyle.none
+                cell.item.text = "Towers Killed"
+                cell.valor.text = "\(participant.stats.towerKills)"
+                
+                return cell
+            case 11:
+                //Wards Bought
+                let cell = Bundle.main.loadNibNamed("infoTVCC", owner: self, options: nil)?.first as! infoTVCC
+                
+                cell.selectionStyle = UITableViewCellSelectionStyle.none
+                cell.item.text = "Wards Bought"
+                cell.valor.text = "\(participant.stats.visionWardsBoughtInGame)"
+                
+                return cell
+            case 12:
+                //Wards Placed
+                let cell = Bundle.main.loadNibNamed("infoTVCC", owner: self, options: nil)?.first as! infoTVCC
+                
+                cell.selectionStyle = UITableViewCellSelectionStyle.none
+                cell.item.text = "Wards Placed"
+                cell.valor.text = "\(participant.stats.wardsPlaced)"
+                
+                return cell
+            case 13:
+                //Wards Killed
+                let cell = Bundle.main.loadNibNamed("infoTVCC", owner: self, options: nil)?.first as! infoTVCC
+                
+                cell.selectionStyle = UITableViewCellSelectionStyle.none
+                cell.item.text = "Wards Killed"
+                cell.valor.text = "\(participant.stats.wardsKilled)"
                 
                 return cell
             default:
@@ -259,11 +200,7 @@ class perfilstatsTVC: UITableViewController {
         case 0:
             return 1
         case 1:
-            return 1
-        case 2:
-            return 5
-        case 3:
-            return 7
+            return 14
         default:
             return 0
         }
@@ -290,17 +227,8 @@ class perfilstatsTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            switch indexPath.row {
-            case 0:
-                return 150
-            default:
-                return 55
-            }
+            return 150
         case 1:
-            return 170
-        case 2:
-            return 55
-        case 3:
             return 55
         default:
             return 0
@@ -329,11 +257,10 @@ class perfilstatsTVC: UITableViewController {
         
         self.navigationController?.navigationBar.barTintColor = UIColor(hex: rootclass.colors.FUNDO.rawValue)
         self.navigationController?.navigationBar.titleTextAttributes = attnav
-        self.title = "Profile"
     }
     
     func spopViewController(){
         self.navigationController?.popViewController(animated: true)
     }
-
+    
 }

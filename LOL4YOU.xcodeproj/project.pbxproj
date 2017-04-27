@@ -22,25 +22,22 @@
 		A017A8741EA5456700C325F7 /* perfilCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A017A8731EA5456700C325F7 /* perfilCVC.swift */; };
 		A017A8761EA546B600C325F7 /* perfilVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A017A8751EA546B600C325F7 /* perfilVC.swift */; };
 		A04A6CCC1EB100E8001D9770 /* perfilstatsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04A6CCB1EB100E8001D9770 /* perfilstatsTVC.swift */; };
-		A04A6CCF1EB10196001D9770 /* perfilstatsinfoTVCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04A6CCD1EB10196001D9770 /* perfilstatsinfoTVCC.swift */; };
-		A04A6CD01EB10196001D9770 /* perfilstatsinfoTVCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A04A6CCE1EB10196001D9770 /* perfilstatsinfoTVCC.xib */; };
-		A04A6CD61EB11603001D9770 /* hperfilstatsTVH.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04A6CD51EB11603001D9770 /* hperfilstatsTVH.swift */; };
-		A04A6CDA1EB1167C001D9770 /* hperfilstatsTVH.xib in Resources */ = {isa = PBXBuildFile; fileRef = A04A6CD91EB1167C001D9770 /* hperfilstatsTVH.xib */; };
-		A04A6CDD1EB12132001D9770 /* perfilstatsimageTVCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04A6CDB1EB12132001D9770 /* perfilstatsimageTVCC.swift */; };
-		A04A6CDE1EB12132001D9770 /* perfilstatsimageTVCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A04A6CDC1EB12132001D9770 /* perfilstatsimageTVCC.xib */; };
 		A053900B1EA58E1B00657E55 /* perfil.xib in Resources */ = {isa = PBXBuildFile; fileRef = A053900A1EA58E1B00657E55 /* perfil.xib */; };
 		A053900D1EA58E8900657E55 /* perfilV.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053900C1EA58E8900657E55 /* perfilV.swift */; };
-		A056E76D1EAE252E007FDB9F /* matchesdetinfoTVCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A056E76B1EAE252E007FDB9F /* matchesdetinfoTVCC.swift */; };
-		A056E76E1EAE252E007FDB9F /* matchesdetinfoTVCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A056E76C1EAE252E007FDB9F /* matchesdetinfoTVCC.xib */; };
 		A056E7711EAE2B92007FDB9F /* matchesdetplayersTVCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A056E76F1EAE2B92007FDB9F /* matchesdetplayersTVCC.swift */; };
 		A056E7721EAE2B92007FDB9F /* matchesdetplayersTVCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A056E7701EAE2B92007FDB9F /* matchesdetplayersTVCC.xib */; };
 		A056E7741EAE3901007FDB9F /* matchesdetTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A056E7731EAE3901007FDB9F /* matchesdetTVC.swift */; };
-		A056E77D1EAE8722007FDB9F /* hmatchesdetTVH.swift in Sources */ = {isa = PBXBuildFile; fileRef = A056E77C1EAE8722007FDB9F /* hmatchesdetTVH.swift */; };
-		A056E77F1EAE8733007FDB9F /* hmatchesdetTVH.xib in Resources */ = {isa = PBXBuildFile; fileRef = A056E77E1EAE8733007FDB9F /* hmatchesdetTVH.xib */; };
 		A056E7821EAE94DD007FDB9F /* matchesdetbansTVCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A056E7801EAE94DD007FDB9F /* matchesdetbansTVCC.swift */; };
 		A056E7831EAE94DD007FDB9F /* matchesdetbansTVCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A056E7811EAE94DD007FDB9F /* matchesdetbansTVCC.xib */; };
 		A06CD86D1E9E5FC000D4362E /* statsdetTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06CD86C1E9E5FC000D4362E /* statsdetTVC.swift */; };
 		A09D99F01EA3D0360054E988 /* searchsummonerTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09D99EF1EA3D0360054E988 /* searchsummonerTVC.swift */; };
+		A0A4994F1EB2155300977541 /* infoTVCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A4994D1EB2155300977541 /* infoTVCC.swift */; };
+		A0A499501EB2155300977541 /* infoTVCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A4994E1EB2155300977541 /* infoTVCC.xib */; };
+		A0A499531EB21B0A00977541 /* matchesstatsdetTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A499521EB21B0A00977541 /* matchesstatsdetTVC.swift */; };
+		A0A499551EB21BEA00977541 /* headerTVH.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A499541EB21BEA00977541 /* headerTVH.swift */; };
+		A0A499571EB21C1400977541 /* headerTVH.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A499561EB21C1400977541 /* headerTVH.xib */; };
+		A0A4995A1EB2313700977541 /* imageTVCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A499581EB2313700977541 /* imageTVCC.swift */; };
+		A0A4995B1EB2313700977541 /* imageTVCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A499591EB2313700977541 /* imageTVCC.xib */; };
 		A0BCAA691EB13281008F4D01 /* perfilstatstiersnullTVCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BCAA671EB13281008F4D01 /* perfilstatstiersnullTVCC.swift */; };
 		A0BCAA6A1EB13281008F4D01 /* perfilstatstiersnullTVCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0BCAA681EB13281008F4D01 /* perfilstatstiersnullTVCC.xib */; };
 		A0BCAA6C1EB14772008F4D01 /* perfilstatusV.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BCAA6B1EB14772008F4D01 /* perfilstatusV.swift */; };
@@ -105,25 +102,22 @@
 		A017A8731EA5456700C325F7 /* perfilCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = perfilCVC.swift; sourceTree = "<group>"; };
 		A017A8751EA546B600C325F7 /* perfilVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = perfilVC.swift; sourceTree = "<group>"; };
 		A04A6CCB1EB100E8001D9770 /* perfilstatsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = perfilstatsTVC.swift; sourceTree = "<group>"; };
-		A04A6CCD1EB10196001D9770 /* perfilstatsinfoTVCC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = perfilstatsinfoTVCC.swift; sourceTree = "<group>"; };
-		A04A6CCE1EB10196001D9770 /* perfilstatsinfoTVCC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = perfilstatsinfoTVCC.xib; sourceTree = "<group>"; };
-		A04A6CD51EB11603001D9770 /* hperfilstatsTVH.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = hperfilstatsTVH.swift; sourceTree = "<group>"; };
-		A04A6CD91EB1167C001D9770 /* hperfilstatsTVH.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = hperfilstatsTVH.xib; sourceTree = "<group>"; };
-		A04A6CDB1EB12132001D9770 /* perfilstatsimageTVCC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = perfilstatsimageTVCC.swift; sourceTree = "<group>"; };
-		A04A6CDC1EB12132001D9770 /* perfilstatsimageTVCC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = perfilstatsimageTVCC.xib; sourceTree = "<group>"; };
 		A053900A1EA58E1B00657E55 /* perfil.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = perfil.xib; sourceTree = "<group>"; };
 		A053900C1EA58E8900657E55 /* perfilV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = perfilV.swift; sourceTree = "<group>"; };
-		A056E76B1EAE252E007FDB9F /* matchesdetinfoTVCC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matchesdetinfoTVCC.swift; sourceTree = "<group>"; };
-		A056E76C1EAE252E007FDB9F /* matchesdetinfoTVCC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = matchesdetinfoTVCC.xib; sourceTree = "<group>"; };
 		A056E76F1EAE2B92007FDB9F /* matchesdetplayersTVCC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matchesdetplayersTVCC.swift; sourceTree = "<group>"; };
 		A056E7701EAE2B92007FDB9F /* matchesdetplayersTVCC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = matchesdetplayersTVCC.xib; sourceTree = "<group>"; };
 		A056E7731EAE3901007FDB9F /* matchesdetTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matchesdetTVC.swift; sourceTree = "<group>"; };
-		A056E77C1EAE8722007FDB9F /* hmatchesdetTVH.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = hmatchesdetTVH.swift; sourceTree = "<group>"; };
-		A056E77E1EAE8733007FDB9F /* hmatchesdetTVH.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = hmatchesdetTVH.xib; sourceTree = "<group>"; };
 		A056E7801EAE94DD007FDB9F /* matchesdetbansTVCC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matchesdetbansTVCC.swift; sourceTree = "<group>"; };
 		A056E7811EAE94DD007FDB9F /* matchesdetbansTVCC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = matchesdetbansTVCC.xib; sourceTree = "<group>"; };
 		A06CD86C1E9E5FC000D4362E /* statsdetTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = statsdetTVC.swift; sourceTree = "<group>"; };
 		A09D99EF1EA3D0360054E988 /* searchsummonerTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = searchsummonerTVC.swift; sourceTree = "<group>"; };
+		A0A4994D1EB2155300977541 /* infoTVCC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = infoTVCC.swift; sourceTree = "<group>"; };
+		A0A4994E1EB2155300977541 /* infoTVCC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = infoTVCC.xib; sourceTree = "<group>"; };
+		A0A499521EB21B0A00977541 /* matchesstatsdetTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matchesstatsdetTVC.swift; sourceTree = "<group>"; };
+		A0A499541EB21BEA00977541 /* headerTVH.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = headerTVH.swift; sourceTree = "<group>"; };
+		A0A499561EB21C1400977541 /* headerTVH.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = headerTVH.xib; sourceTree = "<group>"; };
+		A0A499581EB2313700977541 /* imageTVCC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = imageTVCC.swift; sourceTree = "<group>"; };
+		A0A499591EB2313700977541 /* imageTVCC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = imageTVCC.xib; sourceTree = "<group>"; };
 		A0BCAA671EB13281008F4D01 /* perfilstatstiersnullTVCC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = perfilstatstiersnullTVCC.swift; sourceTree = "<group>"; };
 		A0BCAA681EB13281008F4D01 /* perfilstatstiersnullTVCC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = perfilstatstiersnullTVCC.xib; sourceTree = "<group>"; };
 		A0BCAA6B1EB14772008F4D01 /* perfilstatusV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = perfilstatusV.swift; sourceTree = "<group>"; };
@@ -256,6 +250,7 @@
 		A00280261E9DADDD003175A7 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				A0A499461EB214B900977541 /* generics */,
 				A04A6CCA1EB10098001D9770 /* perfilstats */,
 				A0BF02FD1EA6ACA600DB84E9 /* matches */,
 				A017A86E1EA543CC00C325F7 /* perfil */,
@@ -290,12 +285,6 @@
 			isa = PBXGroup;
 			children = (
 				A04A6CCB1EB100E8001D9770 /* perfilstatsTVC.swift */,
-				A04A6CCD1EB10196001D9770 /* perfilstatsinfoTVCC.swift */,
-				A04A6CCE1EB10196001D9770 /* perfilstatsinfoTVCC.xib */,
-				A04A6CD51EB11603001D9770 /* hperfilstatsTVH.swift */,
-				A04A6CD91EB1167C001D9770 /* hperfilstatsTVH.xib */,
-				A04A6CDB1EB12132001D9770 /* perfilstatsimageTVCC.swift */,
-				A04A6CDC1EB12132001D9770 /* perfilstatsimageTVCC.xib */,
 				A0BCAA671EB13281008F4D01 /* perfilstatstiersnullTVCC.swift */,
 				A0BCAA681EB13281008F4D01 /* perfilstatstiersnullTVCC.xib */,
 				A0BCAA6B1EB14772008F4D01 /* perfilstatusV.swift */,
@@ -307,13 +296,9 @@
 		A056E7751EAE3C47007FDB9F /* matchesdet */ = {
 			isa = PBXGroup;
 			children = (
-				A056E76B1EAE252E007FDB9F /* matchesdetinfoTVCC.swift */,
-				A056E76C1EAE252E007FDB9F /* matchesdetinfoTVCC.xib */,
 				A056E76F1EAE2B92007FDB9F /* matchesdetplayersTVCC.swift */,
 				A056E7701EAE2B92007FDB9F /* matchesdetplayersTVCC.xib */,
 				A056E7731EAE3901007FDB9F /* matchesdetTVC.swift */,
-				A056E77C1EAE8722007FDB9F /* hmatchesdetTVH.swift */,
-				A056E77E1EAE8733007FDB9F /* hmatchesdetTVH.xib */,
 				A056E7801EAE94DD007FDB9F /* matchesdetbansTVCC.swift */,
 				A056E7811EAE94DD007FDB9F /* matchesdetbansTVCC.xib */,
 			);
@@ -326,6 +311,27 @@
 				A09D99EF1EA3D0360054E988 /* searchsummonerTVC.swift */,
 			);
 			name = search;
+			sourceTree = "<group>";
+		};
+		A0A499461EB214B900977541 /* generics */ = {
+			isa = PBXGroup;
+			children = (
+				A0A4994D1EB2155300977541 /* infoTVCC.swift */,
+				A0A4994E1EB2155300977541 /* infoTVCC.xib */,
+				A0A499541EB21BEA00977541 /* headerTVH.swift */,
+				A0A499561EB21C1400977541 /* headerTVH.xib */,
+				A0A499581EB2313700977541 /* imageTVCC.swift */,
+				A0A499591EB2313700977541 /* imageTVCC.xib */,
+			);
+			name = generics;
+			sourceTree = "<group>";
+		};
+		A0A499511EB21A9200977541 /* matchesstatsdet */ = {
+			isa = PBXGroup;
+			children = (
+				A0A499521EB21B0A00977541 /* matchesstatsdetTVC.swift */,
+			);
+			name = matchesstatsdet;
 			sourceTree = "<group>";
 		};
 		A0BF02F71EA641F600DB84E9 /* backview */ = {
@@ -349,6 +355,7 @@
 		A0BF02FD1EA6ACA600DB84E9 /* matches */ = {
 			isa = PBXGroup;
 			children = (
+				A0A499511EB21A9200977541 /* matchesstatsdet */,
 				A056E7751EAE3C47007FDB9F /* matchesdet */,
 				A0BF02FE1EA6B20000DB84E9 /* matchesTVC.swift */,
 				A0BF03001EA6B21900DB84E9 /* matchesTVCC.swift */,
@@ -532,29 +539,27 @@
 				A0D97B0B1EA7A28700273C10 /* profileicon.json in Resources */,
 				A0D97B0A1EA7A28700273C10 /* mastery.json in Resources */,
 				A0D97AF91EA792D300273C10 /* friz_quadrata_r.ttf in Resources */,
-				A056E76E1EAE252E007FDB9F /* matchesdetinfoTVCC.xib in Resources */,
+				A0A4995B1EB2313700977541 /* imageTVCC.xib in Resources */,
 				A0D97B0C1EA7A28700273C10 /* rune.json in Resources */,
 				A00280001E9D91BD003175A7 /* LaunchScreen.storyboard in Resources */,
 				A0BCAA6A1EB13281008F4D01 /* perfilstatstiersnullTVCC.xib in Resources */,
 				A0D97B091EA7A28700273C10 /* map.json in Resources */,
 				A0BCAA6E1EB14785008F4D01 /* perfilstatusV.xib in Resources */,
-				A056E77F1EAE8733007FDB9F /* hmatchesdetTVH.xib in Resources */,
 				A0D97B071EA7A28700273C10 /* item.json in Resources */,
 				A0D97AF81EA792D300273C10 /* friz_quadrata_m.otf in Resources */,
 				A053900B1EA58E1B00657E55 /* perfil.xib in Resources */,
 				A0D97B0D1EA7A28700273C10 /* sticker.json in Resources */,
+				A0A499571EB21C1400977541 /* headerTVH.xib in Resources */,
 				A0D97B051EA7A28700273C10 /* champion.json in Resources */,
-				A04A6CD01EB10196001D9770 /* perfilstatsinfoTVCC.xib in Resources */,
 				A0027FFD1E9D91BD003175A7 /* Assets.xcassets in Resources */,
 				A056E7721EAE2B92007FDB9F /* matchesdetplayersTVCC.xib in Resources */,
 				A0027FFB1E9D91BD003175A7 /* Main.storyboard in Resources */,
 				A0BF02FA1EA6422600DB84E9 /* emptytableview.xib in Resources */,
 				A0D97B0E1EA7A28700273C10 /* summoner.json in Resources */,
 				A056E7831EAE94DD007FDB9F /* matchesdetbansTVCC.xib in Resources */,
-				A04A6CDE1EB12132001D9770 /* perfilstatsimageTVCC.xib in Resources */,
 				A0D97B061EA7A28700273C10 /* championFull.json in Resources */,
 				A0D97B081EA7A28700273C10 /* language.json in Resources */,
-				A04A6CDA1EB1167C001D9770 /* hperfilstatsTVH.xib in Resources */,
+				A0A499501EB2155300977541 /* infoTVCC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -718,12 +723,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A017A8741EA5456700C325F7 /* perfilCVC.swift in Sources */,
-				A056E76D1EAE252E007FDB9F /* matchesdetinfoTVCC.swift in Sources */,
 				A056E7711EAE2B92007FDB9F /* matchesdetplayersTVCC.swift in Sources */,
 				A0BF02FC1EA643DC00DB84E9 /* emptytableview.swift in Sources */,
 				A00280291E9DAE08003175A7 /* statsTVC.swift in Sources */,
-				A04A6CD61EB11603001D9770 /* hperfilstatsTVH.swift in Sources */,
-				A056E77D1EAE8722007FDB9F /* hmatchesdetTVH.swift in Sources */,
+				A0A499551EB21BEA00977541 /* headerTVH.swift in Sources */,
 				A002802B1E9DAE27003175A7 /* statsTVCC.swift in Sources */,
 				A0027FF61E9D91BD003175A7 /* AppDelegate.swift in Sources */,
 				A0BF03011EA6B21900DB84E9 /* matchesTVCC.swift in Sources */,
@@ -732,14 +735,15 @@
 				A0BCAA691EB13281008F4D01 /* perfilstatstiersnullTVCC.swift in Sources */,
 				A017A8761EA546B600C325F7 /* perfilVC.swift in Sources */,
 				A00280241E9D981B003175A7 /* rootclass.swift in Sources */,
-				A04A6CCF1EB10196001D9770 /* perfilstatsinfoTVCC.swift in Sources */,
 				A0BCAA6C1EB14772008F4D01 /* perfilstatusV.swift in Sources */,
-				A04A6CDD1EB12132001D9770 /* perfilstatsimageTVCC.swift in Sources */,
 				A04A6CCC1EB100E8001D9770 /* perfilstatsTVC.swift in Sources */,
+				A0A499531EB21B0A00977541 /* matchesstatsdetTVC.swift in Sources */,
 				A06CD86D1E9E5FC000D4362E /* statsdetTVC.swift in Sources */,
 				A056E7741EAE3901007FDB9F /* matchesdetTVC.swift in Sources */,
 				A056E7821EAE94DD007FDB9F /* matchesdetbansTVCC.swift in Sources */,
 				A09D99F01EA3D0360054E988 /* searchsummonerTVC.swift in Sources */,
+				A0A4995A1EB2313700977541 /* imageTVCC.swift in Sources */,
+				A0A4994F1EB2155300977541 /* infoTVCC.swift in Sources */,
 				A0BF02FF1EA6B20000DB84E9 /* matchesTVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -13,31 +13,31 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" restorationIdentifier="hperfilstats" id="iN0-l3-epB" customClass="hperfilstatsTVH" customModule="LOL4YOU" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="headerTVH" customModule="LOL4YOU" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ECJ-Mc-LFm">
-                    <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="16"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SGb-eh-1m1">
+                    <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="14"/>
                     <color key="textColor" red="0.92941176469999998" green="0.87843137250000003" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="0.0078431372550000003" green="0.039215686270000001" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.086274509799999996" green="0.10980392160000001" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="ECJ-Mc-LFm" secondAttribute="bottom" constant="5" id="Yzr-kt-aYd"/>
-                <constraint firstItem="ECJ-Mc-LFm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="gZY-8G-7rA"/>
-                <constraint firstItem="ECJ-Mc-LFm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="hQd-lt-17r"/>
-                <constraint firstAttribute="trailing" secondItem="ECJ-Mc-LFm" secondAttribute="trailing" constant="8" id="ly2-Pf-PPt"/>
+                <constraint firstAttribute="trailing" secondItem="SGb-eh-1m1" secondAttribute="trailing" constant="8" id="9yO-0t-K3R"/>
+                <constraint firstItem="SGb-eh-1m1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="QBo-N7-LNA"/>
+                <constraint firstAttribute="bottom" secondItem="SGb-eh-1m1" secondAttribute="bottom" constant="5" id="Vev-oS-XVv"/>
+                <constraint firstItem="SGb-eh-1m1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="gaE-gz-4lS"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="header" destination="ECJ-Mc-LFm" id="ANh-xF-XzU"/>
+                <outlet property="header" destination="SGb-eh-1m1" id="0rn-mI-n7H"/>
             </connections>
-            <point key="canvasLocation" x="32.5" y="41"/>
+            <point key="canvasLocation" x="98.5" y="62"/>
         </view>
     </objects>
 </document>

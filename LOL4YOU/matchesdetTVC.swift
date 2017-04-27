@@ -25,6 +25,35 @@ class matchesdetTVC: UITableViewController {
         
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case (9...13):
+            if let cell = tableView.cellForRow(at: indexPath) {
+                let participant = matchdet.participants.filter{ p in p.participantId == cell.tag }
+                let summoner = matchdet.participantsIdentities.filter{ p in p.participantId == cell.tag }
+                if participant.count > 0 {
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let vc = storyboard.instantiateViewController(withIdentifier: "matchesstatsdet") as! matchesstatsdetTVC
+                    
+                    vc.participant = participant[0]
+                    
+                    if summoner.count > 0 {
+                        if summoner[0].summonerName.isEmpty {
+                            let champion = rt.listaChamp(id: participant[0].championId)
+                            vc.title = champion.name
+                        } else {
+                            vc.title = "\(summoner[0].summonerName)"
+                        }
+                    }
+                    
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            }
+        default:
+            print("ROOT - DEFAULT - DIDSELCT")
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let twinner = matchdet.teams.filter{p in p.winner == true }
@@ -35,8 +64,9 @@ class matchesdetTVC: UITableViewController {
             switch indexPath.row {
             case 0:
                 //First Blood
-                let cell = Bundle.main.loadNibNamed("matchesdetinfoTVCC", owner: self, options: nil)?.first as! matchesdetinfoTVCC
+                let cell = Bundle.main.loadNibNamed("infoTVCC", owner: self, options: nil)?.first as! infoTVCC
                 
+                cell.selectionStyle = UITableViewCellSelectionStyle.none
                 cell.item.text = "First Blood"
                 if twinner.count > 0 {
                     if twinner[0].firstBlood {
@@ -51,8 +81,9 @@ class matchesdetTVC: UITableViewController {
                 return cell
             case 1:
                 //First Tower
-                let cell = Bundle.main.loadNibNamed("matchesdetinfoTVCC", owner: self, options: nil)?.first as! matchesdetinfoTVCC
+                let cell = Bundle.main.loadNibNamed("infoTVCC", owner: self, options: nil)?.first as! infoTVCC
                 
+                cell.selectionStyle = UITableViewCellSelectionStyle.none
                 cell.item.text = "First Tower"
                 if twinner.count > 0 {
                     if twinner[0].firstTower {
@@ -67,8 +98,9 @@ class matchesdetTVC: UITableViewController {
                 return cell
             case 2:
                 //First Baron
-                let cell = Bundle.main.loadNibNamed("matchesdetinfoTVCC", owner: self, options: nil)?.first as! matchesdetinfoTVCC
+                let cell = Bundle.main.loadNibNamed("infoTVCC", owner: self, options: nil)?.first as! infoTVCC
                 
+                cell.selectionStyle = UITableViewCellSelectionStyle.none
                 cell.item.text = "First Baron"
                 if twinner.count > 0 {
                     if twinner[0].firstBaron {
@@ -83,8 +115,9 @@ class matchesdetTVC: UITableViewController {
                 return cell
             case 3:
                 //First Dragon
-                let cell = Bundle.main.loadNibNamed("matchesdetinfoTVCC", owner: self, options: nil)?.first as! matchesdetinfoTVCC
+                let cell = Bundle.main.loadNibNamed("infoTVCC", owner: self, options: nil)?.first as! infoTVCC
                 
+                cell.selectionStyle = UITableViewCellSelectionStyle.none
                 cell.item.text = "First Dragon"
                 if twinner.count > 0 {
                     if twinner[0].firstDragon {
@@ -99,8 +132,9 @@ class matchesdetTVC: UITableViewController {
                 return cell
             case 4:
                 //Inhibitor Kills
-                let cell = Bundle.main.loadNibNamed("matchesdetinfoTVCC", owner: self, options: nil)?.first as! matchesdetinfoTVCC
+                let cell = Bundle.main.loadNibNamed("infoTVCC", owner: self, options: nil)?.first as! infoTVCC
                 
+                cell.selectionStyle = UITableViewCellSelectionStyle.none
                 cell.item.text = "Inhibitor Kills"
                 if twinner.count > 0 {
                     cell.valor.text = "\(twinner[0].inhibitorKills)"
@@ -111,8 +145,9 @@ class matchesdetTVC: UITableViewController {
                 return cell
             case 5:
                 //Tower Kills
-                let cell = Bundle.main.loadNibNamed("matchesdetinfoTVCC", owner: self, options: nil)?.first as! matchesdetinfoTVCC
+                let cell = Bundle.main.loadNibNamed("infoTVCC", owner: self, options: nil)?.first as! infoTVCC
                 
+                cell.selectionStyle = UITableViewCellSelectionStyle.none
                 cell.item.text = "Tower Kills"
                 if twinner.count > 0 {
                     cell.valor.text = "\(twinner[0].towerKills)"
@@ -123,8 +158,9 @@ class matchesdetTVC: UITableViewController {
                 return cell
             case 6:
                 //Baron Kills
-                let cell = Bundle.main.loadNibNamed("matchesdetinfoTVCC", owner: self, options: nil)?.first as! matchesdetinfoTVCC
+                let cell = Bundle.main.loadNibNamed("infoTVCC", owner: self, options: nil)?.first as! infoTVCC
                 
+                cell.selectionStyle = UITableViewCellSelectionStyle.none
                 cell.item.text = "Baron Kills"
                 if twinner.count > 0 {
                     cell.valor.text = "\(twinner[0].baronKills)"
@@ -135,8 +171,9 @@ class matchesdetTVC: UITableViewController {
                 return cell
             case 7:
                 //Dragon Kills
-                let cell = Bundle.main.loadNibNamed("matchesdetinfoTVCC", owner: self, options: nil)?.first as! matchesdetinfoTVCC
+                let cell = Bundle.main.loadNibNamed("infoTVCC", owner: self, options: nil)?.first as! infoTVCC
                 
+                cell.selectionStyle = UITableViewCellSelectionStyle.none
                 cell.item.text = "Dragon Kills"
                 if twinner.count > 0 {
                     cell.valor.text = "\(twinner[0].dragonKills)"
@@ -149,6 +186,7 @@ class matchesdetTVC: UITableViewController {
                 //Bans Champions
                 let cell = Bundle.main.loadNibNamed("matchesdetbansTVCC", owner: self, options: nil)?.first as! matchesdetbansTVCC
                 
+                cell.selectionStyle = UITableViewCellSelectionStyle.none
                 if twinner.count > 0 {
                     if twinner[0].bans.count > 0 {
                         for i in 0 ..< twinner[0].bans.count {
@@ -187,6 +225,7 @@ class matchesdetTVC: UITableViewController {
             default:
                 let cell = Bundle.main.loadNibNamed("matchesdetplayersTVCC", owner: self, options: nil)?.first as! matchesdetplayersTVCC
                 
+                cell.selectionStyle = UITableViewCellSelectionStyle.none
                 cell.imgchampion.image = UIImage(named:"static_null")
                 cell.imgitem0.image = UIImage(named:"static_null")
                 cell.imgitem1.image = UIImage(named:"static_null")
@@ -205,6 +244,8 @@ class matchesdetTVC: UITableViewController {
                     if (indexPath.row - static_cell_rows_count) < tstats.count {
                         let summoner = rt.listaChamp(id: tstats[indexPath.row - static_cell_rows_count].championId)
                         let tsummonername = matchdet.participantsIdentities.filter{ p in p.participantId == tstats[indexPath.row - static_cell_rows_count].participantId }
+                        
+                        cell.tag = tstats[indexPath.row - static_cell_rows_count].participantId
                         
                         if tsummonername.count > 0 {
                             if tsummonername[0].summonerName.isEmpty {
@@ -331,8 +372,9 @@ class matchesdetTVC: UITableViewController {
             switch indexPath.row {
             case 0:
                 //First Blood
-                let cell = Bundle.main.loadNibNamed("matchesdetinfoTVCC", owner: self, options: nil)?.first as! matchesdetinfoTVCC
+                let cell = Bundle.main.loadNibNamed("infoTVCC", owner: self, options: nil)?.first as! infoTVCC
                 
+                cell.selectionStyle = UITableViewCellSelectionStyle.none
                 cell.item.text = "First Blood"
                 if tlosing.count > 0 {
                     if tlosing[0].firstBlood {
@@ -347,8 +389,9 @@ class matchesdetTVC: UITableViewController {
                 return cell
             case 1:
                 //First Tower
-                let cell = Bundle.main.loadNibNamed("matchesdetinfoTVCC", owner: self, options: nil)?.first as! matchesdetinfoTVCC
+                let cell = Bundle.main.loadNibNamed("infoTVCC", owner: self, options: nil)?.first as! infoTVCC
                 
+                cell.selectionStyle = UITableViewCellSelectionStyle.none
                 cell.item.text = "First Tower"
                 if tlosing.count > 0 {
                     if tlosing[0].firstTower {
@@ -363,8 +406,9 @@ class matchesdetTVC: UITableViewController {
                 return cell
             case 2:
                 //First Baron
-                let cell = Bundle.main.loadNibNamed("matchesdetinfoTVCC", owner: self, options: nil)?.first as! matchesdetinfoTVCC
+                let cell = Bundle.main.loadNibNamed("infoTVCC", owner: self, options: nil)?.first as! infoTVCC
                 
+                cell.selectionStyle = UITableViewCellSelectionStyle.none
                 cell.item.text = "First Baron"
                 if tlosing.count > 0 {
                     if tlosing[0].firstBaron {
@@ -379,8 +423,9 @@ class matchesdetTVC: UITableViewController {
                 return cell
             case 3:
                 //First Dragon
-                let cell = Bundle.main.loadNibNamed("matchesdetinfoTVCC", owner: self, options: nil)?.first as! matchesdetinfoTVCC
+                let cell = Bundle.main.loadNibNamed("infoTVCC", owner: self, options: nil)?.first as! infoTVCC
                 
+                cell.selectionStyle = UITableViewCellSelectionStyle.none
                 cell.item.text = "First Dragon"
                 if tlosing.count > 0 {
                     if tlosing[0].firstDragon {
@@ -395,8 +440,9 @@ class matchesdetTVC: UITableViewController {
                 return cell
             case 4:
                 //Inhibitor Kills
-                let cell = Bundle.main.loadNibNamed("matchesdetinfoTVCC", owner: self, options: nil)?.first as! matchesdetinfoTVCC
+                let cell = Bundle.main.loadNibNamed("infoTVCC", owner: self, options: nil)?.first as! infoTVCC
                 
+                cell.selectionStyle = UITableViewCellSelectionStyle.none
                 cell.item.text = "Inhibitor Kills"
                 if tlosing.count > 0 {
                     cell.valor.text = "\(tlosing[0].inhibitorKills)"
@@ -408,8 +454,9 @@ class matchesdetTVC: UITableViewController {
                 return cell
             case 5:
                 //Tower Kills
-                let cell = Bundle.main.loadNibNamed("matchesdetinfoTVCC", owner: self, options: nil)?.first as! matchesdetinfoTVCC
+                let cell = Bundle.main.loadNibNamed("infoTVCC", owner: self, options: nil)?.first as! infoTVCC
                 
+                cell.selectionStyle = UITableViewCellSelectionStyle.none
                 cell.item.text = "Tower Kills"
                 if tlosing.count > 0 {
                     cell.valor.text = "\(tlosing[0].towerKills)"
@@ -420,8 +467,9 @@ class matchesdetTVC: UITableViewController {
                 return cell
             case 6:
                 //Baron Kills
-                let cell = Bundle.main.loadNibNamed("matchesdetinfoTVCC", owner: self, options: nil)?.first as! matchesdetinfoTVCC
+                let cell = Bundle.main.loadNibNamed("infoTVCC", owner: self, options: nil)?.first as! infoTVCC
                 
+                cell.selectionStyle = UITableViewCellSelectionStyle.none
                 cell.item.text = "Baron Kills"
                 if tlosing.count > 0 {
                     cell.valor.text = "\(tlosing[0].baronKills)"
@@ -432,8 +480,9 @@ class matchesdetTVC: UITableViewController {
                 return cell
             case 7:
                 //Dragon Kills
-                let cell = Bundle.main.loadNibNamed("matchesdetinfoTVCC", owner: self, options: nil)?.first as! matchesdetinfoTVCC
+                let cell = Bundle.main.loadNibNamed("infoTVCC", owner: self, options: nil)?.first as! infoTVCC
                 
+                cell.selectionStyle = UITableViewCellSelectionStyle.none
                 cell.item.text = "Dragon Kills"
                 if tlosing.count > 0 {
                     cell.valor.text = "\(tlosing[0].dragonKills)"
@@ -447,6 +496,7 @@ class matchesdetTVC: UITableViewController {
                 //Bans Champions
                 let cell = Bundle.main.loadNibNamed("matchesdetbansTVCC", owner: self, options: nil)?.first as! matchesdetbansTVCC
                 
+                cell.selectionStyle = UITableViewCellSelectionStyle.none
                 if tlosing.count > 0 {
                     if tlosing[0].bans.count > 0 {
                         for i in 0 ..< tlosing[0].bans.count {
@@ -485,6 +535,7 @@ class matchesdetTVC: UITableViewController {
             default:
                 let cell = Bundle.main.loadNibNamed("matchesdetplayersTVCC", owner: self, options: nil)?.first as! matchesdetplayersTVCC
                 
+                cell.selectionStyle = UITableViewCellSelectionStyle.none
                 cell.imgchampion.image = UIImage(named:"static_null")
                 cell.imgitem0.image = UIImage(named:"static_null")
                 cell.imgitem1.image = UIImage(named:"static_null")
@@ -503,6 +554,8 @@ class matchesdetTVC: UITableViewController {
                     if (indexPath.row - static_cell_rows_count) < tstats.count {
                         let summoner = rt.listaChamp(id: tstats[indexPath.row - static_cell_rows_count].championId)
                         let tsummonername = matchdet.participantsIdentities.filter{ p in p.participantId == tstats[indexPath.row - static_cell_rows_count].participantId }
+                        
+                        cell.tag = tstats[indexPath.row - static_cell_rows_count].participantId
                         
                         if tsummonername.count > 0 {
                             if tsummonername[0].summonerName.isEmpty {
@@ -627,7 +680,9 @@ class matchesdetTVC: UITableViewController {
                 return cell
             }
         default:
-            let cell = Bundle.main.loadNibNamed("matchesdetinfoTVCC", owner: self, options: nil)?.first as! matchesdetinfoTVCC
+            let cell = Bundle.main.loadNibNamed("infoTVCC", owner: self, options: nil)?.first as! infoTVCC
+            
+            cell.selectionStyle = UITableViewCellSelectionStyle.none
             
             return cell
         }
@@ -658,8 +713,8 @@ class matchesdetTVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let cell = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: "hmatchesdetTVH")
-        let cheader = cell as! hmatchesdetTVH
+        let cell = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: "headerTVH")
+        let cheader = cell as! headerTVH
         
         if section == 0 {
             cheader.header.text = sections[section]
@@ -723,8 +778,8 @@ class matchesdetTVC: UITableViewController {
         let barButton = UIBarButtonItem.init(customView: button)
         self.navigationItem.leftBarButtonItem = barButton
         
-        let nib = UINib(nibName: "hmatchesdetTVH", bundle: nil)
-        tableView.register(nib, forHeaderFooterViewReuseIdentifier: "hmatchesdetTVH")
+        let nib = UINib(nibName: "headerTVH", bundle: nil)
+        tableView.register(nib, forHeaderFooterViewReuseIdentifier: "headerTVH")
         
         self.navigationController?.navigationBar.barTintColor = UIColor(hex: rootclass.colors.FUNDO.rawValue)
         self.navigationController?.navigationBar.titleTextAttributes = attnav
