@@ -374,15 +374,6 @@
                                     <outlet property="delegate" destination="MKE-bu-QDX" id="KtC-ek-ebA"/>
                                 </connections>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRZ-xl-sAU">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="KMZ-aM-GDp"/>
-                                    <constraint firstAttribute="height" constant="21" id="QIi-ls-BpC"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="12"/>
-                                <color key="textColor" red="0.92941176469999998" green="0.87843137250000003" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dOG-BF-JzO">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="bTL-63-DHV"/>
@@ -395,18 +386,49 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lzV-bv-QHc">
+                                <color key="backgroundColor" red="0.0078431372550000003" green="0.039215686270000001" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="VbE-1d-yG2"/>
+                                    <constraint firstAttribute="width" constant="30" id="hBw-8c-Syx"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                        <color key="value" red="0.70588235290000001" green="0.52156862749999999" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xRZ-xl-sAU">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="4pt-az-311"/>
+                                    <constraint firstAttribute="width" constant="23" id="FAg-FA-9ca"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="12"/>
+                                <color key="textColor" red="0.92941176469999998" green="0.87843137250000003" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.086274509799999996" green="0.10980392160000001" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="lzV-bv-QHc" firstAttribute="top" secondItem="fHt-1A-yvi" secondAttribute="top" constant="171" id="1P8-OQ-4dK"/>
+                            <constraint firstItem="lzV-bv-QHc" firstAttribute="leading" secondItem="fHt-1A-yvi" secondAttribute="leading" constant="186" id="9ZE-fG-QH4"/>
+                            <constraint firstItem="xRZ-xl-sAU" firstAttribute="leading" secondItem="lzV-bv-QHc" secondAttribute="trailing" constant="-27" id="DoZ-zK-SSn"/>
                             <constraint firstItem="dOG-BF-JzO" firstAttribute="centerX" secondItem="fHt-1A-yvi" secondAttribute="centerX" constant="-1.5" id="gAk-h9-MOY"/>
-                            <constraint firstItem="xRZ-xl-sAU" firstAttribute="centerX" secondItem="fHt-1A-yvi" secondAttribute="centerX" constant="-1.5" id="it5-1d-J8w"/>
-                            <constraint firstItem="xRZ-xl-sAU" firstAttribute="top" secondItem="fHt-1A-yvi" secondAttribute="top" constant="209" id="zAK-FI-eMm"/>
+                            <constraint firstItem="xRZ-xl-sAU" firstAttribute="top" secondItem="lzV-bv-QHc" secondAttribute="bottom" constant="-26" id="h6C-a4-tmZ"/>
                             <constraint firstItem="dOG-BF-JzO" firstAttribute="top" secondItem="fHt-1A-yvi" secondAttribute="top" constant="101" id="zI0-la-yN9"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="KqN-Q0-zN3"/>
                     <connections>
                         <outlet property="collectionView" destination="SB5-MF-5Bt" id="Aas-rb-LE6"/>
+                        <outlet property="imglvl" destination="lzV-bv-QHc" id="dPz-yd-a43"/>
                         <outlet property="imgperfil" destination="dOG-BF-JzO" id="fXG-xh-BYU"/>
                         <outlet property="lvl" destination="xRZ-xl-sAU" id="PX5-of-Fxa"/>
                     </connections>
@@ -1088,21 +1110,21 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Days" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZv-YO-8WB">
-                                            <frame key="frameInset" minX="23.10%" minY="53" width="33.04%" height="21"/>
+                                            <frame key="frameInset" minX="23.10%" minY="53" width="32.75%" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="12"/>
                                             <color key="textColor" red="0.5568627451" green="0.54117647059999996" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Minutes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ujc-bs-y4m">
-                                            <frame key="frameInset" minX="23.10%" minY="71" width="33.04%" height="21"/>
+                                            <frame key="frameInset" minX="23.10%" minY="71" width="32.75%" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="12"/>
                                             <color key="textColor" red="0.5568627451" green="0.54117647059999996" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2N8-TX-Qxm">
-                                            <frame key="frameInset" minX="23.10%" minY="34" width="33.04%" height="21"/>
+                                            <frame key="frameInset" minX="23.10%" minY="34" width="32.75%" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="15"/>
                                             <color key="textColor" red="0.56862745098039214" green="0.035294117647058823" blue="0.14117647058823529" alpha="1" colorSpace="calibratedRGB"/>

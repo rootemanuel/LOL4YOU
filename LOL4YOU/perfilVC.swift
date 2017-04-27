@@ -13,6 +13,7 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var imgperfil: UIImageView!
+    @IBOutlet weak var imglvl: UIImageView!
     @IBOutlet weak var lvl: UILabel!
     
     var rt = rootclass.sharedInstance
@@ -54,6 +55,8 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
         
         if indexPath.item == 0 {
             
+            SVProgressHUD.show()
+            
             rt.listarLeague() {(league) in
                 
                 for i in 0 ..< league.count {
@@ -77,13 +80,19 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
                     
                     tiers.append(r)
                 }
+                
+                self.rt.listarStatsProfile() {(stats) in
 
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let vc = storyboard.instantiateViewController(withIdentifier: "perfilstats") as! perfilstatsTVC
-                
-                vc.tiers = tiers
-                
-                self.navigationController?.pushViewController(vc, animated: true)
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let vc = storyboard.instantiateViewController(withIdentifier: "perfilstats") as! perfilstatsTVC
+                    
+                    vc.tiers = tiers
+                    vc.stats = stats
+                    
+                    SVProgressHUD.dismiss()
+                    
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
             }
         } else if indexPath.item == 1 {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -124,8 +133,9 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
             self.imgperfil.isHidden = true
         }
         
-        self.lvl.text = ("Level \(rootclass.Summoner.summonerLevel)")
-        
+        self.lvl.text = ("\(rootclass.Summoner.summonerLevel)")
+        self.imglvl.layer.borderWidth = 2
+        self.imglvl.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
     }
 
     func spopViewController(){

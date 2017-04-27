@@ -443,7 +443,7 @@ class rootclass: NSObject {
                                     r.kills = self.const_zeros_s
                                 }
                                 
-                                if let death = jstats["champions"][i]["stats"]["maxNumDeaths"].int {
+                                if let death = jstats["champions"][i]["stats"]["totalDeathsPerSession"].int {
                                     r.deaths = "\(death / totsp)"
                                 } else {
                                     r.deaths = self.const_zeros_s
@@ -467,7 +467,145 @@ class rootclass: NSObject {
                                     r.kills = self.const_zeros_s
                                 }
                                 
-                                if let death = jstats["champions"][i]["stats"]["maxNumDeaths"].int {
+                                if let death = jstats["champions"][i]["stats"]["totalDeathsPerSession"].int {
+                                    r.deaths = "\(death)"
+                                } else {
+                                    r.deaths = self.const_zeros_s
+                                }
+                                
+                                if let assist = jstats["champions"][i]["stats"]["totalAssists"].int {
+                                    r.assists = "\(assist)"
+                                } else {
+                                    r.assists = self.const_zeros_s
+                                }
+                                
+                                if let creep = jstats["champions"][i]["stats"]["totalMinionKills"].int {
+                                    r.creeps = "\(creep)"
+                                } else {
+                                    r.creeps = self.const_zeros_s
+                                }
+                            }
+                            
+                            if let gold = jstats["champions"][i]["stats"]["totalGoldEarned"].int {
+                                r.gold = gold
+                            } else {
+                                r.gold = self.const_zeros_i
+                            }
+                            
+                            if let wins = jstats["champions"][i]["stats"]["totalSessionsWon"].int {
+                                r.win = "\(wins)"
+                            } else {
+                                r.win = self.const_zeros_s
+                            }
+                            
+                            if let loss = jstats["champions"][i]["stats"]["totalSessionsLost"].int {
+                                r.loss = "\(loss)"
+                            } else {
+                                r.win = self.const_zeros_s
+                            }
+                            
+                            if let dkill = jstats["champions"][i]["stats"]["totalDoubleKills"].int {
+                                r.doublekill = "\(dkill)"
+                            } else {
+                                r.doublekill = self.const_zeros_s
+                            }
+                            
+                            if let tkill = jstats["champions"][i]["stats"]["totalTripleKills"].int {
+                                r.triplekill = "\(tkill)"
+                            } else {
+                                r.triplekill = self.const_zeros_s
+                            }
+                            
+                            if let qkill = jstats["champions"][i]["stats"]["totalQuadraKills"].int {
+                                r.quadrakill = "\(qkill)"
+                            } else {
+                                r.quadrakill = self.const_zeros_s
+                            }
+                            
+                            if let pkill = jstats["champions"][i]["stats"]["totalPentaKills"].int {
+                                r.pentakill = "\(pkill)"
+                            } else {
+                                r.pentakill = self.const_zeros_s
+                            }
+                            
+                            if let turrets = jstats["champions"][i]["stats"]["totalTurretsKilled"].int {
+                                r.turretskilled = "\(turrets)"
+                            } else {
+                                r.turretskilled = self.const_zeros_s
+                            }
+                            
+                            if let firstblood = jstats["champions"][i]["stats"]["totalFirstBlood"].int {
+                                r.firstblood = "\(firstblood)"
+                            } else {
+                                r.firstblood = self.const_zeros_s
+                            }
+                            
+                            rtn.append(r)
+                        }
+                    }
+                }
+                
+            case .failure(let error):
+                NSLog(error as! String)
+            }
+            
+            stats(rtn)
+        }
+    }
+    
+    func listarStatsProfile(stats:@escaping (Array<BEStats>) -> ()) {
+        
+        var rtn = Array<BEStats>()
+        
+        let url = "https://\(Region.REGION_BR.rawValue.lowercased()).api.riotgames.com/api/lol/\(Region.REGION_BR.rawValue.uppercased())/v1.3/stats/by-summoner/\(Summoner.summonerID)/ranked?season=SEASON2017&api_key=\(Summoner.api_key)"
+        
+        Alamofire.request(url).responseJSON { response in
+            
+            switch response.result {
+            case .success( _):
+                let jstats = JSON(response.result.value!)
+                
+                if jstats != JSON.null {
+                    if(!jstats.isEmpty){
+                        for i in 0 ..< jstats["champions"].count {
+                            let r = BEStats()
+                            
+                            if let champid = jstats["champions"][i]["id"].int {
+                                r.championID = champid
+                            }
+                            
+                            if let totsp = jstats["champions"][i]["stats"]["totalSessionsPlayed"].int {
+                                if let kill = jstats["champions"][i]["stats"]["totalChampionKills"].int {
+                                    r.kills = "\(kill)"
+                                } else {
+                                    r.kills = self.const_zeros_s
+                                }
+                                
+                                if let death = jstats["champions"][i]["stats"]["totalDeathsPerSession"].int {
+                                    r.deaths = "\(death)"
+                                } else {
+                                    r.deaths = self.const_zeros_s
+                                }
+                                
+                                if let assist = jstats["champions"][i]["stats"]["totalAssists"].int {
+                                    r.assists = "\(assist)"
+                                } else {
+                                    r.assists = self.const_zeros_s
+                                }
+                                
+                                if let creep = jstats["champions"][i]["stats"]["totalMinionKills"].int {
+                                    r.creeps = "\(creep)"
+                                } else {
+                                    r.creeps = self.const_zeros_s
+                                }
+                            } else {
+                                if let kill = jstats["champions"][i]["stats"]["totalChampionKills"].int {
+                                    r.kills = "\(kill)"
+                                } else {
+                                    r.kills = self.const_zeros_s
+                                }
+                                
+                                if let death = jstats["champions"][i]["stats"]["totalDeathsPerSession"].int {
                                     r.deaths = "\(death)"
                                 } else {
                                     r.deaths = self.const_zeros_s

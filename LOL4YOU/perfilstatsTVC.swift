@@ -15,7 +15,7 @@ class perfilstatsTVC: UITableViewController {
     var scrollview = UIScrollView()
     var tiers = Array<perfilstatusV>()
     
-    let sections = ["Icon","Tiers","Details","More Details"]
+    let sections = ["Icon","Queues","Details","More Details"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
