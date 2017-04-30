@@ -239,6 +239,17 @@ final class rootclass: NSObject {
         var bans:Array<BEBan> = Array<BEBan>()
     }
     
+    class BERunes {
+        var name:String = ""
+        var current:Bool = false
+        var slots:Array<BERunesSlots> = Array<BERunesSlots>()
+    }
+    
+    class BERunesSlots {
+        var runeSlotId:Int = 0
+        var runeId:Int = 0
+    }
+    
     class BEErro {
         var msg:String = ""
         var id:Int = 0
@@ -301,7 +312,7 @@ final class rootclass: NSObject {
     
     func listaStaticChampions(){
         
-        let url = "https://na1.api.riotgames.com/lol/static-data/v3/champions?champData=image&api_key=\(Summoner.api_key)"
+        let url = "https://na1.api.riotgames.com/lol/static-data/v3/champions?champListData=image&api_key=\(Summoner.api_key)"
         
         Alamofire.request(url).responseJSON { response in
             
@@ -1529,6 +1540,57 @@ final class rootclass: NSObject {
                 print("ERROR - MATCHES SIMPLE")
             }
             match(rtn)
+        }
+    }
+    
+    func listarRunes(runes:@escaping (Array<BERunes>) -> ()) {
+        
+        var rtn = Array<BERunes>()
+        
+        let url = "https://\(Region.REGION_BR.rawValue.lowercased())1.api.riotgames.com/lol/platform/v3/runes/by-summoner/\(Summoner.summonerID)?api_key=\(Summoner.api_key)"
+        
+        Alamofire.request(url).responseJSON { response in
+            
+            switch response.result {
+            case .success( _):
+                let jrunes = JSON(response.result.value!)
+                
+                if jrunes != JSON.null {
+                    if(!jrunes.isEmpty){
+                        for a in 0 ..< jrunes["pages"].count {
+                            let rune = BERunes()
+                            
+                            if let name = jrunes["pages"][a]["name"].string {
+                                rune.name = name
+                            }
+                            
+                            if let current = jrunes["pages"][a]["current"].bool {
+                                rune.current = current
+                            }
+                            
+                            for b in 0 ..< jrunes["pages"][a]["slots"].count {
+                                let r = BERunesSlots()
+                                
+                                if let runeId = jrunes["pages"][a]["slots"][b]["runeId"].int {
+                                    r.runeId = runeId
+                                }
+                                
+                                if let runeSlotId = jrunes["pages"][a]["slots"][b]["runeSlotId"].int {
+                                    r.runeSlotId = runeSlotId
+                                }
+                                
+                                rune.slots.append(r)
+                            }
+                            rtn.append(rune)
+                        }
+                        runes(rtn)
+                    }
+                }
+                
+            case .failure(let error):
+                print("ERROR - MATCHES SIMPLE")
+                runes(rtn)
+            }
         }
     }
 

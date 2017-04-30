@@ -1110,21 +1110,21 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Days" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZv-YO-8WB">
-                                            <frame key="frameInset" minX="23.10%" minY="53" width="32.75%" height="21"/>
+                                            <frame key="frameInset" minX="22.52%" minY="53" width="32.75%" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="12"/>
                                             <color key="textColor" red="0.5568627451" green="0.54117647059999996" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Minutes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ujc-bs-y4m">
-                                            <frame key="frameInset" minX="23.10%" minY="71" width="32.75%" height="21"/>
+                                            <frame key="frameInset" minX="22.52%" minY="71" width="32.75%" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="12"/>
                                             <color key="textColor" red="0.5568627451" green="0.54117647059999996" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2N8-TX-Qxm">
-                                            <frame key="frameInset" minX="23.10%" minY="34" width="32.75%" height="21"/>
+                                            <frame key="frameInset" minX="22.52%" minY="34" width="32.75%" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="15"/>
                                             <color key="textColor" red="0.56862745098039214" green="0.035294117647058823" blue="0.14117647058823529" alpha="1" colorSpace="calibratedRGB"/>
@@ -1414,6 +1414,104 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pLr-rU-rEl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="9495" y="-1630"/>
+        </scene>
+        <!--RunesTVC-->
+        <scene sceneID="pIo-Bj-gLQ">
+            <objects>
+                <tableViewController storyboardIdentifier="runes" id="6hu-Zi-ug8" customClass="runesTVC" customModule="LOL4YOU" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ps8-bl-law">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.0078431372550000003" green="0.039215686270000001" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" red="0.086274509799999996" green="0.10980392160000001" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="bX0-Bq-Kfu">
+                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bX0-Bq-Kfu" id="CjF-Iw-Qbs">
+                                    <frame key="frameInset" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.0078431372550000003" green="0.039215686270000001" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="6hu-Zi-ug8" id="dEd-rX-S9B"/>
+                            <outlet property="delegate" destination="6hu-Zi-ug8" id="KfQ-NX-IWJ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="BFi-gl-4Aa"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rMW-OM-thq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6740" y="-95"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0KV-bW-rcD">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AW2-0i-TAn" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8hG-vL-St1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="6hu-Zi-ug8" kind="relationship" relationship="rootViewController" id="LVu-PZ-4md"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ajq-Cn-UFU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5801" y="-95"/>
+        </scene>
+        <!--RunesdetTVC-->
+        <scene sceneID="iYq-8B-cOJ">
+            <objects>
+                <tableViewController storyboardIdentifier="runesdet" id="XoF-Tk-FlO" customClass="runesdetTVC" customModule="LOL4YOU" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="LwN-8f-iWD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.0078431372550000003" green="0.039215686270000001" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" red="0.086274509799999996" green="0.10980392160000001" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="DpK-eL-Ffv">
+                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DpK-eL-Ffv" id="Dji-yB-Rfa">
+                                    <frame key="frameInset" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.0078431372550000003" green="0.039215686270000001" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="XoF-Tk-FlO" id="bvU-tu-h0V"/>
+                            <outlet property="delegate" destination="XoF-Tk-FlO" id="PER-kf-Ahn"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="niN-Jn-OT9"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mPU-vc-DPz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8567" y="-96"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Slr-vf-Ybn">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Jit-1I-kY9" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Lu5-kQ-YTz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="XoF-Tk-FlO" kind="relationship" relationship="rootViewController" id="EiZ-ll-gQ4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="49M-Xt-3lE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7628" y="-96"/>
         </scene>
     </scenes>
     <resources>

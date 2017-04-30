@@ -22,8 +22,6 @@
 		A017A8741EA5456700C325F7 /* perfilCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A017A8731EA5456700C325F7 /* perfilCVC.swift */; };
 		A017A8761EA546B600C325F7 /* perfilVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A017A8751EA546B600C325F7 /* perfilVC.swift */; };
 		A04A6CCC1EB100E8001D9770 /* perfilstatsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04A6CCB1EB100E8001D9770 /* perfilstatsTVC.swift */; };
-		A053900B1EA58E1B00657E55 /* perfil.xib in Resources */ = {isa = PBXBuildFile; fileRef = A053900A1EA58E1B00657E55 /* perfil.xib */; };
-		A053900D1EA58E8900657E55 /* perfilV.swift in Sources */ = {isa = PBXBuildFile; fileRef = A053900C1EA58E8900657E55 /* perfilV.swift */; };
 		A056E7711EAE2B92007FDB9F /* matchesdetplayersTVCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A056E76F1EAE2B92007FDB9F /* matchesdetplayersTVCC.swift */; };
 		A056E7721EAE2B92007FDB9F /* matchesdetplayersTVCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A056E7701EAE2B92007FDB9F /* matchesdetplayersTVCC.xib */; };
 		A056E7741EAE3901007FDB9F /* matchesdetTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A056E7731EAE3901007FDB9F /* matchesdetTVC.swift */; };
@@ -63,6 +61,8 @@
 		A0D97B0C1EA7A28700273C10 /* rune.json in Resources */ = {isa = PBXBuildFile; fileRef = A0D97B021EA7A28700273C10 /* rune.json */; };
 		A0D97B0D1EA7A28700273C10 /* sticker.json in Resources */ = {isa = PBXBuildFile; fileRef = A0D97B031EA7A28700273C10 /* sticker.json */; };
 		A0D97B0E1EA7A28700273C10 /* summoner.json in Resources */ = {isa = PBXBuildFile; fileRef = A0D97B041EA7A28700273C10 /* summoner.json */; };
+		A0E478AF1EB363A600109F56 /* runesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E478AE1EB363A600109F56 /* runesTVC.swift */; };
+		A0E478B11EB36D9A00109F56 /* runesdetTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E478B01EB36D9A00109F56 /* runesdetTVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,8 +106,6 @@
 		A017A8731EA5456700C325F7 /* perfilCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = perfilCVC.swift; sourceTree = "<group>"; };
 		A017A8751EA546B600C325F7 /* perfilVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = perfilVC.swift; sourceTree = "<group>"; };
 		A04A6CCB1EB100E8001D9770 /* perfilstatsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = perfilstatsTVC.swift; sourceTree = "<group>"; };
-		A053900A1EA58E1B00657E55 /* perfil.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = perfil.xib; sourceTree = "<group>"; };
-		A053900C1EA58E8900657E55 /* perfilV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = perfilV.swift; sourceTree = "<group>"; };
 		A056E76F1EAE2B92007FDB9F /* matchesdetplayersTVCC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matchesdetplayersTVCC.swift; sourceTree = "<group>"; };
 		A056E7701EAE2B92007FDB9F /* matchesdetplayersTVCC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = matchesdetplayersTVCC.xib; sourceTree = "<group>"; };
 		A056E7731EAE3901007FDB9F /* matchesdetTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matchesdetTVC.swift; sourceTree = "<group>"; };
@@ -147,6 +145,8 @@
 		A0D97B021EA7A28700273C10 /* rune.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rune.json; sourceTree = "<group>"; };
 		A0D97B031EA7A28700273C10 /* sticker.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sticker.json; sourceTree = "<group>"; };
 		A0D97B041EA7A28700273C10 /* summoner.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = summoner.json; sourceTree = "<group>"; };
+		A0E478AE1EB363A600109F56 /* runesTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = runesTVC.swift; sourceTree = "<group>"; };
+		A0E478B01EB36D9A00109F56 /* runesdetTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = runesdetTVC.swift; sourceTree = "<group>"; };
 		A6BFB153ADEC2999EECF69C7 /* Pods-LOL4YOUUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LOL4YOUUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LOL4YOUUITests/Pods-LOL4YOUUITests.release.xcconfig"; sourceTree = "<group>"; };
 		AC8C668551E0C102D198AF48 /* Pods-LOL4YOU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LOL4YOU.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LOL4YOU/Pods-LOL4YOU.debug.xcconfig"; sourceTree = "<group>"; };
 		E6BC6E124B7C5F434839A596 /* Pods-LOL4YOUUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LOL4YOUUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LOL4YOUUITests/Pods-LOL4YOUUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -258,6 +258,7 @@
 		A00280261E9DADDD003175A7 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				A0E478AD1EB3630F00109F56 /* runes */,
 				A0A499461EB214B900977541 /* generics */,
 				A04A6CCA1EB10098001D9770 /* perfilstats */,
 				A0BF02FD1EA6ACA600DB84E9 /* matches */,
@@ -283,8 +284,6 @@
 			children = (
 				A017A8731EA5456700C325F7 /* perfilCVC.swift */,
 				A017A8751EA546B600C325F7 /* perfilVC.swift */,
-				A053900A1EA58E1B00657E55 /* perfil.xib */,
-				A053900C1EA58E8900657E55 /* perfilV.swift */,
 			);
 			name = perfil;
 			sourceTree = "<group>";
@@ -416,6 +415,15 @@
 				A0D97B041EA7A28700273C10 /* summoner.json */,
 			);
 			name = jsons;
+			sourceTree = "<group>";
+		};
+		A0E478AD1EB3630F00109F56 /* runes */ = {
+			isa = PBXGroup;
+			children = (
+				A0E478AE1EB363A600109F56 /* runesTVC.swift */,
+				A0E478B01EB36D9A00109F56 /* runesdetTVC.swift */,
+			);
+			name = runes;
 			sourceTree = "<group>";
 		};
 		E4B4D2BBD01263CC199BB13D /* Pods */ = {
@@ -561,7 +569,6 @@
 				A0BCAA6E1EB14785008F4D01 /* perfilstatusV.xib in Resources */,
 				A0D97B071EA7A28700273C10 /* item.json in Resources */,
 				A0D97AF81EA792D300273C10 /* friz_quadrata_m.otf in Resources */,
-				A053900B1EA58E1B00657E55 /* perfil.xib in Resources */,
 				A0D97B0D1EA7A28700273C10 /* sticker.json in Resources */,
 				A0A499571EB21C1400977541 /* headerTVH.xib in Resources */,
 				A0D97B051EA7A28700273C10 /* champion.json in Resources */,
@@ -745,9 +752,10 @@
 				A002802B1E9DAE27003175A7 /* statsTVCC.swift in Sources */,
 				A0027FF61E9D91BD003175A7 /* AppDelegate.swift in Sources */,
 				A0BF03011EA6B21900DB84E9 /* matchesTVCC.swift in Sources */,
+				A0E478AF1EB363A600109F56 /* runesTVC.swift in Sources */,
 				A0D97AF31EA78FCE00273C10 /* UIColorExtension.swift in Sources */,
-				A053900D1EA58E8900657E55 /* perfilV.swift in Sources */,
 				A0BCAA691EB13281008F4D01 /* perfilstatstiersnullTVCC.swift in Sources */,
+				A0E478B11EB36D9A00109F56 /* runesdetTVC.swift in Sources */,
 				A017A8761EA546B600C325F7 /* perfilVC.swift in Sources */,
 				A00280241E9D981B003175A7 /* rootclass.swift in Sources */,
 				A0BCAA6C1EB14772008F4D01 /* perfilstatusV.swift in Sources */,

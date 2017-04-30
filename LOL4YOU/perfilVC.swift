@@ -26,7 +26,8 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
     let menus = [
         menu.init(title: "Profile", image: "static_menu_stats"),
         menu.init(title: "Stats", image: "static_menu_stats"),
-        menu.init(title: "Matches", image: "static_menu_stats")
+        menu.init(title: "Matches", image: "static_menu_stats"),
+        menu.init(title: "Runes", image: "static_menu_stats")
     ]
     
     override func viewDidLoad() {
@@ -104,7 +105,12 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
             let vc = storyboard.instantiateViewController(withIdentifier: "matches") as! matchesTVC
             
             self.navigationController?.pushViewController(vc, animated: true)
-        }
+        }else if indexPath.item == 3 {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "runes") as! runesTVC
+                
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
     }
     
     func initView(){

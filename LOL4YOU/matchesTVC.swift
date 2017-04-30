@@ -115,6 +115,8 @@ class matchesTVC: UITableViewController {
             lmatches.imgchamp.image = imgchamp
             lmatches.imgchamp.layer.borderWidth = 2
             lmatches.imgchamp.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
+        } else {
+            lmatches.imgchamp.isHidden = true
         }
         
         if let imgitem0 = UIImage(named:"item_\(tmatchs.stats.item0)") {

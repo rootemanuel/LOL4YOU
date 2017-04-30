@@ -1,24 +1,23 @@
 //
-//  statsTVC.swift
+//  runesTVC.swift
 //  LOL4YOU
 //
-//  Created by Emanuel Root on 11/04/17.
+//  Created by Emanuel Root on 28/04/17.
 //  Copyright © 2017 Emanuel Root. All rights reserved.
 //
 
 import UIKit
 import SVProgressHUD
 
-class statsTVC: UITableViewController {
+class runesTVC: UITableViewController {
     
-    var rt = rootclass.sharedInstance
-    
-    var stats = Array<rootclass.BEStats>()
     var emptytableview:emptytableview? = nil
-    
+    var runes = Array<rootclass.BERunes>()
+    let rt = rootclass.sharedInstance
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.initView()
         self.loadingView()
         
@@ -26,48 +25,53 @@ class statsTVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "statsdet") as! statsdetTVC
+        let vc = storyboard.instantiateViewController(withIdentifier: "runesdet") as! runesdetTVC
         
-        vc.statsdet = stats[indexPath.row]
+        let slots = self.runes[indexPath.row].slots
+        var runesvc = Array<rootclass.BERune>()
+        
+        var runeidant = 0
+        for i in 0 ..< slots.count {
+            if runeidant != slots[i].runeId {
+                let r = rootclass.BERune()
+                let runeaux = slots.filter{p in p.runeId == slots[i].runeId}
+                
+                if runeaux.count > 0 {
+                    r.runeId = slots[i].runeId
+                    r.rank = runeaux.count
+                    runesvc.append(r)
+                }
+                
+                runeidant = slots[i].runeId
+            }
+        }
+        
+        vc.title = runes[indexPath.row].name
+        vc.runesdet = runesvc
+        
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = Bundle.main.loadNibNamed("infoTVCC", owner: self, options: nil)?.first as! infoTVCC
         
-        let lstats = tableView.dequeueReusableCell(withIdentifier: "statscell", for: indexPath as IndexPath) as! statsTVCC
-        
-        lstats.selectionStyle = UITableViewCellSelectionStyle.none
-        
-        lstats.win.text = stats[indexPath.row].win
-        lstats.loss.text = stats[indexPath.row].loss
-        lstats.kda.text = "\(stats[indexPath.row].kills)/\(stats[indexPath.row].deaths)/\(stats[indexPath.row].assists)"
-        lstats.minion.text = stats[indexPath.row].creeps
-        
-        if stats[indexPath.row].gold >= 1000 {
-            lstats.gold.text = String(format:"%.1f K", Double(stats[indexPath.row].gold) / Double(1000))
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
+        cell.item.text = runes[indexPath.row].name
+        if runes[indexPath.row].current {
+            cell.valor.text = "CURRENT"
+            cell.valor.textColor = UIColor(hex: rootclass.colors.TEXTO_VITORIA.rawValue)
         } else {
-            lstats.gold.text = String(format:"%.1f K", Double(stats[indexPath.row].gold))
+            cell.valor.isHidden = true
         }
         
-        let champ = rt.listaChamp(id: stats[indexPath.row].championID)
-        if let imgchamp = UIImage(named:champ.imagefull) {
-            lstats.lblChamp.text = champ.name
-            lstats.imgChamp.image = imgchamp
-            lstats.imgChamp.layer.borderWidth = 2
-            lstats.imgChamp.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
-        } else {
-            lstats.lblChamp.isHidden = true
-            lstats.imgChamp.isHidden = true
-        }
-        
-        return lstats
+        return cell
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var numOfSections: Int = 0
         
-        if stats.count > 0 {
-            numOfSections = stats.count
+        if runes.count > 0 {
+            numOfSections = runes.count
             tableView.separatorStyle = .singleLine
             tableView.backgroundView?.isHidden = true
             tableView.backgroundColor = UIColor(hex: rootclass.colors.FUNDO.rawValue)
@@ -84,22 +88,28 @@ class statsTVC: UITableViewController {
         return 1
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 44
+    }
+    
     func loadingView() {
-        
         SVProgressHUD.show()
         
-        rt.listarStats() {(stats) in
-            
-            self.stats = stats.filter { n in n.championID != 0 }
-            self.initemptytableview()
-            self.tableView.reloadData()
-            SVProgressHUD.dismiss()
+        rt.listarRunes() {(runes) in
+            if runes.count > 0 {
+                self.runes = runes
+                self.tableView.reloadData()
+                SVProgressHUD.dismiss()
+            } else {
+                self.initemptytableview()
+                SVProgressHUD.dismiss()
+            }
         }
     }
     
     func initemptytableview() {
         emptytableview = Bundle.main.loadNibNamed("emptytableview", owner: self, options: nil)?.first as? emptytableview
-            self.tableView.backgroundView = emptytableview
+        self.tableView.backgroundView = emptytableview
     }
     
     func initView(){
@@ -117,7 +127,7 @@ class statsTVC: UITableViewController {
         
         self.navigationController?.navigationBar.barTintColor = UIColor(hex: rootclass.colors.FUNDO.rawValue)
         self.navigationController?.navigationBar.titleTextAttributes = attnav
-        self.title = "Stats"
+        self.title = "Runes"
     }
     
     func spopViewController(){
