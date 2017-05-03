@@ -7,7 +7,8 @@ target 'LOL4YOU' do
   pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'SVProgressHUD'
-  pod 'Kingfisher', '~> 3.0'
+  pod 'SwiftyPlistManager'
+  pod 'SDWebImage'
 
   # Pods for LOL4YOU
 

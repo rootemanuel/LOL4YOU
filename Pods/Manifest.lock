@@ -1,21 +1,26 @@
 PODS:
   - Alamofire (4.4.0)
-  - Kingfisher (3.6.2)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
   - SVProgressHUD (2.1.2)
   - SwiftyJSON (3.1.4)
+  - SwiftyPlistManager (1.0.1)
 
 DEPENDENCIES:
   - Alamofire
-  - Kingfisher (~> 3.0)
+  - SDWebImage
   - SVProgressHUD
   - SwiftyJSON
+  - SwiftyPlistManager
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
-  Kingfisher: 2c94e72c6830622c71d06adf4ea024c37d316830
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  SwiftyPlistManager: 1f4b9e82fd8048fddc16ce56bb574bcfccb21561
 
-PODFILE CHECKSUM: 3943b1b68329825e0deaf60cc260eb3adf371fa4
+PODFILE CHECKSUM: 0ee5228cce8daa42f76b43bc71a43b8af56d5d42
 
 COCOAPODS: 1.2.0

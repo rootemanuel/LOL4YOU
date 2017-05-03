@@ -8,6 +8,7 @@
 
 import UIKit
 import SVProgressHUD
+import SwiftyPlistManager
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +20,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         SVProgressHUD.setBackgroundColor(UIColor(hex: rootclass.colors.FUNDO_CLARO.rawValue))
         SVProgressHUD.setForegroundColor(UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue))
+        
+        SwiftyPlistManager.shared.start(plistNames: ["root"], logging: true)
+        
+        SwiftyPlistManager.shared.addNew("helloNewValue", key: "newKey", toPlistWithName: "root") { (err) in
+            if err == nil {
+                print("Value successfully added into plist.")
+            }
+        }
+        
+//        SwiftyPlistManager.shared.save("helloNewValue", forKey: "newKey", toPlistWithName: "root") { (err) in
+//            if err == nil {
+//                print("Value successfully saved into plist.")
+//            }
+//        }
+//        SwiftyPlistManager.shared.fetchValue(for: "newKey", fromPlistWithName: "root")
+        
+        SwiftyPlistManager.shared.getValue(for: "newKey", fromPlistWithName: "root") { (result, err) in
+            if err == nil {
+                print("The Value is: '\(result ?? "No Value Fetched")'")
+            }
+            print(result)
+        }
         
         return true
     }

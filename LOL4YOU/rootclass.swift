@@ -49,12 +49,18 @@ final class rootclass: NSObject {
         self.listaStaticMastery()
     }
     
-    enum images : String  {
-        case item = "https://ddragon.leagueoflegends.com/cdn/7.8.1/img/item/"
-        case champion = "https://ddragon.leagueoflegends.com/cdn/7.8.1/img/champion/"
-        case profileicon = "https://ddragon.leagueoflegends.com/cdn/7.8.1/img/profileicon/"
-        case rune = "https://ddragon.leagueoflegends.com/cdn/7.8.1/img/rune/"
-        case png = ".png"
+    struct lol {
+        static internal var version:String = "7.9.2"
+        static internal var api_key:String = "RGAPI-50a56712-a157-44cc-9760-0a4649629dff"
+    }
+    
+    struct images {
+        static internal let item:String = "https://ddragon.leagueoflegends.com/cdn/\(rootclass.lol.version)/img/item/"
+        static internal let champion:String = "https://ddragon.leagueoflegends.com/cdn/\(rootclass.lol.version)/img/champion/"
+        static internal let profileicon:String = "https://ddragon.leagueoflegends.com/cdn/\(rootclass.lol.version)/img/profileicon/"
+        static internal let rune:String = "https://ddragon.leagueoflegends.com/cdn/\(rootclass.lol.version)/img/rune/"
+        static internal let mastery:String = "https://ddragon.leagueoflegends.com/cdn/\(rootclass.lol.version)/img/mastery/"
+        static internal let png:String = ".png"
     }
     
     
@@ -93,7 +99,6 @@ final class rootclass: NSObject {
         static internal var profileIconId:Int = 0
         static internal var summonerID:Int = 0
         static internal var accountId:Int = 0
-        static internal var api_key:String = "RGAPI-50a56712-a157-44cc-9760-0a4649629dff"
         static internal var imagefull:String = ""
     }
     
@@ -164,6 +169,12 @@ final class rootclass: NSObject {
         var participants:Array<BEParticipants> = Array<BEParticipants>()
         var participantsIdentities:Array<BEParticipantsIdent> = Array<BEParticipantsIdent>()
         var teams:Array<BETeams> = Array<BETeams>()
+    }
+    
+    class BEMasterys {
+        var name:String = ""
+        var current:Bool = false
+        var masteries:Array<BEMastery> = Array<BEMastery>()
     }
     
     class BEMastery {
@@ -261,7 +272,7 @@ final class rootclass: NSObject {
     
     func listaStaticRunes(){
         
-        let url = "https://na1.api.riotgames.com/lol/static-data/v3/runes?runeListData=basic,image&api_key=\(Summoner.api_key)"
+        let url = "https://na1.api.riotgames.com/lol/static-data/v3/runes?runeListData=basic,image&api_key=\(lol.api_key)"
         
         Alamofire.request(url).responseJSON { response in
             
@@ -299,7 +310,7 @@ final class rootclass: NSObject {
                     }
                     
                     if let imagefull = value["image"]["full"].string {
-                        r.imagefull = "rune_\(imagefull.replacingOccurrences(of: ".png", with: ""))"
+                        r.imagefull = imagefull
                     }
                     
                     self.lststaticrunes.append(r)
@@ -312,7 +323,7 @@ final class rootclass: NSObject {
     
     func listaStaticChampions(){
         
-        let url = "https://na1.api.riotgames.com/lol/static-data/v3/champions?champListData=image&api_key=\(Summoner.api_key)"
+        let url = "https://na1.api.riotgames.com/lol/static-data/v3/champions?champListData=image&api_key=\(lol.api_key)"
         
         Alamofire.request(url).responseJSON { response in
             
@@ -338,7 +349,7 @@ final class rootclass: NSObject {
                     }
                     
                     if let imagefull = value["image"]["full"].string {
-                        r.imagefull = "champion_\(imagefull.replacingOccurrences(of: ".png", with: ""))"
+                        r.imagefull = imagefull
                     }
                     
                     self.lststaticchampions.append(r)
@@ -351,7 +362,7 @@ final class rootclass: NSObject {
     
     func listaStaticMastery(){
         
-        let url = "https://na1.api.riotgames.com/lol/static-data/v3/masteries?masteryListData=image&api_key=\(Summoner.api_key)"
+        let url = "https://na1.api.riotgames.com/lol/static-data/v3/masteries?masteryListData=image&api_key=\(lol.api_key)"
         
         Alamofire.request(url).responseJSON { response in
             
@@ -373,7 +384,7 @@ final class rootclass: NSObject {
                     }
 
                     if let imagefull = value["image"]["full"].string {
-                        r.imagefull = "mastery_\(imagefull.replacingOccurrences(of: ".png", with: ""))"
+                        r.imagefull = imagefull
                     }
                     
                     for i in 0 ..< value["description"].count {
@@ -394,7 +405,7 @@ final class rootclass: NSObject {
         
         let rtn = BEErro()
         
-        let url = "https://\(Region.REGION_BR.rawValue.lowercased())1.api.riotgames.com/lol/summoner/v3/summoners/by-name/\(summonername)?api_key=\(Summoner.api_key)"
+        let url = "https://\(Region.REGION_BR.rawValue.lowercased())1.api.riotgames.com/lol/summoner/v3/summoners/by-name/\(summonername)?api_key=\(lol.api_key)"
         
         Alamofire.request(url).responseJSON { response in
             
@@ -408,7 +419,7 @@ final class rootclass: NSObject {
                             
                             if let profile = jsummoner["profileIconId"].int {
                                 Summoner.profileIconId = profile
-                                Summoner.imagefull = "profile_icon_\(Summoner.profileIconId)"
+                                Summoner.imagefull = "\(Summoner.profileIconId).png"
                             }
                             
                             if let summonerLevel = jsummoner["summonerLevel"].int {
@@ -451,7 +462,7 @@ final class rootclass: NSObject {
         
         var rtn = Array<BEStats>()
         
-        let url = "https://\(Region.REGION_BR.rawValue.lowercased()).api.riotgames.com/api/lol/\(Region.REGION_BR.rawValue.uppercased())/v1.3/stats/by-summoner/\(Summoner.summonerID)/ranked?season=SEASON2017&api_key=\(Summoner.api_key)"
+        let url = "https://\(Region.REGION_BR.rawValue.lowercased()).api.riotgames.com/api/lol/\(Region.REGION_BR.rawValue.uppercased())/v1.3/stats/by-summoner/\(Summoner.summonerID)/ranked?season=SEASON2017&api_key=\(lol.api_key)"
         
         Alamofire.request(url).responseJSON { response in
             
@@ -589,7 +600,7 @@ final class rootclass: NSObject {
         
         var rtn = Array<BEStats>()
         
-        let url = "https://\(Region.REGION_BR.rawValue.lowercased()).api.riotgames.com/api/lol/\(Region.REGION_BR.rawValue.uppercased())/v1.3/stats/by-summoner/\(Summoner.summonerID)/ranked?season=SEASON2017&api_key=\(Summoner.api_key)"
+        let url = "https://\(Region.REGION_BR.rawValue.lowercased()).api.riotgames.com/api/lol/\(Region.REGION_BR.rawValue.uppercased())/v1.3/stats/by-summoner/\(Summoner.summonerID)/ranked?season=SEASON2017&api_key=\(lol.api_key)"
         
         Alamofire.request(url).responseJSON { response in
             
@@ -727,7 +738,7 @@ final class rootclass: NSObject {
         
         var rtn = Array<BELeague>()
         
-        let url = "https://\(Region.REGION_BR.rawValue.lowercased()).api.riotgames.com/api/lol/\(Region.REGION_BR.rawValue.uppercased())/v2.5/league/by-summoner/\(Summoner.summonerID)/entry?api_key=\(Summoner.api_key)"
+        let url = "https://\(Region.REGION_BR.rawValue.lowercased()).api.riotgames.com/api/lol/\(Region.REGION_BR.rawValue.uppercased())/v2.5/league/by-summoner/\(Summoner.summonerID)/entry?api_key=\(lol.api_key)"
         
         Alamofire.request(url).responseJSON { response in
             
@@ -788,7 +799,7 @@ final class rootclass: NSObject {
         
         var rtn = Array<Int>()
         
-        let url = "https://\(Region.REGION_BR.rawValue.lowercased()).api.riotgames.com/api/lol/\(Region.REGION_BR.rawValue.uppercased())/v2.2/matchlist/by-summoner/\(Summoner.summonerID)?api_key=\(Summoner.api_key)"
+        let url = "https://\(Region.REGION_BR.rawValue.lowercased()).api.riotgames.com/api/lol/\(Region.REGION_BR.rawValue.uppercased())/v2.2/matchlist/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
         
         Alamofire.request(url).responseJSON { response in
             
@@ -826,7 +837,7 @@ final class rootclass: NSObject {
     func listarMatchDetUni(matchid:Int, matchdet:@escaping (BEMatch?) -> ()) {
 
         let match = rootclass.BEMatch()
-        let url = "https://\(rootclass.Region.REGION_BR.rawValue.lowercased()).api.riotgames.com/api/lol/\(rootclass.Region.REGION_BR.rawValue.uppercased())/v2.2/match/\(matchid)?api_key=\(rootclass.Summoner.api_key)"
+        let url = "https://\(rootclass.Region.REGION_BR.rawValue.lowercased()).api.riotgames.com/api/lol/\(rootclass.Region.REGION_BR.rawValue.uppercased())/v2.2/match/\(matchid)?api_key=\(rootclass.lol.api_key)"
 
         Alamofire.request(url).responseJSON { response in
             
@@ -1013,6 +1024,8 @@ final class rootclass: NSObject {
                                 
                             }
                             
+                            participant.masterys = participant.masterys.sorted{ $0.masteryId < $1.masteryId }
+                            
                             match.participants.append(participant)
                         }
                         
@@ -1120,7 +1133,7 @@ final class rootclass: NSObject {
                 }
                 
                 let semaphore = DispatchSemaphore(value: 0)
-                let url = "https://\(rootclass.Region.REGION_BR.rawValue.lowercased()).api.riotgames.com/api/lol/\(rootclass.Region.REGION_BR.rawValue.uppercased())/v2.2/match/\(matchids[i])?api_key=\(rootclass.Summoner.api_key)"
+                let url = "https://\(rootclass.Region.REGION_BR.rawValue.lowercased()).api.riotgames.com/api/lol/\(rootclass.Region.REGION_BR.rawValue.uppercased())/v2.2/match/\(matchids[i])?api_key=\(rootclass.lol.api_key)"
                 
                 let queue = DispatchQueue.global(qos: .background)
                 Alamofire.request(url).responseJSON(queue: queue) { response in
@@ -1425,7 +1438,7 @@ final class rootclass: NSObject {
         
         var rtn = Array<BEMatchSmall>()
         
-        let url = "https://\(Region.REGION_BR.rawValue.lowercased()).api.riotgames.com/api/lol/\(Region.REGION_BR.rawValue.uppercased())/v1.3/game/by-summoner/\(Summoner.summonerID)/recent?api_key=\(Summoner.api_key)"
+        let url = "https://\(Region.REGION_BR.rawValue.lowercased()).api.riotgames.com/api/lol/\(Region.REGION_BR.rawValue.uppercased())/v1.3/game/by-summoner/\(Summoner.summonerID)/recent?api_key=\(lol.api_key)"
         
         Alamofire.request(url).responseJSON { response in
             
@@ -1547,7 +1560,7 @@ final class rootclass: NSObject {
         
         var rtn = Array<BERunes>()
         
-        let url = "https://\(Region.REGION_BR.rawValue.lowercased())1.api.riotgames.com/lol/platform/v3/runes/by-summoner/\(Summoner.summonerID)?api_key=\(Summoner.api_key)"
+        let url = "https://\(Region.REGION_BR.rawValue.lowercased())1.api.riotgames.com/lol/platform/v3/runes/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
         
         Alamofire.request(url).responseJSON { response in
             
@@ -1590,6 +1603,60 @@ final class rootclass: NSObject {
             case .failure(let error):
                 print("ERROR - MATCHES SIMPLE")
                 runes(rtn)
+            }
+        }
+    }
+    
+    func listarMasterys(masterys:@escaping (Array<BEMasterys>) -> ()) {
+        
+        var rtn = Array<BEMasterys>()
+        
+        let url = "https://\(Region.REGION_BR.rawValue.lowercased())1.api.riotgames.com/lol/platform/v3/masteries/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
+        
+        Alamofire.request(url).responseJSON { response in
+            
+            switch response.result {
+            case .success( _):
+                let jmastery = JSON(response.result.value!)
+                
+                if jmastery != JSON.null {
+                    if(!jmastery.isEmpty){
+                        for a in 0 ..< jmastery["pages"].count {
+                            let mast = BEMasterys()
+                            
+                            if let name = jmastery["pages"][a]["name"].string {
+                                mast.name = name
+                            }
+                            
+                            if let current = jmastery["pages"][a]["current"].bool {
+                                mast.current = current
+                            }
+                            
+                            for b in 0 ..< jmastery["pages"][a]["masteries"].count {
+                                let r = BEMastery()
+                                
+                                if let masteryId = jmastery["pages"][a]["masteries"][b]["id"].int {
+                                    r.masteryId = masteryId
+                                }
+                                
+                                if let rank = jmastery["pages"][a]["masteries"][b]["rank"].int {
+                                    r.rank = rank
+                                }
+                                
+                                mast.masteries.append(r)
+                            }
+                            
+                            mast.masteries = mast.masteries.sorted{ $0.masteryId < $1.masteryId }
+                            
+                            rtn.append(mast)
+                        }
+                        masterys(rtn)
+                    }
+                }
+                
+            case .failure(let error):
+                print("ERROR - MATCHES SIMPLE")
+                masterys(rtn)
             }
         }
     }

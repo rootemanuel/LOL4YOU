@@ -8,6 +8,7 @@
 
 import UIKit
 import SVProgressHUD
+import SDWebImage
 
 class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout { 
     
@@ -27,13 +28,18 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
         menu.init(title: "Profile", image: "static_menu_stats"),
         menu.init(title: "Stats", image: "static_menu_stats"),
         menu.init(title: "Matches", image: "static_menu_stats"),
-        menu.init(title: "Runes", image: "static_menu_stats")
+        menu.init(title: "Runes", image: "static_menu_stats"),
+        menu.init(title: "Masteries", image: "static_menu_stats")
     ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.initView()
+
+        // #R00T - CACHE DELETE ALL
+//        SDImageCache.shared().clearMemory()
+//        SDImageCache.shared().clearDisk()
         
     }
     
@@ -106,11 +112,16 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
             
             self.navigationController?.pushViewController(vc, animated: true)
         }else if indexPath.item == 3 {
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let vc = storyboard.instantiateViewController(withIdentifier: "runes") as! runesTVC
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "runes") as! runesTVC
                 
-                self.navigationController?.pushViewController(vc, animated: true)
-            }
+            self.navigationController?.pushViewController(vc, animated: true)
+        }else if indexPath.item == 4 {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "masterys") as! masterysTVC
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     func initView(){
@@ -131,13 +142,9 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
         self.navigationController?.navigationBar.barTintColor = UIColor(hex: rootclass.colors.FUNDO.rawValue)
         self.navigationController?.navigationBar.titleTextAttributes = attnav
         
-        if let imgperfil = UIImage(named:rootclass.Summoner.imagefull) {
-            self.imgperfil.image = imgperfil
-            self.imgperfil.layer.borderWidth = 4
-            self.imgperfil.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
-        } else {
-            self.imgperfil.isHidden = true
-        }
+        self.imgperfil.sd_setImage(with: URL(string: "\(rootclass.images.profileicon)\(rootclass.Summoner.imagefull)"), placeholderImage: UIImage(named: "static_null_all"))
+        self.imgperfil.layer.borderWidth = 4
+        self.imgperfil.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
         
         self.lvl.text = ("\(rootclass.Summoner.summonerLevel)")
         self.imglvl.layer.borderWidth = 2
