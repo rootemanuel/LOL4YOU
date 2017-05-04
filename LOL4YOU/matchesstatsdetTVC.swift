@@ -28,7 +28,7 @@ class matchesstatsdetTVC: UITableViewController {
         case 0:
             switch indexPath.row {
             case 0:
-                //Kills
+                //Champ
                 let cell = Bundle.main.loadNibNamed("imageTVCC", owner: self, options: nil)?.first as! imageTVCC
                 
                 cell.selectionStyle = UITableViewCellSelectionStyle.none
@@ -188,7 +188,7 @@ class matchesstatsdetTVC: UITableViewController {
             cell.selectionStyle = UITableViewCellSelectionStyle.none
             
             let rune = rt.listaRune(id: participant.runes[indexPath.row].runeId)
-            cell.imgrune.sd_setImage(with: URL(string: rune.imagelink), placeholderImage: UIImage(named: "static_null_all"))
+            cell.imgrune.sd_setImage(with: URL(string: rune.imagelink), placeholderImage: UIImage(named: "static_null"))
             cell.qtd.text = "x \(participant.runes[indexPath.row].rank)"
             cell.desc.text = rune.description
             
@@ -202,7 +202,7 @@ class matchesstatsdetTVC: UITableViewController {
             let mast = rt.listaMastery(id: participant.masterys[indexPath.row].masteryId)
             let count = participant.masterys[indexPath.row].rank
             
-            cell.img.sd_setImage(with: URL(string: mast.imagelink), placeholderImage: UIImage(named: "static_null_all"))
+            cell.img.sd_setImage(with: URL(string: mast.imagelink), placeholderImage: UIImage(named: "static_null"))
             cell.img.layer.borderWidth = 1
             cell.img.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
             cell.qtd.text = "x \(participant.masterys[indexPath.row].rank)"
