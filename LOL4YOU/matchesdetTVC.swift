@@ -207,7 +207,7 @@ class matchesdetTVC: UITableViewController {
                                 cell.imgchamp3.layer.borderWidth = 1
                                 cell.imgchamp3.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
                             default:
-                                print("R00T - INVALID")
+                                NSLog("R00T - INVALID")
                             }
                         }
                     } else {
@@ -488,7 +488,7 @@ class matchesdetTVC: UITableViewController {
                                 cell.imgchamp3.layer.borderWidth = 1
                                 cell.imgchamp3.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
                             default:
-                                print("R00T - INVALID")
+                                NSLog("R00T - INVALID")
                             }
                         }
                     } else {

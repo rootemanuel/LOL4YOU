@@ -36,10 +36,6 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
         super.viewDidLoad()
         
         self.initView()
-
-        // #R00T - CACHE DELETE ALL
-//        SDImageCache.shared().clearMemory()
-//        SDImageCache.shared().clearDisk()
         
     }
     
@@ -141,7 +137,7 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
         
         self.navigationController?.navigationBar.barTintColor = UIColor(hex: rootclass.colors.FUNDO.rawValue)
         self.navigationController?.navigationBar.titleTextAttributes = attnav
-        
+    
         self.imgperfil.sd_setImage(with: URL(string: rootclass.Summoner.imagelink), placeholderImage: UIImage(named: "static_null_all"))
         self.imgperfil.layer.borderWidth = 4
         self.imgperfil.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor

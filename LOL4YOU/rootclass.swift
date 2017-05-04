@@ -56,10 +56,6 @@ final class rootclass: NSObject {
     
     private override init() {
         super.init()
-        self.listaStaticSpell()
-        self.listaStaticRunes()
-        self.listaStaticChampions()
-        self.listaStaticMastery()
     }
     
     struct lol {
@@ -75,6 +71,15 @@ final class rootclass: NSObject {
         static internal let spell:String = "https://ddragon.leagueoflegends.com/cdn/\(rootclass.lol.version)/img/spell/"
         static internal let mastery:String = "https://ddragon.leagueoflegends.com/cdn/\(rootclass.lol.version)/img/mastery/"
         static internal let png:String = ".png"
+    }
+    
+    struct shared {
+        static internal let root:String = "root"
+        static internal let version:String = "version"
+        static internal let spells:String = "spells"
+        static internal let runes:String = "runes"
+        static internal let champions:String = "champions"
+        static internal let masterys:String = "masterys"
     }
     
     
@@ -298,178 +303,450 @@ final class rootclass: NSObject {
         return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
     }
     
-    func listaStaticSpell(){
+    func readJsonLocal(file:String) -> Data {
+        var rtn = Data()
+        
+        let path = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("\(file).json")
+        
+        do {
+            let data = try Data(contentsOf: path)
+            if data != nil {
+                rtn = data
+            }
+        } catch {
+            NSLog("R00T - READ JSON LOCAL - ERROR: \(error)")
+        }
+        
+        return rtn
+    }
+    
+    func writeJsonLocal(file:String,data:Data){
+        let path = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("\(file).json")
+        
+        do {
+            try data.write(to: path, options: .atomic)
+        } catch {
+            NSLog("R00T - WRITE JSON LOCAL - ERROR: \(error)")
+        }
+    }
+    
+    func listaStaticSpell(spells:@escaping (JSON) -> ()) {
         
         let url = "https://na1.api.riotgames.com/lol/static-data/v3/summoner-spells?spellListData=image&api_key=\(lol.api_key)"
         
-        Alamofire.request(url).responseJSON { response in
+        var loop = true
+        while(loop){
+            let semaphore = DispatchSemaphore(value: 0)
+            let queue = DispatchQueue.global(qos: .background)
+            Alamofire.request(url).responseJSON(queue: queue) { response in
             
-            switch response.result {
-            case .success( _):
-                let jspell = JSON(response.result.value!)
-                
-                let dspell: Dictionary<String, JSON> = jspell["data"].dictionaryValue
-                
-                for (_, value) in dspell {
-                    let r = staticspell()
+                switch response.result {
+                case .success( _):
+                    let jspell = JSON(response.result.value!)
                     
-                    if let id = value["id"].int {
-                        r.id = id
+                    let dspell: Dictionary<String, JSON> = jspell["data"].dictionaryValue
+                    
+                    for (_, value) in dspell {
+                        let r = staticspell()
+                        
+                        if let id = value["id"].int {
+                            r.id = id
+                        }
+                        
+                        if let name = value["name"].string {
+                            r.name = name
+                        }
+                        
+                        if let key = value["key"].string {
+                            r.key = key
+                        }
+                        
+                        if let imagefull = value["image"]["full"].string {
+                            r.imagefull = imagefull
+                            r.imagelink = "\(rootclass.images.spell)\(imagefull)"
+                        }
+                        
+                        self.lststaticspell.append(r)
                     }
                     
-                    if let name = value["name"].string {
-                        r.name = name
+                    if self.lststaticspell.count > 0 {
+                       loop = false
+                        
+                        NSLog("R00T - GET SPELLS SUCESS")
+                        spells(jspell)
+                        semaphore.signal()
                     }
                     
-                    if let key = value["key"].string {
-                        r.key = key
-                    }
+                case .failure(let error):
+                    loop = false
                     
-                    if let imagefull = value["image"]["full"].string {
-                        r.imagefull = imagefull
-                        r.imagelink = "\(rootclass.images.spell)\(imagefull)"
-                    }
-                    
-                    self.lststaticspell.append(r)
+                    NSLog("R00T - GET SPELLS ERROR")
+                    semaphore.signal()
                 }
-            case .failure(let error):
-                print("ERRO")
             }
+            semaphore.wait(timeout: .distantFuture)
         }
     }
 
     
-    func listaStaticRunes(){
+    func listaStaticRunes(runes:@escaping (JSON) -> ()) {
         
         let url = "https://na1.api.riotgames.com/lol/static-data/v3/runes?runeListData=basic,image&api_key=\(lol.api_key)"
         
-        Alamofire.request(url).responseJSON { response in
-            
-            switch response.result {
-            case .success( _):
-                let jrunes = JSON(response.result.value!)
-                
-                let drunes: Dictionary<String, JSON> = jrunes["data"].dictionaryValue
-                   
-                for (_, value) in drunes {
-                    let r = staticrunes()
+        var loop = true
+        while(loop){
+            let semaphore = DispatchSemaphore(value: 0)
+            let queue = DispatchQueue.global(qos: .background)
+            Alamofire.request(url).responseJSON(queue: queue) { response in
+
+                switch response.result {
+                case .success( _):
+                    let jrunes = JSON(response.result.value!)
                     
-                    if let id = value["id"].int {
-                       r.id = id
+                    let drunes: Dictionary<String, JSON> = jrunes["data"].dictionaryValue
+                       
+                    for (_, value) in drunes {
+                        let r = staticrunes()
+                        
+                        if let id = value["id"].int {
+                           r.id = id
+                        }
+                        
+                        if let description = value["description"].string {
+                            r.description = description
+                        }
+                        
+                        if let name = value["name"].string {
+                            r.name = name
+                        }
+                        
+                        if let type = value["rune"]["type"].string {
+                            r.type = type
+                        }
+                        
+                        if let tier = value["rune"]["tier"].string {
+                            r.tier = tier
+                        }
+                        
+                        if let isRune = value["rune"]["isRune"].bool {
+                            r.isRune = isRune
+                        }
+                        
+                        if let imagefull = value["image"]["full"].string {
+                            r.imagefull = imagefull
+                            r.imagelink = "\(rootclass.images.rune)\(imagefull)"
+                        }
+                        
+                        self.lststaticrunes.append(r)
                     }
                     
-                    if let description = value["description"].string {
-                        r.description = description
+                    if self.lststaticrunes.count > 0 {
+                        loop = false
+                        
+                        NSLog("R00T - GET RUNES SUCESS")
+                        runes(jrunes)
+                        semaphore.signal()
                     }
                     
-                    if let name = value["name"].string {
-                        r.name = name
-                    }
+                case .failure(let error):
+                    loop = false
                     
-                    if let type = value["rune"]["type"].string {
-                        r.type = type
-                    }
-                    
-                    if let tier = value["rune"]["tier"].string {
-                        r.tier = tier
-                    }
-                    
-                    if let isRune = value["rune"]["isRune"].bool {
-                        r.isRune = isRune
-                    }
-                    
-                    if let imagefull = value["image"]["full"].string {
-                        r.imagefull = imagefull
-                        r.imagelink = "\(rootclass.images.rune)\(imagefull)"
-                    }
-                    
-                    self.lststaticrunes.append(r)
+                    NSLog("R00T - GET RUNES ERROR")
+                    semaphore.signal()
                 }
-            case .failure(let error):
-                print("ERRO")
             }
+            semaphore.wait(timeout: .distantFuture)
         }
     }
     
-    func listaStaticChampions(){
+    func listaStaticChampions(champions:@escaping (JSON) -> ()) {
         
         let url = "https://na1.api.riotgames.com/lol/static-data/v3/champions?champListData=image&api_key=\(lol.api_key)"
         
-        Alamofire.request(url).responseJSON { response in
+        var loop = true
+        while(loop){
+            let semaphore = DispatchSemaphore(value: 0)
+            let queue = DispatchQueue.global(qos: .background)
+            Alamofire.request(url).responseJSON(queue: queue) { response in
             
-            switch response.result {
-            case .success( _):
-                let jchampions = JSON(response.result.value!)
-                
-                let dchampions: Dictionary<String, JSON> = jchampions["data"].dictionaryValue
-                
-                for (_, value) in dchampions {
-                    let r = staticchampions()
+                switch response.result {
+                case .success( _):
+                    let jchampions = JSON(response.result.value!)
                     
-                    if let id = value["id"].int {
-                        r.id = id
+                    let dchampions: Dictionary<String, JSON> = jchampions["data"].dictionaryValue
+                    
+                    for (_, value) in dchampions {
+                        let r = staticchampions()
+                        
+                        if let id = value["id"].int {
+                            r.id = id
+                        }
+                        
+                        if let key = value["key"].string {
+                            r.key = key
+                        }
+                        
+                        if let name = value["name"].string {
+                            r.name = name
+                        }
+                        
+                        if let imagefull = value["image"]["full"].string {
+                            r.imagefull = imagefull
+                            r.imagelink = "\(rootclass.images.champion)\(imagefull)"
+                        }
+                        
+                        self.lststaticchampions.append(r)
                     }
                     
-                    if let key = value["key"].string {
-                        r.key = key
+                    if self.lststaticchampions.count > 0 {
+                        loop = false
+                        
+                        NSLog("R00T - GET CHAMPIONS SUCESS")
+                        champions(jchampions)
+                        semaphore.signal()
                     }
                     
-                    if let name = value["name"].string {
-                        r.name = name
-                    }
+                case .failure(let error):
+                    loop = false
                     
-                    if let imagefull = value["image"]["full"].string {
-                        r.imagefull = imagefull
-                        r.imagelink = "\(rootclass.images.champion)\(imagefull)"
-                    }
-                    
-                    self.lststaticchampions.append(r)
+                    NSLog("R00T - GET CHAMPIONS ERROR")
+                    semaphore.signal()
                 }
-            case .failure(let error):
-                print("ERRO")
             }
+            semaphore.wait(timeout: .distantFuture)
         }
     }
     
-    func listaStaticMastery(){
+    func listaStaticMastery(mastery:@escaping (JSON) -> ()) {
         
         let url = "https://na1.api.riotgames.com/lol/static-data/v3/masteries?masteryListData=image&api_key=\(lol.api_key)"
         
-        Alamofire.request(url).responseJSON { response in
+        var loop = true
+        while(loop){
+            let semaphore = DispatchSemaphore(value: 0)
+            let queue = DispatchQueue.global(qos: .background)
+            Alamofire.request(url).responseJSON(queue: queue) { response in
             
-            switch response.result {
-            case .success( _):
-                let jmastery = JSON(response.result.value!)
-                
-                let dmastery: Dictionary<String, JSON> = jmastery["data"].dictionaryValue
-                
-                for (_, value) in dmastery {
-                    let r = staticmastery()
+                switch response.result {
+                case .success( _):
+                    let jmastery = JSON(response.result.value!)
                     
-                    if let id = value["id"].int {
-                        r.id = id
-                    }
+                    let dmastery: Dictionary<String, JSON> = jmastery["data"].dictionaryValue
+                    
+                    for (_, value) in dmastery {
+                        let r = staticmastery()
+                        
+                        if let id = value["id"].int {
+                            r.id = id
+                        }
 
-                    if let name = value["name"].string {
-                        r.name = name
-                    }
+                        if let name = value["name"].string {
+                            r.name = name
+                        }
 
-                    if let imagefull = value["image"]["full"].string {
-                        r.imagefull = imagefull
-                        r.imagelink = "\(rootclass.images.mastery)\(imagefull)"
+                        if let imagefull = value["image"]["full"].string {
+                            r.imagefull = imagefull
+                            r.imagelink = "\(rootclass.images.mastery)\(imagefull)"
+                        }
+                        
+                        for i in 0 ..< value["description"].count {
+                            if let description = value["description"][i].string {
+                                 r.description.append(description)
+                            }
+                        }
+                        
+                        self.lststaticmastery.append(r)
                     }
                     
-                    for i in 0 ..< value["description"].count {
-                        if let description = value["description"][i].string {
-                             r.description.append(description)
+                    if self.lststaticmastery.count > 0 {
+                        loop = false
+                        
+                        NSLog("R00T - GET MASTERY SUCESS")
+                        mastery(jmastery)
+                        semaphore.signal()
+                    }
+                    
+                case .failure(let error):
+                    loop = false
+                    
+                    NSLog("R00T - GET MASTERY ERROR")
+                    semaphore.signal()
+                }
+            }
+            semaphore.wait(timeout: .distantFuture)
+        }
+    }
+    
+    func listaStaticSpell(jspell:JSON) {
+        
+        lststaticspell = Array<staticspell>()
+        
+        let dspell: Dictionary<String, JSON> = jspell["data"].dictionaryValue
+        
+        for (_, value) in dspell {
+            let r = staticspell()
+            
+            if let id = value["id"].int {
+                r.id = id
+            }
+            
+            if let name = value["name"].string {
+                r.name = name
+            }
+            
+            if let key = value["key"].string {
+                r.key = key
+            }
+            
+            if let imagefull = value["image"]["full"].string {
+                r.imagefull = imagefull
+                r.imagelink = "\(rootclass.images.spell)\(imagefull)"
+            }
+            
+            self.lststaticspell.append(r)
+        }
+    }
+    
+    func listaStaticRunes(jrunes:JSON) {
+        
+        lststaticrunes = Array<staticrunes>()
+        
+        let drunes: Dictionary<String, JSON> = jrunes["data"].dictionaryValue
+        
+        for (_, value) in drunes {
+            let r = staticrunes()
+            
+            if let id = value["id"].int {
+                r.id = id
+            }
+            
+            if let description = value["description"].string {
+                r.description = description
+            }
+            
+            if let name = value["name"].string {
+                r.name = name
+            }
+            
+            if let type = value["rune"]["type"].string {
+                r.type = type
+            }
+            
+            if let tier = value["rune"]["tier"].string {
+                r.tier = tier
+            }
+            
+            if let isRune = value["rune"]["isRune"].bool {
+                r.isRune = isRune
+            }
+            
+            if let imagefull = value["image"]["full"].string {
+                r.imagefull = imagefull
+                r.imagelink = "\(rootclass.images.rune)\(imagefull)"
+            }
+            
+            self.lststaticrunes.append(r)
+        }
+    }
+    
+    func listaStaticChampions(jchampions: JSON) {
+        
+        lststaticchampions = Array<staticchampions>()
+        
+        let dchampions: Dictionary<String, JSON> = jchampions["data"].dictionaryValue
+        
+        for (_, value) in dchampions {
+            let r = staticchampions()
+            
+            if let id = value["id"].int {
+                r.id = id
+            }
+            
+            if let key = value["key"].string {
+                r.key = key
+            }
+            
+            if let name = value["name"].string {
+                r.name = name
+            }
+            
+            if let imagefull = value["image"]["full"].string {
+                r.imagefull = imagefull
+                r.imagelink = "\(rootclass.images.champion)\(imagefull)"
+            }
+            
+            self.lststaticchampions.append(r)
+        }
+    }
+    
+    func listaStaticMastery(jmastery:JSON) {
+        
+        lststaticmastery = Array<staticmastery>()
+        
+        let dmastery: Dictionary<String, JSON> = jmastery["data"].dictionaryValue
+        
+        for (_, value) in dmastery {
+            let r = staticmastery()
+            
+            if let id = value["id"].int {
+                r.id = id
+            }
+            
+            if let name = value["name"].string {
+                r.name = name
+            }
+            
+            if let imagefull = value["image"]["full"].string {
+                r.imagefull = imagefull
+                r.imagelink = "\(rootclass.images.mastery)\(imagefull)"
+            }
+            
+            for i in 0 ..< value["description"].count {
+                if let description = value["description"][i].string {
+                    r.description.append(description)
+                }
+            }
+            
+            self.lststaticmastery.append(r)
+        }
+    }
+    
+    func listarVersion() {
+    
+        let url = "https://na1.api.riotgames.com/lol/static-data/v3/versions?api_key=\(lol.api_key)"
+        
+        var loop = true
+        while(loop){
+            let semaphore = DispatchSemaphore(value: 0)
+            let queue = DispatchQueue.global(qos: .background)
+            Alamofire.request(url).responseJSON(queue: queue) { response in
+                
+                switch response.result {
+                case .success( _):
+                    let jversions = JSON(response.result.value!)
+                    
+                    if jversions != JSON.null {
+                        if(!jversions.isEmpty){
+                            if (jversions.count > 0) {
+                                
+                                if let lastversion = jversions[0].string {
+                                    lol.version = lastversion
+                                    loop = false
+
+                                    NSLog("R00T - GET VERSION SUCESS")
+                                    semaphore.signal()
+                                }
+                            }
                         }
                     }
                     
-                    self.lststaticmastery.append(r)
+                case .failure(let error):
+                    loop = false
+                    NSLog("R00T - GET VERSION ERROR")
+                    semaphore.signal()
                 }
-            case .failure(let error):
-                print("ERRO")
             }
+            semaphore.wait(timeout: .distantFuture)
         }
     }
     

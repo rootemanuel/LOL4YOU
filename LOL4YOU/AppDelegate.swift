@@ -9,40 +9,22 @@
 import UIKit
 import SVProgressHUD
 import SwiftyPlistManager
+import SDWebImage
+import SwiftyJSON
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
+    let rt = rootclass.sharedInstance
     var window: UIWindow?
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         SVProgressHUD.setBackgroundColor(UIColor(hex: rootclass.colors.FUNDO_CLARO.rawValue))
         SVProgressHUD.setForegroundColor(UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue))
         
-        SwiftyPlistManager.shared.start(plistNames: ["root"], logging: true)
-        
-        SwiftyPlistManager.shared.addNew("helloNewValue", key: "newKey", toPlistWithName: "root") { (err) in
-            if err == nil {
-                print("Value successfully added into plist.")
-            }
-        }
-        
-//        SwiftyPlistManager.shared.save("helloNewValue", forKey: "newKey", toPlistWithName: "root") { (err) in
-//            if err == nil {
-//                print("Value successfully saved into plist.")
-//            }
-//        }
-//        SwiftyPlistManager.shared.fetchValue(for: "newKey", fromPlistWithName: "root")
-        
-        SwiftyPlistManager.shared.getValue(for: "newKey", fromPlistWithName: "root") { (result, err) in
-            if err == nil {
-                print("The Value is: '\(result ?? "No Value Fetched")'")
-            }
-            print(result)
-        }
-        
+        self.initializeApplicationRoot()
+    
         return true
     }
 
@@ -67,7 +49,141 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
+    
+    func initializeApplicationRoot() {
+        
+        SwiftyPlistManager.shared.start(plistNames: [rootclass.shared.root], logging: true)
+        
+        rt.listarVersion()
+        
+        SwiftyPlistManager.shared.getValue(for: rootclass.shared.version, fromPlistWithName: rootclass.shared.root) { (result, err) in
+            if result != nil {
+                if let vplist =  result as? String {
+                    let vsaved = Int(vplist.replacingOccurrences(of: ".", with: "")) ?? 0
+                    let vlol = Int(rootclass.lol.version.replacingOccurrences(of: ".", with: "")) ?? 0
+                    
+                    if vlol > vsaved {
+                        
+                        SDImageCache.shared().clearMemory()
+                        SDImageCache.shared().clearDisk()
+                        
+                        SwiftyPlistManager.shared.save(rootclass.lol.version, forKey: rootclass.shared.version, toPlistWithName: rootclass.shared.root) { (err) in
+                            if err == nil {
+                                NSLog("R00T - SALVOU VERSAO VALOR - \(rootclass.lol.version)")
+                            }
+                        }
+                        rt.listaStaticSpell{(spells) in
+                            do {
+                                try  self.rt.writeJsonLocal(file: rootclass.shared.spells, data: spells.rawData())
+                            } catch {
+                                NSLog("R00T - WRITE JSON LOCAL - ERROR: \(error)")
+                            }
+                        }
+                        rt.listaStaticRunes{(runes) in
+                            do {
+                                try  self.rt.writeJsonLocal(file: rootclass.shared.runes, data: runes.rawData())
+                            } catch {
+                                NSLog("R00T - WRITE JSON LOCAL - ERROR: \(error)")
+                            }
+                        }
+                        rt.listaStaticChampions{(champions) in
+                            do {
+                                try  self.rt.writeJsonLocal(file: rootclass.shared.champions, data: champions.rawData())
+                            } catch {
+                                NSLog("R00T - WRITE JSON LOCAL - ERROR: \(error)")
+                            }
+                        }
+                        rt.listaStaticMastery{(masterys) in
+                            do {
+                                try  self.rt.writeJsonLocal(file: rootclass.shared.masterys, data: masterys.rawData())
+                            } catch {
+                                NSLog("R00T - WRITE JSON LOCAL - ERROR: \(error)")
+                            }
+                        }
+                    } else {
+                        
+                        do {
+                            let spellsd = try self.rt.readJsonLocal(file: rootclass.shared.spells)
+                            if !spellsd.isEmpty {
+                                let spellsj = JSON(data: spellsd)
+                                self.rt.listaStaticSpell(jspell: spellsj)
+                                NSLog("R00T - CARREGOU SPELLS CACHE - \(spellsd)")
+                            }
+                        } catch {
+                            NSLog("R00T - SPELLS CACHE - ERROR: \(error)")
+                        }
+                        
+                        do {
+                            let championsd = try self.rt.readJsonLocal(file: rootclass.shared.champions)
+                            if !championsd.isEmpty {
+                                let championsj = JSON(data:championsd)
+                                self.rt.listaStaticChampions(jchampions: championsj)
+                                NSLog("R00T - CARREGOU CHAMPIONS CACHE - \(championsd)")
+                            }
+                        } catch {
+                            NSLog("R00T - CHAMPIONS CACHE - ERROR: \(error)")
+                        }
+                        
+                        do {
+                            let runesd = try self.rt.readJsonLocal(file: rootclass.shared.runes)
+                            if !runesd.isEmpty {
+                                let runesj = JSON(data:runesd)
+                                self.rt.listaStaticRunes(jrunes: runesj)
+                                NSLog("R00T - CARREGOU RUNES CACHE - \(runesd)")
+                            }
+                        } catch {
+                            NSLog("R00T - RUNES CACHE - ERROR: \(error)")
+                        }
+                        
+                        do {
+                            let masterysd = try self.rt.readJsonLocal(file: rootclass.shared.masterys)
+                            if !masterysd.isEmpty {
+                                let masterysj = JSON(data:masterysd)
+                                self.rt.listaStaticMastery(jmastery: masterysj)
+                                NSLog("R00T - CARREGOU MASTERYS CACHE - \(masterysd)")
+                            }
+                        } catch {
+                            NSLog("R00T - MASTERYS CACHE - ERROR:  \(error)")
+                        }
+                    
+                    }
+                }
+            } else {
+                SwiftyPlistManager.shared.addNew(rootclass.lol.version, key: rootclass.shared.version, toPlistWithName: rootclass.shared.root) { (err) in
+                    if err == nil {
+                        NSLog("R00T - CRIOU VERSAO VALOR - \(rootclass.lol.version)")
+                    }
+                }
+                rt.listaStaticSpell{(spells) in
+                    do {
+                        try  self.rt.writeJsonLocal(file: rootclass.shared.spells, data: spells.rawData())
+                    } catch {
+                        NSLog("R00T - WRITE JSON LOCAL - ERROR: \(error)")
+                    }
+                }
+                rt.listaStaticRunes{(runes) in
+                    do {
+                        try  self.rt.writeJsonLocal(file: rootclass.shared.runes, data: runes.rawData())
+                    } catch {
+                        NSLog("R00T - WRITE JSON LOCAL - ERROR: \(error)")
+                    }
+                }
+                rt.listaStaticChampions{(champions) in
+                    do {
+                        try  self.rt.writeJsonLocal(file: rootclass.shared.champions, data: champions.rawData())
+                    } catch {
+                        NSLog("R00T - WRITE JSON LOCAL - ERROR: \(error)")
+                    }
+                }
+                rt.listaStaticMastery{(masterys) in
+                    do {
+                        try  self.rt.writeJsonLocal(file: rootclass.shared.masterys, data: masterys.rawData())
+                    } catch {
+                        NSLog("R00T - WRITE JSON LOCAL - ERROR: \(error)")
+                    }
+                }
+            }
+        }
+    }
 }
 
