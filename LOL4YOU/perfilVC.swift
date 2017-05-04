@@ -142,7 +142,7 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
         self.navigationController?.navigationBar.barTintColor = UIColor(hex: rootclass.colors.FUNDO.rawValue)
         self.navigationController?.navigationBar.titleTextAttributes = attnav
         
-        self.imgperfil.sd_setImage(with: URL(string: "\(rootclass.images.profileicon)\(rootclass.Summoner.imagefull)"), placeholderImage: UIImage(named: "static_null_all"))
+        self.imgperfil.sd_setImage(with: URL(string: rootclass.Summoner.imagelink), placeholderImage: UIImage(named: "static_null_all"))
         self.imgperfil.layer.borderWidth = 4
         self.imgperfil.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
         

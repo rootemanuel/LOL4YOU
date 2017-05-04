@@ -50,18 +50,6 @@ class matchesTVC: UITableViewController {
         
         lmatches.selectionStyle = UITableViewCellSelectionStyle.none
         
-        lmatches.imgchamp.image =  UIImage(named:"static_null")
-        lmatches.imgitem0.image =  UIImage(named:"static_null")
-        lmatches.imgitem1.image =  UIImage(named:"static_null")
-        lmatches.imgitem2.image =  UIImage(named:"static_null")
-        lmatches.imgitem3.image =  UIImage(named:"static_null")
-        lmatches.imgitem4.image =  UIImage(named:"static_null")
-        lmatches.imgitem5.image =  UIImage(named:"static_null")
-        lmatches.imgtrinket.image =  UIImage(named:"static_null")
-        lmatches.imgtlt0.image =  UIImage(named:"static_null")
-        lmatches.imgtlt1.image =  UIImage(named:"static_null")
-        lmatches.imgtltmast.image =  UIImage(named:"static_null")
-        
         let tmatchs = matchs[indexPath.row]
         
         lmatches.queue.text = tmatchs.subType.replacingOccurrences(of: "_", with: " ")
@@ -111,67 +99,48 @@ class matchesTVC: UITableViewController {
         
         let champ = rt.listaChamp(id: tmatchs.championId)
         
-        if let imgchamp = UIImage(named:champ.imagefull) {
-            lmatches.imgchamp.image = imgchamp
-            lmatches.imgchamp.layer.borderWidth = 2
-            lmatches.imgchamp.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
-        } else {
-            lmatches.imgchamp.isHidden = true
-        }
         
-        if let imgitem0 = UIImage(named:"item_\(tmatchs.stats.item0)") {
-            lmatches.imgitem0.image = imgitem0
-            lmatches.imgitem0.layer.borderWidth = 1
-            lmatches.imgitem0.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
-        }
+        lmatches.imgchamp.sd_setImage(with: URL(string: champ.imagelink), placeholderImage: UIImage(named: "static_null_all"))
+        lmatches.imgchamp.layer.borderWidth = 2
+        lmatches.imgchamp.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
         
-        if let imgitem1 = UIImage(named:"item_\(tmatchs.stats.item1)") {
-            lmatches.imgitem1.image = imgitem1
-            lmatches.imgitem1.layer.borderWidth = 1
-            lmatches.imgitem1.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
-        }
+        lmatches.imgitem0.sd_setImage(with: URL(string: tmatchs.stats.item0imagelink), placeholderImage: UIImage(named: "static_null"))
+        lmatches.imgitem0.layer.borderWidth = 1
+        lmatches.imgitem0.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
         
-        if let imgitem2 = UIImage(named:"item_\(tmatchs.stats.item2)") {
-            lmatches.imgitem2.image = imgitem2
-            lmatches.imgitem2.layer.borderWidth = 1
-            lmatches.imgitem2.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
-        }
+        lmatches.imgitem1.sd_setImage(with: URL(string: tmatchs.stats.item1imagelink), placeholderImage: UIImage(named: "static_null"))
+        lmatches.imgitem1.layer.borderWidth = 1
+        lmatches.imgitem1.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
         
-        if let imgitem3 = UIImage(named:"item_\(tmatchs.stats.item3)") {
-            lmatches.imgitem3.image = imgitem3
-            lmatches.imgitem3.layer.borderWidth = 1
-            lmatches.imgitem3.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
-        }
+        lmatches.imgitem2.sd_setImage(with: URL(string: tmatchs.stats.item2imagelink), placeholderImage: UIImage(named: "static_null"))
+        lmatches.imgitem2.layer.borderWidth = 1
+        lmatches.imgitem2.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
+    
+        lmatches.imgitem3.sd_setImage(with: URL(string: tmatchs.stats.item3imagelink), placeholderImage: UIImage(named: "static_null"))
+        lmatches.imgitem3.layer.borderWidth = 1
+        lmatches.imgitem3.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
 
-        if let imgitem4 = UIImage(named:"item_\(tmatchs.stats.item4)") {
-            lmatches.imgitem4.image = imgitem4
-            lmatches.imgitem4.layer.borderWidth = 1
-            lmatches.imgitem4.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
-        }
+        lmatches.imgitem4.sd_setImage(with: URL(string: tmatchs.stats.item4imagelink), placeholderImage: UIImage(named: "static_null"))
+        lmatches.imgitem4.layer.borderWidth = 1
+        lmatches.imgitem4.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
 
-        if let imgitem5 = UIImage(named:"item_\(tmatchs.stats.item5)") {
-            lmatches.imgitem5.image = imgitem5
-            lmatches.imgitem5.layer.borderWidth = 1
-            lmatches.imgitem5.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
-        }
+        lmatches.imgitem5.sd_setImage(with: URL(string: tmatchs.stats.item5imagelink), placeholderImage: UIImage(named: "static_null"))
+        lmatches.imgitem5.layer.borderWidth = 1
+        lmatches.imgitem5.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
+
+        lmatches.imgtrinket.sd_setImage(with: URL(string: tmatchs.stats.item6imagelink), placeholderImage: UIImage(named: "static_null"))
+        lmatches.imgtrinket.layer.borderWidth = 1
+        lmatches.imgtrinket.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
+
+        let aspell1 = rt.listaSpeel(id: tmatchs.spell1)
+        lmatches.imgtlt0.sd_setImage(with: URL(string: aspell1.imagelink), placeholderImage: UIImage(named: "static_null"))
+        lmatches.imgtlt0.layer.borderWidth = 1
+        lmatches.imgtlt0.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
         
-        if let imgitem6 = UIImage(named:"item_\(tmatchs.stats.item6)") {
-            lmatches.imgtrinket.image = imgitem6
-            lmatches.imgtrinket.layer.borderWidth = 1
-            lmatches.imgtrinket.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
-        }
-        
-        if let spell1 = UIImage(named:"spell_summoner_\(tmatchs.spell1)") {
-            lmatches.imgtlt0.image = spell1
-            lmatches.imgtlt0.layer.borderWidth = 1
-            lmatches.imgtlt0.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
-        }
-        
-        if let spell2 = UIImage(named:"spell_summoner_\(tmatchs.spell2)") {
-            lmatches.imgtlt1.image = spell2
-            lmatches.imgtlt1.layer.borderWidth = 1
-            lmatches.imgtlt1.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
-        }
+        let aspell2 = rt.listaSpeel(id: tmatchs.spell2)
+        lmatches.imgtlt1.sd_setImage(with: URL(string: aspell2.imagelink), placeholderImage: UIImage(named: "static_null"))
+        lmatches.imgtlt1.layer.borderWidth = 1
+        lmatches.imgtlt1.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
 
         return lmatches
     }

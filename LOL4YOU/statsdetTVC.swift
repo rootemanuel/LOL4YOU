@@ -56,7 +56,7 @@ class statsdetTVC: UITableViewController {
         SVProgressHUD.show()
         
         let champ = rt.listaChamp(id: statsdet.championID)
-        self.champ.image = UIImage(named: champ.imagefull)
+        self.champ.sd_setImage(with: URL(string: champ.imagelink), placeholderImage: UIImage(named: "static_null_all"))
         self.champ.layer.borderWidth = 2
         self.champ.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
 

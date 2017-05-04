@@ -27,7 +27,7 @@ class runesdetTVC: UITableViewController {
         cell.selectionStyle = UITableViewCellSelectionStyle.none
         
         let rune = rt.listaRune(id: runesdet[indexPath.row].runeId)
-        cell.imgrune.image = UIImage(named: rune.imagefull)
+        cell.imgrune.sd_setImage(with: URL(string: rune.imagelink), placeholderImage: UIImage(named: "static_null"))
         cell.qtd.text = "x \(runesdet[indexPath.row].rank)"
         cell.desc.text = rune.description
         

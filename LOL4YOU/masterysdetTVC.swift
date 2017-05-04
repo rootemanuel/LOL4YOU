@@ -29,7 +29,7 @@ class masterysdetTVC: UITableViewController {
         cell.selectionStyle = UITableViewCellSelectionStyle.none
         
         let mast = rt.listaMastery(id: masterysdet[indexPath.row].masteryId)
-        cell.img.sd_setImage(with: URL(string: "\(rootclass.images.mastery)\(mast.imagefull)"), placeholderImage: UIImage(named: "static_null_all"))
+        cell.img.sd_setImage(with: URL(string: mast.imagelink), placeholderImage: UIImage(named: "static_null"))
         cell.img.layer.borderWidth = 1
         cell.img.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
         

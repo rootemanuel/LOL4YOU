@@ -14,15 +14,25 @@ final class rootclass: NSObject {
 
     static let sharedInstance: rootclass = rootclass()
     
+    var lststaticspell = Array<staticspell>()
     var lststaticrunes = Array<staticrunes>()
     var lststaticchampions = Array<staticchampions>()
     var lststaticmastery = Array<staticmastery>()
+    
+    class staticspell {
+        var id:Int = 0
+        var key:String = ""
+        var name:String = ""
+        var imagefull:String = ""
+        var imagelink:String = ""
+    }
     
     class staticchampions {
         var id:Int = 0
         var key:String = ""
         var name:String = ""
         var imagefull:String = ""
+        var imagelink:String = ""
     }
     
     class staticrunes {
@@ -33,6 +43,7 @@ final class rootclass: NSObject {
         var tier:String = ""
         var type:String = ""
         var imagefull:String = ""
+        var imagelink:String = ""
     }
     
     class staticmastery {
@@ -40,10 +51,12 @@ final class rootclass: NSObject {
         var description:Array<String> = Array<String>()
         var name:String = ""
         var imagefull:String = ""
+        var imagelink:String = ""
     }
     
     private override init() {
         super.init()
+        self.listaStaticSpell()
         self.listaStaticRunes()
         self.listaStaticChampions()
         self.listaStaticMastery()
@@ -59,6 +72,7 @@ final class rootclass: NSObject {
         static internal let champion:String = "https://ddragon.leagueoflegends.com/cdn/\(rootclass.lol.version)/img/champion/"
         static internal let profileicon:String = "https://ddragon.leagueoflegends.com/cdn/\(rootclass.lol.version)/img/profileicon/"
         static internal let rune:String = "https://ddragon.leagueoflegends.com/cdn/\(rootclass.lol.version)/img/rune/"
+        static internal let spell:String = "https://ddragon.leagueoflegends.com/cdn/\(rootclass.lol.version)/img/spell/"
         static internal let mastery:String = "https://ddragon.leagueoflegends.com/cdn/\(rootclass.lol.version)/img/mastery/"
         static internal let png:String = ".png"
     }
@@ -99,7 +113,7 @@ final class rootclass: NSObject {
         static internal var profileIconId:Int = 0
         static internal var summonerID:Int = 0
         static internal var accountId:Int = 0
-        static internal var imagefull:String = ""
+        static internal var imagelink:String = ""
     }
     
     class BEStats {
@@ -152,12 +166,19 @@ final class rootclass: NSObject {
         var assists:Int = 0
         var win:Bool = false
         var item0:Int = 0
+        var item0imagelink:String = ""
         var item1:Int = 0
+        var item1imagelink:String = ""
         var item2:Int = 0
+        var item2imagelink:String = ""
         var item3:Int = 0
+        var item3imagelink:String = ""
         var item4:Int = 0
+        var item4imagelink:String = ""
         var item5:Int = 0
+        var item5imagelink:String = ""
         var item6:Int = 0
+        var item6imagelink:String = ""
         var minionsKilled:Int = 0
         var timePlayed:Int = 0
     }
@@ -213,12 +234,19 @@ final class rootclass: NSObject {
         var winner:Bool = false
         var champLevel:Int = 0
         var item0:Int = 0
+        var item0imagelink:String = ""
         var item1:Int = 0
+        var item1imagelink:String = ""
         var item2:Int = 0
+        var item2imagelink:String = ""
         var item3:Int = 0
+        var item3imagelink:String = ""
         var item4:Int = 0
+        var item4imagelink:String = ""
         var item5:Int = 0
+        var item5imagelink:String = ""
         var item6:Int = 0
+        var item6imagelink:String = ""
         var kills:Int = 0
         var deaths:Int = 0
         var assists:Int = 0
@@ -270,6 +298,47 @@ final class rootclass: NSObject {
         return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
     }
     
+    func listaStaticSpell(){
+        
+        let url = "https://na1.api.riotgames.com/lol/static-data/v3/summoner-spells?spellListData=image&api_key=\(lol.api_key)"
+        
+        Alamofire.request(url).responseJSON { response in
+            
+            switch response.result {
+            case .success( _):
+                let jspell = JSON(response.result.value!)
+                
+                let dspell: Dictionary<String, JSON> = jspell["data"].dictionaryValue
+                
+                for (_, value) in dspell {
+                    let r = staticspell()
+                    
+                    if let id = value["id"].int {
+                        r.id = id
+                    }
+                    
+                    if let name = value["name"].string {
+                        r.name = name
+                    }
+                    
+                    if let key = value["key"].string {
+                        r.key = key
+                    }
+                    
+                    if let imagefull = value["image"]["full"].string {
+                        r.imagefull = imagefull
+                        r.imagelink = "\(rootclass.images.spell)\(imagefull)"
+                    }
+                    
+                    self.lststaticspell.append(r)
+                }
+            case .failure(let error):
+                print("ERRO")
+            }
+        }
+    }
+
+    
     func listaStaticRunes(){
         
         let url = "https://na1.api.riotgames.com/lol/static-data/v3/runes?runeListData=basic,image&api_key=\(lol.api_key)"
@@ -311,6 +380,7 @@ final class rootclass: NSObject {
                     
                     if let imagefull = value["image"]["full"].string {
                         r.imagefull = imagefull
+                        r.imagelink = "\(rootclass.images.rune)\(imagefull)"
                     }
                     
                     self.lststaticrunes.append(r)
@@ -350,6 +420,7 @@ final class rootclass: NSObject {
                     
                     if let imagefull = value["image"]["full"].string {
                         r.imagefull = imagefull
+                        r.imagelink = "\(rootclass.images.champion)\(imagefull)"
                     }
                     
                     self.lststaticchampions.append(r)
@@ -385,6 +456,7 @@ final class rootclass: NSObject {
 
                     if let imagefull = value["image"]["full"].string {
                         r.imagefull = imagefull
+                        r.imagelink = "\(rootclass.images.mastery)\(imagefull)"
                     }
                     
                     for i in 0 ..< value["description"].count {
@@ -419,7 +491,7 @@ final class rootclass: NSObject {
                             
                             if let profile = jsummoner["profileIconId"].int {
                                 Summoner.profileIconId = profile
-                                Summoner.imagefull = "\(Summoner.profileIconId).png"
+                                Summoner.imagelink = "\(rootclass.images.profileicon)\(Summoner.profileIconId)\(rootclass.images.png)"
                             }
                             
                             if let summonerLevel = jsummoner["summonerLevel"].int {
@@ -897,30 +969,37 @@ final class rootclass: NSObject {
                             
                             if let item0 = jmatchdet["participants"][a]["stats"]["item0"].int {
                                 participant.stats.item0 = item0
+                                participant.stats.item0imagelink = "\(rootclass.images.item)\(item0)\(rootclass.images.png)"
                             }
                             
                             if let item1 = jmatchdet["participants"][a]["stats"]["item1"].int {
                                 participant.stats.item1 = item1
+                                participant.stats.item1imagelink = "\(rootclass.images.item)\(item1)\(rootclass.images.png)"
                             }
                             
                             if let item2 = jmatchdet["participants"][a]["stats"]["item2"].int {
                                 participant.stats.item2 = item2
+                                participant.stats.item2imagelink = "\(rootclass.images.item)\(item2)\(rootclass.images.png)"
                             }
                             
                             if let item3 = jmatchdet["participants"][a]["stats"]["item3"].int {
                                 participant.stats.item3 = item3
+                                participant.stats.item3imagelink = "\(rootclass.images.item)\(item3)\(rootclass.images.png)"
                             }
                             
                             if let item4 = jmatchdet["participants"][a]["stats"]["item4"].int {
                                 participant.stats.item4 = item4
+                                participant.stats.item4imagelink = "\(rootclass.images.item)\(item4)\(rootclass.images.png)"
                             }
                             
                             if let item5 = jmatchdet["participants"][a]["stats"]["item5"].int {
                                 participant.stats.item5 = item5
+                                participant.stats.item5imagelink = "\(rootclass.images.item)\(item5)\(rootclass.images.png)"
                             }
                             
                             if let item6 = jmatchdet["participants"][a]["stats"]["item6"].int {
                                 participant.stats.item6 = item6
+                                participant.stats.item6imagelink = "\(rootclass.images.item)\(item6)\(rootclass.images.png)"
                             }
                             
                             if let kills = jmatchdet["participants"][a]["stats"]["kills"].int {
@@ -1195,30 +1274,37 @@ final class rootclass: NSObject {
                                     
                                     if let item0 = jmatchdet["participants"][a]["stats"]["item0"].int {
                                         participant.stats.item0 = item0
+                                        participant.stats.item0imagelink = "\(rootclass.images.item)\(item0)\(rootclass.images.png)"
                                     }
                                     
                                     if let item1 = jmatchdet["participants"][a]["stats"]["item1"].int {
                                         participant.stats.item1 = item1
+                                        participant.stats.item1imagelink = "\(rootclass.images.item)\(item1)\(rootclass.images.png)"
                                     }
                                     
                                     if let item2 = jmatchdet["participants"][a]["stats"]["item2"].int {
                                         participant.stats.item2 = item2
+                                        participant.stats.item2imagelink = "\(rootclass.images.item)\(item2)\(rootclass.images.png)"
                                     }
                                     
                                     if let item3 = jmatchdet["participants"][a]["stats"]["item3"].int {
                                         participant.stats.item3 = item3
+                                        participant.stats.item3imagelink = "\(rootclass.images.item)\(item3)\(rootclass.images.png)"
                                     }
                                     
                                     if let item4 = jmatchdet["participants"][a]["stats"]["item4"].int {
                                         participant.stats.item4 = item4
+                                        participant.stats.item4imagelink = "\(rootclass.images.item)\(item4)\(rootclass.images.png)"
                                     }
                                     
                                     if let item5 = jmatchdet["participants"][a]["stats"]["item5"].int {
                                         participant.stats.item5 = item5
+                                        participant.stats.item5imagelink = "\(rootclass.images.item)\(item5)\(rootclass.images.png)"
                                     }
                                     
                                     if let item6 = jmatchdet["participants"][a]["stats"]["item6"].int {
                                         participant.stats.item6 = item6
+                                        participant.stats.item6imagelink = "\(rootclass.images.item)\(item6)\(rootclass.images.png)"
                                     }
                                     
                                     if let kills = jmatchdet["participants"][a]["stats"]["kills"].int {
@@ -1485,30 +1571,37 @@ final class rootclass: NSObject {
                             
                             if let item0 = jgames["games"][i]["stats"]["item0"].int {
                                 r.stats.item0 = item0
+                                r.stats.item0imagelink = "\(rootclass.images.item)\(item0)\(rootclass.images.png)"
                             }
                             
                             if let item1 = jgames["games"][i]["stats"]["item1"].int {
                                 r.stats.item1 = item1
+                                r.stats.item1imagelink = "\(rootclass.images.item)\(item1)\(rootclass.images.png)"
                             }
                             
                             if let item2 = jgames["games"][i]["stats"]["item2"].int {
                                 r.stats.item2 = item2
+                                r.stats.item2imagelink = "\(rootclass.images.item)\(item2)\(rootclass.images.png)"
                             }
                             
                             if let item3 = jgames["games"][i]["stats"]["item3"].int {
                                 r.stats.item3 = item3
+                                r.stats.item3imagelink = "\(rootclass.images.item)\(item3)\(rootclass.images.png)"
                             }
                             
                             if let item4 = jgames["games"][i]["stats"]["item4"].int {
                                 r.stats.item4 = item4
+                                r.stats.item4imagelink = "\(rootclass.images.item)\(item4)\(rootclass.images.png)"
                             }
                             
                             if let item5 = jgames["games"][i]["stats"]["item5"].int {
                                 r.stats.item5 = item5
+                                r.stats.item5imagelink = "\(rootclass.images.item)\(item5)\(rootclass.images.png)"
                             }
                             
                             if let item6 = jgames["games"][i]["stats"]["item6"].int {
                                 r.stats.item6 = item6
+                                r.stats.item6imagelink = "\(rootclass.images.item)\(item6)\(rootclass.images.png)"
                             }
                             
                             if let goldEarned = jgames["games"][i]["stats"]["goldEarned"].double {
@@ -1689,6 +1782,17 @@ final class rootclass: NSObject {
         let mastf = lststaticmastery.filter({ p in p.id == id})
         if mastf.count > 0 {
             rtn = mastf[0]
+        }
+        
+        return rtn
+    }
+    
+    func listaSpeel(id:Int) -> staticspell {
+        var rtn = staticspell()
+        
+        let spellf = lststaticspell.filter({ p in p.id == id})
+        if spellf.count > 0 {
+            rtn = spellf[0]
         }
         
         return rtn

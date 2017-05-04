@@ -34,11 +34,10 @@ class perfilstatsTVC: UITableViewController {
                 let cell = Bundle.main.loadNibNamed("imageTVCC", owner: self, options: nil)?.first as! imageTVCC
                 
                 cell.selectionStyle = UITableViewCellSelectionStyle.none
-                if let img = UIImage(named:"profile_icon_\(rootclass.Summoner.profileIconId)") {
-                    cell.img.image = img
-                    cell.img.layer.borderWidth = 4
-                    cell.img.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
-                }
+                
+                cell.img.sd_setImage(with: URL(string: rootclass.Summoner.imagelink), placeholderImage: UIImage(named: "static_null_all"))
+                cell.img.layer.borderWidth = 4
+                cell.img.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
                 
                 return cell
             default:

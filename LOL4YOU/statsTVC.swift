@@ -50,15 +50,10 @@ class statsTVC: UITableViewController {
         }
         
         let champ = rt.listaChamp(id: stats[indexPath.row].championID)
-        if let imgchamp = UIImage(named:champ.imagefull) {
-            lstats.lblChamp.text = champ.name
-            lstats.imgChamp.image = imgchamp
-            lstats.imgChamp.layer.borderWidth = 2
-            lstats.imgChamp.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
-        } else {
-            lstats.lblChamp.isHidden = true
-            lstats.imgChamp.isHidden = true
-        }
+        lstats.lblChamp.text = champ.name
+        lstats.imgChamp.sd_setImage(with: URL(string: champ.imagelink), placeholderImage: UIImage(named: "static_null_all"))
+        lstats.imgChamp.layer.borderWidth = 2
+        lstats.imgChamp.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
         
         return lstats
     }

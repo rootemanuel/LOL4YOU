@@ -265,43 +265,45 @@ class matchesdetTVC: UITableViewController {
                         }
                         
                     
-                        cell.imgchampion.sd_setImage(with: URL(string: "\(rootclass.images.champion)\(summoner.imagefull)"), placeholderImage: UIImage(named: "static_null_all"))
+                        cell.imgchampion.sd_setImage(with: URL(string: summoner.imagelink), placeholderImage: UIImage(named: "static_null_all"))
                         cell.imgchampion.layer.borderWidth = 2
                         cell.imgchampion.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
                         
-                        cell.imgitem0.sd_setImage(with: URL(string: "\(rootclass.images.item)\(tstats[indexPath.row - static_cell_rows_count].stats.item0)\(rootclass.images.png)"), placeholderImage: UIImage(named: "static_null"))
+                        cell.imgitem0.sd_setImage(with: URL(string: tstats[indexPath.row - static_cell_rows_count].stats.item0imagelink), placeholderImage: UIImage(named: "static_null"))
                         cell.imgitem0.layer.borderWidth = 1
                         cell.imgitem0.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
                         
-                        cell.imgitem1.sd_setImage(with: URL(string: "\(rootclass.images.item)\(tstats[indexPath.row - static_cell_rows_count].stats.item1)\(rootclass.images.png)"), placeholderImage: UIImage(named: "static_null"))
+                        cell.imgitem1.sd_setImage(with: URL(string: tstats[indexPath.row - static_cell_rows_count].stats.item1imagelink), placeholderImage: UIImage(named: "static_null"))
                         cell.imgitem1.layer.borderWidth = 1
                         cell.imgitem1.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
                         
-                        cell.imgitem2.sd_setImage(with: URL(string: "\(rootclass.images.item)\(tstats[indexPath.row - static_cell_rows_count].stats.item2)\(rootclass.images.png)"), placeholderImage: UIImage(named: "static_null"))
+                        cell.imgitem2.sd_setImage(with: URL(string: tstats[indexPath.row - static_cell_rows_count].stats.item2imagelink), placeholderImage: UIImage(named: "static_null"))
                         cell.imgitem2.layer.borderWidth = 1
                         cell.imgitem2.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
                         
-                        cell.imgitem3.sd_setImage(with: URL(string: "\(rootclass.images.item)\(tstats[indexPath.row - static_cell_rows_count].stats.item3)\(rootclass.images.png)"), placeholderImage: UIImage(named: "static_null"))
+                        cell.imgitem3.sd_setImage(with: URL(string: tstats[indexPath.row - static_cell_rows_count].stats.item3imagelink), placeholderImage: UIImage(named: "static_null"))
                         cell.imgitem3.layer.borderWidth = 1
                         cell.imgitem3.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
                         
-                        cell.imgitem4.sd_setImage(with: URL(string: "\(rootclass.images.item)\(tstats[indexPath.row - static_cell_rows_count].stats.item4)\(rootclass.images.png)"), placeholderImage: UIImage(named: "static_null"))
+                        cell.imgitem4.sd_setImage(with: URL(string: tstats[indexPath.row - static_cell_rows_count].stats.item4imagelink), placeholderImage: UIImage(named: "static_null"))
                         cell.imgitem4.layer.borderWidth = 1
                         cell.imgitem4.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
                         
-                        cell.imgitem5.sd_setImage(with: URL(string: "\(rootclass.images.item)\(tstats[indexPath.row - static_cell_rows_count].stats.item5)\(rootclass.images.png)"), placeholderImage: UIImage(named: "static_null"))
+                        cell.imgitem5.sd_setImage(with: URL(string: tstats[indexPath.row - static_cell_rows_count].stats.item5imagelink), placeholderImage: UIImage(named: "static_null"))
                         cell.imgitem5.layer.borderWidth = 1
                         cell.imgitem5.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
                         
-                        cell.imgtrinket.sd_setImage(with: URL(string: "\(rootclass.images.item)\(tstats[indexPath.row - static_cell_rows_count].stats.item6)\(rootclass.images.png)"), placeholderImage: UIImage(named: "static_null"))
+                        cell.imgtrinket.sd_setImage(with: URL(string: tstats[indexPath.row - static_cell_rows_count].stats.item6imagelink), placeholderImage: UIImage(named: "static_null"))
                         cell.imgtrinket.layer.borderWidth = 1
                         cell.imgtrinket.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
                         
-                        cell.imgtlt0.sd_setImage(with: URL(string: "\(rootclass.images.champion)\(tstats[indexPath.row - static_cell_rows_count].spell1Id)"), placeholderImage: UIImage(named: "static_null"))
+                        let spell1 = rt.listaSpeel(id: tstats[indexPath.row - static_cell_rows_count].spell1Id)
+                        cell.imgtlt0.sd_setImage(with: URL(string: "\(spell1.imagelink)"), placeholderImage: UIImage(named: "static_null"))
                         cell.imgtlt0.layer.borderWidth = 1
                         cell.imgtlt0.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
                         
-                        cell.imgtlt1.sd_setImage(with: URL(string: "\(rootclass.images.champion)\(tstats[indexPath.row - static_cell_rows_count].spell2Id)"), placeholderImage: UIImage(named: "static_null"))
+                        let spell2 = rt.listaSpeel(id: tstats[indexPath.row - static_cell_rows_count].spell2Id)
+                        cell.imgtlt1.sd_setImage(with: URL(string: "\(spell2.imagelink)"), placeholderImage: UIImage(named: "static_null"))
                         cell.imgtlt1.layer.borderWidth = 1
                         cell.imgtlt1.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
                         
@@ -325,7 +327,8 @@ class matchesdetTVC: UITableViewController {
                         }
                         
                         if masteryf.count > 0 {
-                            cell.imgtltmast.sd_setImage(with: URL(string: "\(rootclass.images.champion)\(masteryf[0].masteryId)\(rootclass.images.png))"), placeholderImage: UIImage(named: "static_null"))
+                            let mastery = rt.listaMastery(id: masteryf[0].masteryId)
+                            cell.imgtltmast.sd_setImage(with: URL(string: "\(mastery.imagelink)"), placeholderImage: UIImage(named: "static_null"))
                             cell.imgtltmast.layer.borderWidth = 1
                             cell.imgtltmast.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
 
@@ -542,43 +545,45 @@ class matchesdetTVC: UITableViewController {
                             cell.imglvl.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
                         }
                         
-                        cell.imgchampion.sd_setImage(with: URL(string: "\(rootclass.images.champion)\(summoner.imagefull)"), placeholderImage: UIImage(named: "static_null_all"))
+                        cell.imgchampion.sd_setImage(with: URL(string: summoner.imagelink), placeholderImage: UIImage(named: "static_null_all"))
                         cell.imgchampion.layer.borderWidth = 2
                         cell.imgchampion.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
                         
-                        cell.imgitem0.sd_setImage(with: URL(string: "\(rootclass.images.item)\(tstats[indexPath.row - static_cell_rows_count].stats.item0)\(rootclass.images.png)"), placeholderImage: UIImage(named: "static_null"))
+                        cell.imgitem0.sd_setImage(with: URL(string: tstats[indexPath.row - static_cell_rows_count].stats.item0imagelink), placeholderImage: UIImage(named: "static_null"))
                         cell.imgitem0.layer.borderWidth = 1
                         cell.imgitem0.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
                         
-                        cell.imgitem1.sd_setImage(with: URL(string: "\(rootclass.images.item)\(tstats[indexPath.row - static_cell_rows_count].stats.item1)\(rootclass.images.png)"), placeholderImage: UIImage(named: "static_null"))
+                        cell.imgitem1.sd_setImage(with: URL(string: tstats[indexPath.row - static_cell_rows_count].stats.item1imagelink), placeholderImage: UIImage(named: "static_null"))
                         cell.imgitem1.layer.borderWidth = 1
                         cell.imgitem1.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
                         
-                        cell.imgitem2.sd_setImage(with: URL(string: "\(rootclass.images.item)\(tstats[indexPath.row - static_cell_rows_count].stats.item2)\(rootclass.images.png)"), placeholderImage: UIImage(named: "static_null"))
+                        cell.imgitem2.sd_setImage(with: URL(string: tstats[indexPath.row - static_cell_rows_count].stats.item2imagelink), placeholderImage: UIImage(named: "static_null"))
                         cell.imgitem2.layer.borderWidth = 1
                         cell.imgitem2.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
                         
-                        cell.imgitem3.sd_setImage(with: URL(string: "\(rootclass.images.item)\(tstats[indexPath.row - static_cell_rows_count].stats.item3)\(rootclass.images.png)"), placeholderImage: UIImage(named: "static_null"))
+                        cell.imgitem3.sd_setImage(with: URL(string: tstats[indexPath.row - static_cell_rows_count].stats.item3imagelink), placeholderImage: UIImage(named: "static_null"))
                         cell.imgitem3.layer.borderWidth = 1
                         cell.imgitem3.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
                         
-                        cell.imgitem4.sd_setImage(with: URL(string: "\(rootclass.images.item)\(tstats[indexPath.row - static_cell_rows_count].stats.item4)\(rootclass.images.png)"), placeholderImage: UIImage(named: "static_null"))
+                        cell.imgitem4.sd_setImage(with: URL(string: tstats[indexPath.row - static_cell_rows_count].stats.item4imagelink), placeholderImage: UIImage(named: "static_null"))
                         cell.imgitem4.layer.borderWidth = 1
                         cell.imgitem4.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
                         
-                        cell.imgitem5.sd_setImage(with: URL(string: "\(rootclass.images.item)\(tstats[indexPath.row - static_cell_rows_count].stats.item5)\(rootclass.images.png)"), placeholderImage: UIImage(named: "static_null"))
+                        cell.imgitem5.sd_setImage(with: URL(string: tstats[indexPath.row - static_cell_rows_count].stats.item5imagelink), placeholderImage: UIImage(named: "static_null"))
                         cell.imgitem5.layer.borderWidth = 1
                         cell.imgitem5.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
                         
-                        cell.imgtrinket.sd_setImage(with: URL(string: "\(rootclass.images.item)\(tstats[indexPath.row - static_cell_rows_count].stats.item6)\(rootclass.images.png)"), placeholderImage: UIImage(named: "static_null"))
+                        cell.imgtrinket.sd_setImage(with: URL(string: tstats[indexPath.row - static_cell_rows_count].stats.item6imagelink), placeholderImage: UIImage(named: "static_null"))
                         cell.imgtrinket.layer.borderWidth = 1
                         cell.imgtrinket.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
                         
-                        cell.imgtlt0.sd_setImage(with: URL(string: "\(rootclass.images.champion)\(tstats[indexPath.row - static_cell_rows_count].spell1Id)"), placeholderImage: UIImage(named: "static_null"))
+                        let spell1 = rt.listaSpeel(id: tstats[indexPath.row - static_cell_rows_count].spell1Id)
+                        cell.imgtlt0.sd_setImage(with: URL(string: "\(spell1.imagelink)"), placeholderImage: UIImage(named: "static_null"))
                         cell.imgtlt0.layer.borderWidth = 1
                         cell.imgtlt0.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
                         
-                        cell.imgtlt1.sd_setImage(with: URL(string: "\(rootclass.images.champion)\(tstats[indexPath.row - static_cell_rows_count].spell2Id)"), placeholderImage: UIImage(named: "static_null"))
+                        let spell2 = rt.listaSpeel(id: tstats[indexPath.row - static_cell_rows_count].spell2Id)
+                        cell.imgtlt1.sd_setImage(with: URL(string: "\(spell2.imagelink)"), placeholderImage: UIImage(named: "static_null"))
                         cell.imgtlt1.layer.borderWidth = 1
                         cell.imgtlt1.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
                         
@@ -602,7 +607,8 @@ class matchesdetTVC: UITableViewController {
                         }
                         
                         if masteryf.count > 0 {
-                            cell.imgtltmast.sd_setImage(with: URL(string: "\(rootclass.images.champion)\(masteryf[0].masteryId)\(rootclass.images.png))"), placeholderImage: UIImage(named: "static_null"))
+                            let mastery = rt.listaMastery(id: masteryf[0].masteryId)
+                            cell.imgtltmast.sd_setImage(with: URL(string: "\(mastery.imagelink)"), placeholderImage: UIImage(named: "static_null"))
                             cell.imgtltmast.layer.borderWidth = 1
                             cell.imgtltmast.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
                             
