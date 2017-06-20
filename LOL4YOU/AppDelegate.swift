@@ -101,7 +101,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             }
                         }
                     } else {
-                        
                         do {
                             let spellsd = try self.rt.readJsonLocal(file: rootclass.shared.spells)
                             if !spellsd.isEmpty {
@@ -145,7 +144,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         } catch {
                             NSLog("R00T - MASTERYS CACHE - ERROR:  \(error)")
                         }
-                    
                     }
                 }
             } else {

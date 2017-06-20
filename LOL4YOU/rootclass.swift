@@ -338,7 +338,7 @@ final class rootclass: NSObject {
         while(loop){
             let semaphore = DispatchSemaphore(value: 0)
             let queue = DispatchQueue.global(qos: .background)
-            Alamofire.request(url).responseJSON(queue: queue) { response in
+            Alamofire.request(url).validate().responseJSON(queue: queue) { response in
             
                 switch response.result {
                 case .success( _):
@@ -391,13 +391,14 @@ final class rootclass: NSObject {
     
     func listaStaticRunes(runes:@escaping (JSON) -> ()) {
         
-        let url = "https://na1.api.riotgames.com/lol/static-data/v3/runes?runeListData=basic,image&api_key=\(lol.api_key)"
+        let url = "https://br1.api.riotgames.com/lol/static-data/v3/runes?locale=en_US&tags=all&api_key=\(lol.api_key)"
+        //let url = "https://na1.api.riotgames.com/lol/static-data/v3/runes?runeListData=basic,image&api_key=\(lol.api_key)"
         
         var loop = true
         while(loop){
             let semaphore = DispatchSemaphore(value: 0)
             let queue = DispatchQueue.global(qos: .background)
-            Alamofire.request(url).responseJSON(queue: queue) { response in
+            Alamofire.request(url).validate().responseJSON(queue: queue) { response in
 
                 switch response.result {
                 case .success( _):
@@ -467,7 +468,7 @@ final class rootclass: NSObject {
         while(loop){
             let semaphore = DispatchSemaphore(value: 0)
             let queue = DispatchQueue.global(qos: .background)
-            Alamofire.request(url).responseJSON(queue: queue) { response in
+            Alamofire.request(url).validate().responseJSON(queue: queue) { response in
             
                 switch response.result {
                 case .success( _):
@@ -525,7 +526,7 @@ final class rootclass: NSObject {
         while(loop){
             let semaphore = DispatchSemaphore(value: 0)
             let queue = DispatchQueue.global(qos: .background)
-            Alamofire.request(url).responseJSON(queue: queue) { response in
+            Alamofire.request(url).validate().responseJSON(queue: queue) { response in
             
                 switch response.result {
                 case .success( _):
@@ -719,7 +720,7 @@ final class rootclass: NSObject {
         while(loop){
             let semaphore = DispatchSemaphore(value: 0)
             let queue = DispatchQueue.global(qos: .background)
-            Alamofire.request(url).responseJSON(queue: queue) { response in
+            Alamofire.request(url).validate().responseJSON(queue: queue) { response in
                 
                 switch response.result {
                 case .success( _):
@@ -756,7 +757,7 @@ final class rootclass: NSObject {
         
         let url = "https://\(Region.REGION_BR.rawValue.lowercased())1.api.riotgames.com/lol/summoner/v3/summoners/by-name/\(summonername)?api_key=\(lol.api_key)"
         
-        Alamofire.request(url).responseJSON { response in
+        Alamofire.request(url).validate().responseJSON { response in
             
             switch response.result {
             case .success( _):
@@ -813,7 +814,7 @@ final class rootclass: NSObject {
         
         let url = "https://\(Region.REGION_BR.rawValue.lowercased()).api.riotgames.com/api/lol/\(Region.REGION_BR.rawValue.uppercased())/v1.3/stats/by-summoner/\(Summoner.summonerID)/ranked?season=SEASON2017&api_key=\(lol.api_key)"
         
-        Alamofire.request(url).responseJSON { response in
+        Alamofire.request(url).validate().responseJSON { response in
             
             switch response.result {
             case .success( _):
@@ -951,7 +952,7 @@ final class rootclass: NSObject {
         
         let url = "https://\(Region.REGION_BR.rawValue.lowercased()).api.riotgames.com/api/lol/\(Region.REGION_BR.rawValue.uppercased())/v1.3/stats/by-summoner/\(Summoner.summonerID)/ranked?season=SEASON2017&api_key=\(lol.api_key)"
         
-        Alamofire.request(url).responseJSON { response in
+        Alamofire.request(url).validate().responseJSON { response in
             
             switch response.result {
             case .success( _):
@@ -1089,7 +1090,7 @@ final class rootclass: NSObject {
         
         let url = "https://\(Region.REGION_BR.rawValue.lowercased()).api.riotgames.com/api/lol/\(Region.REGION_BR.rawValue.uppercased())/v2.5/league/by-summoner/\(Summoner.summonerID)/entry?api_key=\(lol.api_key)"
         
-        Alamofire.request(url).responseJSON { response in
+        Alamofire.request(url).validate().responseJSON { response in
             
             switch response.result {
             case .success( _):
@@ -1150,7 +1151,7 @@ final class rootclass: NSObject {
         
         let url = "https://\(Region.REGION_BR.rawValue.lowercased()).api.riotgames.com/api/lol/\(Region.REGION_BR.rawValue.uppercased())/v2.2/matchlist/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
         
-        Alamofire.request(url).responseJSON { response in
+        Alamofire.request(url).validate().responseJSON { response in
             
             switch response.result {
             case .success( _):
@@ -1188,7 +1189,7 @@ final class rootclass: NSObject {
         let match = rootclass.BEMatch()
         let url = "https://\(rootclass.Region.REGION_BR.rawValue.lowercased()).api.riotgames.com/api/lol/\(rootclass.Region.REGION_BR.rawValue.uppercased())/v2.2/match/\(matchid)?api_key=\(rootclass.lol.api_key)"
 
-        Alamofire.request(url).responseJSON { response in
+        Alamofire.request(url).validate().responseJSON { response in
             
             switch response.result {
             case .success( _):
@@ -1492,7 +1493,7 @@ final class rootclass: NSObject {
                 let url = "https://\(rootclass.Region.REGION_BR.rawValue.lowercased()).api.riotgames.com/api/lol/\(rootclass.Region.REGION_BR.rawValue.uppercased())/v2.2/match/\(matchids[i])?api_key=\(rootclass.lol.api_key)"
                 
                 let queue = DispatchQueue.global(qos: .background)
-                Alamofire.request(url).responseJSON(queue: queue) { response in
+                Alamofire.request(url).validate().responseJSON(queue: queue) { response in
             
                     switch response.result {
                     case .success( _):
@@ -1803,7 +1804,7 @@ final class rootclass: NSObject {
         
         let url = "https://\(Region.REGION_BR.rawValue.lowercased()).api.riotgames.com/api/lol/\(Region.REGION_BR.rawValue.uppercased())/v1.3/game/by-summoner/\(Summoner.summonerID)/recent?api_key=\(lol.api_key)"
         
-        Alamofire.request(url).responseJSON { response in
+        Alamofire.request(url).validate().responseJSON { response in
             
             switch response.result {
             case .success( _):
@@ -1932,7 +1933,7 @@ final class rootclass: NSObject {
         
         let url = "https://\(Region.REGION_BR.rawValue.lowercased())1.api.riotgames.com/lol/platform/v3/runes/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
         
-        Alamofire.request(url).responseJSON { response in
+        Alamofire.request(url).validate().responseJSON { response in
             
             switch response.result {
             case .success( _):
@@ -1983,7 +1984,7 @@ final class rootclass: NSObject {
         
         let url = "https://\(Region.REGION_BR.rawValue.lowercased())1.api.riotgames.com/lol/platform/v3/masteries/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
         
-        Alamofire.request(url).responseJSON { response in
+        Alamofire.request(url).validate().responseJSON { response in
             
             switch response.result {
             case .success( _):
