@@ -61,6 +61,7 @@ final class rootclass: NSObject {
     struct lol {
         static internal var version:String = "7.9.2"
         static internal var api_key:String = "RGAPI-50a56712-a157-44cc-9760-0a4649629dff"
+        static internal var server:String = "BR"
     }
     
     struct images {
@@ -391,7 +392,7 @@ final class rootclass: NSObject {
     
     func listaStaticRunes(runes:@escaping (JSON) -> ()) {
         
-        let url = "https://br1.api.riotgames.com/lol/static-data/v3/runes?locale=en_US&tags=all&api_key=\(lol.api_key)"
+        let url = "https://na1.api.riotgames.com/lol/static-data/v3/runes?locale=en_US&tags=all&api_key=\(lol.api_key)"
         //let url = "https://na1.api.riotgames.com/lol/static-data/v3/runes?runeListData=basic,image&api_key=\(lol.api_key)"
         
         var loop = true

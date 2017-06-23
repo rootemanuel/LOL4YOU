@@ -9,6 +9,7 @@ target 'LOL4YOU' do
   pod 'SVProgressHUD'
   pod 'SwiftyPlistManager'
   pod 'SDWebImage'
+  pod 'ActionSheetPicker-3.0'
 
   # Pods for LOL4YOU
 

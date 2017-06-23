@@ -1,5 +1,6 @@
 PODS:
-  - Alamofire (4.4.0)
+  - ActionSheetPicker-3.0 (2.2.0)
+  - Alamofire (4.5.0)
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
@@ -8,6 +9,7 @@ PODS:
   - SwiftyPlistManager (1.0.1)
 
 DEPENDENCIES:
+  - ActionSheetPicker-3.0
   - Alamofire
   - SDWebImage
   - SVProgressHUD
@@ -15,12 +17,13 @@ DEPENDENCIES:
   - SwiftyPlistManager
 
 SPEC CHECKSUMS:
-  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  ActionSheetPicker-3.0: d11a4c12c6aaf704b8a3f56d179198c99f3e41e6
+  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   SwiftyPlistManager: 1f4b9e82fd8048fddc16ce56bb574bcfccb21561
 
-PODFILE CHECKSUM: 0ee5228cce8daa42f76b43bc71a43b8af56d5d42
+PODFILE CHECKSUM: d1cdc2268531f2b3b98be18efab7290f7df03211
 
 COCOAPODS: 1.2.0

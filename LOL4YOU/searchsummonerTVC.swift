@@ -8,12 +8,13 @@
 
 import UIKit
 import SVProgressHUD
+import ActionSheetPicker_3_0
 
 class searchsummonerTVC: UITableViewController, UITextFieldDelegate  {
 
     @IBOutlet weak var srchsummoner: UIButton!
     @IBOutlet weak var summonernick: UITextField!
-    @IBOutlet weak var summonerserver: UITextField!
+    @IBOutlet weak var summonerserver: UIButton!
     
     var rt = rootclass.sharedInstance
     
@@ -75,13 +76,93 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate  {
         ]
         
         self.summonernick.delegate = self
-        self.summonerserver.delegate = self
         
         self.title = "Search Summoner"
         self.summonernick.addTarget(self, action: #selector(validadados(_:)), for: .editingChanged)
         
         self.navigationController?.navigationBar.barTintColor = UIColor(hex: rootclass.colors.FUNDO.rawValue)
         self.navigationController?.navigationBar.titleTextAttributes = attnav
+    }
+    
+    @IBAction func btnServerPicker(_ sender: AnyObject) {
+        
+        let servers = ["Brazil",
+                       "EU Nordic & East",
+                       "EU West",
+                       "Latin America North",
+                       "Latin America South",
+                       "North America",
+                       "Oceania",
+                       "Russia",
+                       "Turkey",
+                       "Japan",
+                       "Korea"]
+        
+        let acp = ActionSheetStringPicker(title: "Server", rows: servers, initialSelection: 0, doneBlock: {
+            picker, value, index in
+            
+            switch value {
+            case 0:
+                rootclass.lol.version = "BR"
+            case 1:
+                rootclass.lol.version = "EUNE"
+            case 2:
+                rootclass.lol.version = "EUW"
+            case 3:
+                rootclass.lol.version = "LAN"
+            case 4:
+                rootclass.lol.version = "LAS"
+            case 5:
+                rootclass.lol.version = "NA"
+            case 6:
+                rootclass.lol.version = "OCE"
+            case 7:
+                rootclass.lol.version = "RU"
+            case 8:
+                rootclass.lol.version = "TR"
+            case 9:
+                rootclass.lol.version = "JP"
+            case 10:
+                rootclass.lol.version = "KR"
+            default:
+                rootclass.lol.version = "BR"
+            }
+            
+            print("R00T SERVER => " + rootclass.lol.version)
+            return
+            }, cancel: { ActionStringCancelBlock in return }, origin: sender)
+        
+        let textTitleAtributes = [
+            NSForegroundColorAttributeName: UIColor(hex:rootclass.colors.TEXTO_TOP_BAR.rawValue),
+            NSFontAttributeName: UIFont(name: "Friz Quadrata TT", size: 17)!
+        ]
+        
+        let pickerTextAttributes:NSMutableDictionary = [NSForegroundColorAttributeName:UIColor(hex:rootclass.colors.FUNDO.rawValue),
+                                    NSFontAttributeName: UIFont(name: "Friz Quadrata TT", size: 15)!]
+        
+        let btDone = UIButton.init(type: .custom)
+        btDone.setTitle("Done", for: .normal)
+        btDone.setTitleColor(UIColor(hex:rootclass.colors.TEXTO_VITORIA.rawValue), for: .normal)
+        btDone.frame = CGRect(x: 0, y: 0, width: 60, height: 30)
+        btDone.titleLabel!.font = UIFont(name: "Friz Quadrata TT", size: 15)!
+        let btBarDone = UIBarButtonItem(customView: btDone)
+        
+        let btCancel = UIButton.init(type: .custom)
+        btCancel.setTitle("Cancel", for: .normal)
+        btCancel.setTitleColor(UIColor(hex:rootclass.colors.TEXTO_DERROTA.rawValue), for: .normal)
+        btCancel.frame = CGRect(x: 0, y: 0, width: 60, height: 30)
+        btCancel.titleLabel!.font = UIFont(name: "Friz Quadrata TT", size: 15)!
+        let btBarCancel = UIBarButtonItem(customView: btCancel)
+        
+        acp!.titleTextAttributes = textTitleAtributes
+        acp!.pickerTextAttributes = pickerTextAttributes
+        acp!.toolbarBackgroundColor = UIColor(hex:rootclass.colors.FUNDO.rawValue)
+        acp!.toolbarButtonsColor = UIColor(hex:rootclass.colors.FUNDO_CLARO.rawValue)
+        
+        acp!.setDoneButton(btBarDone)
+        acp!.setCancelButton(btBarCancel)
+        
+        acp!.show()
     }
 
 }
