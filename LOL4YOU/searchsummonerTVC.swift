@@ -57,12 +57,12 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate  {
             self.srchsummoner.alpha = 0.5
             return
         }
-//#R00T - RETIRAR
-//        if (self.summonernick.text?.isEmpty)! {
-//            self.btnsearch.isEnabled = false
-//            self.btnsearch.alpha = 0.5
-//            return
-//        }
+        
+        if (self.summonerserver.title(for: .normal)?.lowercased() == "server") {
+            self.srchsummoner.isEnabled = false
+            self.srchsummoner.alpha = 0.5
+            return
+        }
         
         self.srchsummoner.isEnabled = true
         self.srchsummoner.alpha = 1
@@ -128,7 +128,9 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate  {
                 rootclass.lol.version = "BR"
             }
             
-            print("R00T SERVER => " + rootclass.lol.version)
+            self.summonerserver.setTitle(index as! String?, for: .normal)
+            self.validadados(UITextField())
+            
             return
             }, cancel: { ActionStringCancelBlock in return }, origin: sender)
         

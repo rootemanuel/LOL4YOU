@@ -54,16 +54,6 @@
 		A0D97AF31EA78FCE00273C10 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D97AF21EA78FCE00273C10 /* UIColorExtension.swift */; };
 		A0D97AF81EA792D300273C10 /* friz_quadrata_m.otf in Resources */ = {isa = PBXBuildFile; fileRef = A0D97AF61EA792D300273C10 /* friz_quadrata_m.otf */; };
 		A0D97AF91EA792D300273C10 /* friz_quadrata_r.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A0D97AF71EA792D300273C10 /* friz_quadrata_r.ttf */; };
-		A0D97B051EA7A28700273C10 /* champion.json in Resources */ = {isa = PBXBuildFile; fileRef = A0D97AFB1EA7A28700273C10 /* champion.json */; };
-		A0D97B061EA7A28700273C10 /* championFull.json in Resources */ = {isa = PBXBuildFile; fileRef = A0D97AFC1EA7A28700273C10 /* championFull.json */; };
-		A0D97B071EA7A28700273C10 /* item.json in Resources */ = {isa = PBXBuildFile; fileRef = A0D97AFD1EA7A28700273C10 /* item.json */; };
-		A0D97B081EA7A28700273C10 /* language.json in Resources */ = {isa = PBXBuildFile; fileRef = A0D97AFE1EA7A28700273C10 /* language.json */; };
-		A0D97B091EA7A28700273C10 /* map.json in Resources */ = {isa = PBXBuildFile; fileRef = A0D97AFF1EA7A28700273C10 /* map.json */; };
-		A0D97B0A1EA7A28700273C10 /* mastery.json in Resources */ = {isa = PBXBuildFile; fileRef = A0D97B001EA7A28700273C10 /* mastery.json */; };
-		A0D97B0B1EA7A28700273C10 /* profileicon.json in Resources */ = {isa = PBXBuildFile; fileRef = A0D97B011EA7A28700273C10 /* profileicon.json */; };
-		A0D97B0C1EA7A28700273C10 /* rune.json in Resources */ = {isa = PBXBuildFile; fileRef = A0D97B021EA7A28700273C10 /* rune.json */; };
-		A0D97B0D1EA7A28700273C10 /* sticker.json in Resources */ = {isa = PBXBuildFile; fileRef = A0D97B031EA7A28700273C10 /* sticker.json */; };
-		A0D97B0E1EA7A28700273C10 /* summoner.json in Resources */ = {isa = PBXBuildFile; fileRef = A0D97B041EA7A28700273C10 /* summoner.json */; };
 		A0E478AF1EB363A600109F56 /* runesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E478AE1EB363A600109F56 /* runesTVC.swift */; };
 		A0E478B11EB36D9A00109F56 /* runesdetTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E478B01EB36D9A00109F56 /* runesdetTVC.swift */; };
 /* End PBXBuildFile section */
@@ -141,16 +131,6 @@
 		A0D97AF21EA78FCE00273C10 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		A0D97AF61EA792D300273C10 /* friz_quadrata_m.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = friz_quadrata_m.otf; sourceTree = "<group>"; };
 		A0D97AF71EA792D300273C10 /* friz_quadrata_r.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = friz_quadrata_r.ttf; sourceTree = "<group>"; };
-		A0D97AFB1EA7A28700273C10 /* champion.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = champion.json; sourceTree = "<group>"; };
-		A0D97AFC1EA7A28700273C10 /* championFull.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = championFull.json; sourceTree = "<group>"; };
-		A0D97AFD1EA7A28700273C10 /* item.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = item.json; sourceTree = "<group>"; };
-		A0D97AFE1EA7A28700273C10 /* language.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = language.json; sourceTree = "<group>"; };
-		A0D97AFF1EA7A28700273C10 /* map.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = map.json; sourceTree = "<group>"; };
-		A0D97B001EA7A28700273C10 /* mastery.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mastery.json; sourceTree = "<group>"; };
-		A0D97B011EA7A28700273C10 /* profileicon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = profileicon.json; sourceTree = "<group>"; };
-		A0D97B021EA7A28700273C10 /* rune.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rune.json; sourceTree = "<group>"; };
-		A0D97B031EA7A28700273C10 /* sticker.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sticker.json; sourceTree = "<group>"; };
-		A0D97B041EA7A28700273C10 /* summoner.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = summoner.json; sourceTree = "<group>"; };
 		A0E478AE1EB363A600109F56 /* runesTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = runesTVC.swift; sourceTree = "<group>"; };
 		A0E478B01EB36D9A00109F56 /* runesdetTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = runesdetTVC.swift; sourceTree = "<group>"; };
 		A6BFB153ADEC2999EECF69C7 /* Pods-LOL4YOUUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LOL4YOUUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LOL4YOUUITests/Pods-LOL4YOUUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -410,7 +390,6 @@
 			isa = PBXGroup;
 			children = (
 				A01218341EBA640000B45F0F /* plist */,
-				A0D97AFA1EA7A1D900273C10 /* jsons */,
 				A0D97AF51EA7926B00273C10 /* fonts */,
 			);
 			name = files;
@@ -423,23 +402,6 @@
 				A0D97AF71EA792D300273C10 /* friz_quadrata_r.ttf */,
 			);
 			name = fonts;
-			sourceTree = "<group>";
-		};
-		A0D97AFA1EA7A1D900273C10 /* jsons */ = {
-			isa = PBXGroup;
-			children = (
-				A0D97AFB1EA7A28700273C10 /* champion.json */,
-				A0D97AFC1EA7A28700273C10 /* championFull.json */,
-				A0D97AFD1EA7A28700273C10 /* item.json */,
-				A0D97AFE1EA7A28700273C10 /* language.json */,
-				A0D97AFF1EA7A28700273C10 /* map.json */,
-				A0D97B001EA7A28700273C10 /* mastery.json */,
-				A0D97B011EA7A28700273C10 /* profileicon.json */,
-				A0D97B021EA7A28700273C10 /* rune.json */,
-				A0D97B031EA7A28700273C10 /* sticker.json */,
-				A0D97B041EA7A28700273C10 /* summoner.json */,
-			);
-			name = jsons;
 			sourceTree = "<group>";
 		};
 		A0E478AD1EB3630F00109F56 /* runes */ = {
@@ -582,30 +544,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0A4995F1EB2877900977541 /* runesTVCC.xib in Resources */,
-				A0D97B0B1EA7A28700273C10 /* profileicon.json in Resources */,
-				A0D97B0A1EA7A28700273C10 /* mastery.json in Resources */,
 				A0D97AF91EA792D300273C10 /* friz_quadrata_r.ttf in Resources */,
 				A0A4995B1EB2313700977541 /* imageTVCC.xib in Resources */,
-				A0D97B0C1EA7A28700273C10 /* rune.json in Resources */,
 				A00280001E9D91BD003175A7 /* LaunchScreen.storyboard in Resources */,
 				A0BCAA6A1EB13281008F4D01 /* perfilstatstiersnullTVCC.xib in Resources */,
-				A0D97B091EA7A28700273C10 /* map.json in Resources */,
 				A0A499631EB28FBD00977541 /* masteryTVCC.xib in Resources */,
 				A0BCAA6E1EB14785008F4D01 /* perfilstatusV.xib in Resources */,
-				A0D97B071EA7A28700273C10 /* item.json in Resources */,
 				A0D97AF81EA792D300273C10 /* friz_quadrata_m.otf in Resources */,
-				A0D97B0D1EA7A28700273C10 /* sticker.json in Resources */,
 				A01218361EBA641700B45F0F /* root.plist in Resources */,
 				A0A499571EB21C1400977541 /* headerTVH.xib in Resources */,
-				A0D97B051EA7A28700273C10 /* champion.json in Resources */,
 				A0027FFD1E9D91BD003175A7 /* Assets.xcassets in Resources */,
 				A056E7721EAE2B92007FDB9F /* matchesdetplayersTVCC.xib in Resources */,
 				A0027FFB1E9D91BD003175A7 /* Main.storyboard in Resources */,
 				A0BF02FA1EA6422600DB84E9 /* emptytableview.xib in Resources */,
-				A0D97B0E1EA7A28700273C10 /* summoner.json in Resources */,
 				A056E7831EAE94DD007FDB9F /* matchesdetbansTVCC.xib in Resources */,
-				A0D97B061EA7A28700273C10 /* championFull.json in Resources */,
-				A0D97B081EA7A28700273C10 /* language.json in Resources */,
 				A0A499501EB2155300977541 /* infoTVCC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
