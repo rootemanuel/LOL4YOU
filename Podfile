@@ -10,6 +10,8 @@ target 'LOL4YOU' do
   pod 'SwiftyPlistManager'
   pod 'SDWebImage'
   pod 'ActionSheetPicker-3.0'
+  pod 'Firebase/Core'
+  pod 'Firebase/AdMob'
 
   # Pods for LOL4YOU
 

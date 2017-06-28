@@ -58,6 +58,15 @@ final class rootclass: NSObject {
         super.init()
     }
     
+    struct screens {
+        static internal var search:String = "SEARCH"
+    }
+    
+    struct lol4you {
+        static internal var admob_app:String = "ca-app-pub-8175152842112808~9569832570"
+        static internal var admob_banner:String = "ca-app-pub-8175152842112808/2046565779"
+    }
+    
     struct lol {
         static internal var version:String = "7.9.2"
         static internal var api_key:String = "RGAPI-50a56712-a157-44cc-9760-0a4649629dff"

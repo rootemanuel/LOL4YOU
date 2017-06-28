@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '4A87DF7E1965F9EA5C0636612DC9EE74'
+               BlueprintIdentifier = 'F30989EA6638C5B91EA640DD82D45A99'
                BlueprintName = 'SwiftyPlistManager'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'SwiftyPlistManager.framework'>

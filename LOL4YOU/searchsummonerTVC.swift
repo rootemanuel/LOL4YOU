@@ -9,9 +9,13 @@
 import UIKit
 import SVProgressHUD
 import ActionSheetPicker_3_0
+import GoogleMobileAds
+import FirebaseAnalytics
 
-class searchsummonerTVC: UITableViewController, UITextFieldDelegate  {
+class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerViewDelegate {
 
+    @IBOutlet weak var bannerView: GADBannerView!
+    
     @IBOutlet weak var srchsummoner: UIButton!
     @IBOutlet weak var summonernick: UITextField!
     @IBOutlet weak var summonerserver: UIButton!
@@ -22,6 +26,7 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate  {
         super.viewDidLoad()
         
         self.initView()
+        self.initAdMob()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -67,6 +72,18 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate  {
         self.srchsummoner.isEnabled = true
         self.srchsummoner.alpha = 1
         
+    }
+    
+    func initAdMob() {
+        let request = GADRequest()
+        request.testDevices = [kGADSimulatorID]
+        
+        Analytics.setScreenName(rootclass.screens.search, screenClass: String(describing: searchsummonerTVC.self))
+        
+        bannerView.adUnitID = rootclass.lol4you.admob_banner
+        bannerView.delegate = self
+        bannerView.rootViewController = self
+        bannerView.load(request)
     }
     
     func initView(){

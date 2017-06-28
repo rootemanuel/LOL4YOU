@@ -11,6 +11,7 @@ import SVProgressHUD
 import SwiftyPlistManager
 import SDWebImage
 import SwiftyJSON
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -51,6 +52,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func initializeApplicationRoot() {
+        
+        //Google Initialization
+        FirebaseApp.configure()
+        GADMobileAds.configure(withApplicationID: rootclass.lol4you.admob_app)
         
         SwiftyPlistManager.shared.start(plistNames: [rootclass.shared.root], logging: true)
         

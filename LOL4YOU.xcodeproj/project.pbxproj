@@ -56,6 +56,7 @@
 		A0D97AF91EA792D300273C10 /* friz_quadrata_r.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A0D97AF71EA792D300273C10 /* friz_quadrata_r.ttf */; };
 		A0E478AF1EB363A600109F56 /* runesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E478AE1EB363A600109F56 /* runesTVC.swift */; };
 		A0E478B11EB36D9A00109F56 /* runesdetTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E478B01EB36D9A00109F56 /* runesdetTVC.swift */; };
+		A0FF0CA91F00009700A0ADFE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A0FF0CA81F00009700A0ADFE /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,7 @@
 		A0A4995D1EB2877900977541 /* runesTVCC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = runesTVCC.xib; sourceTree = "<group>"; };
 		A0A499601EB28FBD00977541 /* masteryTVCC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = masteryTVCC.swift; sourceTree = "<group>"; };
 		A0A499611EB28FBD00977541 /* masteryTVCC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = masteryTVCC.xib; sourceTree = "<group>"; };
+		A0AAFEBC1F01F09500D09D84 /* LOL4YOU.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LOL4YOU.entitlements; sourceTree = "<group>"; };
 		A0BCAA671EB13281008F4D01 /* perfilstatstiersnullTVCC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = perfilstatstiersnullTVCC.swift; sourceTree = "<group>"; };
 		A0BCAA681EB13281008F4D01 /* perfilstatstiersnullTVCC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = perfilstatstiersnullTVCC.xib; sourceTree = "<group>"; };
 		A0BCAA6B1EB14772008F4D01 /* perfilstatusV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = perfilstatusV.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 		A0D97AF71EA792D300273C10 /* friz_quadrata_r.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = friz_quadrata_r.ttf; sourceTree = "<group>"; };
 		A0E478AE1EB363A600109F56 /* runesTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = runesTVC.swift; sourceTree = "<group>"; };
 		A0E478B01EB36D9A00109F56 /* runesdetTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = runesdetTVC.swift; sourceTree = "<group>"; };
+		A0FF0CA81F00009700A0ADFE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A6BFB153ADEC2999EECF69C7 /* Pods-LOL4YOUUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LOL4YOUUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LOL4YOUUITests/Pods-LOL4YOUUITests.release.xcconfig"; sourceTree = "<group>"; };
 		AC8C668551E0C102D198AF48 /* Pods-LOL4YOU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LOL4YOU.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LOL4YOU/Pods-LOL4YOU.debug.xcconfig"; sourceTree = "<group>"; };
 		E6BC6E124B7C5F434839A596 /* Pods-LOL4YOUUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LOL4YOUUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LOL4YOUUITests/Pods-LOL4YOUUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -202,6 +205,7 @@
 		A0027FF41E9D91BD003175A7 /* LOL4YOU */ = {
 			isa = PBXGroup;
 			children = (
+				A0AAFEBC1F01F09500D09D84 /* LOL4YOU.entitlements */,
 				A0D97AF41EA7926500273C10 /* files */,
 				A0BF02F81EA6420E00DB84E9 /* utils */,
 				A00280261E9DADDD003175A7 /* view */,
@@ -269,6 +273,7 @@
 		A01218341EBA640000B45F0F /* plist */ = {
 			isa = PBXGroup;
 			children = (
+				A0FF0CA81F00009700A0ADFE /* GoogleService-Info.plist */,
 				A01218351EBA641700B45F0F /* root.plist */,
 			);
 			name = plist;
@@ -505,6 +510,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = URE3KY7SLW;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					A00280051E9D91BD003175A7 = {
 						CreatedOnToolsVersion = 8.0;
@@ -555,6 +565,7 @@
 				A0A499571EB21C1400977541 /* headerTVH.xib in Resources */,
 				A0027FFD1E9D91BD003175A7 /* Assets.xcassets in Resources */,
 				A056E7721EAE2B92007FDB9F /* matchesdetplayersTVCC.xib in Resources */,
+				A0FF0CA91F00009700A0ADFE /* GoogleService-Info.plist in Resources */,
 				A0027FFB1E9D91BD003175A7 /* Main.storyboard in Resources */,
 				A0BF02FA1EA6422600DB84E9 /* emptytableview.xib in Resources */,
 				A056E7831EAE94DD007FDB9F /* matchesdetbansTVCC.xib in Resources */,
@@ -899,6 +910,7 @@
 			baseConfigurationReference = AC8C668551E0C102D198AF48 /* Pods-LOL4YOU.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = LOL4YOU/LOL4YOU.entitlements;
 				DEVELOPMENT_TEAM = URE3KY7SLW;
 				INFOPLIST_FILE = LOL4YOU/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -913,6 +925,7 @@
 			baseConfigurationReference = 4D8C7653D0AE1D6DD09A232E /* Pods-LOL4YOU.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = LOL4YOU/LOL4YOU.entitlements;
 				DEVELOPMENT_TEAM = URE3KY7SLW;
 				INFOPLIST_FILE = LOL4YOU/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
