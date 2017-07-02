@@ -40,22 +40,29 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerVi
         return 1
     }
     @IBAction func btnsrchsummoner(_ sender: AnyObject) {
-        SVProgressHUD.show()
         
-        if summonernick.text != nil && (summonernick.text?.isEmpty)! {
-            return
+        if rewardBasedVideo?.isReady == true {
+            rewardBasedVideo?.present(fromRootViewController: self)
+        } else {
+            NSLog("#R00T - NAO TA PRONTO")
         }
         
-        rt.listarSummoner(summonername: summonernick.text!.replacingOccurrences(of: " ", with: "")) {(error) in
-            
-            if error.id == 1 {
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let vc = storyboard.instantiateViewController(withIdentifier: "perfil") as! perfilVC
-                
-                self.navigationController?.pushViewController(vc, animated: true)
-            }
-            SVProgressHUD.dismiss()
-        }
+//        SVProgressHUD.show()
+//        
+//        if summonernick.text != nil && (summonernick.text?.isEmpty)! {
+//            return
+//        }
+//        
+//        rt.listarSummoner(summonername: summonernick.text!.replacingOccurrences(of: " ", with: "")) {(error) in
+//            
+//            if error.id == 1 {
+//                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//                let vc = storyboard.instantiateViewController(withIdentifier: "perfil") as! perfilVC
+//                
+//                self.navigationController?.pushViewController(vc, animated: true)
+//            }
+//            SVProgressHUD.dismiss()
+//        }
     }
     
     func validadados(_ textField: UITextField) {
@@ -192,10 +199,9 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerVi
         
         rewardBasedVideo = GADRewardBasedVideoAd.sharedInstance()
         rewardBasedVideo?.delegate = self
+        
         rewardBasedVideo?.load(GADRequest(),
                                withAdUnitID: rootclass.lol4you.admob_banner_video)
-        rewardBasedVideo?.present(fromRootViewController: self)
-
         
     }
     
