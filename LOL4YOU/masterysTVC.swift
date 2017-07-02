@@ -8,6 +8,8 @@
 
 import UIKit
 import SVProgressHUD
+import GoogleMobileAds
+import FirebaseAnalytics
 
 class masterysTVC: UITableViewController {
 
@@ -18,6 +20,7 @@ class masterysTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.initAdMob()
         self.initView()
         self.loadingView()
         
@@ -91,6 +94,14 @@ class masterysTVC: UITableViewController {
     func initemptytableview() {
         emptytableview = Bundle.main.loadNibNamed("emptytableview", owner: self, options: nil)?.first as? emptytableview
         self.tableView.backgroundView = emptytableview
+    }
+    
+    func initAdMob() {
+        let request = GADRequest()
+        request.testDevices = [kGADSimulatorID]
+        
+        Analytics.setScreenName(rootclass.screens.masterys, screenClass: String(describing: masterysTVC.self))
+        
     }
     
     func initView(){

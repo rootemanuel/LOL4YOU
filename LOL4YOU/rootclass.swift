@@ -60,11 +60,22 @@ final class rootclass: NSObject {
     
     struct screens {
         static internal var search:String = "SEARCH"
+        static internal var stats:String = "STATS"
+        static internal var statsdet:String = "STATS_DET"
+        static internal var menu:String = "MENU"
+        static internal var matches:String = "MATCHES"
+        static internal var matchesdet:String = "MATCHES_DET"
+        static internal var perfilstats:String = "PERFIL_STATS"
+        static internal var runes:String = "RUNES"
+        static internal var runesdet:String = "RUNES_DET"
+        static internal var masterys:String = "MASTERYS"
+        static internal var masterysdet:String = "MASTERYS_DET"
     }
     
     struct lol4you {
         static internal var admob_app:String = "ca-app-pub-8175152842112808~9569832570"
         static internal var admob_banner:String = "ca-app-pub-8175152842112808/2046565779"
+        static internal var admob_banner_video:String = "ca-app-pub-8175152842112808/6927103773"
     }
     
     struct lol {

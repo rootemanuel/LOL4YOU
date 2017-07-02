@@ -10,6 +10,8 @@ import UIKit
 import SVProgressHUD
 import Alamofire
 import SwiftyJSON
+import GoogleMobileAds
+import FirebaseAnalytics
 
 class matchesTVC: UITableViewController {
 
@@ -21,6 +23,7 @@ class matchesTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.initAdMob()
         self.initView()
         self.loadingView()
         
@@ -186,6 +189,14 @@ class matchesTVC: UITableViewController {
     func initemptytableview() {
         emptytableview = Bundle.main.loadNibNamed("emptytableview", owner: self, options: nil)?.first as? emptytableview
         self.tableView.backgroundView = emptytableview
+    }
+    
+    func initAdMob() {
+        let request = GADRequest()
+        request.testDevices = [kGADSimulatorID]
+        
+        Analytics.setScreenName(rootclass.screens.matches, screenClass: String(describing: matchesTVC.self))
+        
     }
     
     func initView(){

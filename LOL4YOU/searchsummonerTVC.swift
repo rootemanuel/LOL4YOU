@@ -12,7 +12,7 @@ import ActionSheetPicker_3_0
 import GoogleMobileAds
 import FirebaseAnalytics
 
-class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerViewDelegate {
+class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerViewDelegate, GADRewardBasedVideoAdDelegate {
 
     @IBOutlet weak var bannerView: GADBannerView!
     
@@ -22,15 +22,18 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerVi
     
     var rt = rootclass.sharedInstance
     
+     var rewardBasedVideo: GADRewardBasedVideoAd?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.initView()
+        self.testeVideo()
         self.initAdMob()
+        self.initView()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -84,6 +87,7 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerVi
         bannerView.delegate = self
         bannerView.rootViewController = self
         bannerView.load(request)
+        
     }
     
     func initView(){
@@ -183,5 +187,45 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerVi
         
         acp!.show()
     }
+    
+    func testeVideo() {
+        
+        rewardBasedVideo = GADRewardBasedVideoAd.sharedInstance()
+        rewardBasedVideo?.delegate = self
+        rewardBasedVideo?.load(GADRequest(),
+                               withAdUnitID: rootclass.lol4you.admob_banner_video)
+        rewardBasedVideo?.present(fromRootViewController: self)
 
+        
+    }
+    
+    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
+                            didFailToLoadWithError error: Error) {
+        print("Reward based video ad failed to load: \(error.localizedDescription)")
+    }
+    
+    func rewardBasedVideoAdDidReceive(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Reward based video ad is received.")
+    }
+    
+    func rewardBasedVideoAdDidOpen(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Opened reward based video ad.")
+    }
+    
+    func rewardBasedVideoAdDidStartPlaying(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Reward based video ad started playing.")
+    }
+    
+    func rewardBasedVideoAdDidClose(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Reward based video ad is closed.")
+    }
+    
+    func rewardBasedVideoAdWillLeaveApplication(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Reward based video ad will leave application.")
+    }
+    
+    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
+                            didRewardUserWith reward: GADAdReward) {
+        print("Reward received with currency: \(reward.type), amount \(reward.amount).")
+    }
 }

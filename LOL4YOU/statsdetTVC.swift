@@ -8,6 +8,8 @@
 
 import UIKit
 import SVProgressHUD
+import GoogleMobileAds
+import FirebaseAnalytics
 
 class statsdetTVC: UITableViewController {
     
@@ -33,6 +35,7 @@ class statsdetTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
  
+        self.initAdMob()
         self.initView()
         self.loadingView()
     }
@@ -81,6 +84,14 @@ class statsdetTVC: UITableViewController {
         self.firstblood.text = statsdet.firstblood
         
         SVProgressHUD.dismiss()
+    }
+    
+    func initAdMob() {
+        let request = GADRequest()
+        request.testDevices = [kGADSimulatorID]
+        
+        Analytics.setScreenName(rootclass.screens.statsdet, screenClass: String(describing: statsdetTVC.self))
+        
     }
     
     func initView(){

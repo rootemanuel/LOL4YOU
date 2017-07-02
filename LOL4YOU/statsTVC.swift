@@ -8,6 +8,8 @@
 
 import UIKit
 import SVProgressHUD
+import GoogleMobileAds
+import FirebaseAnalytics
 
 class statsTVC: UITableViewController {
     
@@ -19,6 +21,7 @@ class statsTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.initAdMob()
         self.initView()
         self.loadingView()
         
@@ -96,6 +99,14 @@ class statsTVC: UITableViewController {
         emptytableview = Bundle.main.loadNibNamed("emptytableview", owner: self, options: nil)?.first as? emptytableview
             self.tableView.backgroundView = emptytableview
     }
+    
+    func initAdMob() {
+        let request = GADRequest()
+        request.testDevices = [kGADSimulatorID]
+        
+        Analytics.setScreenName(rootclass.screens.stats, screenClass: String(describing: statsTVC.self))
+        
+     }
     
     func initView(){
         let attnav = [

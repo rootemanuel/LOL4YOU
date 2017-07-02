@@ -9,6 +9,8 @@
 import UIKit
 import SVProgressHUD
 import SDWebImage
+import GoogleMobileAds
+import FirebaseAnalytics
 
 class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout { 
     
@@ -35,8 +37,8 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.initAdMob()
         self.initView()
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -118,6 +120,14 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
             
             self.navigationController?.pushViewController(vc, animated: true)
         }
+    }
+    
+    func initAdMob() {
+        let request = GADRequest()
+        request.testDevices = [kGADSimulatorID]
+        
+        Analytics.setScreenName(rootclass.screens.menu, screenClass: String(describing: perfilVC.self))
+        
     }
     
     func initView(){

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import GoogleMobileAds
+import FirebaseAnalytics
 
 class matchesstatsdetTVC: UITableViewController {
 
@@ -19,6 +21,7 @@ class matchesstatsdetTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.initAdMob()
         self.initView()
     }
     
@@ -273,6 +276,14 @@ class matchesstatsdetTVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "."
+    }
+    
+    func initAdMob() {
+        let request = GADRequest()
+        request.testDevices = [kGADSimulatorID]
+        
+        Analytics.setScreenName(rootclass.screens.matchesdet, screenClass: String(describing: matchesstatsdetTVC.self))
+        
     }
     
     func initView(){

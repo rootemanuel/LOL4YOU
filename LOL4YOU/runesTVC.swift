@@ -8,6 +8,8 @@
 
 import UIKit
 import SVProgressHUD
+import GoogleMobileAds
+import FirebaseAnalytics
 
 class runesTVC: UITableViewController {
     
@@ -18,6 +20,7 @@ class runesTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.initAdMob()
         self.initView()
         self.loadingView()
         
@@ -110,6 +113,14 @@ class runesTVC: UITableViewController {
     func initemptytableview() {
         emptytableview = Bundle.main.loadNibNamed("emptytableview", owner: self, options: nil)?.first as? emptytableview
         self.tableView.backgroundView = emptytableview
+    }
+    
+    func initAdMob() {
+        let request = GADRequest()
+        request.testDevices = [kGADSimulatorID]
+        
+        Analytics.setScreenName(rootclass.screens.runes, screenClass: String(describing: runesTVC.self))
+        
     }
     
     func initView(){

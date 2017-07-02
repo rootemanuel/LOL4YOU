@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import GoogleMobileAds
+import FirebaseAnalytics
 
 class perfilstatsTVC: UITableViewController {
 
@@ -19,6 +21,7 @@ class perfilstatsTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.initAdMob()
         self.initView()
     }
     
@@ -308,6 +311,14 @@ class perfilstatsTVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "."
+    }
+    
+    func initAdMob() {
+        let request = GADRequest()
+        request.testDevices = [kGADSimulatorID]
+        
+        Analytics.setScreenName(rootclass.screens.perfilstats, screenClass: String(describing: perfilstatsTVC.self))
+        
     }
     
     func initView(){
