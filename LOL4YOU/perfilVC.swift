@@ -12,7 +12,7 @@ import SDWebImage
 import GoogleMobileAds
 import FirebaseAnalytics
 
-class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout { 
+class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, GADRewardBasedVideoAdDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var imgperfil: UIImageView!
@@ -20,6 +20,8 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
     @IBOutlet weak var lvl: UILabel!
     
     var rt = rootclass.sharedInstance
+    
+    var rewardBasedVideo: GADRewardBasedVideoAd?
     
     struct menu {
         var title:String
@@ -38,6 +40,7 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
         super.viewDidLoad()
         
         self.initAdMob()
+        self.initAdVideo()
         self.initView()
     }
     
@@ -57,6 +60,13 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         var tiers = Array<perfilstatusV>()
+        
+        rt.addCountAdMob();
+        
+        if rewardBasedVideo?.isReady == true && rt.showAdMob() {
+            rewardBasedVideo?.present(fromRootViewController: self)
+            return
+        }
         
         if indexPath.item == 0 {
             
@@ -122,14 +132,6 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
         }
     }
     
-    func initAdMob() {
-        let request = GADRequest()
-        request.testDevices = [kGADSimulatorID]
-        
-        Analytics.setScreenName(rootclass.screens.menu, screenClass: String(describing: perfilVC.self))
-        
-    }
-    
     func initView(){
         let attnav = [
             NSForegroundColorAttributeName: UIColor(hex:rootclass.colors.TEXTO_TOP_BAR.rawValue),
@@ -155,6 +157,47 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
         self.lvl.text = ("\(rootclass.Summoner.summonerLevel)")
         self.imglvl.layer.borderWidth = 2
         self.imglvl.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.initAdVideo()
+    }
+    
+    func initAdMob() {
+        Analytics.setScreenName(rootclass.screens.menu, screenClass: String(describing: perfilVC.self))
+    }
+    
+    func initAdVideo() {
+        rewardBasedVideo = GADRewardBasedVideoAd.sharedInstance()
+        rewardBasedVideo?.delegate = self
+        rewardBasedVideo?.load(GADRequest(),
+                               withAdUnitID: rootclass.lol4you.admob_banner_video)
+    }
+    
+    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
+                            didFailToLoadWithError error: Error) {
+        Analytics.logEvent(rootclass.lol4you.analytcs_admob_video, parameters: [rootclass.lol4you.analytcs_video: rootclass.lol4you.analytcs_failed_load_video])
+    }
+    
+    func rewardBasedVideoAdDidReceive(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        Analytics.logEvent(rootclass.lol4you.analytcs_admob_video, parameters: [rootclass.lol4you.analytcs_video: rootclass.lol4you.analytcs_received_video])
+    }
+    
+    func rewardBasedVideoAdDidOpen(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        Analytics.logEvent(rootclass.lol4you.analytcs_admob_video, parameters: [rootclass.lol4you.analytcs_video: rootclass.lol4you.analytcs_open_video])
+    }
+    
+    func rewardBasedVideoAdDidStartPlaying(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        Analytics.logEvent(rootclass.lol4you.analytcs_admob_video, parameters: [rootclass.lol4you.analytcs_video: rootclass.lol4you.analytcs_open_close_video])
+    }
+    
+    func rewardBasedVideoAdDidClose(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        Analytics.logEvent(rootclass.lol4you.analytcs_admob_video, parameters: [rootclass.lol4you.analytcs_video: rootclass.lol4you.analytcs_close_video])
+    }
+    
+    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
+                            didRewardUserWith reward: GADAdReward) {
+        Analytics.logEvent(rootclass.lol4you.analytcs_admob_video, parameters: [rootclass.lol4you.analytcs_video: rootclass.lol4you.analytcs_view_video])
     }
 
     func spopViewController(){

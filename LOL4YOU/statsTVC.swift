@@ -11,28 +11,35 @@ import SVProgressHUD
 import GoogleMobileAds
 import FirebaseAnalytics
 
-class statsTVC: UITableViewController {
+class statsTVC: UITableViewController , GADRewardBasedVideoAdDelegate {
     
     var rt = rootclass.sharedInstance
     
     var stats = Array<rootclass.BEStats>()
     var emptytableview:emptytableview? = nil
+    var rewardBasedVideo: GADRewardBasedVideoAd?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.initAdMob()
+        self.initAdVideo()
         self.initView()
         self.loadingView()
         
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "statsdet") as! statsdetTVC
+        rt.addCountAdMob();
         
-        vc.statsdet = stats[indexPath.row]
-        self.navigationController?.pushViewController(vc, animated: true)
+        if rewardBasedVideo?.isReady == true && rt.showAdMob() {
+            rewardBasedVideo?.present(fromRootViewController: self)
+        } else {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "statsdet") as! statsdetTVC
+        
+            vc.statsdet = stats[indexPath.row]
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -101,11 +108,7 @@ class statsTVC: UITableViewController {
     }
     
     func initAdMob() {
-        let request = GADRequest()
-        request.testDevices = [kGADSimulatorID]
-        
         Analytics.setScreenName(rootclass.screens.stats, screenClass: String(describing: statsTVC.self))
-        
      }
     
     func initView(){
@@ -128,5 +131,42 @@ class statsTVC: UITableViewController {
     
     func spopViewController(){
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.initAdVideo()
+    }
+    
+    func initAdVideo() {
+        rewardBasedVideo = GADRewardBasedVideoAd.sharedInstance()
+        rewardBasedVideo?.delegate = self
+        rewardBasedVideo?.load(GADRequest(),
+                               withAdUnitID: rootclass.lol4you.admob_banner_video)
+    }
+    
+    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
+                            didFailToLoadWithError error: Error) {
+        Analytics.logEvent(rootclass.lol4you.analytcs_admob_video, parameters: [rootclass.lol4you.analytcs_video: rootclass.lol4you.analytcs_failed_load_video])
+    }
+    
+    func rewardBasedVideoAdDidReceive(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        Analytics.logEvent(rootclass.lol4you.analytcs_admob_video, parameters: [rootclass.lol4you.analytcs_video: rootclass.lol4you.analytcs_received_video])
+    }
+    
+    func rewardBasedVideoAdDidOpen(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        Analytics.logEvent(rootclass.lol4you.analytcs_admob_video, parameters: [rootclass.lol4you.analytcs_video: rootclass.lol4you.analytcs_open_video])
+    }
+    
+    func rewardBasedVideoAdDidStartPlaying(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        Analytics.logEvent(rootclass.lol4you.analytcs_admob_video, parameters: [rootclass.lol4you.analytcs_video: rootclass.lol4you.analytcs_open_close_video])
+    }
+    
+    func rewardBasedVideoAdDidClose(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        Analytics.logEvent(rootclass.lol4you.analytcs_admob_video, parameters: [rootclass.lol4you.analytcs_video: rootclass.lol4you.analytcs_close_video])
+    }
+    
+    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
+                            didRewardUserWith reward: GADAdReward) {
+        Analytics.logEvent(rootclass.lol4you.analytcs_admob_video, parameters: [rootclass.lol4you.analytcs_video: rootclass.lol4you.analytcs_view_video])
     }
 }

@@ -35,6 +35,7 @@ class statsdetTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
  
+        self.initAdMob()
         self.initView()
         self.loadingView()
     }
@@ -103,6 +104,10 @@ class statsdetTVC: UITableViewController {
         
         let champ = rt.listaChamp(id: statsdet.championID)
         self.title = champ.name
+    }
+    
+    func initAdMob() {
+        Analytics.setScreenName(rootclass.screens.statsdet, screenClass: String(describing: statsdetTVC.self))
     }
     
     func spopViewController(){

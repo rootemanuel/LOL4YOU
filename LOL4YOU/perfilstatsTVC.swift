@@ -314,11 +314,7 @@ class perfilstatsTVC: UITableViewController {
     }
     
     func initAdMob() {
-        let request = GADRequest()
-        request.testDevices = [kGADSimulatorID]
-        
         Analytics.setScreenName(rootclass.screens.perfilstats, screenClass: String(describing: perfilstatsTVC.self))
-        
     }
     
     func initView(){

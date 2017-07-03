@@ -279,11 +279,7 @@ class matchesstatsdetTVC: UITableViewController {
     }
     
     func initAdMob() {
-        let request = GADRequest()
-        request.testDevices = [kGADSimulatorID]
-        
         Analytics.setScreenName(rootclass.screens.matchesdet, screenClass: String(describing: matchesstatsdetTVC.self))
-        
     }
     
     func initView(){

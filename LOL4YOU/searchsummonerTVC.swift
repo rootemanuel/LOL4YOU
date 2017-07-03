@@ -22,11 +22,12 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerVi
     
     var rt = rootclass.sharedInstance
     
-     var rewardBasedVideo: GADRewardBasedVideoAd?
+    var rewardBasedVideo: GADRewardBasedVideoAd?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.initAdVideo()
         self.initAdMob()
         self.initView()
     }
@@ -43,26 +44,38 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerVi
         
         rt.addCountAdMob();
         
-        if rewardBasedVideo?.isReady == true && rt.showAdMob() {
-            rewardBasedVideo?.present(fromRootViewController: self)
-        } else {
-            SVProgressHUD.show()
-            
-            if summonernick.text != nil && (summonernick.text?.isEmpty)! {
-                return
-            }
-            
-            rt.listarSummoner(summonername: summonernick.text!.replacingOccurrences(of: " ", with: "")) {(error) in
-                
-                if error.id == 1 {
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let vc = storyboard.instantiateViewController(withIdentifier: "perfil") as! perfilVC
-                    
-                    self.navigationController?.pushViewController(vc, animated: true)
+        var loop = true
+        while(loop){
+            let semaphore = DispatchSemaphore(value: 0)
+            let queue = DispatchQueue.global(qos: .background)
+        
+            queue.async {
+                if self.rewardBasedVideo?.isReady == true && self.rt.showAdMob() {
+                    self.rewardBasedVideo?.present(fromRootViewController: self)
+                    loop = false
+                    semaphore.signal()
                 }
-                SVProgressHUD.dismiss()
             }
+            semaphore.wait(timeout: .distantFuture)
         }
+//        else {
+//            SVProgressHUD.show()
+//            
+//            if summonernick.text != nil && (summonernick.text?.isEmpty)! {
+//                return
+//            }
+//            
+//            rt.listarSummoner(summonername: summonernick.text!.replacingOccurrences(of: " ", with: "")) {(error) in
+//                
+//                if error.id == 1 {
+//                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//                    let vc = storyboard.instantiateViewController(withIdentifier: "perfil") as! perfilVC
+//                    
+//                    self.navigationController?.pushViewController(vc, animated: true)
+//                }
+//                SVProgressHUD.dismiss()
+//            }
+//        }
     }
     
     func validadados(_ textField: UITextField) {
@@ -85,16 +98,12 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerVi
     }
     
     func initAdMob() {
-        let request = GADRequest()
-        request.testDevices = [kGADSimulatorID]
-        
         Analytics.setScreenName(rootclass.screens.search, screenClass: String(describing: searchsummonerTVC.self))
         
         bannerView.adUnitID = rootclass.lol4you.admob_banner
         bannerView.delegate = self
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
-        
     }
     
     func initView(){

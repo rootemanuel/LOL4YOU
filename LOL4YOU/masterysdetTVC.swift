@@ -75,11 +75,7 @@ class masterysdetTVC: UITableViewController {
     }
     
     func initAdMob() {
-        let request = GADRequest()
-        request.testDevices = [kGADSimulatorID]
-        
         Analytics.setScreenName(rootclass.screens.masterysdet, screenClass: String(describing: masterysdet.self))
-        
     }
     
     func initView(){
