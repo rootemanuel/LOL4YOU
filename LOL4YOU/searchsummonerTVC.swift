@@ -39,30 +39,29 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerVi
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
     @IBAction func btnsrchsummoner(_ sender: AnyObject) {
         
         if rewardBasedVideo?.isReady == true {
             rewardBasedVideo?.present(fromRootViewController: self)
         } else {
-            NSLog("#R00T - NAO TA PRONTO")
+            SVProgressHUD.show()
+            
+            if summonernick.text != nil && (summonernick.text?.isEmpty)! {
+                return
+            }
+            
+            rt.listarSummoner(summonername: summonernick.text!.replacingOccurrences(of: " ", with: "")) {(error) in
+                
+                if error.id == 1 {
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let vc = storyboard.instantiateViewController(withIdentifier: "perfil") as! perfilVC
+                    
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+                SVProgressHUD.dismiss()
+            }
         }
-        
-//        SVProgressHUD.show()
-//        
-//        if summonernick.text != nil && (summonernick.text?.isEmpty)! {
-//            return
-//        }
-//        
-//        rt.listarSummoner(summonername: summonernick.text!.replacingOccurrences(of: " ", with: "")) {(error) in
-//            
-//            if error.id == 1 {
-//                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//                let vc = storyboard.instantiateViewController(withIdentifier: "perfil") as! perfilVC
-//                
-//                self.navigationController?.pushViewController(vc, animated: true)
-//            }
-//            SVProgressHUD.dismiss()
-//        }
     }
     
     func validadados(_ textField: UITextField) {
@@ -93,7 +92,7 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerVi
         bannerView.adUnitID = rootclass.lol4you.admob_banner
         bannerView.delegate = self
         bannerView.rootViewController = self
-        bannerView.load(request)
+        bannerView.load(GADRequest())
         
     }
     
@@ -131,29 +130,29 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerVi
             
             switch value {
             case 0:
-                rootclass.lol.version = "BR"
+                rootclass.lol.server = "BR"
             case 1:
-                rootclass.lol.version = "EUNE"
+                rootclass.lol.server = "EUNE"
             case 2:
-                rootclass.lol.version = "EUW"
+                rootclass.lol.server = "EUW"
             case 3:
-                rootclass.lol.version = "LAN"
+                rootclass.lol.server = "LAN"
             case 4:
-                rootclass.lol.version = "LAS"
+                rootclass.lol.server = "LAS"
             case 5:
-                rootclass.lol.version = "NA"
+                rootclass.lol.server = "NA"
             case 6:
-                rootclass.lol.version = "OCE"
+                rootclass.lol.server = "OCE"
             case 7:
-                rootclass.lol.version = "RU"
+                rootclass.lol.server = "RU"
             case 8:
-                rootclass.lol.version = "TR"
+                rootclass.lol.server = "TR"
             case 9:
-                rootclass.lol.version = "JP"
+                rootclass.lol.server = "JP"
             case 10:
-                rootclass.lol.version = "KR"
+                rootclass.lol.server = "KR"
             default:
-                rootclass.lol.version = "BR"
+                rootclass.lol.server = "BR"
             }
             
             self.summonerserver.setTitle(index as! String?, for: .normal)

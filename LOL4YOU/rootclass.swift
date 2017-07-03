@@ -776,7 +776,26 @@ final class rootclass: NSObject {
         
         let rtn = BEErro()
         
-        let url = "https://\(Region.REGION_BR.rawValue.lowercased())1.api.riotgames.com/lol/summoner/v3/summoners/by-name/\(summonername)?api_key=\(lol.api_key)"
+        var url = ""
+        
+        switch lol.server {
+        case Region.REGION_RU.rawValue,
+             Region.REGION_KR.rawValue:
+            url = "https://\(lol.server).api.riotgames.com/lol/summoner/v3/summoners/by-name/\(summonername)?api_key=\(lol.api_key)"
+        case Region.REGION_BR.rawValue,
+             Region.REGION_OCE.rawValue,
+             Region.REGION_JP.rawValue,
+             Region.REGION_NA.rawValue,
+             Region.REGION_EUNE.rawValue,
+             Region.REGION_EUW.rawValue,
+             Region.REGION_TR.rawValue,
+             Region.REGION_LAN.rawValue:
+            url = "https://\(lol.server)1.api.riotgames.com/lol/summoner/v3/summoners/by-name/\(summonername)?api_key=\(lol.api_key)"
+        case Region.REGION_LAS.rawValue:
+            url = "https://\(lol.server)2.api.riotgames.com/lol/summoner/v3/summoners/by-name/\(summonername)?api_key=\(lol.api_key)"
+        default:
+            NSLog("#R00T - ERROR SERVER")
+        }
         
         Alamofire.request(url).validate().responseJSON { response in
             
@@ -833,7 +852,26 @@ final class rootclass: NSObject {
         
         var rtn = Array<BEStats>()
         
-        let url = "https://\(Region.REGION_BR.rawValue.lowercased()).api.riotgames.com/api/lol/\(Region.REGION_BR.rawValue.uppercased())/v1.3/stats/by-summoner/\(Summoner.summonerID)/ranked?season=SEASON2017&api_key=\(lol.api_key)"
+        var url = ""
+        
+        switch lol.server {
+        case Region.REGION_RU.rawValue,
+             Region.REGION_KR.rawValue:
+            url = "https://\(lol.server).api.riotgames.com/api/lol/\(lol.server)/v1.3/stats/by-summoner/\(Summoner.summonerID)/ranked?season=SEASON2017&api_key=\(lol.api_key)"
+        case Region.REGION_BR.rawValue,
+             Region.REGION_OCE.rawValue,
+             Region.REGION_JP.rawValue,
+             Region.REGION_NA.rawValue,
+             Region.REGION_EUNE.rawValue,
+             Region.REGION_EUW.rawValue,
+             Region.REGION_TR.rawValue,
+             Region.REGION_LAN.rawValue:
+            url = "https://\(lol.server).api.riotgames.com/api/lol/\(lol.server)/v1.3/stats/by-summoner/\(Summoner.summonerID)/ranked?season=SEASON2017&api_key=\(lol.api_key)"
+        case Region.REGION_LAS.rawValue:
+            url = "https://\(lol.server).api.riotgames.com/api/lol/\(lol.server)/v1.3/stats/by-summoner/\(Summoner.summonerID)/ranked?season=SEASON2017&api_key=\(lol.api_key)"
+        default:
+            NSLog("#R00T - ERROR SERVER")
+        }
         
         Alamofire.request(url).validate().responseJSON { response in
             
@@ -971,7 +1009,26 @@ final class rootclass: NSObject {
         
         var rtn = Array<BEStats>()
         
-        let url = "https://\(Region.REGION_BR.rawValue.lowercased()).api.riotgames.com/api/lol/\(Region.REGION_BR.rawValue.uppercased())/v1.3/stats/by-summoner/\(Summoner.summonerID)/ranked?season=SEASON2017&api_key=\(lol.api_key)"
+        var url = ""
+        
+        switch lol.server {
+        case Region.REGION_RU.rawValue,
+             Region.REGION_KR.rawValue:
+            url = "https://\(lol.server).api.riotgames.com/api/lol/\(lol.server)/v1.3/stats/by-summoner/\(Summoner.summonerID)/ranked?season=SEASON2017&api_key=\(lol.api_key)"
+        case Region.REGION_BR.rawValue,
+             Region.REGION_OCE.rawValue,
+             Region.REGION_JP.rawValue,
+             Region.REGION_NA.rawValue,
+             Region.REGION_EUNE.rawValue,
+             Region.REGION_EUW.rawValue,
+             Region.REGION_TR.rawValue,
+             Region.REGION_LAN.rawValue:
+            url = "https://\(lol.server).api.riotgames.com/api/lol/\(lol.server)/v1.3/stats/by-summoner/\(Summoner.summonerID)/ranked?season=SEASON2017&api_key=\(lol.api_key)"
+        case Region.REGION_LAS.rawValue:
+            url = "https://\(lol.server).api.riotgames.com/api/lol/\(lol.server)/v1.3/stats/by-summoner/\(Summoner.summonerID)/ranked?season=SEASON2017&api_key=\(lol.api_key)"
+        default:
+            NSLog("#R00T - ERROR SERVER")
+        }
         
         Alamofire.request(url).validate().responseJSON { response in
             
@@ -1109,7 +1166,26 @@ final class rootclass: NSObject {
         
         var rtn = Array<BELeague>()
         
-        let url = "https://\(Region.REGION_BR.rawValue.lowercased()).api.riotgames.com/api/lol/\(Region.REGION_BR.rawValue.uppercased())/v2.5/league/by-summoner/\(Summoner.summonerID)/entry?api_key=\(lol.api_key)"
+        var url = ""
+        
+        switch lol.server {
+        case Region.REGION_RU.rawValue,
+             Region.REGION_KR.rawValue:
+            url = "https://\(lol.server).api.riotgames.com/api/lol/\(lol.server)/v2.5/league/by-summoner/\(Summoner.summonerID)/entry?api_key=\(lol.api_key)"
+        case Region.REGION_BR.rawValue,
+             Region.REGION_OCE.rawValue,
+             Region.REGION_JP.rawValue,
+             Region.REGION_NA.rawValue,
+             Region.REGION_EUNE.rawValue,
+             Region.REGION_EUW.rawValue,
+             Region.REGION_TR.rawValue,
+             Region.REGION_LAN.rawValue:
+            url = "https://\(lol.server).api.riotgames.com/api/lol/\(lol.server)/v2.5/league/by-summoner/\(Summoner.summonerID)/entry?api_key=\(lol.api_key)"
+        case Region.REGION_LAS.rawValue:
+            url = "https://\(lol.server).api.riotgames.com/api/lol/\(lol.server)/v2.5/league/by-summoner/\(Summoner.summonerID)/entry?api_key=\(lol.api_key)"
+        default:
+            NSLog("#R00T - ERROR SERVER")
+        }
         
         Alamofire.request(url).validate().responseJSON { response in
             
@@ -1170,7 +1246,26 @@ final class rootclass: NSObject {
         
         var rtn = Array<Int>()
         
-        let url = "https://\(Region.REGION_BR.rawValue.lowercased()).api.riotgames.com/api/lol/\(Region.REGION_BR.rawValue.uppercased())/v2.2/matchlist/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
+        var url = ""
+        
+        switch lol.server {
+        case Region.REGION_RU.rawValue,
+             Region.REGION_KR.rawValue:
+            url = "https://\(lol.server).api.riotgames.com/api/lol/\(lol.server)/v2.2/matchlist/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
+        case Region.REGION_BR.rawValue,
+             Region.REGION_OCE.rawValue,
+             Region.REGION_JP.rawValue,
+             Region.REGION_NA.rawValue,
+             Region.REGION_EUNE.rawValue,
+             Region.REGION_EUW.rawValue,
+             Region.REGION_TR.rawValue,
+             Region.REGION_LAN.rawValue:
+            url = "https://\(lol.server).api.riotgames.com/api/lol/\(lol.server)/v2.2/matchlist/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
+        case Region.REGION_LAS.rawValue:
+            url = "https://\(lol.server).api.riotgames.com/api/lol/\(lol.server)/v2.2/matchlist/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
+        default:
+            NSLog("#R00T - ERROR SERVER")
+        }
         
         Alamofire.request(url).validate().responseJSON { response in
             
@@ -1208,7 +1303,27 @@ final class rootclass: NSObject {
     func listarMatchDetUni(matchid:Int, matchdet:@escaping (BEMatch?) -> ()) {
 
         let match = rootclass.BEMatch()
-        let url = "https://\(rootclass.Region.REGION_BR.rawValue.lowercased()).api.riotgames.com/api/lol/\(rootclass.Region.REGION_BR.rawValue.uppercased())/v2.2/match/\(matchid)?api_key=\(rootclass.lol.api_key)"
+        
+        var url = ""
+        
+        switch lol.server {
+        case Region.REGION_RU.rawValue,
+             Region.REGION_KR.rawValue:
+            url = "https://\(lol.server).api.riotgames.com/api/lol/\(lol.server)/v2.2/match/\(matchid)?api_key=\(lol.api_key)"
+        case Region.REGION_BR.rawValue,
+             Region.REGION_OCE.rawValue,
+             Region.REGION_JP.rawValue,
+             Region.REGION_NA.rawValue,
+             Region.REGION_EUNE.rawValue,
+             Region.REGION_EUW.rawValue,
+             Region.REGION_TR.rawValue,
+             Region.REGION_LAN.rawValue:
+            url = "https://\(lol.server).api.riotgames.com/api/lol/\(lol.server)/v2.2/match/\(matchid)?api_key=\(lol.api_key)"
+        case Region.REGION_LAS.rawValue:
+            url = "https://\(lol.server).api.riotgames.com/api/lol/\(lol.server)/v2.2/match/\(matchid)?api_key=\(lol.api_key)"
+        default:
+            NSLog("#R00T - ERROR SERVER")
+        }
 
         Alamofire.request(url).validate().responseJSON { response in
             
@@ -1511,7 +1626,27 @@ final class rootclass: NSObject {
                 }
                 
                 let semaphore = DispatchSemaphore(value: 0)
-                let url = "https://\(rootclass.Region.REGION_BR.rawValue.lowercased()).api.riotgames.com/api/lol/\(rootclass.Region.REGION_BR.rawValue.uppercased())/v2.2/match/\(matchids[i])?api_key=\(rootclass.lol.api_key)"
+                
+                var url = ""
+                
+                switch lol.server {
+                case Region.REGION_RU.rawValue,
+                     Region.REGION_KR.rawValue:
+                    url = "https://\(lol.server).api.riotgames.com/api/lol/\(lol.server)/v2.2/match/\(matchids[i])?api_key=\(lol.api_key)"
+                case Region.REGION_BR.rawValue,
+                     Region.REGION_OCE.rawValue,
+                     Region.REGION_JP.rawValue,
+                     Region.REGION_NA.rawValue,
+                     Region.REGION_EUNE.rawValue,
+                     Region.REGION_EUW.rawValue,
+                     Region.REGION_TR.rawValue,
+                     Region.REGION_LAN.rawValue:
+                    url = "https://\(lol.server).api.riotgames.com/api/lol/\(lol.server)/v2.2/match/\(matchids[i])?api_key=\(lol.api_key)"
+                case Region.REGION_LAS.rawValue:
+                    url = "https://\(lol.server).api.riotgames.com/api/lol/\(lol.server)/v2.2/match/\(matchids[i])?api_key=\(lol.api_key)"
+                default:
+                    NSLog("#R00T - ERROR SERVER")
+                }
                 
                 let queue = DispatchQueue.global(qos: .background)
                 Alamofire.request(url).validate().responseJSON(queue: queue) { response in
@@ -1823,7 +1958,26 @@ final class rootclass: NSObject {
         
         var rtn = Array<BEMatchSmall>()
         
-        let url = "https://\(Region.REGION_BR.rawValue.lowercased()).api.riotgames.com/api/lol/\(Region.REGION_BR.rawValue.uppercased())/v1.3/game/by-summoner/\(Summoner.summonerID)/recent?api_key=\(lol.api_key)"
+        var url = ""
+        
+        switch lol.server {
+        case Region.REGION_RU.rawValue,
+             Region.REGION_KR.rawValue:
+            url = "https://\(lol.server).api.riotgames.com/api/lol/\(lol.server)/v1.3/game/by-summoner/\(Summoner.summonerID)/recent?api_key=\(lol.api_key)"
+        case Region.REGION_BR.rawValue,
+             Region.REGION_OCE.rawValue,
+             Region.REGION_JP.rawValue,
+             Region.REGION_NA.rawValue,
+             Region.REGION_EUNE.rawValue,
+             Region.REGION_EUW.rawValue,
+             Region.REGION_TR.rawValue,
+             Region.REGION_LAN.rawValue:
+            url = "https://\(lol.server).api.riotgames.com/api/lol/\(lol.server)/v1.3/game/by-summoner/\(Summoner.summonerID)/recent?api_key=\(lol.api_key)"
+        case Region.REGION_LAS.rawValue:
+            url = "https://\(lol.server).api.riotgames.com/api/lol/\(lol.server)/v1.3/game/by-summoner/\(Summoner.summonerID)/recent?api_key=\(lol.api_key)"
+        default:
+            NSLog("#R00T - ERROR SERVER")
+        }
         
         Alamofire.request(url).validate().responseJSON { response in
             
@@ -1952,7 +2106,26 @@ final class rootclass: NSObject {
         
         var rtn = Array<BERunes>()
         
-        let url = "https://\(Region.REGION_BR.rawValue.lowercased())1.api.riotgames.com/lol/platform/v3/runes/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
+        var url = ""
+        
+        switch lol.server {
+        case Region.REGION_RU.rawValue,
+             Region.REGION_KR.rawValue:
+            url = "https://\(lol.server).api.riotgames.com/lol/platform/v3/runes/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
+        case Region.REGION_BR.rawValue,
+             Region.REGION_OCE.rawValue,
+             Region.REGION_JP.rawValue,
+             Region.REGION_NA.rawValue,
+             Region.REGION_EUNE.rawValue,
+             Region.REGION_EUW.rawValue,
+             Region.REGION_TR.rawValue,
+             Region.REGION_LAN.rawValue:
+            url = "https://\(lol.server)1.api.riotgames.com/lol/platform/v3/runes/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
+        case Region.REGION_LAS.rawValue:
+            url = "https://\(lol.server)2.api.riotgames.com/lol/platform/v3/runes/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
+        default:
+            NSLog("#R00T - ERROR SERVER")
+        }
         
         Alamofire.request(url).validate().responseJSON { response in
             
@@ -2003,8 +2176,27 @@ final class rootclass: NSObject {
         
         var rtn = Array<BEMasterys>()
         
-        let url = "https://\(Region.REGION_BR.rawValue.lowercased())1.api.riotgames.com/lol/platform/v3/masteries/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
+        var url = ""
         
+        switch lol.server {
+        case Region.REGION_RU.rawValue,
+             Region.REGION_KR.rawValue:
+            url = "https://\(lol.server).api.riotgames.com/lol/platform/v3/masteries/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
+        case Region.REGION_BR.rawValue,
+             Region.REGION_OCE.rawValue,
+             Region.REGION_JP.rawValue,
+             Region.REGION_NA.rawValue,
+             Region.REGION_EUNE.rawValue,
+             Region.REGION_EUW.rawValue,
+             Region.REGION_TR.rawValue,
+             Region.REGION_LAN.rawValue:
+            url = "https://\(lol.server)1.api.riotgames.com/lol/platform/v3/masteries/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
+        case Region.REGION_LAS.rawValue:
+            url = "https://\(lol.server)2.api.riotgames.com/lol/platform/v3/masteries/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
+        default:
+            NSLog("#R00T - ERROR SERVER")
+        }
+
         Alamofire.request(url).validate().responseJSON { response in
             
             switch response.result {
