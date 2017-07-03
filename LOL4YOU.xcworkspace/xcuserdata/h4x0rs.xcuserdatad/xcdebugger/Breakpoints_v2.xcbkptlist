@@ -57,110 +57,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LOL4YOU/rootclass.swift"
-            timestampString = "520729488.9884"
+            filePath = "LOL4YOU/searchsummonerTVC.swift"
+            timestampString = "520795963.35846"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "806"
-            endingLineNumber = "806"
-            landmarkName = "listarSummoner(summonername:error:)"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "btnsrchsummoner(_:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LOL4YOU/rootclass.swift"
-            timestampString = "520729492.482169"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "800"
-            endingLineNumber = "800"
-            landmarkName = "listarSummoner(summonername:error:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LOL4YOU.rootclass.listarSummoner (summonername : Swift.String, error : (LOL4YOU.rootclass.BEErro) -&gt; ()) -&gt; ()"
-                  moduleName = "LOL4YOU"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/h4x0rs/Desktop/LOL4YOU/LOL4YOU/rootclass.swift"
-                  timestampString = "520731676.427306"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "800"
-                  endingLineNumber = "800"
-                  offsetFromSymbolStart = "4686">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LOL4YOU.rootclass.(listarSummoner (summonername : Swift.String, error : (LOL4YOU.rootclass.BEErro) -&gt; ()) -&gt; ()).(closure #1)"
-                  moduleName = "LOL4YOU"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/h4x0rs/Desktop/LOL4YOU/LOL4YOU/rootclass.swift"
-                  timestampString = "520731676.431879"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "802"
-                  endingLineNumber = "802"
-                  offsetFromSymbolStart = "32">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LOL4YOU/rootclass.swift"
-            timestampString = "520731240.598709"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "876"
-            endingLineNumber = "876"
-            landmarkName = "listarStats(stats:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LOL4YOU.rootclass.listarStats (stats : (Swift.Array&lt;LOL4YOU.rootclass.BEStats&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "LOL4YOU"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/h4x0rs/Desktop/LOL4YOU/LOL4YOU/rootclass.swift"
-                  timestampString = "520731676.438057"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "876"
-                  endingLineNumber = "876"
-                  offsetFromSymbolStart = "5153">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LOL4YOU.rootclass.(listarStats (stats : (Swift.Array&lt;LOL4YOU.rootclass.BEStats&gt;) -&gt; ()) -&gt; ()).(closure #1)"
-                  moduleName = "LOL4YOU"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/h4x0rs/Desktop/LOL4YOU/LOL4YOU/rootclass.swift"
-                  timestampString = "520731676.441975"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "853"
-                  endingLineNumber = "853"
-                  offsetFromSymbolStart = "28">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

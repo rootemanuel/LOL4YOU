@@ -27,7 +27,6 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.testeVideo()
         self.initAdMob()
         self.initView()
     }
@@ -42,7 +41,9 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerVi
     
     @IBAction func btnsrchsummoner(_ sender: AnyObject) {
         
-        if rewardBasedVideo?.isReady == true {
+        rt.addCountAdMob();
+        
+        if rewardBasedVideo?.isReady == true && rt.showAdMob() {
             rewardBasedVideo?.present(fromRootViewController: self)
         } else {
             SVProgressHUD.show()
@@ -194,43 +195,40 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerVi
         acp!.show()
     }
     
-    func testeVideo() {
-        
+    override func viewDidAppear(_ animated: Bool) {
+        self.initAdVideo()
+    }
+    
+    func initAdVideo() {
         rewardBasedVideo = GADRewardBasedVideoAd.sharedInstance()
         rewardBasedVideo?.delegate = self
-        
         rewardBasedVideo?.load(GADRequest(),
                                withAdUnitID: rootclass.lol4you.admob_banner_video)
-        
     }
     
     func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
                             didFailToLoadWithError error: Error) {
-        print("Reward based video ad failed to load: \(error.localizedDescription)")
+        Analytics.logEvent(rootclass.lol4you.analytcs_admob_video, parameters: [rootclass.lol4you.analytcs_video: rootclass.lol4you.analytcs_failed_load_video])
     }
     
     func rewardBasedVideoAdDidReceive(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
-        print("Reward based video ad is received.")
+        Analytics.logEvent(rootclass.lol4you.analytcs_admob_video, parameters: [rootclass.lol4you.analytcs_video: rootclass.lol4you.analytcs_received_video])
     }
     
     func rewardBasedVideoAdDidOpen(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
-        print("Opened reward based video ad.")
+        Analytics.logEvent(rootclass.lol4you.analytcs_admob_video, parameters: [rootclass.lol4you.analytcs_video: rootclass.lol4you.analytcs_open_video])
     }
     
     func rewardBasedVideoAdDidStartPlaying(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
-        print("Reward based video ad started playing.")
+         Analytics.logEvent(rootclass.lol4you.analytcs_admob_video, parameters: [rootclass.lol4you.analytcs_video: rootclass.lol4you.analytcs_open_close_video])
     }
     
     func rewardBasedVideoAdDidClose(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
-        print("Reward based video ad is closed.")
-    }
-    
-    func rewardBasedVideoAdWillLeaveApplication(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
-        print("Reward based video ad will leave application.")
+        Analytics.logEvent(rootclass.lol4you.analytcs_admob_video, parameters: [rootclass.lol4you.analytcs_video: rootclass.lol4you.analytcs_close_video])
     }
     
     func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
                             didRewardUserWith reward: GADAdReward) {
-        print("Reward received with currency: \(reward.type), amount \(reward.amount).")
+        Analytics.logEvent(rootclass.lol4you.analytcs_admob_video, parameters: [rootclass.lol4you.analytcs_video: rootclass.lol4you.analytcs_view_video])
     }
 }

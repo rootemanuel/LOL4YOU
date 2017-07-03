@@ -14,10 +14,10 @@ final class rootclass: NSObject {
 
     static let sharedInstance: rootclass = rootclass()
     
-    var lststaticspell = Array<staticspell>()
-    var lststaticrunes = Array<staticrunes>()
-    var lststaticchampions = Array<staticchampions>()
-    var lststaticmastery = Array<staticmastery>()
+    var dicStaticSpell = Dictionary<Int, staticspell>()
+    var dicStaticRunes = Dictionary<Int, staticrunes>()
+    var dicStaticChampions = Dictionary<Int, staticchampions>()
+    var dicStaticMastery = Dictionary<Int, staticmastery>()
     
     class staticspell {
         var id:Int = 0
@@ -76,6 +76,16 @@ final class rootclass: NSObject {
         static internal var admob_app:String = "ca-app-pub-8175152842112808~9569832570"
         static internal var admob_banner:String = "ca-app-pub-8175152842112808/2046565779"
         static internal var admob_banner_video:String = "ca-app-pub-8175152842112808/6927103773"
+        
+        static internal var analytcs_admob_video:String = "ANALYTICS_ADMOB_VIDEO"
+        static internal var analytcs_video:String = "VIDEO"
+        
+        static internal var analytcs_view_video:String = "VIEW_VIDEO"
+        static internal var analytcs_failed_load_video:String = "FAILED_LOAD_VIDEO"
+        static internal var analytcs_received_video:String = "RECEIVED_VIDEO"
+        static internal var analytcs_open_video:String = "OPEN_VIDEO"
+        static internal var analytcs_close_video:String = "CLOSE_VIDEO"
+        static internal var analytcs_open_close_video:String = "OPEN_CLOSE_VIDEO"
     }
     
     struct lol {
@@ -387,10 +397,10 @@ final class rootclass: NSObject {
                             r.imagelink = "\(rootclass.images.spell)\(imagefull)"
                         }
                         
-                        self.lststaticspell.append(r)
+                        self.dicStaticSpell[r.id] = r
                     }
                     
-                    if self.lststaticspell.count > 0 {
+                    if self.dicStaticSpell.count > 0 {
                        loop = false
                         
                         NSLog("R00T - GET SPELLS SUCESS")
@@ -459,10 +469,10 @@ final class rootclass: NSObject {
                             r.imagelink = "\(rootclass.images.rune)\(imagefull)"
                         }
                         
-                        self.lststaticrunes.append(r)
+                        self.dicStaticRunes[r.id] = r
                     }
                     
-                    if self.lststaticrunes.count > 0 {
+                    if self.dicStaticRunes.count > 0 {
                         loop = false
                         
                         NSLog("R00T - GET RUNES SUCESS")
@@ -517,10 +527,10 @@ final class rootclass: NSObject {
                             r.imagelink = "\(rootclass.images.champion)\(imagefull)"
                         }
                         
-                        self.lststaticchampions.append(r)
+                        self.dicStaticChampions[r.id] = r
                     }
                     
-                    if self.lststaticchampions.count > 0 {
+                    if self.dicStaticChampions.count > 0 {
                         loop = false
                         
                         NSLog("R00T - GET CHAMPIONS SUCESS")
@@ -577,10 +587,10 @@ final class rootclass: NSObject {
                             }
                         }
                         
-                        self.lststaticmastery.append(r)
+                        self.dicStaticMastery[r.id] = r
                     }
                     
-                    if self.lststaticmastery.count > 0 {
+                    if self.dicStaticMastery.count > 0 {
                         loop = false
                         
                         NSLog("R00T - GET MASTERY SUCESS")
@@ -600,8 +610,6 @@ final class rootclass: NSObject {
     }
     
     func listaStaticSpell(jspell:JSON) {
-        
-        lststaticspell = Array<staticspell>()
         
         let dspell: Dictionary<String, JSON> = jspell["data"].dictionaryValue
         
@@ -625,13 +633,11 @@ final class rootclass: NSObject {
                 r.imagelink = "\(rootclass.images.spell)\(imagefull)"
             }
             
-            self.lststaticspell.append(r)
+            self.dicStaticSpell[r.id] = r
         }
     }
     
     func listaStaticRunes(jrunes:JSON) {
-        
-        lststaticrunes = Array<staticrunes>()
         
         let drunes: Dictionary<String, JSON> = jrunes["data"].dictionaryValue
         
@@ -667,13 +673,11 @@ final class rootclass: NSObject {
                 r.imagelink = "\(rootclass.images.rune)\(imagefull)"
             }
             
-            self.lststaticrunes.append(r)
+            self.dicStaticRunes[r.id] = r
         }
     }
     
     func listaStaticChampions(jchampions: JSON) {
-        
-        lststaticchampions = Array<staticchampions>()
         
         let dchampions: Dictionary<String, JSON> = jchampions["data"].dictionaryValue
         
@@ -697,13 +701,11 @@ final class rootclass: NSObject {
                 r.imagelink = "\(rootclass.images.champion)\(imagefull)"
             }
             
-            self.lststaticchampions.append(r)
+            self.dicStaticChampions[r.id] = r
         }
     }
     
     func listaStaticMastery(jmastery:JSON) {
-        
-        lststaticmastery = Array<staticmastery>()
         
         let dmastery: Dictionary<String, JSON> = jmastery["data"].dictionaryValue
         
@@ -729,7 +731,7 @@ final class rootclass: NSObject {
                 }
             }
             
-            self.lststaticmastery.append(r)
+            self.dicStaticMastery[r.id] = r
         }
     }
     
@@ -2248,9 +2250,8 @@ final class rootclass: NSObject {
     func listaChamp(id:Int) -> staticchampions {
         var rtn = staticchampions()
         
-        let champf = lststaticchampions.filter({ p in p.id == id})
-        if champf.count > 0 {
-            rtn = champf[0]
+        if let champ = self.dicStaticChampions[id] {
+            rtn = champ
         }
         
         return rtn
@@ -2259,9 +2260,8 @@ final class rootclass: NSObject {
     func listaRune(id:Int) -> staticrunes {
         var rtn = staticrunes()
         
-        let runef = lststaticrunes.filter({ p in p.id == id})
-        if runef.count > 0 {
-            rtn = runef[0]
+        if let runes = self.dicStaticRunes[id] {
+            rtn = runes
         }
         
         return rtn
@@ -2270,9 +2270,8 @@ final class rootclass: NSObject {
     func listaMastery(id:Int) -> staticmastery {
         var rtn = staticmastery()
         
-        let mastf = lststaticmastery.filter({ p in p.id == id})
-        if mastf.count > 0 {
-            rtn = mastf[0]
+        if let mastery = self.dicStaticMastery[id] {
+            rtn = mastery
         }
         
         return rtn
@@ -2281,11 +2280,26 @@ final class rootclass: NSObject {
     func listaSpeel(id:Int) -> staticspell {
         var rtn = staticspell()
         
-        let spellf = lststaticspell.filter({ p in p.id == id})
-        if spellf.count > 0 {
-            rtn = spellf[0]
+        if let spell = self.dicStaticSpell[id] {
+            rtn = spell
         }
         
         return rtn
     }
+    
+    //AdMob
+    var adMobCount = 5
+    
+    func addCountAdMob() {
+        self.adMobCount += 1;
+    }
+    
+    func showAdMob() -> Bool {
+        if self.adMobCount > 4 {
+            self.adMobCount = 0;
+            return true
+        }
+        return false
+    }
+    
 }
