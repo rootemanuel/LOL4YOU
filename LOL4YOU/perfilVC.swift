@@ -40,7 +40,6 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
         super.viewDidLoad()
         
         self.initAdMob()
-        self.initAdVideo()
         self.initView()
     }
     

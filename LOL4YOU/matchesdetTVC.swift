@@ -8,9 +8,12 @@
 
 import UIKit
 import SVProgressHUD
+import GoogleMobileAds
+import FirebaseAnalytics
 
-class matchesdetTVC: UITableViewController {
+class matchesdetTVC: UITableViewController, GADRewardBasedVideoAdDelegate {
     
+    var rewardBasedVideo: GADRewardBasedVideoAd?
     let rt = rootclass.sharedInstance
     var matchdet = rootclass.BEMatch()
     var matchdetsmall = rootclass.BEMatchSmall()
@@ -21,11 +24,19 @@ class matchesdetTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.initAdMob()
         self.initView()
-        
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        rt.addCountAdMob();
+        
+        if rewardBasedVideo?.isReady == true && rt.showAdMob() {
+            rewardBasedVideo?.present(fromRootViewController: self)
+            return
+        }
+        
         switch indexPath.row {
         case (9...13):
             if let cell = tableView.cellForRow(at: indexPath) {
@@ -726,6 +737,47 @@ class matchesdetTVC: UITableViewController {
         self.navigationController?.navigationBar.titleTextAttributes = attnav
         
         self.title = "Match Details"
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.initAdVideo()
+    }
+    
+    func initAdMob() {
+        Analytics.setScreenName(rootclass.screens.matchesdet, screenClass: String(describing: matchesdetTVC.self))
+    }
+    
+    func initAdVideo() {
+        rewardBasedVideo = GADRewardBasedVideoAd.sharedInstance()
+        rewardBasedVideo?.delegate = self
+        rewardBasedVideo?.load(GADRequest(),
+                               withAdUnitID: rootclass.lol4you.admob_banner_video)
+    }
+    
+    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
+                            didFailToLoadWithError error: Error) {
+        Analytics.logEvent(rootclass.lol4you.analytcs_admob_video, parameters: [rootclass.lol4you.analytcs_video: rootclass.lol4you.analytcs_failed_load_video])
+    }
+    
+    func rewardBasedVideoAdDidReceive(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        Analytics.logEvent(rootclass.lol4you.analytcs_admob_video, parameters: [rootclass.lol4you.analytcs_video: rootclass.lol4you.analytcs_received_video])
+    }
+    
+    func rewardBasedVideoAdDidOpen(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        Analytics.logEvent(rootclass.lol4you.analytcs_admob_video, parameters: [rootclass.lol4you.analytcs_video: rootclass.lol4you.analytcs_open_video])
+    }
+    
+    func rewardBasedVideoAdDidStartPlaying(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        Analytics.logEvent(rootclass.lol4you.analytcs_admob_video, parameters: [rootclass.lol4you.analytcs_video: rootclass.lol4you.analytcs_open_close_video])
+    }
+    
+    func rewardBasedVideoAdDidClose(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        Analytics.logEvent(rootclass.lol4you.analytcs_admob_video, parameters: [rootclass.lol4you.analytcs_video: rootclass.lol4you.analytcs_close_video])
+    }
+    
+    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
+                            didRewardUserWith reward: GADAdReward) {
+        Analytics.logEvent(rootclass.lol4you.analytcs_admob_video, parameters: [rootclass.lol4you.analytcs_video: rootclass.lol4you.analytcs_view_video])
     }
     
     func spopViewController(){

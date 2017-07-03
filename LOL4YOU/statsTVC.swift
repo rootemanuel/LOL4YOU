@@ -22,10 +22,8 @@ class statsTVC: UITableViewController , GADRewardBasedVideoAdDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.initAdVideo()
         self.initView()
         self.loadingView()
-        
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

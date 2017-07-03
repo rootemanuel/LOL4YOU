@@ -21,11 +21,9 @@ class runesTVC: UITableViewController, GADRewardBasedVideoAdDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.initAdVideo()
         self.initAdMob()
         self.initView()
         self.loadingView()
-        
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

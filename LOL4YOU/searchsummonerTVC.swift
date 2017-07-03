@@ -27,7 +27,7 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.initAdVideo()
+        
         self.initAdMob()
         self.initView()
     }

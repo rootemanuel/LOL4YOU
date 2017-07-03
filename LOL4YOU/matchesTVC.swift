@@ -25,7 +25,6 @@ class matchesTVC: UITableViewController, GADRewardBasedVideoAdDelegate {
         super.viewDidLoad()
         
         self.initAdMob()
-        self.initAdVideo()
         self.initView()
         self.loadingView()
     }
