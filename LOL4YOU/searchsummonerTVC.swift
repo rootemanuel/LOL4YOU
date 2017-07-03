@@ -44,38 +44,26 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerVi
         
         rt.addCountAdMob();
         
-        var loop = true
-        while(loop){
-            let semaphore = DispatchSemaphore(value: 0)
-            let queue = DispatchQueue.global(qos: .background)
-        
-            queue.async {
-                if self.rewardBasedVideo?.isReady == true && self.rt.showAdMob() {
-                    self.rewardBasedVideo?.present(fromRootViewController: self)
-                    loop = false
-                    semaphore.signal()
-                }
+        if rewardBasedVideo?.isReady == true && rt.showAdMob() {
+            rewardBasedVideo?.present(fromRootViewController: self)
+        } else {
+            SVProgressHUD.show()
+            
+            if summonernick.text != nil && (summonernick.text?.isEmpty)! {
+                return
             }
-            semaphore.wait(timeout: .distantFuture)
+            
+            rt.listarSummoner(summonername: summonernick.text!.replacingOccurrences(of: " ", with: "")) {(error) in
+                
+                if error.id == 1 {
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let vc = storyboard.instantiateViewController(withIdentifier: "perfil") as! perfilVC
+                    
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+                SVProgressHUD.dismiss()
+            }
         }
-//        else {
-//            SVProgressHUD.show()
-//            
-//            if summonernick.text != nil && (summonernick.text?.isEmpty)! {
-//                return
-//            }
-//            
-//            rt.listarSummoner(summonername: summonernick.text!.replacingOccurrences(of: " ", with: "")) {(error) in
-//                
-//                if error.id == 1 {
-//                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//                    let vc = storyboard.instantiateViewController(withIdentifier: "perfil") as! perfilVC
-//                    
-//                    self.navigationController?.pushViewController(vc, animated: true)
-//                }
-//                SVProgressHUD.dismiss()
-//            }
-//        }
     }
     
     func validadados(_ textField: UITextField) {

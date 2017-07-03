@@ -57,54 +57,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LOL4YOU/searchsummonerTVC.swift"
-            timestampString = "520805070.911279"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "btnsrchsummoner(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LOL4YOU.searchsummonerTVC.btnsrchsummoner (Swift.AnyObject) -&gt; ()"
-                  moduleName = "LOL4YOU"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/h4x0rs/Desktop/LOL4YOU/LOL4YOU/searchsummonerTVC.swift"
-                  timestampString = "520805072.149968"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "58"
-                  endingLineNumber = "58"
-                  offsetFromSymbolStart = "409">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LOL4YOU.searchsummonerTVC.(btnsrchsummoner (Swift.AnyObject) -&gt; ()).(closure #1)"
-                  moduleName = "LOL4YOU"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/h4x0rs/Desktop/LOL4YOU/LOL4YOU/searchsummonerTVC.swift"
-                  timestampString = "520805072.154095"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "58"
-                  endingLineNumber = "58"
-                  offsetFromSymbolStart = "597">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "LOL4YOU/rootclass.swift"
             timestampString = "520803842.168468"
             startingColumnNumber = "9223372036854775807"
