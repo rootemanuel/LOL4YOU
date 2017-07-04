@@ -90,12 +90,12 @@
                   moduleName = "LOL4YOU"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/h4x0rs/Desktop/LOL4YOU/LOL4YOU/rootclass.swift"
-                  timestampString = "520889829.955874"
+                  timestampString = "520895028.890563"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "879"
                   endingLineNumber = "879"
-                  offsetFromSymbolStart = "5153">
+                  offsetFromSymbolStart = "3592">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -105,12 +105,12 @@
                   moduleName = "LOL4YOU"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/h4x0rs/Desktop/LOL4YOU/LOL4YOU/rootclass.swift"
-                  timestampString = "520889829.9592"
+                  timestampString = "520895028.892516"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "856"
                   endingLineNumber = "856"
-                  offsetFromSymbolStart = "28">
+                  offsetFromSymbolStart = "60">
                </Location>
             </Locations>
          </BreakpointContent>

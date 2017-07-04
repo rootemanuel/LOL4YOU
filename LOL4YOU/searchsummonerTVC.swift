@@ -191,4 +191,17 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerVi
         
         acp!.show()
     }
+    
+    override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        self.view.endEditing(true)
+    }
+    
+    func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
