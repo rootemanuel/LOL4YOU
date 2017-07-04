@@ -835,15 +835,13 @@ final class rootclass: NSObject {
 
                         } else {
                             rtn.id = 400
-                            rtn.msg = "Summoner not found"
+                            rtn.msg = "Invalid Summoner"
                         }
                     }
                 }
                 
             case .failure(let error):
-                rtn.id = 999
-                rtn.msg = "Stack"
-                NSLog(error as! String)
+                NSLog("#R00T - ERROR GET SUMMONER - ERROR: \(error)")
             }
             
             error(rtn)
@@ -1000,7 +998,7 @@ final class rootclass: NSObject {
                 }
                 
             case .failure(let error):
-                NSLog(error as! String)
+                NSLog("#R00T - ERROR GET STATS - ERROR: \(error)")
             }
             
             stats(rtn)
@@ -1157,7 +1155,7 @@ final class rootclass: NSObject {
                 }
                 
             case .failure(let error):
-                NSLog(error as! String)
+                NSLog("#R00T - ERROR GET STATS PROFILE - ERROR: \(error)")
             }
             
             stats(rtn)
@@ -1237,7 +1235,7 @@ final class rootclass: NSObject {
                 }
                 
             case .failure(let error):
-                NSLog(error as! String)
+                NSLog("#R00T - ERROR GET LEAGUE - ERROR: \(error)")
             }
             
             league(rtn)
@@ -1296,7 +1294,7 @@ final class rootclass: NSObject {
                 }
                 
             case .failure(let error):
-                NSLog(error as! String)
+                NSLog("#R00T - ERROR GET MATCHES - ERROR: \(error)")
             }
             match(rtn)
         }
@@ -1603,6 +1601,7 @@ final class rootclass: NSObject {
                     }
                 }
             case .failure(let error):
+                NSLog("#R00T - ERROR GET MATCHE DET - ERROR: \(error)")
                 matchdet(nil)
             }
         }
@@ -1948,7 +1947,7 @@ final class rootclass: NSObject {
                             }
                         }
                     case .failure(let error):
-                        NSLog(error as! String)
+                        NSLog("#R00T - ERROR GET LISTAR MATCHE DET - ERROR: \(error)")
                     }
                 }
                 semaphore.wait(timeout: .distantFuture)
@@ -2098,7 +2097,7 @@ final class rootclass: NSObject {
                 }
                 
             case .failure(let error):
-                print("ERROR - MATCHES SIMPLE")
+                NSLog("#R00T - ERROR GET GAME - ERROR: \(error)")
             }
             match(rtn)
         }
@@ -2168,7 +2167,7 @@ final class rootclass: NSObject {
                 }
                 
             case .failure(let error):
-                print("ERROR - MATCHES SIMPLE")
+                NSLog("#R00T - ERROR GET RUNES - ERROR: \(error)")
                 runes(rtn)
             }
         }
@@ -2241,7 +2240,7 @@ final class rootclass: NSObject {
                 }
                 
             case .failure(let error):
-                print("ERROR - MATCHES SIMPLE")
+                NSLog("#R00T - ERROR GET MASTERYS DET - ERROR: \(error)")
                 masterys(rtn)
             }
         }
