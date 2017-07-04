@@ -43,6 +43,7 @@
 		A0A4995F1EB2877900977541 /* runesTVCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A4995D1EB2877900977541 /* runesTVCC.xib */; };
 		A0A499621EB28FBD00977541 /* masteryTVCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A499601EB28FBD00977541 /* masteryTVCC.swift */; };
 		A0A499631EB28FBD00977541 /* masteryTVCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A499611EB28FBD00977541 /* masteryTVCC.xib */; };
+		A0AB1F311F0B15290099CB9E /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0AB1F301F0B15290099CB9E /* iAd.framework */; };
 		A0BCAA691EB13281008F4D01 /* perfilstatstiersnullTVCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BCAA671EB13281008F4D01 /* perfilstatstiersnullTVCC.swift */; };
 		A0BCAA6A1EB13281008F4D01 /* perfilstatstiersnullTVCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0BCAA681EB13281008F4D01 /* perfilstatstiersnullTVCC.xib */; };
 		A0BCAA6C1EB14772008F4D01 /* perfilstatusV.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BCAA6B1EB14772008F4D01 /* perfilstatusV.swift */; };
@@ -122,6 +123,8 @@
 		A0A499601EB28FBD00977541 /* masteryTVCC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = masteryTVCC.swift; sourceTree = "<group>"; };
 		A0A499611EB28FBD00977541 /* masteryTVCC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = masteryTVCC.xib; sourceTree = "<group>"; };
 		A0AAFEBC1F01F09500D09D84 /* LOL4YOU.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LOL4YOU.entitlements; sourceTree = "<group>"; };
+		A0AB1F291F0B142E0099CB9E /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		A0AB1F301F0B15290099CB9E /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		A0BCAA671EB13281008F4D01 /* perfilstatstiersnullTVCC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = perfilstatstiersnullTVCC.swift; sourceTree = "<group>"; };
 		A0BCAA681EB13281008F4D01 /* perfilstatstiersnullTVCC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = perfilstatstiersnullTVCC.xib; sourceTree = "<group>"; };
 		A0BCAA6B1EB14772008F4D01 /* perfilstatusV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = perfilstatusV.swift; sourceTree = "<group>"; };
@@ -147,6 +150,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0AB1F311F0B15290099CB9E /* iAd.framework in Frameworks */,
 				4289DC60B5B9382572992C34 /* Pods_LOL4YOU.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -173,6 +177,8 @@
 		2B030B1585D762344FAA6351 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A0AB1F301F0B15290099CB9E /* iAd.framework */,
+				A0AB1F291F0B142E0099CB9E /* AdSupport.framework */,
 				9EFD371BBE2A7AC48949FCB3 /* Pods_LOL4YOU.framework */,
 				62BEFD983671AB73E196863F /* Pods_LOL4YOUTests.framework */,
 				3B8BB042ACBB5423013FEC3B /* Pods_LOL4YOUUITests.framework */,
