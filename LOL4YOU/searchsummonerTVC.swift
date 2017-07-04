@@ -12,7 +12,7 @@ import ActionSheetPicker_3_0
 import GoogleMobileAds
 import FirebaseAnalytics
 
-class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerViewDelegate, GADRewardBasedVideoAdDelegate {
+class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerViewDelegate {
 
     @IBOutlet weak var bannerView: GADBannerView!
     
@@ -22,11 +22,8 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerVi
     
     var rt = rootclass.sharedInstance
     
-    var rewardBasedVideo: GADRewardBasedVideoAd?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         self.initAdMob()
         self.initView()
@@ -44,25 +41,28 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerVi
         
         rt.addCountAdMob();
         
-        if rewardBasedVideo?.isReady == true && rt.showAdMob() {
-            rewardBasedVideo?.present(fromRootViewController: self)
-        } else {
-            SVProgressHUD.show()
-            
-            if summonernick.text != nil && (summonernick.text?.isEmpty)! {
+        if rt.showAdMob() {
+            if let adMobVideo = rt.getRewardBasedVideo() {
+                adMobVideo.present(fromRootViewController: self)
                 return
             }
+        }
+        
+        SVProgressHUD.show()
             
-            rt.listarSummoner(summonername: summonernick.text!.replacingOccurrences(of: " ", with: "")) {(error) in
+        if summonernick.text != nil && (summonernick.text?.isEmpty)! {
+            return
+        }
+        
+        rt.listarSummoner(summonername: summonernick.text!.replacingOccurrences(of: " ", with: "")) {(error) in
                 
-                if error.id == 1 {
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let vc = storyboard.instantiateViewController(withIdentifier: "perfil") as! perfilVC
+            if error.id == 1 {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "perfil") as! perfilVC
                     
-                    self.navigationController?.pushViewController(vc, animated: true)
-                }
-                SVProgressHUD.dismiss()
+                self.navigationController?.pushViewController(vc, animated: true)
             }
+            SVProgressHUD.dismiss()
         }
     }
     
@@ -190,42 +190,5 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerVi
         acp!.setCancelButton(btBarCancel)
         
         acp!.show()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        self.initAdVideo()
-    }
-    
-    func initAdVideo() {
-        rewardBasedVideo = GADRewardBasedVideoAd.sharedInstance()
-        rewardBasedVideo?.delegate = self
-        rewardBasedVideo?.load(GADRequest(),
-                               withAdUnitID: rootclass.lol4you.admob_banner_video)
-    }
-    
-    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
-                            didFailToLoadWithError error: Error) {
-        Analytics.logEvent(rootclass.lol4you.analytcs_admob_video, parameters: [rootclass.lol4you.analytcs_video: rootclass.lol4you.analytcs_failed_load_video])
-    }
-    
-    func rewardBasedVideoAdDidReceive(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
-        Analytics.logEvent(rootclass.lol4you.analytcs_admob_video, parameters: [rootclass.lol4you.analytcs_video: rootclass.lol4you.analytcs_received_video])
-    }
-    
-    func rewardBasedVideoAdDidOpen(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
-        Analytics.logEvent(rootclass.lol4you.analytcs_admob_video, parameters: [rootclass.lol4you.analytcs_video: rootclass.lol4you.analytcs_open_video])
-    }
-    
-    func rewardBasedVideoAdDidStartPlaying(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
-         Analytics.logEvent(rootclass.lol4you.analytcs_admob_video, parameters: [rootclass.lol4you.analytcs_video: rootclass.lol4you.analytcs_open_close_video])
-    }
-    
-    func rewardBasedVideoAdDidClose(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
-        Analytics.logEvent(rootclass.lol4you.analytcs_admob_video, parameters: [rootclass.lol4you.analytcs_video: rootclass.lol4you.analytcs_close_video])
-    }
-    
-    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
-                            didRewardUserWith reward: GADAdReward) {
-        Analytics.logEvent(rootclass.lol4you.analytcs_admob_video, parameters: [rootclass.lol4you.analytcs_video: rootclass.lol4you.analytcs_view_video])
     }
 }
