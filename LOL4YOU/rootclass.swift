@@ -9,16 +9,13 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
-import GoogleMobileAds
-import FirebaseAnalytics
 
-final class rootclass: NSObject, GADRewardBasedVideoAdDelegate {
+final class rootclass: NSObject {
     
     static let sharedInstance: rootclass = rootclass()
     
     private override init() {
         super.init()
-        self.initAdVideo()
     }
     
     var dicStaticSpell = Dictionary<Int, staticspell>()
@@ -73,22 +70,6 @@ final class rootclass: NSObject, GADRewardBasedVideoAdDelegate {
         static internal var runesdet:String = "RUNES_DET"
         static internal var masterys:String = "MASTERYS"
         static internal var masterysdet:String = "MASTERYS_DET"
-    }
-    
-    struct lol4you {
-        static internal var admob_app:String = "ca-app-pub-8175152842112808~9569832570"
-        static internal var admob_banner:String = "ca-app-pub-8175152842112808/2046565779"
-        static internal var admob_banner_video:String = "ca-app-pub-8175152842112808/6927103773"
-        
-        static internal var analytcs_admob_video:String = "ANALYTICS_ADMOB_VIDEO"
-        static internal var analytcs_video:String = "VIDEO"
-        
-        static internal var analytcs_view_video:String = "VIEW_VIDEO"
-        static internal var analytcs_failed_load_video:String = "FAILED_LOAD_VIDEO"
-        static internal var analytcs_received_video:String = "RECEIVED_VIDEO"
-        static internal var analytcs_open_video:String = "OPEN_VIDEO"
-        static internal var analytcs_close_video:String = "CLOSE_VIDEO"
-        static internal var analytcs_open_close_video:String = "OPEN_CLOSE_VIDEO"
     }
     
     struct lol {
@@ -2292,66 +2273,7 @@ final class rootclass: NSObject, GADRewardBasedVideoAdDelegate {
 //    Inicio - AdMob
 //    Tratamento para unica instancia
 
-    let const_admobcount = 4
-    var adMobCount = 5
-    var rewardBasedVideo: GADRewardBasedVideoAd?
     
-    func addCountAdMob() {
-        self.adMobCount += 1;
-        
-        if let adMobVideo = self.rewardBasedVideo {
-            if !adMobVideo.isReady {
-                self.initAdVideo()
-            }
-        }
-    }
-    
-    func getRewardBasedVideo() -> GADRewardBasedVideoAd? {
-        return self.rewardBasedVideo;
-    }
-    
-    func showAdMob() -> Bool {
-        if let adMobVideo = self.rewardBasedVideo {
-            if adMobVideo.isReady && self.adMobCount > const_admobcount {
-                self.adMobCount = 0;
-                return true
-            }
-        }
-        return false
-    }
-    
-    func initAdVideo() {
-        self.rewardBasedVideo = GADRewardBasedVideoAd.sharedInstance()
-        self.rewardBasedVideo?.delegate = self
-        self.rewardBasedVideo?.load(GADRequest(),
-                               withAdUnitID: rootclass.lol4you.admob_banner_video)
-    }
-    
-    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
-                            didFailToLoadWithError error: Error) {
-        Analytics.logEvent(rootclass.lol4you.analytcs_admob_video, parameters: [rootclass.lol4you.analytcs_video: rootclass.lol4you.analytcs_failed_load_video])
-    }
-    
-    func rewardBasedVideoAdDidReceive(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
-        Analytics.logEvent(rootclass.lol4you.analytcs_admob_video, parameters: [rootclass.lol4you.analytcs_video: rootclass.lol4you.analytcs_received_video])
-    }
-    
-    func rewardBasedVideoAdDidOpen(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
-        Analytics.logEvent(rootclass.lol4you.analytcs_admob_video, parameters: [rootclass.lol4you.analytcs_video: rootclass.lol4you.analytcs_open_video])
-    }
-    
-    func rewardBasedVideoAdDidStartPlaying(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
-        Analytics.logEvent(rootclass.lol4you.analytcs_admob_video, parameters: [rootclass.lol4you.analytcs_video: rootclass.lol4you.analytcs_open_close_video])
-    }
-    
-    func rewardBasedVideoAdDidClose(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
-        Analytics.logEvent(rootclass.lol4you.analytcs_admob_video, parameters: [rootclass.lol4you.analytcs_video: rootclass.lol4you.analytcs_close_video])
-    }
-    
-    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
-                            didRewardUserWith reward: GADAdReward) {
-        Analytics.logEvent(rootclass.lol4you.analytcs_admob_video, parameters: [rootclass.lol4you.analytcs_video: rootclass.lol4you.analytcs_view_video])
-    }
     
     //    Fim - AdMob
     //    Tratamento para unica instancia

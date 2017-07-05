@@ -14,6 +14,8 @@ import FirebaseAnalytics
 class matchesdetTVC: UITableViewController {
     
     let rt = rootclass.sharedInstance
+    let admob = rootadmob.sharedInstance
+    
     var matchdet = rootclass.BEMatch()
     var matchdetsmall = rootclass.BEMatchSmall()
     
@@ -29,10 +31,10 @@ class matchesdetTVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        rt.addCountAdMob();
+        admob.addCountAdMob();
         
-        if rt.showAdMob() {
-            if let adMobVideo = rt.getRewardBasedVideo() {
+        if admob.showAdMob() {
+            if let adMobVideo = admob.getRewardBasedVideo() {
                 adMobVideo.present(fromRootViewController: self)
                 return
             }

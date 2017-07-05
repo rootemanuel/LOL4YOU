@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Google Initialization
         FirebaseApp.configure()
-        GADMobileAds.configure(withApplicationID: rootclass.lol4you.admob_app)
+        GADMobileAds.configure(withApplicationID: rootadmob.admob.admob_app)
         
         SwiftyPlistManager.shared.start(plistNames: [rootclass.shared.root], logging: true)
         

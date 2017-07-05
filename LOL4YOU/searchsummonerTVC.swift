@@ -20,7 +20,8 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerVi
     @IBOutlet weak var summonernick: UITextField!
     @IBOutlet weak var summonerserver: UIButton!
     
-    var rt = rootclass.sharedInstance
+    let admob = rootadmob.sharedInstance
+    let rt = rootclass.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,10 +40,10 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerVi
     
     @IBAction func btnsrchsummoner(_ sender: AnyObject) {
         
-        rt.addCountAdMob();
+        admob.addCountAdMob();
         
-        if rt.showAdMob() {
-            if let adMobVideo = rt.getRewardBasedVideo() {
+        if admob.showAdMob() {
+            if let adMobVideo = admob.getRewardBasedVideo() {
                 adMobVideo.present(fromRootViewController: self)
                 return
             }
@@ -88,7 +89,7 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerVi
     func initAdMob() {
         Analytics.setScreenName(rootclass.screens.search, screenClass: String(describing: searchsummonerTVC.self))
         
-        bannerView.adUnitID = rootclass.lol4you.admob_banner
+        bannerView.adUnitID = rootadmob.admob.admob_banner
         bannerView.delegate = self
         bannerView.rootViewController = self
         bannerView.load(GADRequest())

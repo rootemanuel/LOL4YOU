@@ -15,7 +15,9 @@ class masterysTVC: UITableViewController {
 
     var emptytableview:emptytableview? = nil
     var masts = Array<rootclass.BEMasterys>()
+    
     let rt = rootclass.sharedInstance
+    let admob = rootadmob.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,10 +30,10 @@ class masterysTVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        rt.addCountAdMob();
+        admob.addCountAdMob();
         
-        if rt.showAdMob() {
-            if let adMobVideo = rt.getRewardBasedVideo() {
+        if admob.showAdMob() {
+            if let adMobVideo = admob.getRewardBasedVideo() {
                 adMobVideo.present(fromRootViewController: self)
                 return
             }

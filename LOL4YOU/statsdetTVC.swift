@@ -13,7 +13,7 @@ import FirebaseAnalytics
 
 class statsdetTVC: UITableViewController {
     
-    var rt = rootclass.sharedInstance
+    let rt = rootclass.sharedInstance
     
     var statsdet = rootclass.BEStats()
     

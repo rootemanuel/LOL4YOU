@@ -22,6 +22,7 @@
 		A01218361EBA641700B45F0F /* root.plist in Resources */ = {isa = PBXBuildFile; fileRef = A01218351EBA641700B45F0F /* root.plist */; };
 		A01578551EB8F1B100A30C41 /* masterysTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01578541EB8F1B100A30C41 /* masterysTVC.swift */; };
 		A01578571EB8F1C400A30C41 /* masterysdetTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01578561EB8F1C400A30C41 /* masterysdetTVC.swift */; };
+		A01757771F0D8C2000ED9278 /* rootadmob.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01757761F0D8C2000ED9278 /* rootadmob.swift */; };
 		A017A8741EA5456700C325F7 /* perfilCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A017A8731EA5456700C325F7 /* perfilCVC.swift */; };
 		A017A8761EA546B600C325F7 /* perfilVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A017A8751EA546B600C325F7 /* perfilVC.swift */; };
 		A04A6CCC1EB100E8001D9770 /* perfilstatsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04A6CCB1EB100E8001D9770 /* perfilstatsTVC.swift */; };
@@ -101,6 +102,7 @@
 		A01218351EBA641700B45F0F /* root.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = root.plist; sourceTree = "<group>"; };
 		A01578541EB8F1B100A30C41 /* masterysTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = masterysTVC.swift; sourceTree = "<group>"; };
 		A01578561EB8F1C400A30C41 /* masterysdetTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = masterysdetTVC.swift; sourceTree = "<group>"; };
+		A01757761F0D8C2000ED9278 /* rootadmob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rootadmob.swift; sourceTree = "<group>"; };
 		A017A8731EA5456700C325F7 /* perfilCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = perfilCVC.swift; sourceTree = "<group>"; };
 		A017A8751EA546B600C325F7 /* perfilVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = perfilVC.swift; sourceTree = "<group>"; };
 		A04A6CCB1EB100E8001D9770 /* perfilstatsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = perfilstatsTVC.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				A00280231E9D981B003175A7 /* rootclass.swift */,
+				A01757761F0D8C2000ED9278 /* rootadmob.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -761,6 +764,7 @@
 				A056E7741EAE3901007FDB9F /* matchesdetTVC.swift in Sources */,
 				A01578551EB8F1B100A30C41 /* masterysTVC.swift in Sources */,
 				A056E7821EAE94DD007FDB9F /* matchesdetbansTVCC.swift in Sources */,
+				A01757771F0D8C2000ED9278 /* rootadmob.swift in Sources */,
 				A09D99F01EA3D0360054E988 /* searchsummonerTVC.swift in Sources */,
 				A0A4995A1EB2313700977541 /* imageTVCC.swift in Sources */,
 				A0A4994F1EB2155300977541 /* infoTVCC.swift in Sources */,

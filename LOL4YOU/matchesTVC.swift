@@ -15,7 +15,8 @@ import FirebaseAnalytics
 
 class matchesTVC: UITableViewController {
 
-    var rt = rootclass.sharedInstance
+    let admob = rootadmob.sharedInstance
+    let rt = rootclass.sharedInstance
     
     var matchs = Array<rootclass.BEMatchSmall>()
     var emptytableview:emptytableview? = nil
@@ -30,10 +31,10 @@ class matchesTVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        rt.addCountAdMob();
+        admob.addCountAdMob();
         
-        if rt.showAdMob() {
-            if let adMobVideo = rt.getRewardBasedVideo() {
+        if admob.showAdMob() {
+            if let adMobVideo = admob.getRewardBasedVideo() {
                 adMobVideo.present(fromRootViewController: self)
                 return
             }
