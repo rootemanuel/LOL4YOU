@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import Firebase
 
 final class rootclass: NSObject {
     
@@ -74,7 +75,7 @@ final class rootclass: NSObject {
     
     struct lol {
         static internal var version:String = "7.9.2"
-        static internal var api_key:String = "RGAPI-50a56712-a157-44cc-9760-0a4649629dff"
+        static internal var api_key:String = "RGAPI-5befecb0-7a71-4205-9518-ee05d6acf6bc"
         static internal var server:String = "BR"
     }
     
@@ -758,12 +759,26 @@ final class rootclass: NSObject {
         }
     }
     
+    func listaKeyLOL(){
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        ref.child("key_riot")
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+            if let key = value?["key_riot"] as? String {
+                lol.api_key = key
+            }
+        })
+
+        
+    }
+    
     func listarSummoner(summonername:String,error:@escaping (BEErro) -> ()) {
         
         let rtn = BEErro()
         
         var url = ""
-        
+
         switch lol.server {
         case Region.REGION_RU.rawValue,
              Region.REGION_KR.rawValue:
@@ -2269,12 +2284,4 @@ final class rootclass: NSObject {
         
         return rtn
     }
-    
-//    Inicio - AdMob
-//    Tratamento para unica instancia
-
-    
-    
-    //    Fim - AdMob
-    //    Tratamento para unica instancia
 }

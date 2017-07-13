@@ -59,6 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         SwiftyPlistManager.shared.start(plistNames: [rootclass.shared.root], logging: true)
         
+        rt.listaKeyLOL()
         rt.listarVersion()
         
         SwiftyPlistManager.shared.getValue(for: rootclass.shared.version, fromPlistWithName: rootclass.shared.root) { (result, err) in

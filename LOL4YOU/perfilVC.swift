@@ -28,11 +28,11 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
     }
     
     let menus = [
-        menu.init(title: "Profile", image: "static_menu_stats"),
+        menu.init(title: "Profile", image: "static_menu_profile"),
         menu.init(title: "Stats", image: "static_menu_stats"),
-        menu.init(title: "Matches", image: "static_menu_stats"),
-        menu.init(title: "Runes", image: "static_menu_stats"),
-        menu.init(title: "Masteries", image: "static_menu_stats")
+        menu.init(title: "Matches", image: "static_menu_matches"),
+        menu.init(title: "Runes", image: "static_menu_runes"),
+        menu.init(title: "Masteries", image: "static_menu_masterys")
     ]
     
     override func viewDidLoad() {

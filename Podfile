@@ -12,6 +12,7 @@ target 'LOL4YOU' do
   pod 'ActionSheetPicker-3.0'
   pod 'Firebase/Core'
   pod 'Firebase/AdMob'
+  pod 'Firebase/Database'
 
   # Pods for LOL4YOU
 
