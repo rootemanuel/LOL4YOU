@@ -759,19 +759,37 @@ final class rootclass: NSObject {
         }
     }
     
-    func listaKeyLOL(){
-        var ref: DatabaseReference!
-        ref = Database.database().reference()
-        ref.child("key_riot")
-        ref.observeSingleEvent(of: .value, with: { (snapshot) in
-            let value = snapshot.value as? NSDictionary
-            if let key = value?["key_riot"] as? String {
-                lol.api_key = key
-            }
-        })
-
+    func listaKeyLOL() {
         
+        let url = "https://lol4you-32c31.firebaseio.com/key_riot.json"
+        
+        var loop = true
+        while(loop){
+            let semaphore = DispatchSemaphore(value: 0)
+            let queue = DispatchQueue.global(qos: .background)
+            Alamofire.request(url).validate().responseJSON(queue: queue) { response in
+                
+                switch response.result {
+                case .success( _):
+                    
+                    if let key = response.result.value as? String {
+                        lol.api_key = key
+                    }
+                    
+                    loop = false
+                    semaphore.signal()
+                    
+                case .failure(let error):
+                    loop = false
+                    
+                    NSLog("R00T - GET KEY LOL")
+                    semaphore.signal()
+                }
+            }
+            semaphore.wait(timeout: .distantFuture)
+        }
     }
+
     
     func listarSummoner(summonername:String,error:@escaping (BEErro) -> ()) {
         

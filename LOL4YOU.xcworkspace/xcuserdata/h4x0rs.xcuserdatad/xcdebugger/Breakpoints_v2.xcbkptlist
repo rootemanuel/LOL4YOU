@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LOL4YOU/rootclass.swift"
-            timestampString = "521601883.006254"
+            timestampString = "522020545.734968"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "875"
-            endingLineNumber = "875"
+            startingLineNumber = "893"
+            endingLineNumber = "893"
             landmarkName = "listarStats(stats:)"
             landmarkType = "7">
             <Locations>
@@ -90,12 +90,12 @@
                   moduleName = "LOL4YOU"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/h4x0rs/Desktop/LOL4YOU/LOL4YOU/rootclass.swift"
-                  timestampString = "521601955.999845"
+                  timestampString = "522020942.289502"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "875"
-                  endingLineNumber = "875"
-                  offsetFromSymbolStart = "5153">
+                  startingLineNumber = "893"
+                  endingLineNumber = "893"
+                  offsetFromSymbolStart = "3592">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -105,12 +105,12 @@
                   moduleName = "LOL4YOU"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/h4x0rs/Desktop/LOL4YOU/LOL4YOU/rootclass.swift"
-                  timestampString = "521601956.002501"
+                  timestampString = "522020942.291722"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "852"
-                  endingLineNumber = "852"
-                  offsetFromSymbolStart = "28">
+                  startingLineNumber = "870"
+                  endingLineNumber = "870"
+                  offsetFromSymbolStart = "60">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LOL4YOU/rootclass.swift"
-            timestampString = "521601883.006254"
+            timestampString = "522020545.734968"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "843"
-            endingLineNumber = "843"
+            startingLineNumber = "861"
+            endingLineNumber = "861"
             landmarkName = "listarSummoner(summonername:error:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -138,27 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LOL4YOU/rootclass.swift"
-            timestampString = "521601883.006254"
+            timestampString = "522020545.734968"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "767"
-            endingLineNumber = "767"
-            landmarkName = "listaKeyLOL()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LOL4YOU/rootclass.swift"
-            timestampString = "521602001.88168"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "801"
-            endingLineNumber = "801"
+            startingLineNumber = "819"
+            endingLineNumber = "819"
             landmarkName = "listarSummoner(summonername:error:)"
             landmarkType = "7">
             <Locations>
@@ -170,12 +154,12 @@
                   moduleName = "LOL4YOU"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/h4x0rs/Desktop/LOL4YOU/LOL4YOU/rootclass.swift"
-                  timestampString = "521602002.093878"
+                  timestampString = "522020942.299413"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "801"
-                  endingLineNumber = "801"
-                  offsetFromSymbolStart = "4686">
+                  startingLineNumber = "819"
+                  endingLineNumber = "819"
+                  offsetFromSymbolStart = "3272">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -185,14 +169,78 @@
                   moduleName = "LOL4YOU"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/h4x0rs/Desktop/LOL4YOU/LOL4YOU/rootclass.swift"
-                  timestampString = "521602002.096379"
+                  timestampString = "522020942.30153"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "803"
-                  endingLineNumber = "803"
+                  startingLineNumber = "821"
+                  endingLineNumber = "821"
                   offsetFromSymbolStart = "32">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LOL4YOU/rootclass.swift"
+            timestampString = "522020545.734968"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "831"
+            endingLineNumber = "831"
+            landmarkName = "listarSummoner(summonername:error:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LOL4YOU/rootclass.swift"
+            timestampString = "522012617.65805"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "753"
+            endingLineNumber = "753"
+            landmarkName = "listarVersion()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LOL4YOU/rootclass.swift"
+            timestampString = "522020545.734968"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "783"
+            endingLineNumber = "783"
+            landmarkName = "listaKeyLOL()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LOL4YOU/rootclass.swift"
+            timestampString = "522020931.462783"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "735"
+            endingLineNumber = "735"
+            landmarkName = "listarVersion()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
