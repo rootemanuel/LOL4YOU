@@ -883,9 +883,9 @@ final class rootclass: NSObject {
              Region.REGION_EUW.rawValue,
              Region.REGION_TR.rawValue,
              Region.REGION_LAN.rawValue:
-            url = "https://\(lol.server).api.riotgames.com/api/lol/\(lol.server)/v1.3/stats/by-summoner/\(Summoner.summonerID)/ranked?season=SEASON2017&api_key=\(lol.api_key)"
+            url = "https://\(lol.server)1.api.riotgames.com/api/lol/\(lol.server)/v1.3/stats/by-summoner/\(Summoner.summonerID)/ranked?season=SEASON2017&api_key=\(lol.api_key)"
         case Region.REGION_LAS.rawValue:
-            url = "https://\(lol.server).api.riotgames.com/api/lol/\(lol.server)/v1.3/stats/by-summoner/\(Summoner.summonerID)/ranked?season=SEASON2017&api_key=\(lol.api_key)"
+            url = "https://\(lol.server)2.api.riotgames.com/api/lol/\(lol.server)/v1.3/stats/by-summoner/\(Summoner.summonerID)/ranked?season=SEASON2017&api_key=\(lol.api_key)"
         default:
             NSLog("#R00T - ERROR SERVER")
         }
@@ -1040,9 +1040,9 @@ final class rootclass: NSObject {
              Region.REGION_EUW.rawValue,
              Region.REGION_TR.rawValue,
              Region.REGION_LAN.rawValue:
-            url = "https://\(lol.server).api.riotgames.com/api/lol/\(lol.server)/v1.3/stats/by-summoner/\(Summoner.summonerID)/ranked?season=SEASON2017&api_key=\(lol.api_key)"
+            url = "https://\(lol.server)1.api.riotgames.com/api/lol/\(lol.server)/v1.3/stats/by-summoner/\(Summoner.summonerID)/ranked?season=SEASON2017&api_key=\(lol.api_key)"
         case Region.REGION_LAS.rawValue:
-            url = "https://\(lol.server).api.riotgames.com/api/lol/\(lol.server)/v1.3/stats/by-summoner/\(Summoner.summonerID)/ranked?season=SEASON2017&api_key=\(lol.api_key)"
+            url = "https://\(lol.server)2.api.riotgames.com/api/lol/\(lol.server)/v1.3/stats/by-summoner/\(Summoner.summonerID)/ranked?season=SEASON2017&api_key=\(lol.api_key)"
         default:
             NSLog("#R00T - ERROR SERVER")
         }
@@ -1188,7 +1188,7 @@ final class rootclass: NSObject {
         switch lol.server {
         case Region.REGION_RU.rawValue,
              Region.REGION_KR.rawValue:
-            url = "https://\(lol.server).api.riotgames.com/api/lol/\(lol.server)/v2.5/league/by-summoner/\(Summoner.summonerID)/entry?api_key=\(lol.api_key)"
+            url = "https://\(lol.server).api.riotgames.com/lol/league/v3/positions/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
         case Region.REGION_BR.rawValue,
              Region.REGION_OCE.rawValue,
              Region.REGION_JP.rawValue,
@@ -1197,9 +1197,9 @@ final class rootclass: NSObject {
              Region.REGION_EUW.rawValue,
              Region.REGION_TR.rawValue,
              Region.REGION_LAN.rawValue:
-            url = "https://\(lol.server).api.riotgames.com/api/lol/\(lol.server)/v2.5/league/by-summoner/\(Summoner.summonerID)/entry?api_key=\(lol.api_key)"
+             url = "https://\(lol.server)1.api.riotgames.com/lol/league/v3/positions/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
         case Region.REGION_LAS.rawValue:
-            url = "https://\(lol.server).api.riotgames.com/api/lol/\(lol.server)/v2.5/league/by-summoner/\(Summoner.summonerID)/entry?api_key=\(lol.api_key)"
+             url = "https://\(lol.server)2.api.riotgames.com/lol/league/v3/positions/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
         default:
             NSLog("#R00T - ERROR SERVER")
         }
@@ -1212,38 +1212,36 @@ final class rootclass: NSObject {
                 
                 if jleague != JSON.null {
                     if(!jleague.isEmpty){
-                        for i in 0 ..< jleague["\(Summoner.summonerID)"].count {
+                        for i in 0 ..< jleague.count {
                             let r = BELeague()
                             
-                            if let tier = jleague["\(Summoner.summonerID)"][i]["tier"].string {
+                            if let tier = jleague[i]["tier"].string {
                                 r.tier = tier
                             }
                             
-                            if let queue = jleague["\(Summoner.summonerID)"][i]["queue"].string {
+                            if let queue = jleague[i]["queueType"].string {
                                 r.queue = queue
                             }
                             
-                            if let name = jleague["\(Summoner.summonerID)"][i]["name"].string {
+                            if let name = jleague[i]["leagueName"].string {
                                 r.name = name
                             }
                             
-                            for a in 0 ..< jleague["\(Summoner.summonerID)"][i]["entries"].count {
-                                
-                                if let division = jleague["\(Summoner.summonerID)"][i]["entries"][a]["division"].string {
-                                    r.division = division
-                                }
-                                
-                                if let wins = jleague["\(Summoner.summonerID)"][i]["entries"][a]["wins"].int {
-                                    r.wins = wins
-                                }
-                                
-                                if let losses = jleague["\(Summoner.summonerID)"][i]["entries"][a]["losses"].int {
-                                    r.losses = losses
-                                }
-                                
-                                if let leaguePoints = jleague["\(Summoner.summonerID)"][i]["entries"][a]["leaguePoints"].int {
-                                    r.leaguePoints = leaguePoints
-                                }
+                            
+                            if let division = jleague[i]["rank"].string {
+                                r.division = division
+                            }
+                                    
+                            if let wins = jleague[i]["wins"].int {
+                                r.wins = wins
+                            }
+                                    
+                            if let losses = jleague[i]["losses"].int {
+                                r.losses = losses
+                            }
+                            
+                            if let leaguePoints = jleague[i]["leaguePoints"].int {
+                                r.leaguePoints = leaguePoints
                             }
                             
                             rtn.append(r)
@@ -1277,9 +1275,9 @@ final class rootclass: NSObject {
              Region.REGION_EUW.rawValue,
              Region.REGION_TR.rawValue,
              Region.REGION_LAN.rawValue:
-            url = "https://\(lol.server).api.riotgames.com/api/lol/\(lol.server)/v2.2/matchlist/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
+            url = "https://\(lol.server)1.api.riotgames.com/api/lol/\(lol.server)/v2.2/matchlist/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
         case Region.REGION_LAS.rawValue:
-            url = "https://\(lol.server).api.riotgames.com/api/lol/\(lol.server)/v2.2/matchlist/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
+            url = "https://\(lol.server)2.api.riotgames.com/api/lol/\(lol.server)/v2.2/matchlist/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
         default:
             NSLog("#R00T - ERROR SERVER")
         }
@@ -1335,9 +1333,9 @@ final class rootclass: NSObject {
              Region.REGION_EUW.rawValue,
              Region.REGION_TR.rawValue,
              Region.REGION_LAN.rawValue:
-            url = "https://\(lol.server).api.riotgames.com/api/lol/\(lol.server)/v2.2/match/\(matchid)?api_key=\(lol.api_key)"
+            url = "https://\(lol.server)1.api.riotgames.com/api/lol/\(lol.server)/v2.2/match/\(matchid)?api_key=\(lol.api_key)"
         case Region.REGION_LAS.rawValue:
-            url = "https://\(lol.server).api.riotgames.com/api/lol/\(lol.server)/v2.2/match/\(matchid)?api_key=\(lol.api_key)"
+            url = "https://\(lol.server)2.api.riotgames.com/api/lol/\(lol.server)/v2.2/match/\(matchid)?api_key=\(lol.api_key)"
         default:
             NSLog("#R00T - ERROR SERVER")
         }
@@ -1659,9 +1657,9 @@ final class rootclass: NSObject {
                      Region.REGION_EUW.rawValue,
                      Region.REGION_TR.rawValue,
                      Region.REGION_LAN.rawValue:
-                    url = "https://\(lol.server).api.riotgames.com/api/lol/\(lol.server)/v2.2/match/\(matchids[i])?api_key=\(lol.api_key)"
+                    url = "https://\(lol.server)1.api.riotgames.com/api/lol/\(lol.server)/v2.2/match/\(matchids[i])?api_key=\(lol.api_key)"
                 case Region.REGION_LAS.rawValue:
-                    url = "https://\(lol.server).api.riotgames.com/api/lol/\(lol.server)/v2.2/match/\(matchids[i])?api_key=\(lol.api_key)"
+                    url = "https://\(lol.server)2.api.riotgames.com/api/lol/\(lol.server)/v2.2/match/\(matchids[i])?api_key=\(lol.api_key)"
                 default:
                     NSLog("#R00T - ERROR SERVER")
                 }
@@ -1990,9 +1988,9 @@ final class rootclass: NSObject {
              Region.REGION_EUW.rawValue,
              Region.REGION_TR.rawValue,
              Region.REGION_LAN.rawValue:
-            url = "https://\(lol.server).api.riotgames.com/api/lol/\(lol.server)/v1.3/game/by-summoner/\(Summoner.summonerID)/recent?api_key=\(lol.api_key)"
+            url = "https://\(lol.server)1.api.riotgames.com/api/lol/\(lol.server)/v1.3/game/by-summoner/\(Summoner.summonerID)/recent?api_key=\(lol.api_key)"
         case Region.REGION_LAS.rawValue:
-            url = "https://\(lol.server).api.riotgames.com/api/lol/\(lol.server)/v1.3/game/by-summoner/\(Summoner.summonerID)/recent?api_key=\(lol.api_key)"
+            url = "https://\(lol.server)2.api.riotgames.com/api/lol/\(lol.server)/v1.3/game/by-summoner/\(Summoner.summonerID)/recent?api_key=\(lol.api_key)"
         default:
             NSLog("#R00T - ERROR SERVER")
         }
