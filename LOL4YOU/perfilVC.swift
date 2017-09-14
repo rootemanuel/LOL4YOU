@@ -157,6 +157,8 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
         self.lvl.text = ("\(rootclass.Summoner.summonerLevel)")
         self.imglvl.layer.borderWidth = 2
         self.imglvl.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
+        
+        self.rt.listarStaticChampMastery()
     }
     
     func initAdMob() {

@@ -23,6 +23,7 @@ final class rootclass: NSObject {
     var dicStaticRunes = Dictionary<Int, staticrunes>()
     var dicStaticChampions = Dictionary<Int, staticchampions>()
     var dicStaticMastery = Dictionary<Int, staticmastery>()
+    var dicStaticChampMastery = Dictionary<Int, staticchampmastery>()
     
     class staticspell {
         var id:Int = 0
@@ -57,6 +58,12 @@ final class rootclass: NSObject {
         var name:String = ""
         var imagefull:String = ""
         var imagelink:String = ""
+    }
+    
+    class staticchampmastery {
+        var championId:Int = 0
+        var championPoints:Int = 0
+        var championLevel:Int = 0
     }
     
     struct screens {
@@ -346,7 +353,64 @@ final class rootclass: NSObject {
         }
     }
     
-    func listaStaticSpell(spells:@escaping (JSON) -> ()) {
+    func listarStaticChampMastery() {
+        
+        var url = ""
+        
+        switch lol.server {
+        case Region.REGION_RU.rawValue,
+             Region.REGION_KR.rawValue:
+            url = "https://\(lol.server).api.riotgames.com/lol/champion-mastery/v3/champion-masteries/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
+        case Region.REGION_BR.rawValue,
+             Region.REGION_OCE.rawValue,
+             Region.REGION_JP.rawValue,
+             Region.REGION_NA.rawValue,
+             Region.REGION_EUNE.rawValue,
+             Region.REGION_EUW.rawValue,
+             Region.REGION_TR.rawValue,
+             Region.REGION_LAN.rawValue:
+            url = "https://\(lol.server)1.api.riotgames.com/lol/champion-mastery/v3/champion-masteries/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
+        case Region.REGION_LAS.rawValue:
+            url = "https://\(lol.server)2.api.riotgames.com/lol/champion-mastery/v3/champion-masteries/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
+        default:
+            NSLog("#R00T - ERROR SERVER")
+        }
+        
+        Alamofire.request(url).validate().responseJSON { response in
+            
+            switch response.result {
+            case .success( _):
+                let jmastery = JSON(response.result.value!)
+                
+                if jmastery != JSON.null {
+                    if(!jmastery.isEmpty){
+                        for i in 0 ..< jmastery.count {
+                            let r = staticchampmastery()
+                            
+                            if let championId = jmastery[i]["championId"].int {
+                                r.championId = championId
+                            }
+                            
+                            if let championLevel = jmastery[i]["championLevel"].int {
+                                r.championLevel = championLevel
+                            }
+                            
+                            if let championPoints = jmastery[i]["championPoints"].int {
+                                r.championPoints = championPoints
+                            }
+                            
+                            self.dicStaticChampMastery[r.championId] = r
+                        }
+                    }
+                }
+                
+            case .failure(let error):
+                NSLog("#R00T - ERROR GET CHAMPION MASTERY - ERROR: \(error)")
+            }
+        }
+    }
+    
+    func listarStaticSpell(spells:@escaping (JSON) -> ()) {
         
         let url = "https://na1.api.riotgames.com/lol/static-data/v3/summoner-spells?spellListData=image&api_key=\(lol.api_key)"
         
@@ -405,7 +469,7 @@ final class rootclass: NSObject {
     }
 
     
-    func listaStaticRunes(runes:@escaping (JSON) -> ()) {
+    func listarStaticRunes(runes:@escaping (JSON) -> ()) {
         
         let url = "https://na1.api.riotgames.com/lol/static-data/v3/runes?locale=en_US&tags=all&api_key=\(lol.api_key)"
         //let url = "https://na1.api.riotgames.com/lol/static-data/v3/runes?runeListData=basic,image&api_key=\(lol.api_key)"
@@ -476,7 +540,7 @@ final class rootclass: NSObject {
         }
     }
     
-    func listaStaticChampions(champions:@escaping (JSON) -> ()) {
+    func listarStaticChampions(champions:@escaping (JSON) -> ()) {
         
         let url = "https://na1.api.riotgames.com/lol/static-data/v3/champions?champListData=image&api_key=\(lol.api_key)"
         
@@ -534,7 +598,7 @@ final class rootclass: NSObject {
         }
     }
     
-    func listaStaticMastery(mastery:@escaping (JSON) -> ()) {
+    func listarStaticMastery(mastery:@escaping (JSON) -> ()) {
         
         let url = "https://na1.api.riotgames.com/lol/static-data/v3/masteries?masteryListData=image&api_key=\(lol.api_key)"
         
@@ -594,7 +658,7 @@ final class rootclass: NSObject {
         }
     }
     
-    func listaStaticSpell(jspell:JSON) {
+    func listarStaticSpell(jspell:JSON) {
         
         let dspell: Dictionary<String, JSON> = jspell["data"].dictionaryValue
         
@@ -622,7 +686,7 @@ final class rootclass: NSObject {
         }
     }
     
-    func listaStaticRunes(jrunes:JSON) {
+    func listarStaticRunes(jrunes:JSON) {
         
         let drunes: Dictionary<String, JSON> = jrunes["data"].dictionaryValue
         
@@ -662,7 +726,7 @@ final class rootclass: NSObject {
         }
     }
     
-    func listaStaticChampions(jchampions: JSON) {
+    func listarStaticChampions(jchampions: JSON) {
         
         let dchampions: Dictionary<String, JSON> = jchampions["data"].dictionaryValue
         
@@ -690,7 +754,7 @@ final class rootclass: NSObject {
         }
     }
     
-    func listaStaticMastery(jmastery:JSON) {
+    func listarStaticMastery(jmastery:JSON) {
         
         let dmastery: Dictionary<String, JSON> = jmastery["data"].dictionaryValue
         
@@ -789,7 +853,6 @@ final class rootclass: NSObject {
             semaphore.wait(timeout: .distantFuture)
         }
     }
-
     
     func listarSummoner(summonername:String,error:@escaping (BEErro) -> ()) {
         
@@ -815,6 +878,8 @@ final class rootclass: NSObject {
         default:
             NSLog("#R00T - ERROR SERVER")
         }
+        
+        url = url.addingPercentEncoding(withAllowedCharacters:NSCharacterSet.urlQueryAllowed)!
         
         Alamofire.request(url).validate().responseJSON { response in
             
@@ -862,6 +927,63 @@ final class rootclass: NSObject {
             }
             
             error(rtn)
+        }
+    }
+    
+    func listaStaticChampMastery() {
+        
+        var url = ""
+
+        switch lol.server {
+        case Region.REGION_RU.rawValue,
+             Region.REGION_KR.rawValue:
+            url = "https://\(lol.server).api.riotgames.com/lol/champion-mastery/v3/champion-masteries/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
+        case Region.REGION_BR.rawValue,
+             Region.REGION_OCE.rawValue,
+             Region.REGION_JP.rawValue,
+             Region.REGION_NA.rawValue,
+             Region.REGION_EUNE.rawValue,
+             Region.REGION_EUW.rawValue,
+             Region.REGION_TR.rawValue,
+             Region.REGION_LAN.rawValue:
+            url = "https://\(lol.server)1.api.riotgames.com/lol/champion-mastery/v3/champion-masteries/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
+        case Region.REGION_LAS.rawValue:
+            url = "https://\(lol.server)2.api.riotgames.com/lol/champion-mastery/v3/champion-masteries/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
+        default:
+            NSLog("#R00T - ERROR SERVER")
+        }
+        
+        Alamofire.request(url).validate().responseJSON { response in
+            
+            switch response.result {
+            case .success( _):
+                let jmastery = JSON(response.result.value!)
+                
+                if jmastery != JSON.null {
+                    if(!jmastery.isEmpty){
+                        for i in 0 ..< jmastery.count {
+                            let r = staticchampmastery()
+                            
+                            if let championId = jmastery[i]["championId"].int {
+                                r.championId = championId
+                            }
+                            
+                            if let championLevel = jmastery[i]["championLevel"].int {
+                                r.championLevel = championLevel
+                            }
+                            
+                            if let championPoints = jmastery[i]["championPoints"].int {
+                                r.championPoints = championPoints
+                            }
+                            
+                            self.dicStaticChampMastery[r.championId] = r
+                        }
+                    }
+                }
+                
+            case .failure(let error):
+                NSLog("#R00T - ERROR GET CHAMPION MASTERY - ERROR: \(error)")
+            }
         }
     }
     
@@ -2260,12 +2382,22 @@ final class rootclass: NSObject {
             }
         }
     }
-
+    
+    func listaChampMastery(id:Int) -> staticchampmastery {
+        var rtn = staticchampmastery()
+        
+        if let champmastery = self.dicStaticChampMastery[id] {
+            rtn = champmastery
+        }
+        
+        return rtn
+    }
+    
     func listaChamp(id:Int) -> staticchampions {
         var rtn = staticchampions()
         
-        if let champ = self.dicStaticChampions[id] {
-            rtn = champ
+        if let champmastery = self.dicStaticChampions[id] {
+            rtn = champmastery
         }
         
         return rtn
@@ -2300,4 +2432,5 @@ final class rootclass: NSObject {
         
         return rtn
     }
+    
 }

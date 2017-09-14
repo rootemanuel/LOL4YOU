@@ -78,28 +78,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                 NSLog("R00T - SALVOU VERSAO VALOR - \(rootclass.lol.version)")
                             }
                         }
-                        rt.listaStaticSpell{(spells) in
+                        rt.listarStaticSpell{(spells) in
                             do {
                                 try  self.rt.writeJsonLocal(file: rootclass.shared.spells, data: spells.rawData())
                             } catch {
                                 NSLog("R00T - WRITE JSON LOCAL - ERROR: \(error)")
                             }
                         }
-                        rt.listaStaticRunes{(runes) in
+                        rt.listarStaticRunes{(runes) in
                             do {
                                 try  self.rt.writeJsonLocal(file: rootclass.shared.runes, data: runes.rawData())
                             } catch {
                                 NSLog("R00T - WRITE JSON LOCAL - ERROR: \(error)")
                             }
                         }
-                        rt.listaStaticChampions{(champions) in
+                        rt.listarStaticChampions{(champions) in
                             do {
                                 try  self.rt.writeJsonLocal(file: rootclass.shared.champions, data: champions.rawData())
                             } catch {
                                 NSLog("R00T - WRITE JSON LOCAL - ERROR: \(error)")
                             }
                         }
-                        rt.listaStaticMastery{(masterys) in
+                        rt.listarStaticMastery{(masterys) in
                             do {
                                 try  self.rt.writeJsonLocal(file: rootclass.shared.masterys, data: masterys.rawData())
                             } catch {
@@ -111,7 +111,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             let spellsd = try self.rt.readJsonLocal(file: rootclass.shared.spells)
                             if !spellsd.isEmpty {
                                 let spellsj = JSON(data: spellsd)
-                                self.rt.listaStaticSpell(jspell: spellsj)
+                                self.rt.listarStaticSpell(jspell: spellsj)
                                 NSLog("R00T - CARREGOU SPELLS CACHE - \(spellsd)")
                             }
                         } catch {
@@ -122,7 +122,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             let championsd = try self.rt.readJsonLocal(file: rootclass.shared.champions)
                             if !championsd.isEmpty {
                                 let championsj = JSON(data:championsd)
-                                self.rt.listaStaticChampions(jchampions: championsj)
+                                self.rt.listarStaticChampions(jchampions: championsj)
                                 NSLog("R00T - CARREGOU CHAMPIONS CACHE - \(championsd)")
                             }
                         } catch {
@@ -133,7 +133,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             let runesd = try self.rt.readJsonLocal(file: rootclass.shared.runes)
                             if !runesd.isEmpty {
                                 let runesj = JSON(data:runesd)
-                                self.rt.listaStaticRunes(jrunes: runesj)
+                                self.rt.listarStaticRunes(jrunes: runesj)
                                 NSLog("R00T - CARREGOU RUNES CACHE - \(runesd)")
                             }
                         } catch {
@@ -144,7 +144,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             let masterysd = try self.rt.readJsonLocal(file: rootclass.shared.masterys)
                             if !masterysd.isEmpty {
                                 let masterysj = JSON(data:masterysd)
-                                self.rt.listaStaticMastery(jmastery: masterysj)
+                                self.rt.listarStaticMastery(jmastery: masterysj)
                                 NSLog("R00T - CARREGOU MASTERYS CACHE - \(masterysd)")
                             }
                         } catch {
@@ -158,28 +158,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         NSLog("R00T - CRIOU VERSAO VALOR - \(rootclass.lol.version)")
                     }
                 }
-                rt.listaStaticSpell{(spells) in
+                rt.listarStaticSpell{(spells) in
                     do {
                         try  self.rt.writeJsonLocal(file: rootclass.shared.spells, data: spells.rawData())
                     } catch {
                         NSLog("R00T - WRITE JSON LOCAL - ERROR: \(error)")
                     }
                 }
-                rt.listaStaticRunes{(runes) in
+                rt.listarStaticRunes{(runes) in
                     do {
                         try  self.rt.writeJsonLocal(file: rootclass.shared.runes, data: runes.rawData())
                     } catch {
                         NSLog("R00T - WRITE JSON LOCAL - ERROR: \(error)")
                     }
                 }
-                rt.listaStaticChampions{(champions) in
+                rt.listarStaticChampions{(champions) in
                     do {
                         try  self.rt.writeJsonLocal(file: rootclass.shared.champions, data: champions.rawData())
                     } catch {
                         NSLog("R00T - WRITE JSON LOCAL - ERROR: \(error)")
                     }
                 }
-                rt.listaStaticMastery{(masterys) in
+                rt.listarStaticMastery{(masterys) in
                     do {
                         try  self.rt.writeJsonLocal(file: rootclass.shared.masterys, data: masterys.rawData())
                     } catch {
