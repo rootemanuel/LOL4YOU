@@ -7,29 +7,74 @@
 //
 
 import UIKit
+import SVProgressHUD
+import SDWebImage
+import GoogleMobileAds
+import FirebaseAnalytics
 
-class champmasteryVC: UIViewController {
+class champmasteryVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    let admob = rootadmob.sharedInstance
+    let rt = rootclass.sharedInstance
+    
+    var listStaticChampMastery = Array<rootclass.staticchampmastery>()
 
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        self.initAdMob()
+        self.initView()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.listStaticChampMastery.count
     }
-    */
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: championmasteryCVC = collectionView.dequeueReusableCell(withReuseIdentifier: "cellchampmastery", for: indexPath) as! championmasteryCVC
+        
+        let champaux = self.listStaticChampMastery[indexPath.row]
+        let champ = rt.listaChamp(id: champaux.championId)
+        
+        cell.txtchampoints.text = "\(champaux.championPoints)"
+        cell.imgchamp.sd_setImage(with: URL(string: "\(rootclass.images.champion)\(champ.imagefull)"), placeholderImage: UIImage(named: "static_null_all"))
+        cell.imgchampmold.image = UIImage(named: "static_mastery_mold_\(champaux.championLevel)")
+        
+        return cell
+    }
+    
+    func initView(){
+        
+        let attnav = [
+            NSForegroundColorAttributeName: UIColor(hex:rootclass.colors.TEXTO_TOP_BAR.rawValue),
+            NSFontAttributeName: UIFont(name: "Friz Quadrata TT", size: 17)!
+        ]
+        
+        let button = UIButton.init(type: .custom)
+        button.setImage(UIImage(named:"static_button_back"), for: UIControlState.normal)
+        button.addTarget(self, action:#selector(spopViewController), for: UIControlEvents.touchUpInside)
+        button.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
+        let barButton = UIBarButtonItem.init(customView: button)
+        self.navigationItem.leftBarButtonItem = barButton
+        
+        self.navigationController?.navigationBar.barTintColor = UIColor(hex: rootclass.colors.FUNDO.rawValue)
+        self.navigationController?.navigationBar.titleTextAttributes = attnav
+        
+        self.listStaticChampMastery = rt.listStaticChampMastery
+        
+        self.title = "Champion Mastery"
+    }
+
+    
+    func initAdMob() {
+        Analytics.setScreenName(rootclass.screens.masteryschamp, screenClass: String(describing: champmasteryVC.self))
+    }
+    
+    func spopViewController(){
+        self.navigationController?.popViewController(animated: true)
+    }
+
 
 }

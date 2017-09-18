@@ -25,6 +25,8 @@ final class rootclass: NSObject {
     var dicStaticMastery = Dictionary<Int, staticmastery>()
     var dicStaticChampMastery = Dictionary<Int, staticchampmastery>()
     
+    var listStaticChampMastery = Array<staticchampmastery>()
+    
     class staticspell {
         var id:Int = 0
         var key:String = ""
@@ -78,6 +80,7 @@ final class rootclass: NSObject {
         static internal var runesdet:String = "RUNES_DET"
         static internal var masterys:String = "MASTERYS"
         static internal var masterysdet:String = "MASTERYS_DET"
+        static internal var masteryschamp:String = "MASTERYS_CHAMP"
     }
     
     struct lol {
@@ -382,6 +385,9 @@ final class rootclass: NSObject {
             case .success( _):
                 let jmastery = JSON(response.result.value!)
                 
+                self.dicStaticChampMastery = Dictionary<Int, staticchampmastery>()
+                self.listStaticChampMastery = Array<staticchampmastery>()
+                
                 if jmastery != JSON.null {
                     if(!jmastery.isEmpty){
                         for i in 0 ..< jmastery.count {
@@ -400,6 +406,7 @@ final class rootclass: NSObject {
                             }
                             
                             self.dicStaticChampMastery[r.championId] = r
+                            self.listStaticChampMastery.append(r)
                         }
                     }
                 }
@@ -927,63 +934,6 @@ final class rootclass: NSObject {
             }
             
             error(rtn)
-        }
-    }
-    
-    func listaStaticChampMastery() {
-        
-        var url = ""
-
-        switch lol.server {
-        case Region.REGION_RU.rawValue,
-             Region.REGION_KR.rawValue:
-            url = "https://\(lol.server).api.riotgames.com/lol/champion-mastery/v3/champion-masteries/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
-        case Region.REGION_BR.rawValue,
-             Region.REGION_OCE.rawValue,
-             Region.REGION_JP.rawValue,
-             Region.REGION_NA.rawValue,
-             Region.REGION_EUNE.rawValue,
-             Region.REGION_EUW.rawValue,
-             Region.REGION_TR.rawValue,
-             Region.REGION_LAN.rawValue:
-            url = "https://\(lol.server)1.api.riotgames.com/lol/champion-mastery/v3/champion-masteries/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
-        case Region.REGION_LAS.rawValue:
-            url = "https://\(lol.server)2.api.riotgames.com/lol/champion-mastery/v3/champion-masteries/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
-        default:
-            NSLog("#R00T - ERROR SERVER")
-        }
-        
-        Alamofire.request(url).validate().responseJSON { response in
-            
-            switch response.result {
-            case .success( _):
-                let jmastery = JSON(response.result.value!)
-                
-                if jmastery != JSON.null {
-                    if(!jmastery.isEmpty){
-                        for i in 0 ..< jmastery.count {
-                            let r = staticchampmastery()
-                            
-                            if let championId = jmastery[i]["championId"].int {
-                                r.championId = championId
-                            }
-                            
-                            if let championLevel = jmastery[i]["championLevel"].int {
-                                r.championLevel = championLevel
-                            }
-                            
-                            if let championPoints = jmastery[i]["championPoints"].int {
-                                r.championPoints = championPoints
-                            }
-                            
-                            self.dicStaticChampMastery[r.championId] = r
-                        }
-                    }
-                }
-                
-            case .failure(let error):
-                NSLog("#R00T - ERROR GET CHAMPION MASTERY - ERROR: \(error)")
-            }
         }
     }
     

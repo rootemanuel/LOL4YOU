@@ -32,7 +32,8 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
         menu.init(title: "Stats", image: "static_menu_stats"),
         menu.init(title: "Matches", image: "static_menu_matches"),
         menu.init(title: "Runes", image: "static_menu_runes"),
-        menu.init(title: "Masteries", image: "static_menu_masterys")
+        menu.init(title: "Masteries", image: "static_menu_masterys"),
+        menu.init(title: "Champion Mastery", image: "static_menu_masterys")
     ]
     
     override func viewDidLoad() {
@@ -129,9 +130,14 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
             let vc = storyboard.instantiateViewController(withIdentifier: "masterys") as! masterysTVC
             
             self.navigationController?.pushViewController(vc, animated: true)
+        }else if indexPath.item == 5 {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "champmastery") as! champmasteryVC
+    
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
-    
+
     func initView(){
         let attnav = [
             NSForegroundColorAttributeName: UIColor(hex:rootclass.colors.TEXTO_TOP_BAR.rawValue),

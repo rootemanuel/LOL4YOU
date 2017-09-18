@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -23,7 +23,7 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="0.086274509799999996" green="0.10980392160000001" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.0078431372550000003" green="0.039215686270000001" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="SGb-eh-1m1" secondAttribute="trailing" constant="8" id="9yO-0t-K3R"/>
                 <constraint firstItem="SGb-eh-1m1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="QBo-N7-LNA"/>

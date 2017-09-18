@@ -127,7 +127,7 @@ class masterysTVC: UITableViewController {
         
         self.navigationController?.navigationBar.barTintColor = UIColor(hex: rootclass.colors.FUNDO.rawValue)
         self.navigationController?.navigationBar.titleTextAttributes = attnav
-        self.title = "Masterys"
+        self.title = "Masteries"
     }
     
     func spopViewController(){

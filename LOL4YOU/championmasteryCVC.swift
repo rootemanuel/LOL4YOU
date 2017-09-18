@@ -10,4 +10,8 @@ import UIKit
 
 class championmasteryCVC: UICollectionViewCell {
     
+    @IBOutlet weak var txtchampoints: UILabel!
+    @IBOutlet weak var imgchampmold: UIImageView!
+    @IBOutlet weak var imgchamp: UIImageView!
+    
 }
