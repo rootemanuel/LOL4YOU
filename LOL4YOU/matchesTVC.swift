@@ -82,10 +82,15 @@ class matchesTVC: UITableViewController {
             
         if tmatchs.createDate != 0 {
             let date = Date(timeIntervalSince1970: TimeInterval(tmatchs.createDate / 1000))
-            let formatter  = DateFormatter()
-            formatter.dateFormat = "MM/dd/yyyy"
             
-            lmatches.day.text = formatter.string(from: date)
+            if date != nil {
+                let formatter  = DateFormatter()
+                formatter.dateFormat = "dd/MM/yyyy"
+                
+                lmatches.day.text = formatter.string(from: date)
+            } else {
+                lmatches.day.text = ""
+            }
         }
             
         if tmatchs.stats.win {

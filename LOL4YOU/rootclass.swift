@@ -1524,6 +1524,7 @@ final class rootclass: NSObject {
                             if let item6 = jmatchdet["participants"][a]["stats"]["item6"].int {
                                 participant.stats.item6 = item6
                                 participant.stats.item6imagelink = "\(rootclass.images.item)\(item6)\(rootclass.images.png)"
+
                             }
                             
                             if let kills = jmatchdet["participants"][a]["stats"]["kills"].int {
@@ -1730,6 +1731,7 @@ final class rootclass: NSObject {
                 let participantId = match.participantsIdentities.filter { p in p.summonerId == Summoner.summonerID }
                 let participants = match.participants.filter { p in p.participantId == participantId[0].participantId }
                 
+                r.createDate = match.gameCreation
                 r.gameId = match.gameId
                 r.queue = match.queueType
                 r.championId = participants[0].championId
