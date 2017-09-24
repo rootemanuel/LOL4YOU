@@ -394,6 +394,7 @@
                                             <constraint firstItem="53s-oK-M75" firstAttribute="top" secondItem="6Yv-dt-PP8" secondAttribute="top" constant="8" id="nL8-Vc-etg"/>
                                             <constraint firstAttribute="trailing" secondItem="53s-oK-M75" secondAttribute="trailing" constant="25" id="p6S-zm-Jwz"/>
                                         </constraints>
+                                        <size key="customSize" width="100" height="100"/>
                                         <connections>
                                             <outlet property="imgPerfil" destination="53s-oK-M75" id="hmZ-3o-3x7"/>
                                             <outlet property="lblPerfil" destination="LMr-wJ-b2h" id="pUF-ja-AKe"/>
@@ -474,7 +475,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SWy-ma-z3d" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="3bU-ng-sm6"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="uP2-f1-rLS">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uP2-f1-rLS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -493,7 +494,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="g8j-j8-aoU" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="search" id="MRf-Mb-DKY"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Bo3-Iv-28S">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bo3-Iv-28S">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0078431372550000003" green="0.039215686270000001" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1015,7 +1016,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="i1B-rD-tj3" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Mjv-ow-2Ow">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Mjv-ow-2Ow">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1033,7 +1034,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="413-Fr-ls1" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="4SV-VC-4QD">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4SV-VC-4QD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1056,22 +1057,22 @@
                         <color key="backgroundColor" red="0.086274509799999996" green="0.10980392160000001" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="separatorColor" red="0.086274509799999996" green="0.10980392160000001" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="matchescell" rowHeight="175" id="VY4-py-Pvl" customClass="matchesTVCC" customModule="LOL4YOU" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="175"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="matchescell" rowHeight="200" id="VY4-py-Pvl" customClass="matchesTVCC" customModule="LOL4YOU" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VY4-py-Pvl" id="5sp-X6-qub">
-                                    <frame key="frameInset" width="342" height="174"/>
+                                    <frame key="frameInset" width="342" height="199"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PCP-Fi-d2q">
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="50" id="38I-D4-6WQ"/>
-                                                <constraint firstAttribute="width" constant="50" id="3Be-3s-Ns9"/>
+                                                <constraint firstAttribute="height" constant="65" id="38I-D4-6WQ"/>
+                                                <constraint firstAttribute="width" constant="65" id="3Be-3s-Ns9"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <integer key="value" value="25"/>
+                                                    <integer key="value" value="32"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
@@ -1140,27 +1141,6 @@
                                                 <constraint firstAttribute="width" constant="15" id="eun-uc-Snq"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Days" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZv-YO-8WB">
-                                            <frame key="frameInset" minX="20.47%" minY="53" width="33.33%" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="12"/>
-                                            <color key="textColor" red="0.5568627451" green="0.54117647059999996" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Minutes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ujc-bs-y4m">
-                                            <frame key="frameInset" minX="20.47%" minY="71" width="33.33%" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="12"/>
-                                            <color key="textColor" red="0.5568627451" green="0.54117647059999996" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2N8-TX-Qxm">
-                                            <frame key="frameInset" minX="20.47%" minY="34" width="33.33%" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="15"/>
-                                            <color key="textColor" red="0.56862745098039214" green="0.035294117647058823" blue="0.14117647058823529" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/0/0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lag-ax-bYX">
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="3lT-00-78w"/>
@@ -1227,49 +1207,90 @@
                                             <color key="textColor" red="0.5568627451" green="0.54117647059999996" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MPh-C8-YOe">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="8IV-g9-ap7"/>
+                                                <constraint firstAttribute="width" constant="40" id="KFm-ki-DlY"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Days" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZv-YO-8WB">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="tf1-QX-mlM"/>
+                                                <constraint firstAttribute="width" constant="115" id="xHX-5E-Bg8"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="12"/>
+                                            <color key="textColor" red="0.5568627451" green="0.54117647059999996" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minutes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ujc-bs-y4m">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="YJh-Tx-OkI"/>
+                                                <constraint firstAttribute="width" constant="115" id="gdk-Jn-Xg0"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="12"/>
+                                            <color key="textColor" red="0.5568627451" green="0.54117647059999996" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2N8-TX-Qxm">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="115" id="6tI-sX-9QR"/>
+                                                <constraint firstAttribute="height" constant="21" id="Jue-bZ-w9C"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="15"/>
+                                            <color key="textColor" red="0.56862745098039214" green="0.035294117647058823" blue="0.14117647058823529" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="mPk-5M-cMi" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="136" id="39y-mu-7qW"/>
-                                        <constraint firstItem="gOv-AV-ZFW" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="96" id="3r5-dh-vmm"/>
-                                        <constraint firstItem="PqL-zU-loV" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="96" id="5Gc-W7-9ai"/>
+                                        <constraint firstItem="mPk-5M-cMi" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="156" id="39y-mu-7qW"/>
+                                        <constraint firstItem="gOv-AV-ZFW" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="112" id="3r5-dh-vmm"/>
+                                        <constraint firstItem="PqL-zU-loV" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="112" id="5Gc-W7-9ai"/>
                                         <constraint firstItem="mPk-5M-cMi" firstAttribute="leading" secondItem="pz9-QG-ltA" secondAttribute="trailing" constant="5" id="6av-It-XPy"/>
-                                        <constraint firstItem="NjS-Cf-88y" firstAttribute="leading" secondItem="5sp-X6-qub" secondAttribute="leading" constant="8" id="700-lI-sS8"/>
-                                        <constraint firstItem="QUL-Wc-BsG" firstAttribute="leading" secondItem="NjS-Cf-88y" secondAttribute="trailing" constant="3" id="84O-Wu-WJl"/>
-                                        <constraint firstItem="2ys-jn-nc7" firstAttribute="leading" secondItem="5sp-X6-qub" secondAttribute="leading" constant="8" id="9KN-I3-pyc"/>
+                                        <constraint firstItem="NjS-Cf-88y" firstAttribute="leading" secondItem="5sp-X6-qub" secondAttribute="leading" constant="21" id="700-lI-sS8"/>
+                                        <constraint firstItem="QUL-Wc-BsG" firstAttribute="leading" secondItem="NjS-Cf-88y" secondAttribute="trailing" constant="2" id="84O-Wu-WJl"/>
+                                        <constraint firstItem="2ys-jn-nc7" firstAttribute="leading" secondItem="5sp-X6-qub" secondAttribute="leading" constant="21" id="9KN-I3-pyc"/>
                                         <constraint firstItem="PCP-Fi-d2q" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="30" id="A2M-vn-Yym"/>
-                                        <constraint firstItem="PCP-Fi-d2q" firstAttribute="leading" secondItem="5sp-X6-qub" secondAttribute="leading" constant="8" id="DG9-Q8-MDp"/>
-                                        <constraint firstItem="FM5-MR-eKD" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="96" id="JR9-ZS-3Z1"/>
+                                        <constraint firstItem="MPh-C8-YOe" firstAttribute="leading" secondItem="5sp-X6-qub" secondAttribute="leading" constant="8" id="BEA-pz-Hk6"/>
+                                        <constraint firstItem="PCP-Fi-d2q" firstAttribute="leading" secondItem="5sp-X6-qub" secondAttribute="leading" constant="21" id="DG9-Q8-MDp"/>
+                                        <constraint firstItem="AZv-YO-8WB" firstAttribute="leading" secondItem="5sp-X6-qub" secondAttribute="leading" constant="103" id="Dsw-zL-2AJ"/>
+                                        <constraint firstItem="FM5-MR-eKD" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="112" id="JR9-ZS-3Z1"/>
+                                        <constraint firstItem="MPh-C8-YOe" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="21" id="Jst-89-9x0"/>
                                         <constraint firstAttribute="topMargin" secondItem="877-KO-owL" secondAttribute="top" id="K5n-oD-jbh"/>
-                                        <constraint firstItem="Zba-eZ-K7j" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="87" id="KLF-2s-81z"/>
+                                        <constraint firstItem="Zba-eZ-K7j" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="103" id="KLF-2s-81z"/>
                                         <constraint firstItem="fgW-Vu-qSS" firstAttribute="leading" secondItem="Zba-eZ-K7j" secondAttribute="trailing" constant="8" id="ML9-QK-bVm"/>
+                                        <constraint firstItem="2N8-TX-Qxm" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="30" id="OM7-dI-64C"/>
                                         <constraint firstItem="lvo-Xb-X7X" firstAttribute="leading" secondItem="YVF-45-h9y" secondAttribute="trailing" constant="-18" id="Opq-ZV-QLv"/>
-                                        <constraint firstItem="ZhQ-rV-2Fn" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="96" id="PMg-d0-PAd"/>
-                                        <constraint firstItem="QUL-Wc-BsG" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="110" id="R9w-WI-wez"/>
+                                        <constraint firstItem="ZhQ-rV-2Fn" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="112" id="PMg-d0-PAd"/>
+                                        <constraint firstItem="QUL-Wc-BsG" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="126" id="R9w-WI-wez"/>
                                         <constraint firstItem="l9N-nK-lVL" firstAttribute="leading" secondItem="qn2-nH-cKE" secondAttribute="trailing" constant="4" id="REa-WD-NgB"/>
-                                        <constraint firstItem="NjS-Cf-88y" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="101" id="ROa-t3-b6v"/>
+                                        <constraint firstItem="NjS-Cf-88y" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="117" id="ROa-t3-b6v"/>
+                                        <constraint firstItem="AZv-YO-8WB" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="49" id="SDR-zz-tdy"/>
                                         <constraint firstItem="FM5-MR-eKD" firstAttribute="leading" secondItem="oDs-QT-hIW" secondAttribute="trailing" constant="8" id="TNQ-z4-78w"/>
                                         <constraint firstItem="ZhQ-rV-2Fn" firstAttribute="leading" secondItem="gOv-AV-ZFW" secondAttribute="trailing" constant="8" id="Ty2-1B-du0"/>
                                         <constraint firstItem="qn2-nH-cKE" firstAttribute="leading" secondItem="mPk-5M-cMi" secondAttribute="trailing" constant="2" id="U9W-8a-dn8"/>
-                                        <constraint firstItem="qn2-nH-cKE" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="140" id="Up2-9T-SoJ"/>
+                                        <constraint firstItem="qn2-nH-cKE" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="160" id="Up2-9T-SoJ"/>
                                         <constraint firstItem="pz9-QG-ltA" firstAttribute="leading" secondItem="lag-ax-bYX" secondAttribute="trailing" constant="8" id="VZd-Vd-NsJ"/>
                                         <constraint firstItem="877-KO-owL" firstAttribute="leading" secondItem="5sp-X6-qub" secondAttribute="leading" constant="8" id="YLl-YC-y25"/>
                                         <constraint firstItem="lvo-Xb-X7X" firstAttribute="top" secondItem="YVF-45-h9y" secondAttribute="bottom" constant="-17" id="YqK-ee-aHl"/>
-                                        <constraint firstItem="7Nl-wg-cYL" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="96" id="YwA-ou-Klo"/>
-                                        <constraint firstAttribute="trailing" secondItem="877-KO-owL" secondAttribute="trailing" constant="9" id="b40-WJ-vam"/>
-                                        <constraint firstItem="lvo-Xb-X7X" firstAttribute="leading" secondItem="5sp-X6-qub" secondAttribute="leading" constant="35" id="b5H-Kd-tKL"/>
+                                        <constraint firstItem="7Nl-wg-cYL" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="112" id="YwA-ou-Klo"/>
+                                        <constraint firstAttribute="trailing" secondItem="877-KO-owL" secondAttribute="trailing" id="b40-WJ-vam"/>
+                                        <constraint firstItem="lvo-Xb-X7X" firstAttribute="leading" secondItem="5sp-X6-qub" secondAttribute="leading" constant="63" id="b5H-Kd-tKL"/>
                                         <constraint firstItem="gOv-AV-ZFW" firstAttribute="leading" secondItem="PqL-zU-loV" secondAttribute="trailing" constant="8" id="gsm-Gb-DZR"/>
-                                        <constraint firstItem="pz9-QG-ltA" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="139" id="kNF-cX-aHl"/>
+                                        <constraint firstItem="ujc-bs-y4m" firstAttribute="leading" secondItem="5sp-X6-qub" secondAttribute="leading" constant="103" id="hZr-AQ-mIy"/>
+                                        <constraint firstItem="pz9-QG-ltA" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="159" id="kNF-cX-aHl"/>
                                         <constraint firstItem="PqL-zU-loV" firstAttribute="leading" secondItem="FM5-MR-eKD" secondAttribute="trailing" constant="8" id="lMT-jV-YQv"/>
-                                        <constraint firstItem="fgW-Vu-qSS" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="96" id="lcm-We-Ngv"/>
-                                        <constraint firstItem="Zba-eZ-K7j" firstAttribute="leading" secondItem="5sp-X6-qub" secondAttribute="leading" constant="26" id="ljN-Ir-RRe"/>
-                                        <constraint firstItem="lag-ax-bYX" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="136" id="nwP-EI-292"/>
-                                        <constraint firstItem="l9N-nK-lVL" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="136" id="pxH-Oy-f6M"/>
+                                        <constraint firstItem="fgW-Vu-qSS" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="112" id="lcm-We-Ngv"/>
+                                        <constraint firstItem="Zba-eZ-K7j" firstAttribute="leading" secondItem="5sp-X6-qub" secondAttribute="leading" constant="38" id="ljN-Ir-RRe"/>
+                                        <constraint firstItem="lag-ax-bYX" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="156" id="nwP-EI-292"/>
+                                        <constraint firstItem="ujc-bs-y4m" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="67" id="p2e-U1-ADh"/>
+                                        <constraint firstItem="l9N-nK-lVL" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="156" id="pxH-Oy-f6M"/>
                                         <constraint firstItem="oDs-QT-hIW" firstAttribute="leading" secondItem="fgW-Vu-qSS" secondAttribute="trailing" constant="8" id="vo1-Ny-F3W"/>
                                         <constraint firstItem="7Nl-wg-cYL" firstAttribute="leading" secondItem="ZhQ-rV-2Fn" secondAttribute="trailing" constant="8" id="vwZ-Xn-4Cw"/>
-                                        <constraint firstItem="lag-ax-bYX" firstAttribute="leading" secondItem="2ys-jn-nc7" secondAttribute="trailing" constant="4" id="xsQ-Vc-7bT"/>
-                                        <constraint firstItem="2ys-jn-nc7" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="139" id="y6Q-4z-m0M"/>
-                                        <constraint firstItem="oDs-QT-hIW" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="96" id="ynN-C5-3zv"/>
-                                        <constraint firstItem="lvo-Xb-X7X" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="57" id="zOE-op-7PR"/>
+                                        <constraint firstItem="lag-ax-bYX" firstAttribute="leading" secondItem="2ys-jn-nc7" secondAttribute="trailing" constant="3" id="xsQ-Vc-7bT"/>
+                                        <constraint firstItem="2ys-jn-nc7" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="159" id="y6Q-4z-m0M"/>
+                                        <constraint firstItem="2N8-TX-Qxm" firstAttribute="leading" secondItem="5sp-X6-qub" secondAttribute="leading" constant="103" id="yId-Ol-FSD"/>
+                                        <constraint firstItem="oDs-QT-hIW" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="112" id="ynN-C5-3zv"/>
+                                        <constraint firstItem="lvo-Xb-X7X" firstAttribute="top" secondItem="5sp-X6-qub" secondAttribute="topMargin" constant="72" id="zOE-op-7PR"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.0078431372550000003" green="0.039215686270000001" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -1277,6 +1298,7 @@
                                     <outlet property="day" destination="AZv-YO-8WB" id="7SE-fe-qrA"/>
                                     <outlet property="gold" destination="mPk-5M-cMi" id="gab-t6-MoC"/>
                                     <outlet property="imgchamp" destination="PCP-Fi-d2q" id="gVU-6h-emR"/>
+                                    <outlet property="imgchampmastery" destination="MPh-C8-YOe" id="Alb-4y-JZW"/>
                                     <outlet property="imgitem0" destination="oDs-QT-hIW" id="8sk-6Z-LvB"/>
                                     <outlet property="imgitem1" destination="FM5-MR-eKD" id="hUz-OI-mEa"/>
                                     <outlet property="imgitem2" destination="PqL-zU-loV" id="aQk-N7-d3W"/>
@@ -1306,14 +1328,14 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NpK-N9-kP0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6740.625" y="-1630"/>
+            <point key="canvasLocation" x="6740" y="-1630.4347826086957"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XqS-RK-FVr">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="reI-IC-O7S" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="s4V-KT-4sc">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="s4V-KT-4sc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1335,7 +1357,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ycX-Jm-DSE" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="VLZ-L4-mJg">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VLZ-L4-mJg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1384,7 +1406,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KEi-Vx-CTV" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ByS-NL-XUF">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ByS-NL-XUF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1433,7 +1455,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7eE-Zl-Kbe" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="iZU-Yq-KSV">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iZU-Yq-KSV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1482,7 +1504,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AW2-0i-TAn" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="8hG-vL-St1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8hG-vL-St1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1531,7 +1553,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Jit-1I-kY9" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Lu5-kQ-YTz">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lu5-kQ-YTz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1580,7 +1602,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lNr-CA-RYk" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="7Nb-k0-vas">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7Nb-k0-vas">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1629,7 +1651,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5Va-L6-hQt" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="eIs-wO-pPj">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eIs-wO-pPj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1757,7 +1779,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uyk-uu-4Sv" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="vpB-4W-afM">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vpB-4W-afM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

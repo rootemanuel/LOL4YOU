@@ -26,6 +26,7 @@ class champmasteryVC: UIViewController, UICollectionViewDataSource, UICollection
         
         self.initAdMob()
         self.initView()
+        self.loadingView()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -66,7 +67,6 @@ class champmasteryVC: UIViewController, UICollectionViewDataSource, UICollection
         
         self.title = "Champion Mastery"
     }
-
     
     func initAdMob() {
         Analytics.setScreenName(rootclass.screens.masteryschamp, screenClass: String(describing: champmasteryVC.self))
@@ -75,6 +75,11 @@ class champmasteryVC: UIViewController, UICollectionViewDataSource, UICollection
     func spopViewController(){
         self.navigationController?.popViewController(animated: true)
     }
-
-
+    
+    func loadingView(){
+        if self.listStaticChampMastery.count == 0 {
+            let emptytableview = Bundle.main.loadNibNamed("emptytableview", owner: self, options: nil)?.first as? emptytableview
+            self.view = emptytableview
+        }
+    }
 }

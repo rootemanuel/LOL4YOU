@@ -42,18 +42,15 @@ class matchesTVC: UITableViewController {
         
         SVProgressHUD.show()
         
-        rt.listarMatchDetUni(matchid: matchs[indexPath.row].gameId) {(matchdet) in
-            if matchdet != nil  {
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let vc = storyboard.instantiateViewController(withIdentifier: "matchesdet") as! matchesdetTVC
-                
-                vc.matchdet = matchdet!
-                
-                self.navigationController?.pushViewController(vc, animated: true)
-            }
-            
-            SVProgressHUD.dismiss()
-        }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "matchesdet") as! matchesdetTVC
+        let matchdet = rt.listaMatch(id: self.matchs[indexPath.row].gameId)
+        
+        vc.matchdet = matchdet
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+        SVProgressHUD.dismiss()
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -64,7 +61,7 @@ class matchesTVC: UITableViewController {
         
         let tmatchs = matchs[indexPath.row]
         
-        lmatches.queue.text = tmatchs.subType.replacingOccurrences(of: "_", with: " ")
+        lmatches.queue.text = tmatchs.queue
         lmatches.kda.text = "\(tmatchs.stats.championsKilled)/\(tmatchs.stats.numDeaths)/\(tmatchs.stats.assists)"
         lmatches.minions.text = "\(tmatchs.stats.minionsKilled)"
         
@@ -109,8 +106,16 @@ class matchesTVC: UITableViewController {
             lmatches.lvl.isHidden = true
         }
         
-        let champ = rt.listaChamp(id: tmatchs.championId)
+        let champmastery = rt.listaChampMastery(id: tmatchs.championId)
         
+        if champmastery != nil {
+            lmatches.imgchampmastery.isHidden = false
+            lmatches.imgchampmastery.image = UIImage(named: "static_mastery_\(champmastery.championLevel)")
+        } else {
+            lmatches.imgchampmastery.isHidden = true
+        }
+        
+        let champ = rt.listaChamp(id: tmatchs.championId)
         
         lmatches.imgchamp.sd_setImage(with: URL(string: champ.imagelink), placeholderImage: UIImage(named: "static_null_all"))
         lmatches.imgchamp.layer.borderWidth = 2
@@ -174,6 +179,10 @@ class matchesTVC: UITableViewController {
         return numOfSections
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -181,7 +190,7 @@ class matchesTVC: UITableViewController {
     func loadingView() {
         SVProgressHUD.show()
     
-        rt.listarGame() {(match) in
+        rt.listarMatches() {(match) in
             if match.count > 0 {
                     DispatchQueue.main.async {
                         self.matchs = match

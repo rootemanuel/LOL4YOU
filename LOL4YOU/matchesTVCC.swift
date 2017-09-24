@@ -23,6 +23,7 @@ class matchesTVCC: UITableViewCell {
     @IBOutlet weak var imgtlt1: UIImageView!
     @IBOutlet weak var imgtltmast: UIImageView!
     @IBOutlet weak var imglvl: UIImageView!
+    @IBOutlet weak var imgchampmastery: UIImageView!
     
     @IBOutlet weak var winloss: UILabel!
     @IBOutlet weak var queue: UILabel!

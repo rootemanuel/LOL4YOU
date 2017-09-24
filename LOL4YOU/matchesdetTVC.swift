@@ -70,8 +70,8 @@ class matchesdetTVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let twinner = matchdet.teams.filter{p in p.winner == true }
-        let tlosing = matchdet.teams.filter{p in p.winner == false }
+        let twinner = matchdet.teams.filter{p in p.win == "Win" }
+        let tlosing = matchdet.teams.filter{p in p.win == "Fail" }
         
         switch indexPath.section {
         case 0:
@@ -241,7 +241,7 @@ class matchesdetTVC: UITableViewController {
                 
                 cell.selectionStyle = UITableViewCellSelectionStyle.none
                 
-                let tstats = matchdet.participants.filter{ p in p.stats.winner == true }
+                let tstats = matchdet.participants.filter{ p in p.stats.win == true }
                 
                 if tstats.count > 0 {
                     if (indexPath.row - static_cell_rows_count) < tstats.count {
@@ -259,7 +259,7 @@ class matchesdetTVC: UITableViewController {
                         }
                         
                         cell.kda.text = "\(tstats[indexPath.row - static_cell_rows_count].stats.kills)/\(tstats[indexPath.row - static_cell_rows_count].stats.deaths)/\(tstats[indexPath.row - static_cell_rows_count].stats.assists)"
-                        cell.minions.text = "\(tstats[indexPath.row - static_cell_rows_count].stats.minionsKilled + tstats[indexPath.row - static_cell_rows_count].stats.neutralMinionsKilled)"
+                        cell.minions.text = "\(tstats[indexPath.row - static_cell_rows_count].stats.totalMinionsKilled + tstats[indexPath.row - static_cell_rows_count].stats.neutralMinionsKilled)"
                         
                         if tstats[indexPath.row - static_cell_rows_count].stats.goldEarned >= 1000 {
                             cell.gold.text = String(format:"%.1f K", Double(tstats[indexPath.row - static_cell_rows_count].stats.goldEarned) / Double(1000))
@@ -522,7 +522,7 @@ class matchesdetTVC: UITableViewController {
                 
                 cell.selectionStyle = UITableViewCellSelectionStyle.none
                 
-                let tstats = matchdet.participants.filter{ p in p.stats.winner == false }
+                let tstats = matchdet.participants.filter{ p in p.stats.win == false }
                 
                 if tstats.count > 0 {
                     if (indexPath.row - static_cell_rows_count) < tstats.count {
@@ -540,7 +540,7 @@ class matchesdetTVC: UITableViewController {
                         }
                     
                         cell.kda.text = "\(tstats[indexPath.row - static_cell_rows_count].stats.kills)/\(tstats[indexPath.row - static_cell_rows_count].stats.deaths)/\(tstats[indexPath.row - static_cell_rows_count].stats.assists)"
-                        cell.minions.text = "\(tstats[indexPath.row - static_cell_rows_count].stats.minionsKilled + tstats[indexPath.row - static_cell_rows_count].stats.neutralMinionsKilled)"
+                        cell.minions.text = "\(tstats[indexPath.row - static_cell_rows_count].stats.totalMinionsKilled + tstats[indexPath.row - static_cell_rows_count].stats.neutralMinionsKilled)"
                         
                         if tstats[indexPath.row - static_cell_rows_count].stats.goldEarned >= 1000 {
                             cell.gold.text = String(format:"%.1f K", Double(tstats[indexPath.row - static_cell_rows_count].stats.goldEarned) / Double(1000))

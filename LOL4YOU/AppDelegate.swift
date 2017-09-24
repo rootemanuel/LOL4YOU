@@ -61,6 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         rt.listaKeyLOL()
         rt.listarVersion()
+        rt.listarStaticQueue()
         
         SwiftyPlistManager.shared.getValue(for: rootclass.shared.version, fromPlistWithName: rootclass.shared.root) { (result, err) in
             if result != nil {

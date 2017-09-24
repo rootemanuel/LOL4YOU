@@ -165,6 +165,7 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
         self.imglvl.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
         
         self.rt.listarStaticChampMastery()
+        self.rt.listarMatchesSession()
     }
     
     func initAdMob() {

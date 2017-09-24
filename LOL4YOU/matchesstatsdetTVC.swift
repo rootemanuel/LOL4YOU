@@ -120,7 +120,7 @@ class matchesstatsdetTVC: UITableViewController {
                 
                 cell.selectionStyle = UITableViewCellSelectionStyle.none
                 cell.item.text = "Minions Killed"
-                cell.valor.text = "\(participant.stats.minionsKilled + participant.stats.neutralMinionsKilled)"
+                cell.valor.text = "\(participant.stats.totalMinionsKilled + participant.stats.neutralMinionsKilled)"
                 
                 return cell
             case 8:
@@ -147,7 +147,7 @@ class matchesstatsdetTVC: UITableViewController {
                 
                 cell.selectionStyle = UITableViewCellSelectionStyle.none
                 cell.item.text = "Towers Killed"
-                cell.valor.text = "\(participant.stats.towerKills)"
+                cell.valor.text = "\(participant.stats.turretKills)"
                 
                 return cell
             case 11:
