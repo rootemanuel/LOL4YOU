@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -62,16 +63,44 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="static_null" translatesAutoresizingMaskIntoConstraints="NO" id="4IY-eI-POY">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="PYA-B3-Mru"/>
+                            <constraint firstAttribute="width" constant="30" id="yf3-nV-2dc"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="15"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="static_null" translatesAutoresizingMaskIntoConstraints="NO" id="kkx-1k-KMV">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="0Lr-9z-sd1"/>
+                            <constraint firstAttribute="width" constant="30" id="5Wo-5v-XVn"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="15"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="2Nc-BK-Va8" secondAttribute="trailing" constant="177" id="5ee-7F-WI0"/>
-                    <constraint firstItem="tlJ-2j-Osq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="7X1-aH-Ycv"/>
+                    <constraint firstItem="tlJ-2j-Osq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="7X1-aH-Ycv"/>
                     <constraint firstItem="2Nc-BK-Va8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="13" id="976-3f-mux"/>
+                    <constraint firstItem="kkx-1k-KMV" firstAttribute="leading" secondItem="4IY-eI-POY" secondAttribute="trailing" constant="8" id="Dtv-IP-xHs"/>
                     <constraint firstItem="V0R-8Y-zsR" firstAttribute="leading" secondItem="tlJ-2j-Osq" secondAttribute="trailing" constant="8" id="K0x-r7-kO2"/>
-                    <constraint firstItem="V0R-8Y-zsR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="Nxt-hy-Zrl"/>
-                    <constraint firstItem="eGA-No-Rhq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="OKz-hD-TZ4"/>
-                    <constraint firstAttribute="trailing" secondItem="eGA-No-Rhq" secondAttribute="trailing" constant="31" id="QoN-Ux-XQL"/>
+                    <constraint firstItem="4IY-eI-POY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="NiZ-Jw-Uh1"/>
+                    <constraint firstItem="V0R-8Y-zsR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Nxt-hy-Zrl"/>
+                    <constraint firstItem="eGA-No-Rhq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="OKz-hD-TZ4"/>
+                    <constraint firstAttribute="trailing" secondItem="eGA-No-Rhq" secondAttribute="trailing" constant="84" id="QoN-Ux-XQL"/>
                     <constraint firstItem="eGA-No-Rhq" firstAttribute="leading" secondItem="V0R-8Y-zsR" secondAttribute="trailing" constant="8" id="Xhz-F6-dUV"/>
+                    <constraint firstItem="kkx-1k-KMV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="fIN-aC-5NS"/>
+                    <constraint firstItem="4IY-eI-POY" firstAttribute="leading" secondItem="eGA-No-Rhq" secondAttribute="trailing" constant="8" id="iAj-e0-Nlx"/>
                     <constraint firstItem="2Nc-BK-Va8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="lUH-Af-X30"/>
                 </constraints>
             </tableViewCellContentView>
@@ -79,7 +108,9 @@
             <connections>
                 <outlet property="imgchamp1" destination="tlJ-2j-Osq" id="1yr-KL-hN2"/>
                 <outlet property="imgchamp2" destination="V0R-8Y-zsR" id="uoG-Jp-k3D"/>
-                <outlet property="imgchamp3" destination="eGA-No-Rhq" id="tLf-vz-Det"/>
+                <outlet property="imgchamp3" destination="eGA-No-Rhq" id="tHh-ov-i9H"/>
+                <outlet property="imgchamp4" destination="4IY-eI-POY" id="6tb-xx-f7X"/>
+                <outlet property="imgchamp5" destination="kkx-1k-KMV" id="iUf-Zw-eO5"/>
             </connections>
             <point key="canvasLocation" x="25" y="57.5"/>
         </tableViewCell>

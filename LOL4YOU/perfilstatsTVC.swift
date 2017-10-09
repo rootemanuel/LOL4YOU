@@ -16,7 +16,8 @@ class perfilstatsTVC: UITableViewController {
     var stats = Array<rootclass.BEStats>()
     var tiers = Array<perfilstatusV>()
     
-    let sections = ["Icon","Queues","Details","More Details"]
+//    let sections = ["Icon","Queues","Details","More Details"]
+    let sections = ["Icon","Queues"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -262,10 +263,10 @@ class perfilstatsTVC: UITableViewController {
             return 1
         case 1:
             return 1
-        case 2:
-            return 5
-        case 3:
-            return 7
+//        case 2:
+//            return 5
+//        case 3:
+//            return 7
         default:
             return 0
         }
@@ -300,10 +301,10 @@ class perfilstatsTVC: UITableViewController {
             }
         case 1:
             return 170
-        case 2:
-            return 55
-        case 3:
-            return 55
+//        case 2:
+//            return 55
+//        case 3:
+//            return 55
         default:
             return 0
         }

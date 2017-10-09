@@ -19,6 +19,7 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerVi
     @IBOutlet weak var srchsummoner: UIButton!
     @IBOutlet weak var summonernick: UITextField!
     @IBOutlet weak var summonerserver: UIButton!
+    @IBOutlet weak var switchSpec: UISwitch!
     
     let admob = rootadmob.sharedInstance
     let rt = rootclass.sharedInstance
@@ -31,7 +32,7 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerVi
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 5
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -49,21 +50,70 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerVi
             }
         }
         
+        if switchSpec.isOn == false {
+            self.buscaSummoner()
+        } else {
+            self.buscaSpec()
+        }
+    
+    }
+    
+    func buscaSummoner() {
+        
         SVProgressHUD.show()
-            
+        
         if summonernick.text != nil && (summonernick.text?.isEmpty)! {
             return
         }
         
         rt.listarSummoner(summonername: summonernick.text!.replacingOccurrences(of: " ", with: "")) {(error) in
-                
+            
             if error.id == 1 {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "perfil") as! perfilVC
-                    
+                
                 self.navigationController?.pushViewController(vc, animated: true)
             }
-            SVProgressHUD.dismiss()
+            
+            if error.id == 400 {
+                let alert = UIAlertController(title: "Notice", message: "Invalid Summoner", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+            
+             SVProgressHUD.dismiss()
+        }
+    }
+    
+    func buscaSpec() {
+        
+        SVProgressHUD.show()
+        
+        if summonernick.text != nil && (summonernick.text?.isEmpty)! {
+            return
+        }
+        
+        rt.listarSummoner(summonername: summonernick.text!.replacingOccurrences(of: " ", with: "")) {(error) in
+            
+            if error.id == 400 {
+                let alert = UIAlertController(title: "Notice", message: "Invalid Summoner", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+            
+            self.rt.listarSpec() {(spec) in
+                
+                if spec.participants.count > 0  {
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let vc = storyboard.instantiateViewController(withIdentifier: "spec") as! specTVC
+                    
+                    vc.spec = spec
+                    
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+                
+                SVProgressHUD.dismiss()
+            }
         }
     }
     

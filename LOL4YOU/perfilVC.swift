@@ -29,11 +29,11 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
     
     let menus = [
         menu.init(title: "Profile", image: "static_menu_profile"),
-        menu.init(title: "Stats", image: "static_menu_stats"),
+//        menu.init(title: "Stats", image: "static_menu_stats"),
         menu.init(title: "Matches", image: "static_menu_matches"),
         menu.init(title: "Runes", image: "static_menu_runes"),
         menu.init(title: "Masteries", image: "static_menu_masterys"),
-        menu.init(title: "Champion Mastery", image: "static_menu_masterys")
+        menu.init(title: "Champion Mastery", image: "static_menu_masteries")
     ]
     
     override func viewDidLoad() {
@@ -41,6 +41,7 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
         
         self.initAdMob()
         self.initView()
+        self.initSession()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -110,27 +111,27 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
             }
-        } else if indexPath.item == 1 {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "stats") as! statsTVC
-                    
-            self.navigationController?.pushViewController(vc, animated: true)
-        } else if indexPath.item == 2 {
+//        } else if indexPath.item == 1 {
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            let vc = storyboard.instantiateViewController(withIdentifier: "stats") as! statsTVC
+//                    
+//            self.navigationController?.pushViewController(vc, animated: true)
+        }else if indexPath.item == 1 {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "matches") as! matchesTVC
             
             self.navigationController?.pushViewController(vc, animated: true)
-        }else if indexPath.item == 3 {
+        }else if indexPath.item == 2 {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "runes") as! runesTVC
                 
             self.navigationController?.pushViewController(vc, animated: true)
-        }else if indexPath.item == 4 {
+        }else if indexPath.item == 3 {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "masterys") as! masterysTVC
             
             self.navigationController?.pushViewController(vc, animated: true)
-        }else if indexPath.item == 5 {
+        }else if indexPath.item == 4 {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "champmastery") as! champmasteryVC
     
@@ -164,8 +165,23 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
         self.imglvl.layer.borderWidth = 2
         self.imglvl.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
         
+    }
+    
+    func initSession() {
+        
+         SVProgressHUD.show()
+        
         self.rt.listarStaticChampMastery()
-        self.rt.listarMatchesSession()
+        
+        self.rt.listarMatchesSession() {(matchesid) in
+            if matchesid.count > 0 {
+                for i in 0 ..< matchesid.count {
+                    self.rt.listarMatchUni(matchid: matchesid[i])
+                }
+            }
+            
+             SVProgressHUD.dismiss()
+        }
     }
     
     func initAdMob() {

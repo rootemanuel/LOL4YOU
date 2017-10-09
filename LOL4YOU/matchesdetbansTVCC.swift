@@ -13,5 +13,7 @@ class matchesdetbansTVCC: UITableViewCell {
     @IBOutlet weak var imgchamp1: UIImageView!
     @IBOutlet weak var imgchamp2: UIImageView!
     @IBOutlet weak var imgchamp3: UIImageView!
+    @IBOutlet weak var imgchamp4: UIImageView!
+    @IBOutlet weak var imgchamp5: UIImageView!
    
 }

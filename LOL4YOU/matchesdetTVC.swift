@@ -220,19 +220,33 @@ class matchesdetTVC: UITableViewController {
                                 cell.imgchamp3.sd_setImage(with: URL(string: "\(rootclass.images.champion)\(champ.imagefull)"), placeholderImage: UIImage(named: "static_null_all"))
                                 cell.imgchamp3.layer.borderWidth = 1
                                 cell.imgchamp3.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
+                            case 3:
+                                let champ = rt.listaChamp(id: twinner[0].bans[3].championId)
+                                cell.imgchamp4.sd_setImage(with: URL(string: "\(rootclass.images.champion)\(champ.imagefull)"), placeholderImage: UIImage(named: "static_null_all"))
+                                cell.imgchamp4.layer.borderWidth = 1
+                                cell.imgchamp4.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
+                            case 4:
+                                let champ = rt.listaChamp(id: twinner[0].bans[4].championId)
+                                cell.imgchamp5.sd_setImage(with: URL(string: "\(rootclass.images.champion)\(champ.imagefull)"), placeholderImage: UIImage(named: "static_null_all"))
+                                cell.imgchamp5.layer.borderWidth = 1
+                                cell.imgchamp5.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
                             default:
-                                NSLog("R00T - INVALID")
+                                continue
                             }
                         }
                     } else {
                         cell.imgchamp1.isHidden = true
                         cell.imgchamp2.isHidden = true
                         cell.imgchamp3.isHidden = true
+                        cell.imgchamp4.isHidden = true
+                        cell.imgchamp5.isHidden = true
                     }
                 } else {
                     cell.imgchamp1.isHidden = true
                     cell.imgchamp2.isHidden = true
                     cell.imgchamp3.isHidden = true
+                    cell.imgchamp4.isHidden = true
+                    cell.imgchamp5.isHidden = true
                 }
                 
                 return cell
@@ -501,19 +515,33 @@ class matchesdetTVC: UITableViewController {
                                 cell.imgchamp3.sd_setImage(with: URL(string: "\(rootclass.images.champion)\(champ.imagefull)"), placeholderImage: UIImage(named: "static_null_all"))
                                 cell.imgchamp3.layer.borderWidth = 1
                                 cell.imgchamp3.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
+                            case 3:
+                                let champ = rt.listaChamp(id: tlosing[0].bans[3].championId)
+                                cell.imgchamp4.sd_setImage(with: URL(string: "\(rootclass.images.champion)\(champ.imagefull)"), placeholderImage: UIImage(named: "static_null_all"))
+                                cell.imgchamp4.layer.borderWidth = 1
+                                cell.imgchamp4.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
+                            case 4:
+                                let champ = rt.listaChamp(id: tlosing[0].bans[4].championId)
+                                cell.imgchamp5.sd_setImage(with: URL(string: "\(rootclass.images.champion)\(champ.imagefull)"), placeholderImage: UIImage(named: "static_null_all"))
+                                cell.imgchamp5.layer.borderWidth = 1
+                                cell.imgchamp5.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
                             default:
-                                NSLog("R00T - INVALID")
+                                continue
                             }
                         }
                     } else {
                         cell.imgchamp1.isHidden = true
                         cell.imgchamp2.isHidden = true
                         cell.imgchamp3.isHidden = true
+                        cell.imgchamp4.isHidden = true
+                        cell.imgchamp5.isHidden = true
                     }
                 } else {
                     cell.imgchamp1.isHidden = true
                     cell.imgchamp2.isHidden = true
                     cell.imgchamp3.isHidden = true
+                    cell.imgchamp4.isHidden = true
+                    cell.imgchamp5.isHidden = true
                 }
                 
                 return cell

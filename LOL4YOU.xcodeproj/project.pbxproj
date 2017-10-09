@@ -61,6 +61,9 @@
 		A0D97AF91EA792D300273C10 /* friz_quadrata_r.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A0D97AF71EA792D300273C10 /* friz_quadrata_r.ttf */; };
 		A0E478AF1EB363A600109F56 /* runesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E478AE1EB363A600109F56 /* runesTVC.swift */; };
 		A0E478B11EB36D9A00109F56 /* runesdetTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E478B01EB36D9A00109F56 /* runesdetTVC.swift */; };
+		A0FC3D5D1F8B05AE005CE127 /* specTVCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FC3D5B1F8B05AE005CE127 /* specTVCC.swift */; };
+		A0FC3D5E1F8B05AE005CE127 /* specTVCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0FC3D5C1F8B05AE005CE127 /* specTVCC.xib */; };
+		A0FC3D601F8B05C5005CE127 /* specTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FC3D5F1F8B05C5005CE127 /* specTVC.swift */; };
 		A0FF0CA91F00009700A0ADFE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A0FF0CA81F00009700A0ADFE /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -146,6 +149,9 @@
 		A0D97AF71EA792D300273C10 /* friz_quadrata_r.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = friz_quadrata_r.ttf; sourceTree = "<group>"; };
 		A0E478AE1EB363A600109F56 /* runesTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = runesTVC.swift; sourceTree = "<group>"; };
 		A0E478B01EB36D9A00109F56 /* runesdetTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = runesdetTVC.swift; sourceTree = "<group>"; };
+		A0FC3D5B1F8B05AE005CE127 /* specTVCC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = specTVCC.swift; sourceTree = "<group>"; };
+		A0FC3D5C1F8B05AE005CE127 /* specTVCC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = specTVCC.xib; sourceTree = "<group>"; };
+		A0FC3D5F1F8B05C5005CE127 /* specTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = specTVC.swift; sourceTree = "<group>"; };
 		A0FF0CA81F00009700A0ADFE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A6BFB153ADEC2999EECF69C7 /* Pods-LOL4YOUUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LOL4YOUUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LOL4YOUUITests/Pods-LOL4YOUUITests.release.xcconfig"; sourceTree = "<group>"; };
 		AC8C668551E0C102D198AF48 /* Pods-LOL4YOU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LOL4YOU.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LOL4YOU/Pods-LOL4YOU.debug.xcconfig"; sourceTree = "<group>"; };
@@ -263,6 +269,7 @@
 		A00280261E9DADDD003175A7 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				A0FC3D5A1F8B0537005CE127 /* spectador */,
 				A0E478AD1EB3630F00109F56 /* runes */,
 				A0B7CE171F6EAE5300935AF9 /* champmastery */,
 				A01578531EB8F0F700A30C41 /* masterys */,
@@ -444,6 +451,16 @@
 			name = runes;
 			sourceTree = "<group>";
 		};
+		A0FC3D5A1F8B0537005CE127 /* spectador */ = {
+			isa = PBXGroup;
+			children = (
+				A0FC3D5B1F8B05AE005CE127 /* specTVCC.swift */,
+				A0FC3D5C1F8B05AE005CE127 /* specTVCC.xib */,
+				A0FC3D5F1F8B05C5005CE127 /* specTVC.swift */,
+			);
+			name = spectador;
+			sourceTree = "<group>";
+		};
 		E4B4D2BBD01263CC199BB13D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -579,6 +596,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0FC3D5E1F8B05AE005CE127 /* specTVCC.xib in Resources */,
 				A0A4995F1EB2877900977541 /* runesTVCC.xib in Resources */,
 				A0D97AF91EA792D300273C10 /* friz_quadrata_r.ttf in Resources */,
 				A0A4995B1EB2313700977541 /* imageTVCC.xib in Resources */,
@@ -764,6 +782,7 @@
 				A00280291E9DAE08003175A7 /* statsTVC.swift in Sources */,
 				A093D1791F6EC83400DCC466 /* champmasteryVC.swift in Sources */,
 				A0A499551EB21BEA00977541 /* headerTVH.swift in Sources */,
+				A0FC3D601F8B05C5005CE127 /* specTVC.swift in Sources */,
 				A0A499621EB28FBD00977541 /* masteryTVCC.swift in Sources */,
 				A093D17B1F6EC85900DCC466 /* championmasteryCVC.swift in Sources */,
 				A002802B1E9DAE27003175A7 /* statsTVCC.swift in Sources */,
@@ -775,6 +794,7 @@
 				A0E478B11EB36D9A00109F56 /* runesdetTVC.swift in Sources */,
 				A01578571EB8F1C400A30C41 /* masterysdetTVC.swift in Sources */,
 				A017A8761EA546B600C325F7 /* perfilVC.swift in Sources */,
+				A0FC3D5D1F8B05AE005CE127 /* specTVCC.swift in Sources */,
 				A00280241E9D981B003175A7 /* rootclass.swift in Sources */,
 				A0BCAA6C1EB14772008F4D01 /* perfilstatusV.swift in Sources */,
 				A04A6CCC1EB100E8001D9770 /* perfilstatsTVC.swift in Sources */,

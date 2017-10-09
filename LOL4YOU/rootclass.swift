@@ -244,11 +244,18 @@ final class rootclass: NSObject {
     }
     
     class BEBan {
+        //BESpec
+        var teamId:Int = 0
+        //BESpec
         var championId:Int = 0
         var pickTurn:Int = 0
     }
     
     class BEParticipants {
+        //BESpec
+        var summonerName:String = ""
+        var summonerId:Int = 0
+        //BESpec
         var teamId:Int = 0
         var spell1Id:Int = 0
         var spell2Id:Int = 0
@@ -310,6 +317,11 @@ final class rootclass: NSObject {
         var inhibitorKills:Int = 0
         var baronKills:Int = 0
         var dragonKills:Int = 0
+        var bans:Array<BEBan> = Array<BEBan>()
+    }
+    
+    class BESpec {
+        var participants:Array<BEParticipants> = Array<BEParticipants>()
         var bans:Array<BEBan> = Array<BEBan>()
     }
     
@@ -934,6 +946,14 @@ final class rootclass: NSObject {
                 }
                 
             case .failure(let error):
+                
+                if let status = response.response?.statusCode {
+                    if status == 404 {
+                       rtn.id = 400
+                       rtn.msg = "Invalid Summoner"
+                    }
+                }
+                
                 NSLog("#R00T - ERROR GET SUMMONER - ERROR: \(error)")
             }
             
@@ -1333,13 +1353,13 @@ final class rootclass: NSObject {
         }
     }
     
-    func listarMatchesSession() {
+    func listarMatchesSession(matchesid:@escaping (Array<Int>) -> ()) {
         
         var rtn = Array<Int>()
+        self.listSessionMatches = Array<Int>()
+        self.dicSessionMatches = Dictionary<Int, BEMatch>()
         
         var url = ""
-        
-        self.listSessionMatches = Array<Int>()
         
         NSLog("#R00T - TESTANDOOOOOOOOOOOOOOOOOOOOOOOOOO : \(NSDate())")
         
@@ -1387,19 +1407,13 @@ final class rootclass: NSObject {
                         }
                     }
                 }
-                
-                if rtn.count > 0 {
-                    self.listSessionMatches = rtn
-                    for i in 0 ..< rtn.count {
-                        self.listarMatchUni(matchid: rtn[i])
-                    }
-                }
-                
-                NSLog("#R00T - TESTANDOOOOOOOOOOOOOOOOOOOOOOOOOO - FIMMMMMMMM : \(NSDate())")
-                
+
             case .failure(let error):
                 NSLog("#R00T - ERROR GET MATCHES - ERROR: \(error)")
             }
+            
+            self.listSessionMatches = rtn
+            matchesid(rtn)
         }
     }
     
@@ -1408,8 +1422,6 @@ final class rootclass: NSObject {
         let match = rootclass.BEMatch()
         
         var url = ""
-        
-        self.dicSessionMatches = Dictionary<Int, BEMatch>()
         
         switch lol.server {
         case Region.REGION_RU.rawValue,
@@ -1430,7 +1442,9 @@ final class rootclass: NSObject {
             NSLog("#R00T - ERROR SERVER")
         }
 
-        Alamofire.request(url).validate().responseJSON { response in
+        let semaphore = DispatchSemaphore(value: 0)
+        let queue = DispatchQueue.global(qos: .background)
+        Alamofire.request(url).validate().responseJSON(queue: queue) { response in
             
             switch response.result {
             case .success( _):
@@ -1709,13 +1723,15 @@ final class rootclass: NSObject {
                             match.teams.append(team)
                         }
                         self.dicSessionMatches[matchid] = match
-                        NSLog("#R00T - TESTANDOOOOOOOOOOOOOOOOOOOOOOOOOO - DURANTE : \(NSDate())")
+                        semaphore.signal()
                     }
                 }
             case .failure(let error):
+                semaphore.signal()
                 NSLog("#R00T - ERROR GET MATCHE DET - ERROR: \(error)")
             }
         }
+        semaphore.wait(timeout: .distantFuture)
     }
     
     func listarMatches(match:@escaping (Array<BEMatchSmall>) -> ()) {
@@ -1726,9 +1742,12 @@ final class rootclass: NSObject {
             
             let r = BEMatchSmall()
             
-            if let match = dicSessionMatches[self.listSessionMatches[i]] {
+            if let match = self.dicSessionMatches[self.listSessionMatches[i]] {
                 
                 let participantId = match.participantsIdentities.filter { p in p.summonerId == Summoner.summonerID }
+                print("# AQUIIIIIIIIIIIIIIIII ----- \(i)")
+                print("# AQUIIIIIIIIIIIIIIIII -----  \(self.listSessionMatches[i])")
+                print(" ---------------------------- ")
                 let participants = match.participants.filter { p in p.participantId == participantId[0].participantId }
                 
                 r.createDate = match.gameCreation
@@ -1916,6 +1935,127 @@ final class rootclass: NSObject {
                 masterys(rtn)
             }
         }
+    }
+    
+    func listarSpec(spec:@escaping (BESpec) -> ()) {
+        
+        var rtn = BESpec()
+        
+        var url = ""
+        
+        switch lol.server {
+        case Region.REGION_RU.rawValue,
+             Region.REGION_KR.rawValue:
+            url = "https://\(lol.server).api.riotgames.com/lol/spectator/v3/active-games/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
+        case Region.REGION_BR.rawValue,
+             Region.REGION_OCE.rawValue,
+             Region.REGION_JP.rawValue,
+             Region.REGION_NA.rawValue,
+             Region.REGION_EUNE.rawValue,
+             Region.REGION_EUW.rawValue,
+             Region.REGION_TR.rawValue,
+             Region.REGION_LAN.rawValue:
+            url = "https://\(lol.server)1.api.riotgames.com/lol/spectator/v3/active-games/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
+        case Region.REGION_LAS.rawValue:
+            url = "https://\(lol.server)2.api.riotgames.com/lol/spectator/v3/active-games/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"        default:
+            NSLog("#R00T - ERROR SERVER")
+        }
+        
+        Alamofire.request(url).validate().responseJSON { response in
+            
+            switch response.result {
+            case .success( _):
+                let jspec = JSON(response.result.value!)
+                
+                if jspec != JSON.null {
+                    if(!jspec.isEmpty){
+                        for a in 0 ..< jspec["participants"].count {
+                            let participant = BEParticipants()
+                            
+                            if let summonerName = jspec["participants"][a]["summonerName"].string {
+                                participant.summonerName = summonerName
+                            }
+                            
+                            if let teamId = jspec["participants"][a]["teamId"].int {
+                                participant.teamId = teamId
+                            }
+                            
+                            if let spell1Id = jspec["participants"][a]["spell1Id"].int {
+                                participant.spell1Id = spell1Id
+                            }
+                            
+                            if let spell2Id = jspec["participants"][a]["spell2Id"].int {
+                                participant.spell2Id = spell2Id
+                            }
+                            
+                            if let summonerId = jspec["participants"][a]["summonerId"].int {
+                                participant.summonerId = summonerId
+                            }
+                            
+                            if let championId = jspec["participants"][a]["championId"].int {
+                                participant.championId = championId
+                            }
+                            
+                            
+                            for b in 0 ..< jspec["participants"][a]["masteries"].count {
+                                let mastery = BEMastery()
+                                
+                                if let masteryId = jspec["participants"][a]["masteries"][b]["masteryId"].int {
+                                    mastery.masteryId = masteryId
+                                }
+                                
+                                if let rank = jspec["participants"][a]["masteries"][b]["rank"].int {
+                                    mastery.rank = rank
+                                }
+                                
+                                participant.masterys.append(mastery)
+                            }
+                            
+                            for b in 0 ..< jspec["participants"][a]["runes"].count {
+                                let rune = BERune()
+                                
+                                if let count = jspec["participants"][a]["runes"][b]["count"].int {
+                                    rune.rank = count
+                                }
+                                
+                                if let rank = jspec["participants"][a]["runes"][b]["runeId"].int {
+                                    rune.runeId = rank
+                                }
+                                
+                                participant.runes.append(rune)
+                            }
+                            
+                            rtn.participants.append(participant)
+                            
+                            for b in 0 ..< jspec["bannedChampions"].count {
+                                let ban = BEBan()
+                                
+                                if let championId = jspec["bannedChampions"][b]["championId"].int {
+                                    ban.championId = championId
+                                }
+                                
+                                if let pickTurn = jspec["bannedChampions"][b]["pickTurn"].int {
+                                    ban.pickTurn = pickTurn
+                                }
+                                
+                                if let teamId = jspec["bannedChampions"][b]["teamId"].int {
+                                    ban.teamId = teamId
+                                }
+                                
+                                rtn.bans.append(ban)
+                            }
+
+                        }
+                        spec(rtn)
+                    }
+                }
+                
+            case .failure(let error):
+                NSLog("#R00T - ERROR GET SPEC DET - ERROR: \(error)")
+                spec(rtn)
+            }
+        }
+        
     }
     
     func listarStaticQueue() {

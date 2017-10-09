@@ -22,7 +22,7 @@ class rootadmob: NSObject, GADRewardBasedVideoAdDelegate {
     struct admob {
         static internal var admob_app:String = "ca-app-pub-8175152842112808~9569832570"
         static internal var admob_banner:String = "ca-app-pub-8175152842112808/2046565779"
-        static internal var admob_banner_video:String = "ca-app-pub-8175152842112808/6927103773"
+        static internal var admob_banner_video:String = "ca-app-pub-8175152842112808/4851172240"
         
         static internal var analytcs_admob_video:String = "ANALYTICS_ADMOB_VIDEO"
         static internal var analytcs_video:String = "VIDEO"
@@ -36,8 +36,8 @@ class rootadmob: NSObject, GADRewardBasedVideoAdDelegate {
     }
     
 
-    let const_admobcount = 4
-    var adMobCount = 5
+    let const_admobcount = 5
+    var adMobCount = 0
     var rewardBasedVideo: GADRewardBasedVideoAd?
     
     func addCountAdMob() {
