@@ -33,6 +33,7 @@
 		A056E7821EAE94DD007FDB9F /* matchesdetbansTVCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A056E7801EAE94DD007FDB9F /* matchesdetbansTVCC.swift */; };
 		A056E7831EAE94DD007FDB9F /* matchesdetbansTVCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A056E7811EAE94DD007FDB9F /* matchesdetbansTVCC.xib */; };
 		A06CD86D1E9E5FC000D4362E /* statsdetTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06CD86C1E9E5FC000D4362E /* statsdetTVC.swift */; };
+		A08B8C1F1F8E65AB0063D155 /* specdetTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08B8C1E1F8E65AB0063D155 /* specdetTVC.swift */; };
 		A093D1791F6EC83400DCC466 /* champmasteryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A093D1781F6EC83400DCC466 /* champmasteryVC.swift */; };
 		A093D17B1F6EC85900DCC466 /* championmasteryCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A093D17A1F6EC85900DCC466 /* championmasteryCVC.swift */; };
 		A09D99F01EA3D0360054E988 /* searchsummonerTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09D99EF1EA3D0360054E988 /* searchsummonerTVC.swift */; };
@@ -119,6 +120,7 @@
 		A056E7801EAE94DD007FDB9F /* matchesdetbansTVCC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matchesdetbansTVCC.swift; sourceTree = "<group>"; };
 		A056E7811EAE94DD007FDB9F /* matchesdetbansTVCC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = matchesdetbansTVCC.xib; sourceTree = "<group>"; };
 		A06CD86C1E9E5FC000D4362E /* statsdetTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = statsdetTVC.swift; sourceTree = "<group>"; };
+		A08B8C1E1F8E65AB0063D155 /* specdetTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = specdetTVC.swift; sourceTree = "<group>"; };
 		A093D1781F6EC83400DCC466 /* champmasteryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = champmasteryVC.swift; sourceTree = "<group>"; };
 		A093D17A1F6EC85900DCC466 /* championmasteryCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = championmasteryCVC.swift; sourceTree = "<group>"; };
 		A09D99EF1EA3D0360054E988 /* searchsummonerTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = searchsummonerTVC.swift; sourceTree = "<group>"; };
@@ -344,6 +346,14 @@
 			name = matchesdet;
 			sourceTree = "<group>";
 		};
+		A08B8C1D1F8E65900063D155 /* spectadordet */ = {
+			isa = PBXGroup;
+			children = (
+				A08B8C1E1F8E65AB0063D155 /* specdetTVC.swift */,
+			);
+			name = spectadordet;
+			sourceTree = "<group>";
+		};
 		A09D99EE1EA3CFFC0054E988 /* search */ = {
 			isa = PBXGroup;
 			children = (
@@ -454,6 +464,7 @@
 		A0FC3D5A1F8B0537005CE127 /* spectador */ = {
 			isa = PBXGroup;
 			children = (
+				A08B8C1D1F8E65900063D155 /* spectadordet */,
 				A0FC3D5B1F8B05AE005CE127 /* specTVCC.swift */,
 				A0FC3D5C1F8B05AE005CE127 /* specTVCC.xib */,
 				A0FC3D5F1F8B05C5005CE127 /* specTVC.swift */,
@@ -790,6 +801,7 @@
 				A0BF03011EA6B21900DB84E9 /* matchesTVCC.swift in Sources */,
 				A0E478AF1EB363A600109F56 /* runesTVC.swift in Sources */,
 				A0D97AF31EA78FCE00273C10 /* UIColorExtension.swift in Sources */,
+				A08B8C1F1F8E65AB0063D155 /* specdetTVC.swift in Sources */,
 				A0BCAA691EB13281008F4D01 /* perfilstatstiersnullTVCC.swift in Sources */,
 				A0E478B11EB36D9A00109F56 /* runesdetTVC.swift in Sources */,
 				A01578571EB8F1C400A30C41 /* masterysdetTVC.swift in Sources */,

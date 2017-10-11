@@ -85,6 +85,8 @@ final class rootclass: NSObject {
         static internal var masterys:String = "MASTERYS"
         static internal var masterysdet:String = "MASTERYS_DET"
         static internal var masteryschamp:String = "MASTERYS_CHAMP"
+        static internal var spectador:String = "SPECTADOR"
+        static internal var spectadordet:String = "SPECTADOR_DET"
     }
     
     struct lol {
@@ -127,7 +129,7 @@ final class rootclass: NSObject {
         case TEXTO_DERROTA = "c21a39"
         case FUNDO_EMPTY_TABLEVIEW = "efeff4"
     }
-  
+    
     enum Region : String  {
         case REGION_BR = "BR"       //Brazil
         case REGION_EUNE = "EUNE"   //EU Nordic & East
@@ -255,6 +257,7 @@ final class rootclass: NSObject {
         //BESpec
         var summonerName:String = ""
         var summonerId:Int = 0
+        var leagues:Array<BELeague> = Array<BELeague>()
         //BESpec
         var teamId:Int = 0
         var spell1Id:Int = 0
@@ -437,129 +440,110 @@ final class rootclass: NSObject {
         
         let url = "https://na1.api.riotgames.com/lol/static-data/v3/summoner-spells?spellListData=image&api_key=\(lol.api_key)"
         
-        var loop = true
-        while(loop){
-            let semaphore = DispatchSemaphore(value: 0)
-            let queue = DispatchQueue.global(qos: .background)
-            Alamofire.request(url).validate().responseJSON(queue: queue) { response in
+        let queue = DispatchQueue.global(qos: .background)
+        Alamofire.request(url).validate().responseJSON(queue: queue) { response in
             
-                switch response.result {
-                case .success( _):
-                    let jspell = JSON(response.result.value!)
+            switch response.result {
+            case .success( _):
+                let jspell = JSON(response.result.value!)
+                
+                let dspell: Dictionary<String, JSON> = jspell["data"].dictionaryValue
+                
+                for (_, value) in dspell {
+                    let r = staticspell()
                     
-                    let dspell: Dictionary<String, JSON> = jspell["data"].dictionaryValue
-                    
-                    for (_, value) in dspell {
-                        let r = staticspell()
-                        
-                        if let id = value["id"].int {
-                            r.id = id
-                        }
-                        
-                        if let name = value["name"].string {
-                            r.name = name
-                        }
-                        
-                        if let key = value["key"].string {
-                            r.key = key
-                        }
-                        
-                        if let imagefull = value["image"]["full"].string {
-                            r.imagefull = imagefull
-                            r.imagelink = "\(rootclass.images.spell)\(imagefull)"
-                        }
-                        
-                        self.dicStaticSpell[r.id] = r
+                    if let id = value["id"].int {
+                        r.id = id
                     }
                     
-                    if self.dicStaticSpell.count > 0 {
-                       loop = false
-                        
-                        NSLog("R00T - GET SPELLS SUCESS")
-                        spells(jspell)
-                        semaphore.signal()
+                    if let name = value["name"].string {
+                        r.name = name
                     }
                     
-                case .failure(let error):
-                    loop = false
+                    if let key = value["key"].string {
+                        r.key = key
+                    }
                     
-                    NSLog("R00T - GET SPELLS ERROR")
-                    semaphore.signal()
+                    if let imagefull = value["image"]["full"].string {
+                        r.imagefull = imagefull
+                        r.imagelink = "\(rootclass.images.spell)\(imagefull)"
+                    }
+                    
+                    self.dicStaticSpell[r.id] = r
                 }
+                
+                if self.dicStaticSpell.count > 0 {
+                    
+                    NSLog("R00T - GET SPELLS SUCESS")
+                    spells(jspell)
+                }
+                
+            case .failure(let error):
+                NSLog("R00T - GET SPELLS ERROR")
             }
-            semaphore.wait(timeout: .distantFuture)
         }
     }
-
+    
     
     func listarStaticRunes(runes:@escaping (JSON) -> ()) {
         
         let url = "https://na1.api.riotgames.com/lol/static-data/v3/runes?locale=en_US&tags=all&api_key=\(lol.api_key)"
         //let url = "https://na1.api.riotgames.com/lol/static-data/v3/runes?runeListData=basic,image&api_key=\(lol.api_key)"
         
-        var loop = true
-        while(loop){
-            let semaphore = DispatchSemaphore(value: 0)
-            let queue = DispatchQueue.global(qos: .background)
-            Alamofire.request(url).validate().responseJSON(queue: queue) { response in
-
-                switch response.result {
-                case .success( _):
-                    let jrunes = JSON(response.result.value!)
+        
+        let queue = DispatchQueue.global(qos: .background)
+        Alamofire.request(url).validate().responseJSON(queue: queue) { response in
+            
+            switch response.result {
+            case .success( _):
+                let jrunes = JSON(response.result.value!)
+                
+                let drunes: Dictionary<String, JSON> = jrunes["data"].dictionaryValue
+                
+                for (_, value) in drunes {
+                    let r = staticrunes()
                     
-                    let drunes: Dictionary<String, JSON> = jrunes["data"].dictionaryValue
-                       
-                    for (_, value) in drunes {
-                        let r = staticrunes()
-                        
-                        if let id = value["id"].int {
-                           r.id = id
-                        }
-                        
-                        if let description = value["description"].string {
-                            r.description = description
-                        }
-                        
-                        if let name = value["name"].string {
-                            r.name = name
-                        }
-                        
-                        if let type = value["rune"]["type"].string {
-                            r.type = type
-                        }
-                        
-                        if let tier = value["rune"]["tier"].string {
-                            r.tier = tier
-                        }
-                        
-                        if let isRune = value["rune"]["isRune"].bool {
-                            r.isRune = isRune
-                        }
-                        
-                        if let imagefull = value["image"]["full"].string {
-                            r.imagefull = imagefull
-                            r.imagelink = "\(rootclass.images.rune)\(imagefull)"
-                        }
-                        
-                        self.dicStaticRunes[r.id] = r
+                    if let id = value["id"].int {
+                        r.id = id
                     }
                     
-                    if self.dicStaticRunes.count > 0 {
-                        loop = false
-                        
-                        NSLog("R00T - GET RUNES SUCESS")
-                        runes(jrunes)
-                        semaphore.signal()
+                    if let description = value["description"].string {
+                        r.description = description
                     }
                     
-                case .failure(let error):
-                    loop = false
+                    if let name = value["name"].string {
+                        r.name = name
+                    }
                     
-                    NSLog("R00T - GET RUNES ERROR")
-                    semaphore.signal()
+                    if let type = value["rune"]["type"].string {
+                        r.type = type
+                    }
+                    
+                    if let tier = value["rune"]["tier"].string {
+                        r.tier = tier
+                    }
+                    
+                    if let isRune = value["rune"]["isRune"].bool {
+                        r.isRune = isRune
+                    }
+                    
+                    if let imagefull = value["image"]["full"].string {
+                        r.imagefull = imagefull
+                        r.imagelink = "\(rootclass.images.rune)\(imagefull)"
+                    }
+                    
+                    self.dicStaticRunes[r.id] = r
                 }
+                
+                if self.dicStaticRunes.count > 0 {
+                    
+                    NSLog("R00T - GET RUNES SUCESS")
+                    runes(jrunes)
+                }
+                
+            case .failure(let error):
+                NSLog("R00T - GET RUNES ERROR")
             }
-            semaphore.wait(timeout: .distantFuture)
         }
     }
     
@@ -567,57 +551,46 @@ final class rootclass: NSObject {
         
         let url = "https://na1.api.riotgames.com/lol/static-data/v3/champions?champListData=image&api_key=\(lol.api_key)"
         
-        var loop = true
-        while(loop){
-            let semaphore = DispatchSemaphore(value: 0)
-            let queue = DispatchQueue.global(qos: .background)
-            Alamofire.request(url).validate().responseJSON(queue: queue) { response in
+        let queue = DispatchQueue.global(qos: .background)
+        Alamofire.request(url).validate().responseJSON(queue: queue) { response in
             
-                switch response.result {
-                case .success( _):
-                    let jchampions = JSON(response.result.value!)
+            switch response.result {
+            case .success( _):
+                let jchampions = JSON(response.result.value!)
+                
+                let dchampions: Dictionary<String, JSON> = jchampions["data"].dictionaryValue
+                
+                for (_, value) in dchampions {
+                    let r = staticchampions()
                     
-                    let dchampions: Dictionary<String, JSON> = jchampions["data"].dictionaryValue
-                    
-                    for (_, value) in dchampions {
-                        let r = staticchampions()
-                        
-                        if let id = value["id"].int {
-                            r.id = id
-                        }
-                        
-                        if let key = value["key"].string {
-                            r.key = key
-                        }
-                        
-                        if let name = value["name"].string {
-                            r.name = name
-                        }
-                        
-                        if let imagefull = value["image"]["full"].string {
-                            r.imagefull = imagefull
-                            r.imagelink = "\(rootclass.images.champion)\(imagefull)"
-                        }
-                        
-                        self.dicStaticChampions[r.id] = r
+                    if let id = value["id"].int {
+                        r.id = id
                     }
                     
-                    if self.dicStaticChampions.count > 0 {
-                        loop = false
-                        
-                        NSLog("R00T - GET CHAMPIONS SUCESS")
-                        champions(jchampions)
-                        semaphore.signal()
+                    if let key = value["key"].string {
+                        r.key = key
                     }
                     
-                case .failure(let error):
-                    loop = false
+                    if let name = value["name"].string {
+                        r.name = name
+                    }
                     
-                    NSLog("R00T - GET CHAMPIONS ERROR")
-                    semaphore.signal()
+                    if let imagefull = value["image"]["full"].string {
+                        r.imagefull = imagefull
+                        r.imagelink = "\(rootclass.images.champion)\(imagefull)"
+                    }
+                    
+                    self.dicStaticChampions[r.id] = r
                 }
+                
+                if self.dicStaticChampions.count > 0 {
+                    NSLog("R00T - GET CHAMPIONS SUCESS")
+                    champions(jchampions)
+                }
+                
+            case .failure(let error):
+                NSLog("R00T - GET CHAMPIONS ERROR")
             }
-            semaphore.wait(timeout: .distantFuture)
         }
     }
     
@@ -625,59 +598,48 @@ final class rootclass: NSObject {
         
         let url = "https://na1.api.riotgames.com/lol/static-data/v3/masteries?masteryListData=image&api_key=\(lol.api_key)"
         
-        var loop = true
-        while(loop){
-            let semaphore = DispatchSemaphore(value: 0)
-            let queue = DispatchQueue.global(qos: .background)
-            Alamofire.request(url).validate().responseJSON(queue: queue) { response in
+        let queue = DispatchQueue.global(qos: .background)
+        Alamofire.request(url).validate().responseJSON(queue: queue) { response in
             
-                switch response.result {
-                case .success( _):
-                    let jmastery = JSON(response.result.value!)
+            switch response.result {
+            case .success( _):
+                let jmastery = JSON(response.result.value!)
+                
+                let dmastery: Dictionary<String, JSON> = jmastery["data"].dictionaryValue
+                
+                for (_, value) in dmastery {
+                    let r = staticmastery()
                     
-                    let dmastery: Dictionary<String, JSON> = jmastery["data"].dictionaryValue
-                    
-                    for (_, value) in dmastery {
-                        let r = staticmastery()
-                        
-                        if let id = value["id"].int {
-                            r.id = id
-                        }
-
-                        if let name = value["name"].string {
-                            r.name = name
-                        }
-
-                        if let imagefull = value["image"]["full"].string {
-                            r.imagefull = imagefull
-                            r.imagelink = "\(rootclass.images.mastery)\(imagefull)"
-                        }
-                        
-                        for i in 0 ..< value["description"].count {
-                            if let description = value["description"][i].string {
-                                 r.description.append(description)
-                            }
-                        }
-                        
-                        self.dicStaticMastery[r.id] = r
+                    if let id = value["id"].int {
+                        r.id = id
                     }
                     
-                    if self.dicStaticMastery.count > 0 {
-                        loop = false
-                        
-                        NSLog("R00T - GET MASTERY SUCESS")
-                        mastery(jmastery)
-                        semaphore.signal()
+                    if let name = value["name"].string {
+                        r.name = name
                     }
                     
-                case .failure(let error):
-                    loop = false
+                    if let imagefull = value["image"]["full"].string {
+                        r.imagefull = imagefull
+                        r.imagelink = "\(rootclass.images.mastery)\(imagefull)"
+                    }
                     
-                    NSLog("R00T - GET MASTERY ERROR")
-                    semaphore.signal()
+                    for i in 0 ..< value["description"].count {
+                        if let description = value["description"][i].string {
+                            r.description.append(description)
+                        }
+                    }
+                    
+                    self.dicStaticMastery[r.id] = r
                 }
+                
+                if self.dicStaticMastery.count > 0 {
+                    NSLog("R00T - GET MASTERY SUCESS")
+                    mastery(jmastery)
+                }
+                
+            case .failure(let error):
+                NSLog("R00T - GET MASTERY ERROR")
             }
-            semaphore.wait(timeout: .distantFuture)
         }
     }
     
@@ -808,73 +770,62 @@ final class rootclass: NSObject {
     }
     
     func listarVersion() {
-    
+        
         let url = "https://na1.api.riotgames.com/lol/static-data/v3/versions?api_key=\(lol.api_key)"
         
-        var loop = true
-        while(loop){
-            let semaphore = DispatchSemaphore(value: 0)
-            let queue = DispatchQueue.global(qos: .background)
-            Alamofire.request(url).validate().responseJSON(queue: queue) { response in
+        let semaphore = DispatchSemaphore(value: 0)
+        let queue = DispatchQueue.global(qos: .background)
+        Alamofire.request(url).validate().responseJSON(queue: queue) { response in
+            
+            switch response.result {
+            case .success( _):
+                let jversions = JSON(response.result.value!)
                 
-                switch response.result {
-                case .success( _):
-                    let jversions = JSON(response.result.value!)
-                    
-                    if jversions != JSON.null {
-                        if(!jversions.isEmpty){
-                            if (jversions.count > 0) {
+                if jversions != JSON.null {
+                    if(!jversions.isEmpty){
+                        if (jversions.count > 0) {
+                            
+                            if let lastversion = jversions[0].string {
+                                lol.version = lastversion
                                 
-                                if let lastversion = jversions[0].string {
-                                    lol.version = lastversion
-                                    loop = false
-
-                                    NSLog("R00T - GET VERSION SUCESS")
-                                    semaphore.signal()
-                                }
+                                NSLog("R00T - GET VERSION SUCESS")
+                                semaphore.signal()
                             }
                         }
                     }
-                    
-                case .failure(let error):
-                    loop = false
-                    NSLog("R00T - GET VERSION ERROR")
-                    semaphore.signal()
                 }
+                
+            case .failure(let error):
+                NSLog("R00T - GET VERSION ERROR")
+                semaphore.signal()
             }
-            semaphore.wait(timeout: .distantFuture)
         }
+        semaphore.wait(timeout: .distantFuture)
     }
     
     func listaKeyLOL() {
         
         let url = "https://lol4you-32c31.firebaseio.com/key_riot.json"
         
-        var loop = true
-        while(loop){
-            let semaphore = DispatchSemaphore(value: 0)
-            let queue = DispatchQueue.global(qos: .background)
-            Alamofire.request(url).validate().responseJSON(queue: queue) { response in
+        let semaphore = DispatchSemaphore(value: 0)
+        let queue = DispatchQueue.global(qos: .background)
+        Alamofire.request(url).validate().responseJSON(queue: queue) { response in
+            
+            switch response.result {
+            case .success( _):
                 
-                switch response.result {
-                case .success( _):
-                    
-                    if let key = response.result.value as? String {
-                        lol.api_key = key
-                    }
-                    
-                    loop = false
-                    semaphore.signal()
-                    
-                case .failure(let error):
-                    loop = false
-                    
-                    NSLog("R00T - GET KEY LOL")
-                    semaphore.signal()
+                if let key = response.result.value as? String {
+                    lol.api_key = key
                 }
+                
+                semaphore.signal()
+                
+            case .failure(let error):
+                NSLog("R00T - GET KEY LOL")
+                semaphore.signal()
             }
-            semaphore.wait(timeout: .distantFuture)
         }
+        semaphore.wait(timeout: .distantFuture)
     }
     
     func listarSummoner(summonername:String,error:@escaping (BEErro) -> ()) {
@@ -882,7 +833,7 @@ final class rootclass: NSObject {
         let rtn = BEErro()
         
         var url = ""
-
+        
         switch lol.server {
         case Region.REGION_RU.rawValue,
              Region.REGION_KR.rawValue:
@@ -937,7 +888,7 @@ final class rootclass: NSObject {
                             
                             rtn.id = 1
                             rtn.msg = "Sucess"
-
+                            
                         } else {
                             rtn.id = 400
                             rtn.msg = "Invalid Summoner"
@@ -949,8 +900,8 @@ final class rootclass: NSObject {
                 
                 if let status = response.response?.statusCode {
                     if status == 404 {
-                       rtn.id = 400
-                       rtn.msg = "Invalid Summoner"
+                        rtn.id = 400
+                        rtn.msg = "Invalid Summoner"
                     }
                 }
                 
@@ -1275,10 +1226,9 @@ final class rootclass: NSObject {
         }
     }
     
-    func listarLeague(league:@escaping (Array<BELeague>) -> ()) {
+    func listarLeague( league:@escaping (Array<BELeague>) -> ()) {
         
         var rtn = Array<BELeague>()
-        
         var url = ""
         
         switch lol.server {
@@ -1293,9 +1243,9 @@ final class rootclass: NSObject {
              Region.REGION_EUW.rawValue,
              Region.REGION_TR.rawValue,
              Region.REGION_LAN.rawValue:
-             url = "https://\(lol.server)1.api.riotgames.com/lol/league/v3/positions/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
+            url = "https://\(lol.server)1.api.riotgames.com/lol/league/v3/positions/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
         case Region.REGION_LAS.rawValue:
-             url = "https://\(lol.server)2.api.riotgames.com/lol/league/v3/positions/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
+            url = "https://\(lol.server)2.api.riotgames.com/lol/league/v3/positions/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
         default:
             NSLog("#R00T - ERROR SERVER")
         }
@@ -1327,11 +1277,11 @@ final class rootclass: NSObject {
                             if let division = jleague[i]["rank"].string {
                                 r.division = division
                             }
-                                    
+                            
                             if let wins = jleague[i]["wins"].int {
                                 r.wins = wins
                             }
-                                    
+                            
                             if let losses = jleague[i]["losses"].int {
                                 r.losses = losses
                             }
@@ -1351,6 +1301,87 @@ final class rootclass: NSObject {
             
             league(rtn)
         }
+    }
+    
+    func listarLeagueSync(summonerid:Int, league:@escaping (Array<BELeague>) -> ()) {
+        
+        var rtn = Array<BELeague>()
+        var url = ""
+        
+        switch lol.server {
+        case Region.REGION_RU.rawValue,
+             Region.REGION_KR.rawValue:
+            url = "https://\(lol.server).api.riotgames.com/lol/league/v3/positions/by-summoner/\(summonerid)?api_key=\(lol.api_key)"
+        case Region.REGION_BR.rawValue,
+             Region.REGION_OCE.rawValue,
+             Region.REGION_JP.rawValue,
+             Region.REGION_NA.rawValue,
+             Region.REGION_EUNE.rawValue,
+             Region.REGION_EUW.rawValue,
+             Region.REGION_TR.rawValue,
+             Region.REGION_LAN.rawValue:
+            url = "https://\(lol.server)1.api.riotgames.com/lol/league/v3/positions/by-summoner/\(summonerid)?api_key=\(lol.api_key)"
+        case Region.REGION_LAS.rawValue:
+            url = "https://\(lol.server)2.api.riotgames.com/lol/league/v3/positions/by-summoner/\(summonerid)?api_key=\(lol.api_key)"
+        default:
+            NSLog("#R00T - ERROR SERVER")
+        }
+        
+        let semaphore = DispatchSemaphore(value: 0)
+        let queue = DispatchQueue.global(qos: .background)
+        Alamofire.request(url).validate().responseJSON(queue: queue) { response in
+            
+            switch response.result {
+            case .success( _):
+                let jleague = JSON(response.result.value!)
+                
+                if jleague != JSON.null {
+                    if(!jleague.isEmpty){
+                        for i in 0 ..< jleague.count {
+                            let r = BELeague()
+                            
+                            if let tier = jleague[i]["tier"].string {
+                                r.tier = tier
+                            }
+                            
+                            if let queue = jleague[i]["queueType"].string {
+                                r.queue = queue
+                            }
+                            
+                            if let name = jleague[i]["leagueName"].string {
+                                r.name = name
+                            }
+                            
+                            
+                            if let division = jleague[i]["rank"].string {
+                                r.division = division
+                            }
+                            
+                            if let wins = jleague[i]["wins"].int {
+                                r.wins = wins
+                            }
+                            
+                            if let losses = jleague[i]["losses"].int {
+                                r.losses = losses
+                            }
+                            
+                            if let leaguePoints = jleague[i]["leaguePoints"].int {
+                                r.leaguePoints = leaguePoints
+                            }
+                            
+                            rtn.append(r)
+                        }
+                    }
+                }
+                
+            case .failure(let error):
+                NSLog("#R00T - ERROR GET LEAGUE - ERROR: \(error)")
+            }
+            
+            league(rtn)
+            semaphore.signal()
+        }
+        semaphore.wait(timeout: .distantFuture)
     }
     
     func listarMatchesSession(matchesid:@escaping (Array<Int>) -> ()) {
@@ -1397,7 +1428,7 @@ final class rootclass: NSObject {
                             if let matchId = jmatch["matches"][i]["gameId"].int {
                                 r = matchId
                             }
-                        
+                            
                             rtn.append(r)
                             partidas += 1
                             
@@ -1407,18 +1438,19 @@ final class rootclass: NSObject {
                         }
                     }
                 }
-
+                
             case .failure(let error):
                 NSLog("#R00T - ERROR GET MATCHES - ERROR: \(error)")
             }
             
             self.listSessionMatches = rtn
             matchesid(rtn)
+            NSLog("#R00T - TESTANDOOOOOOOOOOOOOOOOOOOOOOOOOO - 1: \(NSDate())")
         }
     }
     
     func listarMatchUni(matchid:Int) {
-
+        
         let match = rootclass.BEMatch()
         
         var url = ""
@@ -1441,8 +1473,7 @@ final class rootclass: NSObject {
         default:
             NSLog("#R00T - ERROR SERVER")
         }
-
-        let semaphore = DispatchSemaphore(value: 0)
+        
         let queue = DispatchQueue.global(qos: .background)
         Alamofire.request(url).validate().responseJSON(queue: queue) { response in
             
@@ -1452,7 +1483,7 @@ final class rootclass: NSObject {
                 
                 if jmatchdet != JSON.null {
                     if(!jmatchdet.isEmpty){
-                    
+                        
                         if let gameId = jmatchdet["gameId"].int {
                             match.gameId = gameId
                         }
@@ -1538,7 +1569,7 @@ final class rootclass: NSObject {
                             if let item6 = jmatchdet["participants"][a]["stats"]["item6"].int {
                                 participant.stats.item6 = item6
                                 participant.stats.item6imagelink = "\(rootclass.images.item)\(item6)\(rootclass.images.png)"
-
+                                
                             }
                             
                             if let kills = jmatchdet["participants"][a]["stats"]["kills"].int {
@@ -1722,16 +1753,14 @@ final class rootclass: NSObject {
                             
                             match.teams.append(team)
                         }
+                        NSLog("#R00T - TESTANDOOOOOOOOOOOOOOOOOOOOOOOOOO - 2: \(NSDate())")
                         self.dicSessionMatches[matchid] = match
-                        semaphore.signal()
                     }
                 }
             case .failure(let error):
-                semaphore.signal()
                 NSLog("#R00T - ERROR GET MATCHE DET - ERROR: \(error)")
             }
         }
-        semaphore.wait(timeout: .distantFuture)
     }
     
     func listarMatches(match:@escaping (Array<BEMatchSmall>) -> ()) {
@@ -1785,7 +1814,7 @@ final class rootclass: NSObject {
                 r.stats.timePlayed = match.gameDuration
                 r.stats.win = participants[0].stats.win
                 r.stats.level = participants[0].stats.champLevel
-                r.stats.minionsKilled = participants[0].stats.totalMinionsKilled + participants[0].stats.neutralMinionsKilled 
+                r.stats.minionsKilled = participants[0].stats.totalMinionsKilled + participants[0].stats.neutralMinionsKilled
                 
                 rtn.append(r)
             }
@@ -1888,7 +1917,7 @@ final class rootclass: NSObject {
         default:
             NSLog("#R00T - ERROR SERVER")
         }
-
+        
         Alamofire.request(url).validate().responseJSON { response in
             
             switch response.result {
@@ -1958,7 +1987,7 @@ final class rootclass: NSObject {
             url = "https://\(lol.server)1.api.riotgames.com/lol/spectator/v3/active-games/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
         case Region.REGION_LAS.rawValue:
             url = "https://\(lol.server)2.api.riotgames.com/lol/spectator/v3/active-games/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"        default:
-            NSLog("#R00T - ERROR SERVER")
+                NSLog("#R00T - ERROR SERVER")
         }
         
         Alamofire.request(url).validate().responseJSON { response in
@@ -1990,6 +2019,10 @@ final class rootclass: NSObject {
                             
                             if let summonerId = jspec["participants"][a]["summonerId"].int {
                                 participant.summonerId = summonerId
+                                
+                                self.listarLeagueSync(summonerid: summonerId) {(league) in
+                                    participant.leagues = league
+                                }
                             }
                             
                             if let championId = jspec["participants"][a]["championId"].int {
@@ -2044,7 +2077,7 @@ final class rootclass: NSObject {
                                 
                                 rtn.bans.append(ban)
                             }
-
+                            
                         }
                         spec(rtn)
                     }

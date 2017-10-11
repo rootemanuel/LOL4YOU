@@ -28,44 +28,31 @@ class specTVC: UITableViewController {
         self.initView()
     }
     
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        
-//        admob.addCountAdMob();
-//        
-//        if admob.showAdMob() {
-//            if let adMobVideo = admob.getRewardBasedVideo() {
-//                adMobVideo.present(fromRootViewController: self)
-//                return
-//            }
-//        }
-//        
-//        switch indexPath.row {
-//        case (9...13):
-//            if let cell = tableView.cellForRow(at: indexPath) {
-//                let participant = matchdet.participants.filter{ p in p.participantId == cell.tag }
-//                let summoner = matchdet.participantsIdentities.filter{ p in p.participantId == cell.tag }
-//                if participant.count > 0 {
-//                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//                    let vc = storyboard.instantiateViewController(withIdentifier: "matchesstatsdet") as! matchesstatsdetTVC
-//                    
-//                    vc.participant = participant[0]
-//                    
-//                    if summoner.count > 0 {
-//                        if summoner[0].summonerName.isEmpty {
-//                            let champ = rt.listaChamp(id: participant[0].championId)
-//                            vc.title = champ.name
-//                        } else {
-//                            vc.title = "\(summoner[0].summonerName)"
-//                        }
-//                    }
-//                    
-//                    self.navigationController?.pushViewController(vc, animated: true)
-//                }
-//            }
-//        default:
-//            print("ROOT - DEFAULT - DIDSELCT")
-//        }
-//    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        admob.addCountAdMob();
+        
+        if admob.showAdMob() {
+            if let adMobVideo = admob.getRewardBasedVideo() {
+                adMobVideo.present(fromRootViewController: self)
+                return
+            }
+        }
+
+         if let cell = tableView.cellForRow(at: indexPath) {
+            let participant = spec.participants.filter{ p in p.participantId == cell.tag }
+            
+            if participant.count > 0 {
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "specdet") as! specdetTVC
+                
+                vc.participant = participant[0]
+                
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -83,6 +70,7 @@ class specTVC: UITableViewController {
                 let cell = Bundle.main.loadNibNamed("matchesdetbansTVCC", owner: self, options: nil)?.first as! matchesdetbansTVCC
                 
                 cell.selectionStyle = UITableViewCellSelectionStyle.none
+                
                 if fbans.count > 0 {
                     if fbans.count > 0 {
                         for i in 0 ..< fbans.count {
@@ -136,12 +124,17 @@ class specTVC: UITableViewController {
                 //Spec Champions
                 let cell = Bundle.main.loadNibNamed("specTVCC", owner: self, options: nil)?.first as! specTVCC
                 
+                cell.selectionStyle = UITableViewCellSelectionStyle.none
+                
                 if fpart.count > 0 {
+                    
+                    cell.tag = fpart[indexPath.row - static_cell_rows_count].participantId
+                    
                     let champ = rt.listaChamp(id: fpart[indexPath.row - static_cell_rows_count].championId)
                     cell.imgChamp.sd_setImage(with: URL(string: "\(rootclass.images.champion)\(champ.imagefull)"), placeholderImage: UIImage(named: "static_null_all"))
                     cell.imgChamp.layer.borderWidth = 1
                     cell.imgChamp.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
-                        
+                    
                     let spell1 = rt.listaSpeel(id: fpart[indexPath.row - static_cell_rows_count].spell1Id)
                     cell.imgSpell1.sd_setImage(with: URL(string: "\(spell1.imagelink)"), placeholderImage: UIImage(named: "static_null"))
                     cell.imgSpell1.layer.borderWidth = 1
@@ -153,6 +146,14 @@ class specTVC: UITableViewController {
                     cell.imgSpell2.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
                         
                     cell.txtSummonerName.text = fpart[indexPath.row - static_cell_rows_count].summonerName
+                    
+                    let league = fpart[indexPath.row - static_cell_rows_count].leagues
+                    if league.count > 0 {
+                        cell.imgTier.image = UIImage(named: "tier_\(league[0].tier.lowercased())\(league[0].division)")
+                        cell.txtTier.text = "\(league[0].tier) \(league[0].division)"
+                        cell.txtWins.text = "Wins: \(league[0].wins)"
+                        cell.txtLoses.text = "Losses: \(league[0].losses)"
+                    }
                 }
                 
                 return cell
@@ -171,6 +172,7 @@ class specTVC: UITableViewController {
                     let cell = Bundle.main.loadNibNamed("matchesdetbansTVCC", owner: self, options: nil)?.first as! matchesdetbansTVCC
                     
                     cell.selectionStyle = UITableViewCellSelectionStyle.none
+                    
                     if sbans.count > 0 {
                         if sbans.count > 0 {
                             for i in 0 ..< sbans.count {
@@ -224,7 +226,12 @@ class specTVC: UITableViewController {
                     //Spec Champions
                     let cell = Bundle.main.loadNibNamed("specTVCC", owner: self, options: nil)?.first as! specTVCC
                     
+                    cell.selectionStyle = UITableViewCellSelectionStyle.none
+                    
                     if spart.count > 0 {
+                        
+                        cell.tag = spart[indexPath.row - static_cell_rows_count].participantId
+                        
                         let champ = rt.listaChamp(id: spart[indexPath.row - static_cell_rows_count].championId)
                         cell.imgChamp.sd_setImage(with: URL(string: "\(rootclass.images.champion)\(champ.imagefull)"), placeholderImage: UIImage(named: "static_null_all"))
                         cell.imgChamp.layer.borderWidth = 2
@@ -241,6 +248,14 @@ class specTVC: UITableViewController {
                         cell.imgSpell2.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_OFUSCADA.rawValue).cgColor
                             
                         cell.txtSummonerName.text = spart[indexPath.row - static_cell_rows_count].summonerName
+                        
+                        let league = spart[indexPath.row - static_cell_rows_count].leagues
+                        if league.count > 0 {
+                            cell.imgTier.image = UIImage(named: "tier_\(league[0].tier.lowercased())\(league[0].division)")
+                            cell.txtTier.text = "\(league[0].tier) \(league[0].division)"
+                            cell.txtWins.text = "Wins: \(league[0].wins)"
+                            cell.txtLoses.text = "Losses: \(league[0].losses)"
+                        }
                     }
                     
                     return cell
@@ -360,7 +375,7 @@ class specTVC: UITableViewController {
     }
     
     func initAdMob() {
-        Analytics.setScreenName(rootclass.screens.matchesdet, screenClass: String(describing: specTVC.self))
+        Analytics.setScreenName(rootclass.screens.spectador, screenClass: String(describing: specTVC.self))
     }
     
     func spopViewController(){

@@ -73,7 +73,7 @@ class rootadmob: NSObject, GADRewardBasedVideoAdDelegate {
     
     func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
                             didFailToLoadWithError error: Error) {
-        NSLog(error.localizedDescription)
+        print("#ADMOB - ERROR - \(error.localizedDescription)")
         Analytics.logEvent(rootadmob.admob.analytcs_admob_video, parameters: [rootadmob.admob.analytcs_video: rootadmob.admob.analytcs_failed_load_video])
     }
     
