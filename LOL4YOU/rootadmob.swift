@@ -10,19 +10,21 @@ import UIKit
 import GoogleMobileAds
 import FirebaseAnalytics
 
-class rootadmob: NSObject, GADRewardBasedVideoAdDelegate {
+class rootadmob: NSObject, GADRewardBasedVideoAdDelegate, GADInterstitialDelegate {
     
     static let sharedInstance: rootadmob = rootadmob()
     
     private override init() {
         super.init()
         self.initAdVideo()
+        self.initAdInterstitial()
     }
     
     struct admob {
         static internal var admob_app:String = "ca-app-pub-8175152842112808~9569832570"
         static internal var admob_banner:String = "ca-app-pub-8175152842112808/2046565779"
         static internal var admob_banner_video:String = "ca-app-pub-8175152842112808/4851172240"
+        static internal var admob_banner_interstitial:String = "ca-app-pub-8175152842112808/5672725908"
         
         static internal var analytcs_admob_video:String = "ANALYTICS_ADMOB_VIDEO"
         static internal var analytcs_video:String = "VIDEO"
@@ -37,27 +39,56 @@ class rootadmob: NSObject, GADRewardBasedVideoAdDelegate {
     
 
     let const_admobcount = 5
-    var adMobCount = 0
-    var rewardBasedVideo: GADRewardBasedVideoAd?
+    var adMobCountVideo = 0
+    var adMobCountInterstitial = 0
     
-    func addCountAdMob() {
-        self.adMobCount += 1;
+    var adVideo: GADRewardBasedVideoAd?
+    var adInterstitial:GADInterstitial? = nil
+    
+    func addCountAdMobVideo() {
+        self.adMobCountVideo += 1;
         
-        if let adMobVideo = self.rewardBasedVideo {
+        if let adMobVideo = self.adVideo {
             if !adMobVideo.isReady {
                 self.initAdVideo()
             }
         }
     }
     
-    func getRewardBasedVideo() -> GADRewardBasedVideoAd? {
-        return self.rewardBasedVideo;
+    func addCountAdMobInterstitial() {
+        self.adMobCountInterstitial += 1;
+        
+        if let adMobInterstitial = self.adInterstitial {
+            if !adMobInterstitial.isReady {
+                self.initAdInterstitial()
+            }
+        } else {
+            self.initAdInterstitial()
+        }
     }
     
-    func showAdMob() -> Bool {
-        if let adMobVideo = self.rewardBasedVideo {
-            if adMobVideo.isReady && self.adMobCount > const_admobcount {
-                self.adMobCount = 0;
+    func getAdVideo() -> GADRewardBasedVideoAd? {
+        return self.adVideo;
+    }
+    
+    func getAdInterstitial() -> GADInterstitial? {
+        return self.adInterstitial;
+    }
+    
+    func showAdMobVideo() -> Bool {
+        if let adMobVideo = self.adVideo {
+            if adMobVideo.isReady && self.adMobCountVideo > const_admobcount {
+                self.adMobCountVideo = 0;
+                return true
+            }
+        }
+        return false
+    }
+    
+    func showAdMobInterstitial() -> Bool {
+        if let adMobInterstitial = self.adInterstitial {
+            if adMobInterstitial.isReady && self.adMobCountInterstitial > const_admobcount {
+                self.adMobCountInterstitial = 0;
                 return true
             }
         }
@@ -65,36 +96,42 @@ class rootadmob: NSObject, GADRewardBasedVideoAdDelegate {
     }
     
     func initAdVideo() {
-        self.rewardBasedVideo = GADRewardBasedVideoAd.sharedInstance()
-        self.rewardBasedVideo?.delegate = self
-        self.rewardBasedVideo?.load(GADRequest(),
-                                    withAdUnitID: rootadmob.admob.admob_banner_video)
+        self.adVideo = GADRewardBasedVideoAd.sharedInstance()
+        self.adVideo?.delegate = self
+        self.adVideo?.load(GADRequest(),
+                                    withAdUnitID: admob.admob_banner_video)
+    }
+    
+    func initAdInterstitial() {
+        self.adInterstitial = GADInterstitial(adUnitID: admob.admob_banner_interstitial)
+        self.adInterstitial?.delegate = self
+        self.adInterstitial?.load(GADRequest())
     }
     
     func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
                             didFailToLoadWithError error: Error) {
         print("#ADMOB - ERROR - \(error.localizedDescription)")
-        Analytics.logEvent(rootadmob.admob.analytcs_admob_video, parameters: [rootadmob.admob.analytcs_video: rootadmob.admob.analytcs_failed_load_video])
+        Analytics.logEvent(rootadmob.admob.analytcs_admob_video, parameters: [rootadmob.admob.analytcs_video: admob.analytcs_failed_load_video])
     }
     
     func rewardBasedVideoAdDidReceive(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
-        Analytics.logEvent(rootadmob.admob.analytcs_admob_video, parameters: [rootadmob.admob.analytcs_video: rootadmob.admob.analytcs_received_video])
+        Analytics.logEvent(rootadmob.admob.analytcs_admob_video, parameters: [rootadmob.admob.analytcs_video: admob.analytcs_received_video])
     }
     
     func rewardBasedVideoAdDidOpen(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
-        Analytics.logEvent(rootadmob.admob.analytcs_admob_video, parameters: [rootadmob.admob.analytcs_video: rootadmob.admob.analytcs_open_video])
+        Analytics.logEvent(rootadmob.admob.analytcs_admob_video, parameters: [rootadmob.admob.analytcs_video: admob.analytcs_open_video])
     }
     
     func rewardBasedVideoAdDidStartPlaying(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
-        Analytics.logEvent(rootadmob.admob.analytcs_admob_video, parameters: [rootadmob.admob.analytcs_video: rootadmob.admob.analytcs_open_close_video])
+        Analytics.logEvent(rootadmob.admob.analytcs_admob_video, parameters: [rootadmob.admob.analytcs_video: admob.analytcs_open_close_video])
     }
     
     func rewardBasedVideoAdDidClose(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
-        Analytics.logEvent(rootadmob.admob.analytcs_admob_video, parameters: [rootadmob.admob.analytcs_video: rootadmob.admob.analytcs_close_video])
+        Analytics.logEvent(rootadmob.admob.analytcs_admob_video, parameters: [rootadmob.admob.analytcs_video: admob.analytcs_close_video])
     }
     
     func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
                             didRewardUserWith reward: GADAdReward) {
-        Analytics.logEvent(rootadmob.admob.analytcs_admob_video, parameters: [rootadmob.admob.analytcs_video: rootadmob.admob.analytcs_view_video])
+        Analytics.logEvent(rootadmob.admob.analytcs_admob_video, parameters: [rootadmob.admob.analytcs_video: admob.analytcs_view_video])
     }
 }

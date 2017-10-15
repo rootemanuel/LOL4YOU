@@ -29,11 +29,11 @@ class runesTVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        admob.addCountAdMob();
+        admob.addCountAdMobInterstitial();
         
-        if admob.showAdMob() {
-            if let adMobVideo = admob.getRewardBasedVideo() {
-                adMobVideo.present(fromRootViewController: self)
+        if admob.showAdMobInterstitial() {
+            if let adMobInterstitial = admob.getAdInterstitial() {
+                adMobInterstitial.present(fromRootViewController: self)
                 return
             }
         }
