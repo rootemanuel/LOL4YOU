@@ -11,7 +11,7 @@ import SVProgressHUD
 import GoogleMobileAds
 import FirebaseAnalytics
 
-class specTVC: UITableViewController {
+class specTVC: UITableViewController, GADBannerViewDelegate {
 
     let rt = rootclass.sharedInstance
     let admob = rootadmob.sharedInstance
@@ -376,6 +376,14 @@ class specTVC: UITableViewController {
     
     func initAdMob() {
         Analytics.setScreenName(rootclass.screens.spectador, screenClass: String(describing: specTVC.self))
+        
+        let adBannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
+        adBannerView.adUnitID = rootadmob.admob.admob_banner
+        adBannerView.delegate = self
+        adBannerView.rootViewController = self
+        adBannerView.load(GADRequest())
+        
+        self.tableView.tableHeaderView = adBannerView
     }
     
     func spopViewController(){
