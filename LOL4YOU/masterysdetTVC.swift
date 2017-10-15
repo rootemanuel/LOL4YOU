@@ -11,7 +11,7 @@ import SDWebImage
 import GoogleMobileAds
 import FirebaseAnalytics
 
-class masterysdetTVC: UITableViewController {
+class masterysdetTVC: UITableViewController, GADBannerViewDelegate{
 
     var emptytableview:emptytableview? = nil
     let rt = rootclass.sharedInstance
@@ -76,6 +76,14 @@ class masterysdetTVC: UITableViewController {
     
     func initAdMob() {
         Analytics.setScreenName(rootclass.screens.masterysdet, screenClass: String(describing: masterysdet.self))
+        
+        let adBannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
+        adBannerView.adUnitID = rootadmob.admob.admob_banner
+        adBannerView.delegate = self
+        adBannerView.rootViewController = self
+        adBannerView.load(GADRequest())
+        
+        self.tableView.tableHeaderView = adBannerView
     }
     
     func initView(){

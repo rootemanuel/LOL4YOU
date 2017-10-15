@@ -11,7 +11,7 @@ import SVProgressHUD
 import GoogleMobileAds
 import FirebaseAnalytics
 
-class runesTVC: UITableViewController {
+class runesTVC: UITableViewController, GADBannerViewDelegate{
     
     var emptytableview:emptytableview? = nil
     var runes = Array<rootclass.BERunes>()
@@ -128,6 +128,14 @@ class runesTVC: UITableViewController {
     
     func initAdMob() {
         Analytics.setScreenName(rootclass.screens.runes, screenClass: String(describing: runesTVC.self))
+        
+        let adBannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
+        adBannerView.adUnitID = rootadmob.admob.admob_banner
+        adBannerView.delegate = self
+        adBannerView.rootViewController = self
+        adBannerView.load(GADRequest())
+        
+        self.tableView.tableHeaderView = adBannerView
     }
     
     func initView(){

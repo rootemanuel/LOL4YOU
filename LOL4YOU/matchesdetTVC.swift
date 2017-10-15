@@ -11,7 +11,7 @@ import SVProgressHUD
 import GoogleMobileAds
 import FirebaseAnalytics
 
-class matchesdetTVC: UITableViewController {
+class matchesdetTVC: UITableViewController, GADBannerViewDelegate{
     
     let rt = rootclass.sharedInstance
     let admob = rootadmob.sharedInstance
@@ -772,6 +772,14 @@ class matchesdetTVC: UITableViewController {
     
     func initAdMob() {
         Analytics.setScreenName(rootclass.screens.matchesdet, screenClass: String(describing: matchesdetTVC.self))
+        
+        let adBannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
+        adBannerView.adUnitID = rootadmob.admob.admob_banner
+        adBannerView.delegate = self
+        adBannerView.rootViewController = self
+        adBannerView.load(GADRequest())
+        
+        self.tableView.tableHeaderView = adBannerView
     }
     
     func spopViewController(){

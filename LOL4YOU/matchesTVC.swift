@@ -13,7 +13,7 @@ import SwiftyJSON
 import GoogleMobileAds
 import FirebaseAnalytics
 
-class matchesTVC: UITableViewController {
+class matchesTVC: UITableViewController, GADBannerViewDelegate{
 
     let admob = rootadmob.sharedInstance
     let rt = rootclass.sharedInstance
@@ -234,6 +234,14 @@ class matchesTVC: UITableViewController {
     
     func initAdMob() {
         Analytics.setScreenName(rootclass.screens.matches, screenClass: String(describing: matchesTVC.self))
+    
+        let adBannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
+        adBannerView.adUnitID = rootadmob.admob.admob_banner
+        adBannerView.delegate = self
+        adBannerView.rootViewController = self
+        adBannerView.load(GADRequest())
+        
+        self.tableView.tableHeaderView = adBannerView
     }
     
     func spopViewController(){

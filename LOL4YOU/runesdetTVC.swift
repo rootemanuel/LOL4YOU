@@ -10,7 +10,7 @@ import UIKit
 import GoogleMobileAds
 import FirebaseAnalytics
 
-class runesdetTVC: UITableViewController {
+class runesdetTVC: UITableViewController, GADBannerViewDelegate {
     var emptytableview:emptytableview? = nil
     let rt = rootclass.sharedInstance
     var runesdet = Array<rootclass.BERune>()
@@ -18,9 +18,9 @@ class runesdetTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.initAdMob()
         self.initView()
         self.loadingView()
-        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -93,7 +93,20 @@ class runesdetTVC: UITableViewController {
         }
     }
     
+    func initAdMob() {
+        Analytics.setScreenName(rootclass.screens.runesdet, screenClass: String(describing: runesdetTVC.self))
+        
+        let adBannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
+        adBannerView.adUnitID = rootadmob.admob.admob_banner
+        adBannerView.delegate = self
+        adBannerView.rootViewController = self
+        adBannerView.load(GADRequest())
+        
+        self.tableView.tableHeaderView = adBannerView
+    }
+    
     func spopViewController(){
         self.navigationController?.popViewController(animated: true)
     }
+    
 }

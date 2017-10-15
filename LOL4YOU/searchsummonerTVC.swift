@@ -13,8 +13,6 @@ import GoogleMobileAds
 import FirebaseAnalytics
 
 class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerViewDelegate {
-
-    @IBOutlet weak var bannerView: GADBannerView!
     
     @IBOutlet weak var srchsummoner: UIButton!
     @IBOutlet weak var summonernick: UITextField!
@@ -32,7 +30,7 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerVi
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 4
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -139,10 +137,13 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerVi
     func initAdMob() {
         Analytics.setScreenName(rootclass.screens.search, screenClass: String(describing: searchsummonerTVC.self))
         
-        bannerView.adUnitID = rootadmob.admob.admob_banner
-        bannerView.delegate = self
-        bannerView.rootViewController = self
-        bannerView.load(GADRequest())
+        let adBannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
+        adBannerView.adUnitID = rootadmob.admob.admob_banner
+        adBannerView.delegate = self
+        adBannerView.rootViewController = self
+        adBannerView.load(GADRequest())
+        
+        self.tableView.tableHeaderView = adBannerView
     }
     
     func initView(){
@@ -253,6 +254,7 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerVi
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        self.view.endEditing(true)
         return true
     }
 }

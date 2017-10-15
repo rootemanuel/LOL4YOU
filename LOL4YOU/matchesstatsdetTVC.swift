@@ -10,7 +10,7 @@ import UIKit
 import GoogleMobileAds
 import FirebaseAnalytics
 
-class matchesstatsdetTVC: UITableViewController {
+class matchesstatsdetTVC: UITableViewController, GADBannerViewDelegate{
 
     var sections = ["Champion","Details","Runes","Masterys"]
     
@@ -280,6 +280,14 @@ class matchesstatsdetTVC: UITableViewController {
     
     func initAdMob() {
         Analytics.setScreenName(rootclass.screens.matchesdet, screenClass: String(describing: matchesstatsdetTVC.self))
+        
+        let adBannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
+        adBannerView.adUnitID = rootadmob.admob.admob_banner
+        adBannerView.delegate = self
+        adBannerView.rootViewController = self
+        adBannerView.load(GADRequest())
+        
+        self.tableView.tableHeaderView = adBannerView
     }
     
     func initView(){

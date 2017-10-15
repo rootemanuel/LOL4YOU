@@ -11,7 +11,7 @@ import SVProgressHUD
 import GoogleMobileAds
 import FirebaseAnalytics
 
-class masterysTVC: UITableViewController {
+class masterysTVC: UITableViewController, GADBannerViewDelegate{
 
     var emptytableview:emptytableview? = nil
     var masts = Array<rootclass.BEMasterys>()
@@ -110,6 +110,14 @@ class masterysTVC: UITableViewController {
     
     func initAdMob() {
         Analytics.setScreenName(rootclass.screens.masterys, screenClass: String(describing: masterysTVC.self))
+        
+        let adBannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
+        adBannerView.adUnitID = rootadmob.admob.admob_banner
+        adBannerView.delegate = self
+        adBannerView.rootViewController = self
+        adBannerView.load(GADRequest())
+        
+        self.tableView.tableHeaderView = adBannerView
     }
     
     func initView(){

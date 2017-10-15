@@ -10,7 +10,7 @@ import UIKit
 import GoogleMobileAds
 import FirebaseAnalytics
 
-class perfilstatsTVC: UITableViewController {
+class perfilstatsTVC: UITableViewController, GADBannerViewDelegate{
 
     let rt = rootclass.sharedInstance
     var stats = Array<rootclass.BEStats>()
@@ -316,6 +316,14 @@ class perfilstatsTVC: UITableViewController {
     
     func initAdMob() {
         Analytics.setScreenName(rootclass.screens.perfilstats, screenClass: String(describing: perfilstatsTVC.self))
+        
+        let adBannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
+        adBannerView.adUnitID = rootadmob.admob.admob_banner
+        adBannerView.delegate = self
+        adBannerView.rootViewController = self
+        adBannerView.load(GADRequest())
+        
+        self.tableView.tableHeaderView = adBannerView
     }
     
     func initView(){
