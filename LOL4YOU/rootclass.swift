@@ -31,6 +31,8 @@ final class rootclass: NSObject {
     var dicSessionMatches = Dictionary<Int, BEMatch>()
     var dicSessionMatchesQueue = Dictionary<Int, String>()
     
+    var tiraessaporra:String = ""
+    
     class staticspell {
         var id:Int = 0
         var key:String = ""
@@ -1774,47 +1776,98 @@ final class rootclass: NSObject {
             if let match = self.dicSessionMatches[self.listSessionMatches[i]] {
                 
                 let participantId = match.participantsIdentities.filter { p in p.summonerId == Summoner.summonerID }
-                print("# AQUIIIIIIIIIIIIIIIII ----- \(i)")
-                print("# AQUIIIIIIIIIIIIIIIII -----  \(self.listSessionMatches[i])")
-                print(" ---------------------------- ")
-                let participants = match.participants.filter { p in p.participantId == participantId[0].participantId }
                 
-                r.createDate = match.gameCreation
-                r.gameId = match.gameId
-                r.queue = match.queueType
-                r.championId = participants[0].championId
-                r.spell1 = participants[0].spell1Id
-                r.spell2 = participants[0].spell2Id
-                
-                r.stats.item0 = participants[0].stats.item0
-                r.stats.item0imagelink = participants[0].stats.item0imagelink
-                
-                r.stats.item1 = participants[0].stats.item1
-                r.stats.item1imagelink = participants[0].stats.item1imagelink
-                
-                r.stats.item2 = participants[0].stats.item2
-                r.stats.item2imagelink = participants[0].stats.item2imagelink
-                
-                r.stats.item3 = participants[0].stats.item3
-                r.stats.item3imagelink = participants[0].stats.item3imagelink
-                
-                r.stats.item4 = participants[0].stats.item4
-                r.stats.item4imagelink = participants[0].stats.item4imagelink
-                
-                r.stats.item5 = participants[0].stats.item5
-                r.stats.item5imagelink = participants[0].stats.item5imagelink
-                
-                r.stats.item6 = participants[0].stats.item6
-                r.stats.item6imagelink = participants[0].stats.item6imagelink
-                
-                r.stats.goldEarned = participants[0].stats.goldEarned
-                r.stats.championsKilled = participants[0].stats.kills
-                r.stats.numDeaths = participants[0].stats.deaths
-                r.stats.assists = participants[0].stats.assists
-                r.stats.timePlayed = match.gameDuration
-                r.stats.win = participants[0].stats.win
-                r.stats.level = participants[0].stats.champLevel
-                r.stats.minionsKilled = participants[0].stats.totalMinionsKilled + participants[0].stats.neutralMinionsKilled
+                if participantId.count > 0 {
+                    
+                    let participants = match.participants.filter { p in p.participantId == participantId[0].participantId }
+                    
+                    r.createDate = match.gameCreation
+                    r.gameId = match.gameId
+                    r.queue = match.queueType
+                    r.championId = participants[0].championId
+                    r.spell1 = participants[0].spell1Id
+                    r.spell2 = participants[0].spell2Id
+                    
+                    r.stats.item0 = participants[0].stats.item0
+                    r.stats.item0imagelink = participants[0].stats.item0imagelink
+                    
+                    r.stats.item1 = participants[0].stats.item1
+                    r.stats.item1imagelink = participants[0].stats.item1imagelink
+                    
+                    r.stats.item2 = participants[0].stats.item2
+                    r.stats.item2imagelink = participants[0].stats.item2imagelink
+                    
+                    r.stats.item3 = participants[0].stats.item3
+                    r.stats.item3imagelink = participants[0].stats.item3imagelink
+                    
+                    r.stats.item4 = participants[0].stats.item4
+                    r.stats.item4imagelink = participants[0].stats.item4imagelink
+                    
+                    r.stats.item5 = participants[0].stats.item5
+                    r.stats.item5imagelink = participants[0].stats.item5imagelink
+                    
+                    r.stats.item6 = participants[0].stats.item6
+                    r.stats.item6imagelink = participants[0].stats.item6imagelink
+                    
+                    r.stats.goldEarned = participants[0].stats.goldEarned
+                    r.stats.championsKilled = participants[0].stats.kills
+                    r.stats.numDeaths = participants[0].stats.deaths
+                    r.stats.assists = participants[0].stats.assists
+                    r.stats.timePlayed = match.gameDuration
+                    r.stats.win = participants[0].stats.win
+                    r.stats.level = participants[0].stats.champLevel
+                    r.stats.minionsKilled = participants[0].stats.totalMinionsKilled + participants[0].stats.neutralMinionsKilled
+                    
+                } else {
+                    print("#R00T - EXCECAO AQUI - INI")
+                    let participants = match.participants.filter { p in p.participantId == 1 }
+                    
+                    r.createDate = match.gameCreation
+                    r.gameId = match.gameId
+                    r.queue = match.queueType
+                    r.championId = participants[0].championId
+                    r.spell1 = participants[0].spell1Id
+                    r.spell2 = participants[0].spell2Id
+                    
+                    r.stats.item0 = participants[0].stats.item0
+                    r.stats.item0imagelink = participants[0].stats.item0imagelink
+                    
+                    r.stats.item1 = participants[0].stats.item1
+                    r.stats.item1imagelink = participants[0].stats.item1imagelink
+                    
+                    r.stats.item2 = participants[0].stats.item2
+                    r.stats.item2imagelink = participants[0].stats.item2imagelink
+                    
+                    r.stats.item3 = participants[0].stats.item3
+                    r.stats.item3imagelink = participants[0].stats.item3imagelink
+                    
+                    r.stats.item4 = participants[0].stats.item4
+                    r.stats.item4imagelink = participants[0].stats.item4imagelink
+                    
+                    r.stats.item5 = participants[0].stats.item5
+                    r.stats.item5imagelink = participants[0].stats.item5imagelink
+                    
+                    r.stats.item6 = participants[0].stats.item6
+                    r.stats.item6imagelink = participants[0].stats.item6imagelink
+                    
+                    r.stats.goldEarned = participants[0].stats.goldEarned
+                    r.stats.championsKilled = participants[0].stats.kills
+                    r.stats.numDeaths = participants[0].stats.deaths
+                    r.stats.assists = participants[0].stats.assists
+                    r.stats.timePlayed = match.gameDuration
+                    r.stats.win = participants[0].stats.win
+                    r.stats.level = participants[0].stats.champLevel
+                    r.stats.minionsKilled = participants[0].stats.totalMinionsKilled + participants[0].stats.neutralMinionsKilled
+                    
+                    let champ = self.listaChamp(id: participants[0].championId)
+                    
+                    tiraessaporra = ""
+                    tiraessaporra.append("#R00T - CHAMPION => \(champ.name) \n")
+                    tiraessaporra.append("#R00T - KDA => \(participants[0].stats.kills) / \(participants[0].stats.deaths) / \(participants[0].stats.assists) \n")
+                    tiraessaporra.append("#R00T - GAMEID => \(match.gameId) \n")
+                    tiraessaporra.append("#R00T - EXCECAO AQUI - FIM \n")
+                    tiraessaporra.append("------------------------------------------- \n")
+                }
                 
                 rtn.append(r)
             }

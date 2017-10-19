@@ -16,7 +16,6 @@ class rootadmob: NSObject, GADRewardBasedVideoAdDelegate, GADInterstitialDelegat
     
     private override init() {
         super.init()
-        self.initAdVideo()
         self.initAdInterstitial()
     }
     

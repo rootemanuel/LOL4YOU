@@ -61,6 +61,10 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerVi
         SVProgressHUD.show()
         
         if summonernick.text != nil && (summonernick.text?.isEmpty)! {
+            let alert = UIAlertController(title: "Notice", message: "Invalid Summoner", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            SVProgressHUD.dismiss()
             return
         }
         
@@ -88,6 +92,10 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerVi
         SVProgressHUD.show()
         
         if summonernick.text != nil && (summonernick.text?.isEmpty)! {
+            let alert = UIAlertController(title: "Notice", message: "Invalid Summoner", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            SVProgressHUD.dismiss()
             return
         }
         
@@ -97,6 +105,8 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerVi
                 let alert = UIAlertController(title: "Notice", message: "Invalid Summoner", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
+                SVProgressHUD.dismiss()
+                return
             }
             
             self.rt.listarSpec() {(spec) in
@@ -108,8 +118,12 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerVi
                     vc.spec = spec
                     
                     self.navigationController?.pushViewController(vc, animated: true)
+                } else {
+                    let alert = UIAlertController(title: "Notice", message: "Invalid Match", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
                 }
-                
+
                 SVProgressHUD.dismiss()
             }
         }

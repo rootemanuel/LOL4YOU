@@ -971,7 +971,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AC8C668551E0C102D198AF48 /* Pods-LOL4YOU.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "app-lol4you";
 				CODE_SIGN_ENTITLEMENTS = LOL4YOU/LOL4YOU.entitlements;
 				DEVELOPMENT_TEAM = URE3KY7SLW;
 				INFOPLIST_FILE = LOL4YOU/Info.plist;
@@ -986,7 +986,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4D8C7653D0AE1D6DD09A232E /* Pods-LOL4YOU.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "app-lol4you";
 				CODE_SIGN_ENTITLEMENTS = LOL4YOU/LOL4YOU.entitlements;
 				DEVELOPMENT_TEAM = URE3KY7SLW;
 				INFOPLIST_FILE = LOL4YOU/Info.plist;

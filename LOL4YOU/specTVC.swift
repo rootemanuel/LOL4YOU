@@ -40,7 +40,8 @@ class specTVC: UITableViewController, GADBannerViewDelegate {
         }
         
          if let cell = tableView.cellForRow(at: indexPath) {
-            let participant = spec.participants.filter{ p in p.participantId == cell.tag }
+            print("CELL SELECT - \(cell.tag)")
+            let participant = spec.participants.filter{ p in p.summonerId == cell.tag }
             
             if participant.count > 0 {
                 
@@ -128,7 +129,7 @@ class specTVC: UITableViewController, GADBannerViewDelegate {
                 
                 if fpart.count > 0 {
                     
-                    cell.tag = fpart[indexPath.row - static_cell_rows_count].participantId
+                    cell.tag = fpart[indexPath.row - static_cell_rows_count].summonerId
                     
                     let champ = rt.listaChamp(id: fpart[indexPath.row - static_cell_rows_count].championId)
                     cell.imgChamp.sd_setImage(with: URL(string: "\(rootclass.images.champion)\(champ.imagefull)"), placeholderImage: UIImage(named: "static_null_all"))
@@ -230,7 +231,7 @@ class specTVC: UITableViewController, GADBannerViewDelegate {
                     
                     if spart.count > 0 {
                         
-                        cell.tag = spart[indexPath.row - static_cell_rows_count].participantId
+                        cell.tag = spart[indexPath.row - static_cell_rows_count].summonerId
                         
                         let champ = rt.listaChamp(id: spart[indexPath.row - static_cell_rows_count].championId)
                         cell.imgChamp.sd_setImage(with: URL(string: "\(rootclass.images.champion)\(champ.imagefull)"), placeholderImage: UIImage(named: "static_null_all"))

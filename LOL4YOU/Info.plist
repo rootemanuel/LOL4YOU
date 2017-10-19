@@ -28,14 +28,14 @@
 		<dict>
 			<key>play.googleapis.com</key>
 			<dict>
+				<key>NSAllowsArbitraryLoads</key>
+				<true/>
 				<key>NSIncludesSubdomains</key>
 				<true/>
-				<key>NSAllowsArbitraryLoads</key>
+				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
 				<true/>
 				<key>NSTemporaryExceptionMinimumTLSVersion</key>
 				<string>TLSv1.1</string>
-				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
 			</dict>
 		</dict>
 	</dict>
