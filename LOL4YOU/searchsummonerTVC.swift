@@ -222,8 +222,14 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerVi
             self.summonerserver.setTitle(index as! String?, for: .normal)
             self.validadados(UITextField())
             
+            self.view.endEditing(true)
+            
             return
-            }, cancel: { ActionStringCancelBlock in return }, origin: sender)
+            
+            }, cancel: {
+                ActionStringCancelBlock in return
+                self.view.endEditing(true)
+            }, origin: sender)
         
         let textTitleAtributes = [
             NSForegroundColorAttributeName: UIColor(hex:rootclass.colors.TEXTO_TOP_BAR.rawValue),

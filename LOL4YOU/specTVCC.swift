@@ -15,6 +15,7 @@ class specTVCC: UITableViewCell {
     @IBOutlet weak var imgSpell1: UIImageView!
     @IBOutlet weak var imgSpell2: UIImageView!
     @IBOutlet weak var imgTier: UIImageView!
+    @IBOutlet weak var imgMaestry: UIImageView!
     @IBOutlet weak var txtTier: UILabel!
     @IBOutlet weak var txtWins: UILabel!
     @IBOutlet weak var txtLoses: UILabel!

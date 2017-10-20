@@ -260,6 +260,7 @@ final class rootclass: NSObject {
         var summonerName:String = ""
         var summonerId:Int = 0
         var leagues:Array<BELeague> = Array<BELeague>()
+        var maestry:staticchampmastery = staticchampmastery()
         //BESpec
         var teamId:Int = 0
         var spell1Id:Int = 0
@@ -1328,10 +1329,8 @@ final class rootclass: NSObject {
         default:
             NSLog("#R00T - ERROR SERVER")
         }
-        
-        let semaphore = DispatchSemaphore(value: 0)
-        let queue = DispatchQueue.global(qos: .background)
-        Alamofire.request(url).validate().responseJSON(queue: queue) { response in
+
+        Alamofire.request(url).validate().responseJSON { response in
             
             switch response.result {
             case .success( _):
@@ -1381,9 +1380,61 @@ final class rootclass: NSObject {
             }
             
             league(rtn)
-            semaphore.signal()
         }
-        semaphore.wait(timeout: .distantFuture)
+    }
+    
+    func listarMaestrySync(summonerid:Int,champion:Int, maestry:@escaping (staticchampmastery) -> ()) {
+        
+        var rtn = staticchampmastery()
+        var url = ""
+
+        switch lol.server {
+        case Region.REGION_RU.rawValue,
+             Region.REGION_KR.rawValue:
+            url = "https://\(lol.server).api.riotgames.com/lol/champion-mastery/v3/champion-masteries/by-summoner/\(summonerid)/by-champion/\(champion)?api_key=\(lol.api_key)"
+        case Region.REGION_BR.rawValue,
+             Region.REGION_OCE.rawValue,
+             Region.REGION_JP.rawValue,
+             Region.REGION_NA.rawValue,
+             Region.REGION_EUNE.rawValue,
+             Region.REGION_EUW.rawValue,
+             Region.REGION_TR.rawValue,
+             Region.REGION_LAN.rawValue:
+             url = "https://\(lol.server)1.api.riotgames.com/lol/champion-mastery/v3/champion-masteries/by-summoner/\(summonerid)/by-champion/\(champion)?api_key=\(lol.api_key)"
+        case Region.REGION_LAS.rawValue:
+             url = "https://\(lol.server)2.api.riotgames.com/lol/champion-mastery/v3/champion-masteries/by-summoner/\(summonerid)/by-champion/\(champion)?api_key=\(lol.api_key)"
+        default:
+            NSLog("#R00T - ERROR SERVER")
+        }
+        
+        Alamofire.request(url).validate().responseJSON { response in
+        
+            switch response.result {
+            case .success( _):
+                let jmaestry = JSON(response.result.value!)
+                
+                if jmaestry != JSON.null {
+                    if(!jmaestry.isEmpty){
+                            if let championId = jmaestry["championId"].int {
+                                rtn.championId = championId
+                            }
+                            
+                            if let championLevel = jmaestry["championLevel"].int {
+                                rtn.championLevel = championLevel
+                            }
+                            
+                            if let championPoints = jmaestry["championPoints"].int {
+                                rtn.championPoints = championPoints
+                            }
+                        }
+                    }
+                
+            case .failure(let error):
+                NSLog("#R00T - ERROR GET MAESTRY - ERROR: \(error)")
+            }
+            
+            maestry(rtn)
+        }
     }
     
     func listarMatchesSession(matchesid:@escaping (Array<Int>) -> ()) {
@@ -2080,6 +2131,10 @@ final class rootclass: NSObject {
                             
                             if let championId = jspec["participants"][a]["championId"].int {
                                 participant.championId = championId
+                                
+                                self.listarMaestrySync(summonerid: participant.summonerId, champion: participant.championId) {(maestry) in
+                                    participant.maestry = maestry
+                                }
                             }
                             
                             

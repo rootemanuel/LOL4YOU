@@ -131,6 +131,9 @@ class specTVC: UITableViewController, GADBannerViewDelegate {
                     
                     cell.tag = fpart[indexPath.row - static_cell_rows_count].summonerId
                     
+                    let champmastery = UIImage(named:"static_mastery_\(fpart[indexPath.row - static_cell_rows_count].maestry.championLevel)")
+                    cell.imgMaestry.image = champmastery
+                    
                     let champ = rt.listaChamp(id: fpart[indexPath.row - static_cell_rows_count].championId)
                     cell.imgChamp.sd_setImage(with: URL(string: "\(rootclass.images.champion)\(champ.imagefull)"), placeholderImage: UIImage(named: "static_null_all"))
                     cell.imgChamp.layer.borderWidth = 1
@@ -233,6 +236,9 @@ class specTVC: UITableViewController, GADBannerViewDelegate {
                         
                         cell.tag = spart[indexPath.row - static_cell_rows_count].summonerId
                         
+                        let champmastery = UIImage(named:"static_mastery_\(spart[indexPath.row - static_cell_rows_count].maestry.championLevel)")
+                        cell.imgMaestry.image = champmastery
+                        
                         let champ = rt.listaChamp(id: spart[indexPath.row - static_cell_rows_count].championId)
                         cell.imgChamp.sd_setImage(with: URL(string: "\(rootclass.images.champion)\(champ.imagefull)"), placeholderImage: UIImage(named: "static_null_all"))
                         cell.imgChamp.layer.borderWidth = 2
@@ -330,7 +336,7 @@ class specTVC: UITableViewController, GADBannerViewDelegate {
             case 0:
                 return 55
             case (1...5):
-                return 100
+                return 115
             default:
                 return 95
             }
@@ -339,7 +345,7 @@ class specTVC: UITableViewController, GADBannerViewDelegate {
             case 0:
                 return 55
             case (1...5):
-                return 100
+                return 115
             default:
                 return 95
             }

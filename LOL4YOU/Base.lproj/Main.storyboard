@@ -285,10 +285,21 @@
                                                     <color key="onTintColor" red="0.70588235290000001" green="0.52156862749999999" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="thumbTintColor" red="0.92941176469999998" green="0.87843137250000003" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </switch>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spectador" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X4r-25-6Vw">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="OfJ-eO-xWz"/>
+                                                        <constraint firstAttribute="width" constant="98" id="mA9-6N-6Jd"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="12"/>
+                                                    <color key="textColor" red="0.92941176469999998" green="0.87843137250000003" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="7FQ-BD-AKs" firstAttribute="top" secondItem="LJI-dJ-qhM" secondAttribute="top" constant="7" id="ADo-xA-PxE"/>
+                                                <constraint firstItem="X4r-25-6Vw" firstAttribute="leading" secondItem="LJI-dJ-qhM" secondAttribute="leading" constant="15" id="Pkd-jw-2JT"/>
                                                 <constraint firstAttribute="trailing" secondItem="7FQ-BD-AKs" secondAttribute="trailing" constant="16" id="hX9-by-gyq"/>
+                                                <constraint firstItem="X4r-25-6Vw" firstAttribute="top" secondItem="LJI-dJ-qhM" secondAttribute="top" constant="12" id="uBK-wt-v1l"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.086274509799999996" green="0.10980392160000001" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
