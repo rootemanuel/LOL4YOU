@@ -9,5 +9,6 @@
 import UIKit
 
 class championsCVC: UICollectionViewCell {
-    
+    @IBOutlet weak var imgChamp: UIImageView!
+    @IBOutlet weak var lblChamNome: UILabel!
 }

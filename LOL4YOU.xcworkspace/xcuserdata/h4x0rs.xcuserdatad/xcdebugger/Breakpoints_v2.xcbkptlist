@@ -73,46 +73,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LOL4YOU/rootclass.swift"
-            timestampString = "530153542.861454"
+            filePath = "LOL4YOU/champmasteryVC.swift"
+            timestampString = "533326081.008622"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "2097"
-            endingLineNumber = "2097"
-            landmarkName = "listarSpec(spec:)"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "spopViewController()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LOL4YOU.rootclass.listarSpec (spec : (LOL4YOU.rootclass.BESpec) -&gt; ()) -&gt; ()"
-                  moduleName = "LOL4YOU"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/h4x0rs/Desktop/LOL4YOU/LOL4YOU/rootclass.swift"
-                  timestampString = "530149921.108617"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "2106"
-                  endingLineNumber = "2106"
-                  offsetFromSymbolStart = "3076">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "function signature specialization &lt;Arg[2] = Value Promoted from Box&gt; of LOL4YOU.rootclass.(listarSpec (spec : (LOL4YOU.rootclass.BESpec) -&gt; ()) -&gt; ()).(closure #1)"
-                  moduleName = "LOL4YOU"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/h4x0rs/Desktop/LOL4YOU/LOL4YOU/rootclass.swift"
-                  timestampString = "530149921.111016"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "2108"
-                  endingLineNumber = "2108"
-                  offsetFromSymbolStart = "68">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

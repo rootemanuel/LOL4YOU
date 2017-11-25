@@ -49,6 +49,14 @@
 		A0A499621EB28FBD00977541 /* masteryTVCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A499601EB28FBD00977541 /* masteryTVCC.swift */; };
 		A0A499631EB28FBD00977541 /* masteryTVCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0A499611EB28FBD00977541 /* masteryTVCC.xib */; };
 		A0AB1F311F0B15290099CB9E /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0AB1F301F0B15290099CB9E /* iAd.framework */; };
+		A0B5F3E81FC97CB7002BA187 /* championstableTVCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B5F3E61FC97CB7002BA187 /* championstableTVCC.swift */; };
+		A0B5F3E91FC97CB7002BA187 /* championstableTVCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0B5F3E71FC97CB7002BA187 /* championstableTVCC.xib */; };
+		A0B5F3EC1FC9887C002BA187 /* championsimgTVCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B5F3EA1FC9887C002BA187 /* championsimgTVCC.swift */; };
+		A0B5F3ED1FC9887C002BA187 /* championsimgTVCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0B5F3EB1FC9887C002BA187 /* championsimgTVCC.xib */; };
+		A0B5F3EF1FC9D3E2002BA187 /* championsCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B5F3EE1FC9D3E2002BA187 /* championsCVC.swift */; };
+		A0B5F3F11FC9D445002BA187 /* championsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B5F3F01FC9D445002BA187 /* championsVC.swift */; };
+		A0B5F3F41FCA03FA002BA187 /* championsskinTVCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B5F3F21FCA03FA002BA187 /* championsskinTVCC.swift */; };
+		A0B5F3F51FCA03FA002BA187 /* championsskinTVCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0B5F3F31FCA03FA002BA187 /* championsskinTVCC.xib */; };
 		A0BCAA691EB13281008F4D01 /* perfilstatstiersnullTVCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BCAA671EB13281008F4D01 /* perfilstatstiersnullTVCC.swift */; };
 		A0BCAA6A1EB13281008F4D01 /* perfilstatstiersnullTVCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0BCAA681EB13281008F4D01 /* perfilstatstiersnullTVCC.xib */; };
 		A0BCAA6C1EB14772008F4D01 /* perfilstatusV.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BCAA6B1EB14772008F4D01 /* perfilstatusV.swift */; };
@@ -57,6 +65,7 @@
 		A0BF02FC1EA643DC00DB84E9 /* emptytableview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BF02FB1EA643DC00DB84E9 /* emptytableview.swift */; };
 		A0BF02FF1EA6B20000DB84E9 /* matchesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BF02FE1EA6B20000DB84E9 /* matchesTVC.swift */; };
 		A0BF03011EA6B21900DB84E9 /* matchesTVCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BF03001EA6B21900DB84E9 /* matchesTVCC.swift */; };
+		A0C849401FC8D861009389B2 /* championsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C8493F1FC8D861009389B2 /* championsTVC.swift */; };
 		A0D97AF31EA78FCE00273C10 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D97AF21EA78FCE00273C10 /* UIColorExtension.swift */; };
 		A0D97AF81EA792D300273C10 /* friz_quadrata_m.otf in Resources */ = {isa = PBXBuildFile; fileRef = A0D97AF61EA792D300273C10 /* friz_quadrata_m.otf */; };
 		A0D97AF91EA792D300273C10 /* friz_quadrata_r.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A0D97AF71EA792D300273C10 /* friz_quadrata_r.ttf */; };
@@ -138,6 +147,14 @@
 		A0AAFEBC1F01F09500D09D84 /* LOL4YOU.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LOL4YOU.entitlements; sourceTree = "<group>"; };
 		A0AB1F291F0B142E0099CB9E /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		A0AB1F301F0B15290099CB9E /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		A0B5F3E61FC97CB7002BA187 /* championstableTVCC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = championstableTVCC.swift; sourceTree = "<group>"; };
+		A0B5F3E71FC97CB7002BA187 /* championstableTVCC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = championstableTVCC.xib; sourceTree = "<group>"; };
+		A0B5F3EA1FC9887C002BA187 /* championsimgTVCC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = championsimgTVCC.swift; sourceTree = "<group>"; };
+		A0B5F3EB1FC9887C002BA187 /* championsimgTVCC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = championsimgTVCC.xib; sourceTree = "<group>"; };
+		A0B5F3EE1FC9D3E2002BA187 /* championsCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = championsCVC.swift; sourceTree = "<group>"; };
+		A0B5F3F01FC9D445002BA187 /* championsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = championsVC.swift; sourceTree = "<group>"; };
+		A0B5F3F21FCA03FA002BA187 /* championsskinTVCC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = championsskinTVCC.swift; sourceTree = "<group>"; };
+		A0B5F3F31FCA03FA002BA187 /* championsskinTVCC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = championsskinTVCC.xib; sourceTree = "<group>"; };
 		A0BCAA671EB13281008F4D01 /* perfilstatstiersnullTVCC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = perfilstatstiersnullTVCC.swift; sourceTree = "<group>"; };
 		A0BCAA681EB13281008F4D01 /* perfilstatstiersnullTVCC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = perfilstatstiersnullTVCC.xib; sourceTree = "<group>"; };
 		A0BCAA6B1EB14772008F4D01 /* perfilstatusV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = perfilstatusV.swift; sourceTree = "<group>"; };
@@ -146,6 +163,7 @@
 		A0BF02FB1EA643DC00DB84E9 /* emptytableview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = emptytableview.swift; sourceTree = "<group>"; };
 		A0BF02FE1EA6B20000DB84E9 /* matchesTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matchesTVC.swift; sourceTree = "<group>"; };
 		A0BF03001EA6B21900DB84E9 /* matchesTVCC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matchesTVCC.swift; sourceTree = "<group>"; };
+		A0C8493F1FC8D861009389B2 /* championsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = championsTVC.swift; sourceTree = "<group>"; };
 		A0D97AF21EA78FCE00273C10 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		A0D97AF61EA792D300273C10 /* friz_quadrata_m.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = friz_quadrata_m.otf; sourceTree = "<group>"; };
 		A0D97AF71EA792D300273C10 /* friz_quadrata_r.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = friz_quadrata_r.ttf; sourceTree = "<group>"; };
@@ -271,6 +289,7 @@
 		A00280261E9DADDD003175A7 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				A0C8493E1FC8D830009389B2 /* champions */,
 				A0FC3D5A1F8B0537005CE127 /* spectador */,
 				A0E478AD1EB3630F00109F56 /* runes */,
 				A0B7CE171F6EAE5300935AF9 /* champmastery */,
@@ -425,6 +444,22 @@
 			name = matches;
 			sourceTree = "<group>";
 		};
+		A0C8493E1FC8D830009389B2 /* champions */ = {
+			isa = PBXGroup;
+			children = (
+				A0C8493F1FC8D861009389B2 /* championsTVC.swift */,
+				A0B5F3E61FC97CB7002BA187 /* championstableTVCC.swift */,
+				A0B5F3E71FC97CB7002BA187 /* championstableTVCC.xib */,
+				A0B5F3EA1FC9887C002BA187 /* championsimgTVCC.swift */,
+				A0B5F3EB1FC9887C002BA187 /* championsimgTVCC.xib */,
+				A0B5F3EE1FC9D3E2002BA187 /* championsCVC.swift */,
+				A0B5F3F01FC9D445002BA187 /* championsVC.swift */,
+				A0B5F3F21FCA03FA002BA187 /* championsskinTVCC.swift */,
+				A0B5F3F31FCA03FA002BA187 /* championsskinTVCC.xib */,
+			);
+			name = champions;
+			sourceTree = "<group>";
+		};
 		A0D97AF11EA78F9E00273C10 /* extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -562,7 +597,7 @@
 				TargetAttributes = {
 					A0027FF11E9D91BD003175A7 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = URE3KY7SLW;
+						DevelopmentTeam = Z4U29JK2HG;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -572,11 +607,13 @@
 					};
 					A00280051E9D91BD003175A7 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = Z4U29JK2HG;
 						ProvisioningStyle = Automatic;
 						TestTargetID = A0027FF11E9D91BD003175A7;
 					};
 					A00280101E9D91BE003175A7 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = Z4U29JK2HG;
 						ProvisioningStyle = Automatic;
 						TestTargetID = A0027FF11E9D91BD003175A7;
 					};
@@ -608,12 +645,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0FC3D5E1F8B05AE005CE127 /* specTVCC.xib in Resources */,
+				A0B5F3E91FC97CB7002BA187 /* championstableTVCC.xib in Resources */,
 				A0A4995F1EB2877900977541 /* runesTVCC.xib in Resources */,
 				A0D97AF91EA792D300273C10 /* friz_quadrata_r.ttf in Resources */,
 				A0A4995B1EB2313700977541 /* imageTVCC.xib in Resources */,
 				A00280001E9D91BD003175A7 /* LaunchScreen.storyboard in Resources */,
 				A0BCAA6A1EB13281008F4D01 /* perfilstatstiersnullTVCC.xib in Resources */,
 				A0A499631EB28FBD00977541 /* masteryTVCC.xib in Resources */,
+				A0B5F3ED1FC9887C002BA187 /* championsimgTVCC.xib in Resources */,
 				A0BCAA6E1EB14785008F4D01 /* perfilstatusV.xib in Resources */,
 				A0D97AF81EA792D300273C10 /* friz_quadrata_m.otf in Resources */,
 				A01218361EBA641700B45F0F /* root.plist in Resources */,
@@ -624,6 +663,7 @@
 				A0027FFB1E9D91BD003175A7 /* Main.storyboard in Resources */,
 				A0BF02FA1EA6422600DB84E9 /* emptytableview.xib in Resources */,
 				A056E7831EAE94DD007FDB9F /* matchesdetbansTVCC.xib in Resources */,
+				A0B5F3F51FCA03FA002BA187 /* championsskinTVCC.xib in Resources */,
 				A0A499501EB2155300977541 /* infoTVCC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -792,11 +832,13 @@
 				A0BF02FC1EA643DC00DB84E9 /* emptytableview.swift in Sources */,
 				A00280291E9DAE08003175A7 /* statsTVC.swift in Sources */,
 				A093D1791F6EC83400DCC466 /* champmasteryVC.swift in Sources */,
+				A0B5F3F41FCA03FA002BA187 /* championsskinTVCC.swift in Sources */,
 				A0A499551EB21BEA00977541 /* headerTVH.swift in Sources */,
 				A0FC3D601F8B05C5005CE127 /* specTVC.swift in Sources */,
 				A0A499621EB28FBD00977541 /* masteryTVCC.swift in Sources */,
 				A093D17B1F6EC85900DCC466 /* championmasteryCVC.swift in Sources */,
 				A002802B1E9DAE27003175A7 /* statsTVCC.swift in Sources */,
+				A0B5F3EC1FC9887C002BA187 /* championsimgTVCC.swift in Sources */,
 				A0027FF61E9D91BD003175A7 /* AppDelegate.swift in Sources */,
 				A0BF03011EA6B21900DB84E9 /* matchesTVCC.swift in Sources */,
 				A0E478AF1EB363A600109F56 /* runesTVC.swift in Sources */,
@@ -811,10 +853,13 @@
 				A0BCAA6C1EB14772008F4D01 /* perfilstatusV.swift in Sources */,
 				A04A6CCC1EB100E8001D9770 /* perfilstatsTVC.swift in Sources */,
 				A0A499531EB21B0A00977541 /* matchesstatsdetTVC.swift in Sources */,
+				A0C849401FC8D861009389B2 /* championsTVC.swift in Sources */,
 				A06CD86D1E9E5FC000D4362E /* statsdetTVC.swift in Sources */,
 				A056E7741EAE3901007FDB9F /* matchesdetTVC.swift in Sources */,
 				A01578551EB8F1B100A30C41 /* masterysTVC.swift in Sources */,
 				A056E7821EAE94DD007FDB9F /* matchesdetbansTVCC.swift in Sources */,
+				A0B5F3EF1FC9D3E2002BA187 /* championsCVC.swift in Sources */,
+				A0B5F3F11FC9D445002BA187 /* championsVC.swift in Sources */,
 				A01757771F0D8C2000ED9278 /* rootadmob.swift in Sources */,
 				A09D99F01EA3D0360054E988 /* searchsummonerTVC.swift in Sources */,
 				A0A4995A1EB2313700977541 /* imageTVCC.swift in Sources */,
@@ -822,6 +867,7 @@
 				A01BB8F31F7857D400E1A52D /* dateextensions.swift in Sources */,
 				A0BF02FF1EA6B20000DB84E9 /* matchesTVC.swift in Sources */,
 				A0A4995E1EB2877900977541 /* runesTVCC.swift in Sources */,
+				A0B5F3E81FC97CB7002BA187 /* championstableTVCC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -900,6 +946,8 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = Z4U29JK2HG;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -949,6 +997,8 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = Z4U29JK2HG;
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -973,7 +1023,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "app-lol4you";
 				CODE_SIGN_ENTITLEMENTS = LOL4YOU/LOL4YOU.entitlements;
-				DEVELOPMENT_TEAM = URE3KY7SLW;
+				DEVELOPMENT_TEAM = Z4U29JK2HG;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = LOL4YOU/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = root.LOL4YOU;
@@ -988,7 +1039,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "app-lol4you";
 				CODE_SIGN_ENTITLEMENTS = LOL4YOU/LOL4YOU.entitlements;
-				DEVELOPMENT_TEAM = URE3KY7SLW;
+				DEVELOPMENT_TEAM = Z4U29JK2HG;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = LOL4YOU/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = root.LOL4YOU;

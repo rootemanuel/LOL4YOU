@@ -1,19 +1,68 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1611" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="friz_quadrata_r.ttf">
+            <string>FrizQuadrataTT</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="championsskinTVCC" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="250" id="KGk-i7-Jjw" customClass="championsskinTVCC" customModule="LOL4YOU" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="249"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5n0-7L-fhK">
+                        <rect key="frame" x="8" y="8" width="304" height="233.5"/>
+                        <color key="backgroundColor" red="0.086274509799999996" green="0.10980392160000001" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JYS-ix-voL">
+                        <rect key="frame" x="17" y="200.5" width="240" height="32"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.55436422409999997" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="240" id="H0P-Ug-bRB"/>
+                            <constraint firstAttribute="height" constant="32" id="khp-Sk-jhs"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Skin Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HeE-z9-uNR">
+                        <rect key="frame" x="25" y="205.5" width="224" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="9u6-h1-rvx"/>
+                            <constraint firstAttribute="width" constant="224" id="v5D-SS-ZQH"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="14"/>
+                        <color key="textColor" red="0.92941176469999998" green="0.87843137250000003" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="JYS-ix-voL" secondAttribute="bottom" constant="17" id="9qg-47-Gfq"/>
+                    <constraint firstAttribute="trailing" secondItem="5n0-7L-fhK" secondAttribute="trailing" constant="8" id="W58-Uz-05o"/>
+                    <constraint firstItem="5n0-7L-fhK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="ZF7-lz-lcU"/>
+                    <constraint firstAttribute="bottom" secondItem="HeE-z9-uNR" secondAttribute="bottom" constant="23" id="ZVH-2f-Fjh"/>
+                    <constraint firstItem="JYS-ix-voL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="17" id="Zht-Jb-brR"/>
+                    <constraint firstAttribute="bottom" secondItem="5n0-7L-fhK" secondAttribute="bottom" constant="8" id="jHr-Ne-i6t"/>
+                    <constraint firstItem="HeE-z9-uNR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="rTn-Jc-BlS"/>
+                    <constraint firstItem="5n0-7L-fhK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="uWU-f3-V2F"/>
+                </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" red="0.0078431372550000003" green="0.039215686270000001" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+            <connections>
+                <outlet property="imgSkin" destination="5n0-7L-fhK" id="A7R-dS-mnO"/>
+                <outlet property="lblNameSkin" destination="HeE-z9-uNR" id="W4g-ue-jIi"/>
+            </connections>
+            <point key="canvasLocation" x="49" y="28"/>
         </tableViewCell>
     </objects>
 </document>

@@ -19,19 +19,21 @@ final class rootclass: NSObject {
         super.init()
     }
     
+    var viewbanner = false
+    
     var dicStaticSpell = Dictionary<Int, staticspell>()
     var dicStaticRunes = Dictionary<Int, staticrunes>()
     var dicStaticChampions = Dictionary<Int, staticchampions>()
     var dicStaticMastery = Dictionary<Int, staticmastery>()
     var dicStaticChampMastery = Dictionary<Int, staticchampmastery>()
+    var dicStaticMasteryOrder = Dictionary<String, Int>()
     
     var listStaticChampMastery = Array<staticchampmastery>()
+    var listStaticChamp = Array<staticchampions>()
     
     var listSessionMatches = Array<Int>()
     var dicSessionMatches = Dictionary<Int, BEMatch>()
     var dicSessionMatchesQueue = Dictionary<Int, String>()
-    
-    var tiraessaporra:String = ""
     
     class staticspell {
         var id:Int = 0
@@ -41,13 +43,32 @@ final class rootclass: NSObject {
         var imagelink:String = ""
     }
     
+    //#R00T
+    // CHAMPION - INI
     class staticchampions {
         var id:Int = 0
         var key:String = ""
         var name:String = ""
         var imagefull:String = ""
         var imagelink:String = ""
+        var lore:String = ""
+        var title:String = ""
+        
+        var info_attack:Int = 0
+        var info_defense:Int = 0
+        var info_magic:Int = 0
+        var info_difficulty:Int = 0
+        
+        var tags:Array<String> = Array<String>()
+        var skins:Array<championskin> = Array<championskin>()
     }
+    
+    class championskin {
+        var name:String = ""
+        var link:String = ""
+    }
+    
+    // CHAMPION - FIM
     
     class staticrunes {
         var id:Int = 0
@@ -93,18 +114,24 @@ final class rootclass: NSObject {
     
     struct lol {
         static internal var version:String = "7.9.2"
-        static internal var api_key:String = "RGAPI-5befecb0-7a71-4205-9518-ee05d6acf6bc"
+        static internal var api_key:String = "RGAPI-bf12658b-d9c8-45d1-8016-caca0b5d0d62"
         static internal var server:String = "BR"
     }
     
     struct images {
+        static internal let champion_skins:String = "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/"
+        
         static internal let item:String = "https://ddragon.leagueoflegends.com/cdn/\(rootclass.lol.version)/img/item/"
         static internal let champion:String = "https://ddragon.leagueoflegends.com/cdn/\(rootclass.lol.version)/img/champion/"
         static internal let profileicon:String = "https://ddragon.leagueoflegends.com/cdn/\(rootclass.lol.version)/img/profileicon/"
         static internal let rune:String = "https://ddragon.leagueoflegends.com/cdn/\(rootclass.lol.version)/img/rune/"
         static internal let spell:String = "https://ddragon.leagueoflegends.com/cdn/\(rootclass.lol.version)/img/spell/"
+        static internal let spell_champion:String = "http://ddragon.leagueoflegends.com/cdn/\(rootclass.lol.version)/img/spell/"
         static internal let mastery:String = "https://ddragon.leagueoflegends.com/cdn/\(rootclass.lol.version)/img/mastery/"
+        static internal let passive:String = "https://ddragon.leagueoflegends.com/cdn/\(rootclass.lol.version)/img/passive/"
+        
         static internal let png:String = ".png"
+        static internal let jpg:String = ".jpg"
     }
     
     struct shared {
@@ -182,6 +209,8 @@ final class rootclass: NSObject {
         var wins:Int = 0
         var losses:Int = 0
         var leaguePoints:Int = 0
+        //spectador
+        var order:Int = 0;
     }
     
     class BEMatchSmall {
@@ -434,6 +463,12 @@ final class rootclass: NSObject {
                 }
                 
             case .failure(let error):
+                if let status = response.response?.statusCode {
+                    
+                    if status == 403 {
+                        self.listaKeyLOL()
+                    }
+                }
                 NSLog("#R00T - ERROR GET CHAMPION MASTERY - ERROR: \(error)")
             }
         }
@@ -482,6 +517,12 @@ final class rootclass: NSObject {
                 }
                 
             case .failure(let error):
+                if let status = response.response?.statusCode {
+                    
+                    if status == 403 {
+                        self.listaKeyLOL()
+                    }
+                }
                 NSLog("R00T - GET SPELLS ERROR")
             }
         }
@@ -545,14 +586,21 @@ final class rootclass: NSObject {
                 }
                 
             case .failure(let error):
+                if let status = response.response?.statusCode {
+                    
+                    if status == 403 {
+                        self.listaKeyLOL()
+                    }
+                }
                 NSLog("R00T - GET RUNES ERROR")
             }
         }
     }
     
+    //#R00T
     func listarStaticChampions(champions:@escaping (JSON) -> ()) {
         
-        let url = "https://na1.api.riotgames.com/lol/static-data/v3/champions?champListData=image&api_key=\(lol.api_key)"
+        let url = "https://na1.api.riotgames.com/lol/static-data/v3/champions?tags=image&tags=info&tags=skins&tags=lore&tags=tags&dataById=false&api_key=\(lol.api_key)"
         
         let queue = DispatchQueue.global(qos: .background)
         Alamofire.request(url).validate().responseJSON(queue: queue) { response in
@@ -562,6 +610,8 @@ final class rootclass: NSObject {
                 let jchampions = JSON(response.result.value!)
                 
                 let dchampions: Dictionary<String, JSON> = jchampions["data"].dictionaryValue
+                
+                self.listStaticChamp = Array<staticchampions>()
                 
                 for (_, value) in dchampions {
                     let r = staticchampions()
@@ -578,12 +628,63 @@ final class rootclass: NSObject {
                         r.name = name
                     }
                     
+                    if let title = value["title"].string {
+                        r.title = title
+                    }
+                    
+                    if let lore = value["lore"].string {
+                        r.lore = lore
+                    }
+                    
+                    if let attack = value["info"]["attack"].int {
+                        r.info_attack = attack
+                    }
+                    
+                    if let defense = value["info"]["defense"].int {
+                        r.info_defense = defense
+                    }
+                    
+                    if let magic = value["info"]["magic"].int {
+                        r.info_magic = magic
+                    }
+                    
+                    if let difficulty = value["info"]["difficulty"].int {
+                        r.info_difficulty = difficulty
+                    }
+                    
+                    for i in 0 ..< value["tags"].count {
+                        if let tag = value["tags"][i].string {
+                            r.tags.append(tag)
+                        }
+                    }
+                    
+                    for i in 0 ..< value["skins"].count {
+                        
+                        let skin = championskin()
+                        
+                        if let name = value["skins"][i]["name"].string {
+                            skin.name = name
+                            if let num = value["skins"][i]["num"].int {
+                                if num == 0 {
+                                    skin.name = r.name
+                                }
+                            }
+                        }
+                        
+                        if let num = value["skins"][i]["num"].int {
+                            skin.link = "\(rootclass.images.champion_skins)\(r.name)_\(num)\(rootclass.images.jpg)"
+                        }
+                        
+                        r.skins.append(skin)
+                    }
+                    
                     if let imagefull = value["image"]["full"].string {
                         r.imagefull = imagefull
                         r.imagelink = "\(rootclass.images.champion)\(imagefull)"
                     }
                     
                     self.dicStaticChampions[r.id] = r
+                    self.listStaticChamp.append(r)
                 }
                 
                 if self.dicStaticChampions.count > 0 {
@@ -592,6 +693,12 @@ final class rootclass: NSObject {
                 }
                 
             case .failure(let error):
+                if let status = response.response?.statusCode {
+                    
+                    if status == 403 {
+                        self.listaKeyLOL()
+                    }
+                }
                 NSLog("R00T - GET CHAMPIONS ERROR")
             }
         }
@@ -641,6 +748,12 @@ final class rootclass: NSObject {
                 }
                 
             case .failure(let error):
+                if let status = response.response?.statusCode {
+                    
+                    if status == 403 {
+                        self.listaKeyLOL()
+                    }
+                }
                 NSLog("R00T - GET MASTERY ERROR")
             }
         }
@@ -714,9 +827,11 @@ final class rootclass: NSObject {
         }
     }
     
+    //#R00T
     func listarStaticChampions(jchampions: JSON) {
         
         let dchampions: Dictionary<String, JSON> = jchampions["data"].dictionaryValue
+        self.listStaticChamp = Array<staticchampions>()
         
         for (_, value) in dchampions {
             let r = staticchampions()
@@ -733,12 +848,63 @@ final class rootclass: NSObject {
                 r.name = name
             }
             
+            if let title = value["title"].string {
+                r.title = title
+            }
+            
+            if let lore = value["lore"].string {
+                r.lore = lore
+            }
+            
+            if let attack = value["info"]["attack"].int {
+                r.info_attack = attack
+            }
+            
+            if let defense = value["info"]["defense"].int {
+                r.info_defense = defense
+            }
+            
+            if let magic = value["info"]["magic"].int {
+                r.info_magic = magic
+            }
+            
+            if let difficulty = value["info"]["difficulty"].int {
+                r.info_difficulty = difficulty
+            }
+            
+            for i in 0 ..< value["tags"].count {
+                if let tag = value["tags"][i].string {
+                    r.tags.append(tag)
+                }
+            }
+            
+            for i in 0 ..< value["skins"].count {
+                
+                let skin = championskin()
+                
+                if let name = value["skins"][i]["name"].string {
+                    skin.name = name
+                    if let num = value["skins"][i]["num"].int {
+                        if num == 0 {
+                            skin.name = r.name
+                        }
+                    }
+                }
+                
+                if let num = value["skins"][i]["num"].int {
+                    skin.link = "\(rootclass.images.champion_skins)\(r.name)_\(num)\(rootclass.images.jpg)"
+                }
+                
+                r.skins.append(skin)
+            }
+            
             if let imagefull = value["image"]["full"].string {
                 r.imagefull = imagefull
                 r.imagelink = "\(rootclass.images.champion)\(imagefull)"
             }
             
             self.dicStaticChampions[r.id] = r
+            self.listStaticChamp.append(r)
         }
     }
     
@@ -799,6 +965,12 @@ final class rootclass: NSObject {
                 }
                 
             case .failure(let error):
+                if let status = response.response?.statusCode {
+                    
+                    if status == 403 {
+                        self.listaKeyLOL()
+                    }
+                }
                 NSLog("R00T - GET VERSION ERROR")
                 semaphore.signal()
             }
@@ -810,9 +982,10 @@ final class rootclass: NSObject {
         
         let url = "https://lol4you-32c31.firebaseio.com/key_riot.json"
         
-        let semaphore = DispatchSemaphore(value: 0)
-        let queue = DispatchQueue.global(qos: .background)
-        Alamofire.request(url).validate().responseJSON(queue: queue) { response in
+//        let semaphore = DispatchSemaphore(value: 0)
+//        let queue = DispatchQueue.global(qos: .background)
+//        Alamofire.request(url).validate().responseJSON(queue: queue) { response in
+        Alamofire.request(url).validate().responseJSON { response in
             
             switch response.result {
             case .success( _):
@@ -821,14 +994,14 @@ final class rootclass: NSObject {
                     lol.api_key = key
                 }
                 
-                semaphore.signal()
+//                semaphore.signal()
                 
             case .failure(let error):
                 NSLog("R00T - GET KEY LOL")
-                semaphore.signal()
+//                semaphore.signal()
             }
         }
-        semaphore.wait(timeout: .distantFuture)
+//        semaphore.wait(timeout: .distantFuture)
     }
     
     func listarSummoner(summonername:String,error:@escaping (BEErro) -> ()) {
@@ -905,6 +1078,10 @@ final class rootclass: NSObject {
                     if status == 404 {
                         rtn.id = 400
                         rtn.msg = "Invalid Summoner"
+                    }
+                    
+                    if status == 403 {
+                        self.listaKeyLOL()
                     }
                 }
                 
@@ -1065,6 +1242,12 @@ final class rootclass: NSObject {
                 }
                 
             case .failure(let error):
+                if let status = response.response?.statusCode {
+                    
+                    if status == 403 {
+                        self.listaKeyLOL()
+                    }
+                }
                 NSLog("#R00T - ERROR GET STATS - ERROR: \(error)")
             }
             
@@ -1222,6 +1405,12 @@ final class rootclass: NSObject {
                 }
                 
             case .failure(let error):
+                if let status = response.response?.statusCode {
+                    
+                    if status == 403 {
+                        self.listaKeyLOL()
+                    }
+                }
                 NSLog("#R00T - ERROR GET STATS PROFILE - ERROR: \(error)")
             }
             
@@ -1299,6 +1488,12 @@ final class rootclass: NSObject {
                 }
                 
             case .failure(let error):
+                if let status = response.response?.statusCode {
+                    
+                    if status == 403 {
+                        self.listaKeyLOL()
+                    }
+                }
                 NSLog("#R00T - ERROR GET LEAGUE - ERROR: \(error)")
             }
             
@@ -1370,16 +1565,24 @@ final class rootclass: NSObject {
                                 r.leaguePoints = leaguePoints
                             }
                             
+                            r.order = self.getLeague(league: "\(r.tier.lowercased())\(r.division)")
+                                                       
                             rtn.append(r)
                         }
                     }
                 }
                 
             case .failure(let error):
+                if let status = response.response?.statusCode {
+                    
+                    if status == 403 {
+                        self.listaKeyLOL()
+                    }
+                }
                 NSLog("#R00T - ERROR GET LEAGUE - ERROR: \(error)")
             }
             
-            league(rtn)
+            league(rtn.sorted(by: { $0.order > $1.order }))
         }
     }
     
@@ -1430,6 +1633,12 @@ final class rootclass: NSObject {
                     }
                 
             case .failure(let error):
+                if let status = response.response?.statusCode {
+                    
+                    if status == 403 {
+                        self.listaKeyLOL()
+                    }
+                }
                 NSLog("#R00T - ERROR GET MAESTRY - ERROR: \(error)")
             }
             
@@ -1493,6 +1702,12 @@ final class rootclass: NSObject {
                 }
                 
             case .failure(let error):
+                if let status = response.response?.statusCode {
+                    
+                    if status == 403 {
+                        self.listaKeyLOL()
+                    }
+                }
                 NSLog("#R00T - ERROR GET MATCHES - ERROR: \(error)")
             }
             
@@ -1811,6 +2026,12 @@ final class rootclass: NSObject {
                     }
                 }
             case .failure(let error):
+                if let status = response.response?.statusCode {
+                    
+                    if status == 403 {
+                        self.listaKeyLOL()
+                    }
+                }
                 NSLog("#R00T - ERROR GET MATCHE DET - ERROR: \(error)")
             }
         }
@@ -1909,15 +2130,6 @@ final class rootclass: NSObject {
                     r.stats.win = participants[0].stats.win
                     r.stats.level = participants[0].stats.champLevel
                     r.stats.minionsKilled = participants[0].stats.totalMinionsKilled + participants[0].stats.neutralMinionsKilled
-                    
-                    let champ = self.listaChamp(id: participants[0].championId)
-                    
-                    tiraessaporra = ""
-                    tiraessaporra.append("#R00T - CHAMPION => \(champ.name) \n")
-                    tiraessaporra.append("#R00T - KDA => \(participants[0].stats.kills) / \(participants[0].stats.deaths) / \(participants[0].stats.assists) \n")
-                    tiraessaporra.append("#R00T - GAMEID => \(match.gameId) \n")
-                    tiraessaporra.append("#R00T - EXCECAO AQUI - FIM \n")
-                    tiraessaporra.append("------------------------------------------- \n")
                 }
                 
                 rtn.append(r)
@@ -1991,6 +2203,12 @@ final class rootclass: NSObject {
                 }
                 
             case .failure(let error):
+                if let status = response.response?.statusCode {
+                    
+                    if status == 403 {
+                        self.listaKeyLOL()
+                    }
+                }
                 NSLog("#R00T - ERROR GET RUNES - ERROR: \(error)")
                 runes(rtn)
             }
@@ -2064,6 +2282,12 @@ final class rootclass: NSObject {
                 }
                 
             case .failure(let error):
+                if let status = response.response?.statusCode {
+                    
+                    if status == 403 {
+                        self.listaKeyLOL()
+                    }
+                }
                 NSLog("#R00T - ERROR GET MASTERYS DET - ERROR: \(error)")
                 masterys(rtn)
             }
@@ -2090,7 +2314,8 @@ final class rootclass: NSObject {
              Region.REGION_LAN.rawValue:
             url = "https://\(lol.server)1.api.riotgames.com/lol/spectator/v3/active-games/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
         case Region.REGION_LAS.rawValue:
-            url = "https://\(lol.server)2.api.riotgames.com/lol/spectator/v3/active-games/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"        default:
+            url = "https://\(lol.server)2.api.riotgames.com/lol/spectator/v3/active-games/by-summoner/\(Summoner.summonerID)?api_key=\(lol.api_key)"
+        default:
                 NSLog("#R00T - ERROR SERVER")
         }
         
@@ -2192,6 +2417,12 @@ final class rootclass: NSObject {
                 }
                 
             case .failure(let error):
+                if let status = response.response?.statusCode {
+                    
+                    if status == 403 {
+                        self.listaKeyLOL()
+                    }
+                }
                 NSLog("#R00T - ERROR GET SPEC DET - ERROR: \(error)")
                 spec(rtn)
             }
@@ -2245,6 +2476,44 @@ final class rootclass: NSObject {
         self.dicSessionMatchesQueue[850] = "Summoner's Rift Co-op vs. AI Intermediate Bot"
         self.dicSessionMatchesQueue[980] = "Star Guardian Invasion: Normal"
         self.dicSessionMatchesQueue[990] = "Star Guardian Invasion: Onslaught"
+    }
+    
+    func listarStaticMaestryOrder() {
+        self.dicStaticMasteryOrder = Dictionary<String, Int>()
+        
+        self.dicStaticMasteryOrder["bronzeV"] = 0
+        self.dicStaticMasteryOrder["bronzeIV"] = 1
+        self.dicStaticMasteryOrder["bronzeIII"] = 2
+        self.dicStaticMasteryOrder["bronzeII"] = 3
+        self.dicStaticMasteryOrder["bronzeI"] = 4
+        
+        self.dicStaticMasteryOrder["silverV"] = 5
+        self.dicStaticMasteryOrder["silverIV"] = 6
+        self.dicStaticMasteryOrder["silverIII"] = 7
+        self.dicStaticMasteryOrder["silverII"] = 8
+        self.dicStaticMasteryOrder["silverI"] = 9
+        
+        self.dicStaticMasteryOrder["goldV"] = 10
+        self.dicStaticMasteryOrder["goldIV"] = 11
+        self.dicStaticMasteryOrder["goldIII"] = 12
+        self.dicStaticMasteryOrder["goldII"] = 13
+        self.dicStaticMasteryOrder["goldI"] = 14
+        
+        self.dicStaticMasteryOrder["platinumV"] = 15
+        self.dicStaticMasteryOrder["platinumIV"] = 16
+        self.dicStaticMasteryOrder["platinumIII"] = 17
+        self.dicStaticMasteryOrder["platinumII"] = 18
+        self.dicStaticMasteryOrder["platinumI"] = 19
+    
+        self.dicStaticMasteryOrder["diamondV"] = 20
+        self.dicStaticMasteryOrder["diamondIV"] = 21
+        self.dicStaticMasteryOrder["diamondIII"] = 22
+        self.dicStaticMasteryOrder["diamondII"] = 23
+        self.dicStaticMasteryOrder["diamondI"] = 24
+        
+        self.dicStaticMasteryOrder["masterI"] = 25
+        
+        self.dicStaticMasteryOrder["challengerI"] = 26
     }
     
     func listaChampMastery(id:Int) -> staticchampmastery {
@@ -2311,6 +2580,16 @@ final class rootclass: NSObject {
         var rtn = "Undefined"
         
         if let queue = self.dicSessionMatchesQueue[id] {
+            rtn = queue
+        }
+        
+        return rtn
+    }
+    
+    func getLeague(league:String) -> Int {
+        var rtn = 0
+        
+        if let queue = self.dicStaticMasteryOrder[league] {
             rtn = queue
         }
         

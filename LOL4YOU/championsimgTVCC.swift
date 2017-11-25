@@ -10,6 +10,12 @@ import UIKit
 
 class championsimgTVCC: UITableViewCell {
 
+    @IBOutlet weak var imgChampSkin: UIImageView!
+    @IBOutlet weak var imgChamp: UIImageView!
+    @IBOutlet weak var lblName: UILabel!
+    @IBOutlet weak var lblNameDesc: UILabel!
+    @IBOutlet weak var lblTags: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

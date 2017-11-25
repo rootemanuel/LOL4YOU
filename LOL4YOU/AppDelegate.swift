@@ -60,11 +60,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SwiftyPlistManager.shared.start(plistNames: [rootclass.shared.root], logging: true)
         
         print("#R00T - ANTES listaKeyLOL - \(NSDate())")
-        rt.listaKeyLOL()
+//        rt.listaKeyLOL()
         print("#R00T - ANTES listarVersion - \(NSDate())")
         rt.listarVersion()
         print("#R00T - ANTES listarStaticQueue - \(NSDate())")
         rt.listarStaticQueue()
+        rt.listarStaticMaestryOrder()
         
         print("#R00T - ANTES shared.getValue - \(NSDate())")
         SwiftyPlistManager.shared.getValue(for: rootclass.shared.version, fromPlistWithName: rootclass.shared.root) { (result, err) in

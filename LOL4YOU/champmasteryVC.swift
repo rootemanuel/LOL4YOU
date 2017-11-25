@@ -63,6 +63,13 @@ class champmasteryVC: UIViewController, UICollectionViewDataSource, UICollection
         self.navigationController?.navigationBar.barTintColor = UIColor(hex: rootclass.colors.FUNDO.rawValue)
         self.navigationController?.navigationBar.titleTextAttributes = attnav
         
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: 90, height: 125)
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        self.automaticallyAdjustsScrollViewInsets = false
+        self.collectionView.collectionViewLayout = layout
+        
         self.listStaticChampMastery = rt.listStaticChampMastery
         
         self.title = "Champion Mastery"

@@ -1,19 +1,104 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1611" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="friz_quadrata_r.ttf">
+            <string>FrizQuadrataTT</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="championsimgTVCC" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="200" id="KGk-i7-Jjw" customClass="championsimgTVCC" customModule="LOL4YOU" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="199"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FaJ-uo-W6e">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="199"/>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3LF-CZ-f4F">
+                        <rect key="frame" x="18" y="111" width="240" height="70"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.55436422413793107" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="70" id="1IT-1Z-aJX"/>
+                            <constraint firstAttribute="width" constant="240" id="wlW-PM-nt6"/>
+                        </constraints>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dYy-FV-goz">
+                        <rect key="frame" x="28" y="122" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="3Gh-EP-R4G"/>
+                            <constraint firstAttribute="width" constant="50" id="B91-jb-Db3"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Champion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6I2-t8-16w">
+                        <rect key="frame" x="85" y="122" width="125" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="125" id="bai-gB-jph"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="14"/>
+                        <color key="textColor" red="0.99215686270000003" green="0.73333333329999995" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enc-6f-YKh">
+                        <rect key="frame" x="86" y="139" width="165" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="165" id="K2b-RN-62p"/>
+                            <constraint firstAttribute="height" constant="21" id="glu-Xi-WOw"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="11"/>
+                        <color key="textColor" red="0.92941176469999998" green="0.87843137250000003" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tags" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vpK-Wo-XFG">
+                        <rect key="frame" x="86" y="155" width="165" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="mq2-7K-xP5"/>
+                            <constraint firstAttribute="width" constant="165" id="zHc-1j-BVl"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="11"/>
+                        <color key="textColor" red="0.92941176469999998" green="0.87843137250000003" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="enc-6f-YKh" firstAttribute="leading" secondItem="dYy-FV-goz" secondAttribute="trailing" constant="8" id="020-XX-e3T"/>
+                    <constraint firstAttribute="bottom" secondItem="FaJ-uo-W6e" secondAttribute="bottom" id="2db-8y-SLa"/>
+                    <constraint firstItem="3LF-CZ-f4F" firstAttribute="leading" secondItem="dYy-FV-goz" secondAttribute="trailing" constant="-60" id="6so-6p-gaP"/>
+                    <constraint firstItem="FaJ-uo-W6e" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Alz-DD-5oB"/>
+                    <constraint firstItem="FaJ-uo-W6e" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="CxQ-wc-5QT"/>
+                    <constraint firstItem="3LF-CZ-f4F" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="La2-GU-zy4"/>
+                    <constraint firstItem="vpK-Wo-XFG" firstAttribute="top" secondItem="3LF-CZ-f4F" secondAttribute="bottom" constant="-26" id="QHt-bO-B78"/>
+                    <constraint firstItem="6I2-t8-16w" firstAttribute="top" secondItem="dYy-FV-goz" secondAttribute="top" id="QK1-2u-ppd"/>
+                    <constraint firstItem="enc-6f-YKh" firstAttribute="top" secondItem="3LF-CZ-f4F" secondAttribute="bottom" constant="-42" id="bUM-k5-mgb"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="6I2-t8-16w" secondAttribute="bottom" constant="48" id="eab-TW-1XY"/>
+                    <constraint firstAttribute="trailing" secondItem="FaJ-uo-W6e" secondAttribute="trailing" id="gso-DN-tgs"/>
+                    <constraint firstItem="vpK-Wo-XFG" firstAttribute="leading" secondItem="dYy-FV-goz" secondAttribute="trailing" constant="8" id="qaT-jY-5RZ"/>
+                    <constraint firstItem="6I2-t8-16w" firstAttribute="leading" secondItem="dYy-FV-goz" secondAttribute="trailing" constant="7" id="te6-cc-GvH"/>
+                    <constraint firstItem="dYy-FV-goz" firstAttribute="top" secondItem="3LF-CZ-f4F" secondAttribute="bottom" constant="-59" id="tqN-2D-oi5"/>
+                    <constraint firstAttribute="bottom" secondItem="3LF-CZ-f4F" secondAttribute="bottom" constant="18" id="yIm-Da-1zk"/>
+                </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" red="0.086274509799999996" green="0.10980392160000001" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+            <connections>
+                <outlet property="imgChamp" destination="dYy-FV-goz" id="XUV-PS-C3S"/>
+                <outlet property="imgChampSkin" destination="FaJ-uo-W6e" id="hhi-89-ytW"/>
+                <outlet property="lblName" destination="6I2-t8-16w" id="ozk-VM-rng"/>
+                <outlet property="lblNameDesc" destination="enc-6f-YKh" id="BWe-R1-h8P"/>
+                <outlet property="lblTags" destination="vpK-Wo-XFG" id="AAs-vy-JXZ"/>
+            </connections>
+            <point key="canvasLocation" x="22" y="101"/>
         </tableViewCell>
     </objects>
 </document>

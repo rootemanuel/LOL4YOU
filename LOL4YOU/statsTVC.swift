@@ -111,13 +111,16 @@ class statsTVC: UITableViewController, GADBannerViewDelegate{
     func initAdMob() {
         Analytics.setScreenName(rootclass.screens.stats, screenClass: String(describing: statsTVC.self))
         
-        let adBannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
-        adBannerView.adUnitID = rootadmob.admob.admob_banner
-        adBannerView.delegate = self
-        adBannerView.rootViewController = self
-        adBannerView.load(GADRequest())
-        
-        self.tableView.tableHeaderView = adBannerView
+        if rt.viewbanner {
+            
+            let adBannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
+            adBannerView.adUnitID = rootadmob.admob.admob_banner
+            adBannerView.delegate = self
+            adBannerView.rootViewController = self
+            adBannerView.load(GADRequest())
+            
+            self.tableView.tableHeaderView = adBannerView
+        }
      }
     
     func initView(){

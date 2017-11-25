@@ -206,12 +206,6 @@ class matchesTVC: UITableViewController, GADBannerViewDelegate{
                  self.initemptytableview()
                  SVProgressHUD.dismiss()
             }
-            
-            if !self.rt.tiraessaporra.isEmpty {
-                let alert = UIAlertController(title: "#R00T - EXCEPTION", message: self.rt.tiraessaporra, preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-            }
         }
     }
     
@@ -241,13 +235,16 @@ class matchesTVC: UITableViewController, GADBannerViewDelegate{
     func initAdMob() {
         Analytics.setScreenName(rootclass.screens.matches, screenClass: String(describing: matchesTVC.self))
     
-        let adBannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
-        adBannerView.adUnitID = rootadmob.admob.admob_banner
-        adBannerView.delegate = self
-        adBannerView.rootViewController = self
-        adBannerView.load(GADRequest())
-        
-        self.tableView.tableHeaderView = adBannerView
+        if rt.viewbanner {
+            
+            let adBannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
+            adBannerView.adUnitID = rootadmob.admob.admob_banner
+            adBannerView.delegate = self
+            adBannerView.rootViewController = self
+            adBannerView.load(GADRequest())
+            
+            self.tableView.tableHeaderView = adBannerView
+        }
     }
     
     func spopViewController(){

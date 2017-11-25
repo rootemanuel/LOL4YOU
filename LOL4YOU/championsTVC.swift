@@ -9,87 +9,96 @@
 import UIKit
 
 class championsTVC: UITableViewController {
-
+    
+    @IBOutlet weak var segtables: UISegmentedControl!
+    @IBOutlet weak var tableChamp: UITableView!
+    
+    let rt = rootclass.sharedInstance
+    var champ = rootclass.staticchampions()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        self.initView()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 2
     }
-
-    /*
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        
+        switch indexPath.row {
+        case 0:
+            let cell = Bundle.main.loadNibNamed("championsimgTVCC", owner: self, options: nil)?.first as! championsimgTVCC
+            
+            cell.selectionStyle = UITableViewCellSelectionStyle.none
 
-        // Configure the cell...
-
-        return cell
+            let iskins = Int(arc4random_uniform(UInt32(champ.skins.count)))
+            cell.lblName.text = champ.name
+            cell.lblNameDesc.text = champ.title
+            cell.lblTags.text = champ.tags.flatMap({$0}).joined(separator:", ")
+            cell.imgChampSkin.sd_setImage(with: URL(string: champ.skins[iskins].link), placeholderImage: nil)
+            
+            cell.imgChamp.sd_setImage(with: URL(string: "\(rootclass.images.champion)\(champ.imagefull)"), placeholderImage: UIImage(named: "static_null_all"))
+            cell.imgChamp.layer.borderWidth = 1
+            cell.imgChamp.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
+            
+            return cell
+        case 1:
+            let cell = Bundle.main.loadNibNamed("championstableTVCC", owner: self, options: nil)?.first as! championstableTVCC
+            
+            cell.selectionStyle = UITableViewCellSelectionStyle.none
+            cell.champ = self.champ
+            
+            return cell
+        default:
+            let cell = Bundle.main.loadNibNamed("championsimgTVCC", owner: self, options: nil)?.first as! championsimgTVCC
+            
+            cell.selectionStyle = UITableViewCellSelectionStyle.none
+            
+            return cell
+        }
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.row {
+        case 0:
+            return 200
+        case 1:
+            return 450
+        default:
+            return 0
+        }
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    func initView(){
+        let attnav = [
+            NSForegroundColorAttributeName: UIColor(hex:rootclass.colors.TEXTO_TOP_BAR.rawValue),
+            NSFontAttributeName: UIFont(name: "Friz Quadrata TT", size: 17)!
+        ]
+        
+        let button = UIButton.init(type: .custom)
+        button.setImage(UIImage(named:"static_button_back"), for: UIControlState.normal)
+        button.addTarget(self, action:#selector(spopViewController), for: UIControlEvents.touchUpInside)
+        button.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
+        let barButton = UIBarButtonItem.init(customView: button)
+        self.navigationItem.leftBarButtonItem = barButton
+        
+        self.navigationController?.navigationBar.barTintColor = UIColor(hex: rootclass.colors.FUNDO.rawValue)
+        self.navigationController?.navigationBar.titleTextAttributes = attnav
+        self.title = self.champ.name
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    func spopViewController(){
+        self.navigationController?.popViewController(animated: true)
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

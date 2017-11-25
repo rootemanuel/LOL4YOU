@@ -1,19 +1,58 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1611" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="championstableTVCC" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="450" id="KGk-i7-Jjw" customClass="championstableTVCC" customModule="LOL4YOU" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="450"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="449"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="singleLineEtched" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tfR-uH-xjy">
+                        <rect key="frame" x="0.0" y="68" width="320" height="382"/>
+                        <color key="backgroundColor" red="0.0078431372550000003" green="0.039215686270000001" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" red="0.086274509799999996" green="0.10980392160000001" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </tableView>
+                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="k7Z-k5-lZn">
+                        <rect key="frame" x="8" y="22" width="304" height="29"/>
+                        <segments>
+                            <segment title="First"/>
+                            <segment title="Second"/>
+                            <segment title="Skins"/>
+                        </segments>
+                        <color key="tintColor" red="0.92941176469999998" green="0.87843137250000003" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <connections>
+                            <action selector="segControlChanged:" destination="KGk-i7-Jjw" eventType="valueChanged" id="br9-iu-fph"/>
+                        </connections>
+                    </segmentedControl>
+                </subviews>
+                <color key="backgroundColor" red="0.0078431372550000003" green="0.039215686270000001" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstItem="tfR-uH-xjy" firstAttribute="top" secondItem="k7Z-k5-lZn" secondAttribute="bottom" constant="18" id="43Z-aR-YLg"/>
+                    <constraint firstAttribute="bottom" secondItem="tfR-uH-xjy" secondAttribute="bottom" id="80B-8p-0Ws"/>
+                    <constraint firstAttribute="trailing" secondItem="tfR-uH-xjy" secondAttribute="trailing" id="BhC-f4-5NN"/>
+                    <constraint firstItem="k7Z-k5-lZn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="22" id="OCk-Eq-8D7"/>
+                    <constraint firstItem="k7Z-k5-lZn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="VH1-KR-DVc"/>
+                    <constraint firstItem="tfR-uH-xjy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ar0-L7-G6S"/>
+                    <constraint firstAttribute="trailing" secondItem="k7Z-k5-lZn" secondAttribute="trailing" constant="8" id="ogE-iY-7JN"/>
+                </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" red="0.0078431372550000003" green="0.039215686270000001" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+            <connections>
+                <outlet property="segControl" destination="k7Z-k5-lZn" id="5dC-x7-NsU"/>
+                <outlet property="tableView" destination="tfR-uH-xjy" id="eap-64-2Nm"/>
+            </connections>
+            <point key="canvasLocation" x="50" y="98"/>
         </tableViewCell>
     </objects>
 </document>
