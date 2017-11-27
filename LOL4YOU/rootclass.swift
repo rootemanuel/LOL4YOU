@@ -53,6 +53,9 @@ final class rootclass: NSObject {
         var imagelink:String = ""
         var lore:String = ""
         var title:String = ""
+        var passiva_name:String = ""
+        var passiva_descricao:String = ""
+        var passiva_link:String = ""
         
         var info_attack:Int = 0
         var info_defense:Int = 0
@@ -612,7 +615,7 @@ final class rootclass: NSObject {
 //        
 //        let url = "https://na1.api.riotgames.com/lol/static-data/v3/champions?tags=image&tags=spells&tags=info&tags=skins&tags=lore&tags=tags&dataById=false&api_key=\(lol.api_key)"
         
-        let url = "https://br1.api.riotgames.com/lol/static-data/v3/champions?tags=image&locale=pt_BR&tags=spells&tags=info&tags=skins&tags=lore&tags=tags&dataById=false&api_key=\(lol.api_key)"
+        let url = "https://br1.api.riotgames.com/lol/static-data/v3/champions?tags=image&locale=pt_BR&tags=passive&tags=spells&tags=info&tags=skins&tags=lore&tags=tags&dataById=false&api_key=\(lol.api_key)"
         
         let queue = DispatchQueue.global(qos: .background)
         Alamofire.request(url).validate().responseJSON(queue: queue) { response in
@@ -662,6 +665,18 @@ final class rootclass: NSObject {
                     
                     if let difficulty = value["info"]["difficulty"].int {
                         r.info_difficulty = difficulty
+                    }
+                    
+                    if let passiva_name = value["passive"]["name"].string {
+                        r.passiva_name = passiva_name
+                    }
+                    
+                    if let passiva_descricao = value["passive"]["sanitizedDescription"].string {
+                        r.passiva_descricao = passiva_descricao
+                    }
+                    
+                    if let passiva_link = value["passive"]["image"]["full"].string {
+                        r.passiva_link = "\(rootclass.images.passive)\(passiva_link)"
                     }
                     
                     for i in 0 ..< value["tags"].count {
@@ -721,7 +736,6 @@ final class rootclass: NSObject {
                             }
                             variables["{{ cost }}"] = costs.flatMap({$0}).joined(separator:"/")
                         }
-                        // VARS - FIM
                         
                         if let costBurn = value["spells"][i]["costBurn"].string {
                             if let costType = value["spells"][i]["costType"].string {
@@ -731,6 +745,12 @@ final class rootclass: NSObject {
                                     spell.custo = "\(costBurn)\(costType)"
                                 }
                             }
+                        }
+                        
+                        // VARS - FIM
+                        
+                        if let sanitizedDescription = value["spells"][i]["sanitizedDescription"].string {
+                            spell.sandescricao = sanitizedDescription
                         }
                         
                         if let sanitizedDescription = value["spells"][i]["sanitizedDescription"].string {
@@ -967,6 +987,18 @@ final class rootclass: NSObject {
                 r.info_difficulty = difficulty
             }
             
+            if let passiva_name = value["passive"]["name"].string {
+                r.passiva_name = passiva_name
+            }
+            
+            if let passiva_descricao = value["passive"]["sanitizedDescription"].string {
+                r.passiva_descricao = passiva_descricao
+            }
+            
+            if let passiva_link = value["passive"]["image"]["full"].string {
+                r.passiva_link = "\(rootclass.images.passive)\(passiva_link)"
+            }
+            
             for i in 0 ..< value["tags"].count {
                 if let tag = value["tags"][i].string {
                     r.tags.append(tag)
@@ -1024,7 +1056,6 @@ final class rootclass: NSObject {
                     }
                     variables["{{ cost }}"] = costs.flatMap({$0}).joined(separator:"/")
                 }
-                // VARS - FIM
                 
                 if let costBurn = value["spells"][i]["costBurn"].string {
                     if let costType = value["spells"][i]["costType"].string {
@@ -1034,6 +1065,12 @@ final class rootclass: NSObject {
                             spell.custo = "\(costBurn)\(costType)"
                         }
                     }
+                }
+                
+                // VARS - FIM
+                
+                if let sanitizedDescription = value["spells"][i]["sanitizedDescription"].string {
+                    spell.sandescricao = sanitizedDescription
                 }
                 
                 if let sanitizedDescription = value["spells"][i]["sanitizedDescription"].string {
@@ -1067,10 +1104,10 @@ final class rootclass: NSObject {
                 //Retira HTML
                 spell.descricao = spell.descricao.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
                 //#R00T - DEBUGGER
-                                        print("CHAMPION => \(r.name)")
-                                        print("CHAMPION ID => \(r.id)")
-                                        print("DESCRICAO => \(spell.descricao)")
-                                        print("------------------------------------------------------")
+                //                        print("CHAMPION => \(r.name)")
+                //                        print("CHAMPION ID => \(r.id)")
+                //                        print("DESCRICAO => \(spell.descricao)")
+                //                        print("------------------------------------------------------")
                 
                 r.speels.append(spell)
                 
