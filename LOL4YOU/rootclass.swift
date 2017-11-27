@@ -73,6 +73,7 @@ final class rootclass: NSObject {
         var name:String = ""
         var custo:String = ""
         var alcance:String = ""
+        var sandescricao:String = ""
         var descricao:String = ""
         var image_link:String = ""
     }
@@ -732,6 +733,10 @@ final class rootclass: NSObject {
                             }
                         }
                         
+                        if let sanitizedDescription = value["spells"][i]["sanitizedDescription"].string {
+                            spell.sandescricao = sanitizedDescription
+                        }
+                        
                         if let tooltip = value["spells"][i]["tooltip"].string {
                             spell.descricao = tooltip
                         }
@@ -752,10 +757,17 @@ final class rootclass: NSObject {
                             spell.descricao = spell.descricao.replacingOccurrences(of: key, with: value, options: .literal, range: nil)
                         }
                         
-                        print("CHAMPION => \(r.name)")
-                        print("CHAMPION ID => \(r.id)")
-                        print("DESCRICAO => \(spell.descricao)")
-                        print("------------------------------------------------------")
+                        if spell.descricao.contains("{{") {
+                            spell.descricao = spell.sandescricao
+                        }
+                        
+                        //Retira HTML
+                        spell.descricao = spell.descricao.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
+//#R00T - DEBUGGER
+//                        print("CHAMPION => \(r.name)")
+//                        print("CHAMPION ID => \(r.id)")
+//                        print("DESCRICAO => \(spell.descricao)")
+//                        print("------------------------------------------------------")
                         
                         r.speels.append(spell)
                         
@@ -981,6 +993,89 @@ final class rootclass: NSObject {
                 r.skins.append(skin)
             }
             
+            for i in 0 ..< value["spells"].count {
+                
+                let spell = championspell()
+                
+                // VARS - INI
+                var variables = Dictionary<String, String>()
+                for a in 0 ..< value["spells"][i]["effectBurn"].count {
+                    if let effect = value["spells"][i]["effectBurn"][a].string {
+                        variables["{{ e\(a) }}"] = effect
+                    }
+                }
+                
+                var coeffs = Array<String>()
+                for a in 0 ..< value["spells"][i]["vars"].count {
+                    if let key = value["spells"][i]["vars"][a]["key"].string {
+                        for b in 0 ..< value["spells"][i]["vars"][a]["coeff"].count {
+                            if let coeff = value["spells"][i]["vars"][a]["coeff"][b].double {
+                                coeffs.append("\(coeff)")
+                            }
+                        }
+                        variables["{{ \(key) }}"] = coeffs.flatMap({$0}).joined(separator:"/")
+                    }
+                }
+                
+                var costs = Array<String>()
+                for a in 0 ..< value["spells"][i]["cost"].count {
+                    if let cost = value["spells"][i]["cost"][a].int {
+                        costs.append("\(cost)")
+                    }
+                    variables["{{ cost }}"] = costs.flatMap({$0}).joined(separator:"/")
+                }
+                // VARS - FIM
+                
+                if let costBurn = value["spells"][i]["costBurn"].string {
+                    if let costType = value["spells"][i]["costType"].string {
+                        if costBurn == "0" {
+                            spell.custo = costType
+                        } else {
+                            spell.custo = "\(costBurn)\(costType)"
+                        }
+                    }
+                }
+                
+                if let sanitizedDescription = value["spells"][i]["sanitizedDescription"].string {
+                    spell.sandescricao = sanitizedDescription
+                }
+                
+                if let tooltip = value["spells"][i]["tooltip"].string {
+                    spell.descricao = tooltip
+                }
+                
+                if let name = value["spells"][i]["name"].string {
+                    spell.name = name
+                }
+                
+                if let rangeBurn = value["spells"][i]["rangeBurn"].string {
+                    spell.alcance = rangeBurn
+                }
+                
+                if let image_speel = value["spells"][i]["image"]["full"].string {
+                    spell.image_link = "\(rootclass.images.spell_champion)\(image_speel)"
+                }
+                
+                for ( key, value) in variables {
+                    spell.descricao = spell.descricao.replacingOccurrences(of: key, with: value, options: .literal, range: nil)
+                }
+                
+                if spell.descricao.contains("{{") {
+                    spell.descricao = spell.sandescricao
+                }
+                
+                //Retira HTML
+                spell.descricao = spell.descricao.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
+                //#R00T - DEBUGGER
+                                        print("CHAMPION => \(r.name)")
+                                        print("CHAMPION ID => \(r.id)")
+                                        print("DESCRICAO => \(spell.descricao)")
+                                        print("------------------------------------------------------")
+                
+                r.speels.append(spell)
+                
+            }
+            
             if let imagefull = value["image"]["full"].string {
                 r.imagefull = imagefull
                 r.imagelink = "\(rootclass.images.champion)\(imagefull)"
@@ -990,7 +1085,7 @@ final class rootclass: NSObject {
             self.listStaticChamp.append(r)
         }
     }
-    
+
     func listarStaticMastery(jmastery:JSON) {
         
         let dmastery: Dictionary<String, JSON> = jmastery["data"].dictionaryValue
@@ -1020,7 +1115,7 @@ final class rootclass: NSObject {
             self.dicStaticMastery[r.id] = r
         }
     }
-    
+
     func listarVersion() {
         
         let url = "https://na1.api.riotgames.com/lol/static-data/v3/versions?api_key=\(lol.api_key)"
