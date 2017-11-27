@@ -1218,7 +1218,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Queue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="877-KO-owL">
-                                            <rect key="frame" x="8" y="8" width="334" height="19"/>
+                                            <rect key="frame" x="8" y="8" width="334" height="18.5"/>
                                             <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="15"/>
                                             <color key="textColor" red="0.92941176470588238" green="0.8784313725490196" blue="0.7803921568627451" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -2006,7 +2006,7 @@
         <!--Item-->
         <scene sceneID="VTe-rp-QTN">
             <objects>
-                <viewController id="DOC-4D-Fe2" customClass="championsVC" customModule="LOL4YOU" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="DOC-4D-Fe2" customClass="championsVC" customModule="LOL4YOU" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kPl-pR-3LB"/>
                         <viewControllerLayoutGuide type="bottom" id="Ur1-VL-gvD"/>
@@ -2019,30 +2019,30 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" red="0.086274509799999996" green="0.10980392160000001" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="hzF-vD-cw3">
-                                    <size key="itemSize" width="100" height="100"/>
+                                    <size key="itemSize" width="70" height="70"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellChampions" id="ROH-dI-YZL" customClass="championsCVC" customModule="LOL4YOU" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HBl-FU-1et">
-                                                    <rect key="frame" x="20" y="8" width="60" height="60"/>
+                                                    <rect key="frame" x="15" y="8" width="40" height="40"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="60" id="GgJ-HR-Vcc"/>
-                                                        <constraint firstAttribute="width" constant="60" id="i2U-GH-W3H"/>
+                                                        <constraint firstAttribute="height" constant="40" id="GgJ-HR-Vcc"/>
+                                                        <constraint firstAttribute="width" constant="40" id="i2U-GH-W3H"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Champion Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p6h-uO-OVE">
-                                                    <rect key="frame" x="8" y="71" width="84" height="21"/>
+                                                    <rect key="frame" x="3" y="49" width="65" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="10"/>
+                                                    <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="8"/>
                                                     <color key="textColor" red="0.92941176469999998" green="0.87843137250000003" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -2051,8 +2051,8 @@
                                         <color key="backgroundColor" red="0.086274509799999996" green="0.10980392160000001" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="HBl-FU-1et" firstAttribute="top" secondItem="ROH-dI-YZL" secondAttribute="top" constant="8" id="2VD-Kc-OnG"/>
-                                            <constraint firstItem="HBl-FU-1et" firstAttribute="leading" secondItem="ROH-dI-YZL" secondAttribute="leading" constant="20" id="NHG-6s-rai"/>
-                                            <constraint firstAttribute="trailing" secondItem="HBl-FU-1et" secondAttribute="trailing" constant="20" id="xNp-5B-SNb"/>
+                                            <constraint firstItem="HBl-FU-1et" firstAttribute="leading" secondItem="ROH-dI-YZL" secondAttribute="leading" constant="15" id="NHG-6s-rai"/>
+                                            <constraint firstAttribute="trailing" secondItem="HBl-FU-1et" secondAttribute="trailing" constant="15" id="xNp-5B-SNb"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="imgChamp" destination="HBl-FU-1et" id="LbI-kM-XUa"/>

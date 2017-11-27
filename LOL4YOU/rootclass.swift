@@ -61,11 +61,20 @@ final class rootclass: NSObject {
         
         var tags:Array<String> = Array<String>()
         var skins:Array<championskin> = Array<championskin>()
+        var speels:Array<championspell> = Array<championspell>()
     }
     
     class championskin {
         var name:String = ""
         var link:String = ""
+    }
+    
+    class championspell {
+        var name:String = ""
+        var custo:String = ""
+        var alcance:String = ""
+        var descricao:String = ""
+        var image_link:String = ""
     }
     
     // CHAMPION - FIM
@@ -599,8 +608,10 @@ final class rootclass: NSObject {
     
     //#R00T
     func listarStaticChampions(champions:@escaping (JSON) -> ()) {
+//        
+//        let url = "https://na1.api.riotgames.com/lol/static-data/v3/champions?tags=image&tags=spells&tags=info&tags=skins&tags=lore&tags=tags&dataById=false&api_key=\(lol.api_key)"
         
-        let url = "https://na1.api.riotgames.com/lol/static-data/v3/champions?tags=image&tags=info&tags=skins&tags=lore&tags=tags&dataById=false&api_key=\(lol.api_key)"
+        let url = "https://br1.api.riotgames.com/lol/static-data/v3/champions?tags=image&locale=pt_BR&tags=spells&tags=info&tags=skins&tags=lore&tags=tags&dataById=false&api_key=\(lol.api_key)"
         
         let queue = DispatchQueue.global(qos: .background)
         Alamofire.request(url).validate().responseJSON(queue: queue) { response in
@@ -672,10 +683,82 @@ final class rootclass: NSObject {
                         }
                         
                         if let num = value["skins"][i]["num"].int {
-                            skin.link = "\(rootclass.images.champion_skins)\(r.name)_\(num)\(rootclass.images.jpg)"
+                            skin.link = "\(rootclass.images.champion_skins)\(r.key)_\(num)\(rootclass.images.jpg)"
                         }
                         
                         r.skins.append(skin)
+                    }
+                    
+                    for i in 0 ..< value["spells"].count {
+                        
+                        let spell = championspell()
+                        
+                        // VARS - INI
+                        var variables = Dictionary<String, String>()
+                        for a in 0 ..< value["spells"][i]["effectBurn"].count {
+                            if let effect = value["spells"][i]["effectBurn"][a].string {
+                                variables["{{ e\(a) }}"] = effect
+                            }
+                        }
+                        
+                        var coeffs = Array<String>()
+                        for a in 0 ..< value["spells"][i]["vars"].count {
+                            if let key = value["spells"][i]["vars"][a]["key"].string {
+                                for b in 0 ..< value["spells"][i]["vars"][a]["coeff"].count {
+                                    if let coeff = value["spells"][i]["vars"][a]["coeff"][b].double {
+                                        coeffs.append("\(coeff)")
+                                    }
+                                }
+                                variables["{{ \(key) }}"] = coeffs.flatMap({$0}).joined(separator:"/")
+                            }
+                        }
+                        
+                        var costs = Array<String>()
+                        for a in 0 ..< value["spells"][i]["cost"].count {
+                            if let cost = value["spells"][i]["cost"][a].int {
+                                costs.append("\(cost)")
+                            }
+                            variables["{{ cost }}"] = costs.flatMap({$0}).joined(separator:"/")
+                        }
+                        // VARS - FIM
+                        
+                        if let costBurn = value["spells"][i]["costBurn"].string {
+                            if let costType = value["spells"][i]["costType"].string {
+                                if costBurn == "0" {
+                                    spell.custo = costType
+                                } else {
+                                    spell.custo = "\(costBurn)\(costType)"
+                                }
+                            }
+                        }
+                        
+                        if let tooltip = value["spells"][i]["tooltip"].string {
+                            spell.descricao = tooltip
+                        }
+                        
+                        if let name = value["spells"][i]["name"].string {
+                            spell.name = name
+                        }
+                        
+                        if let rangeBurn = value["spells"][i]["rangeBurn"].string {
+                            spell.alcance = rangeBurn
+                        }
+                        
+                        if let image_speel = value["spells"][i]["image"]["full"].string {
+                            spell.image_link = "\(rootclass.images.spell_champion)\(image_speel)"
+                        }
+                        
+                        for ( key, value) in variables {
+                            spell.descricao = spell.descricao.replacingOccurrences(of: key, with: value, options: .literal, range: nil)
+                        }
+                        
+                        print("CHAMPION => \(r.name)")
+                        print("CHAMPION ID => \(r.id)")
+                        print("DESCRICAO => \(spell.descricao)")
+                        print("------------------------------------------------------")
+                        
+                        r.speels.append(spell)
+                        
                     }
                     
                     if let imagefull = value["image"]["full"].string {
@@ -892,7 +975,7 @@ final class rootclass: NSObject {
                 }
                 
                 if let num = value["skins"][i]["num"].int {
-                    skin.link = "\(rootclass.images.champion_skins)\(r.name)_\(num)\(rootclass.images.jpg)"
+                    skin.link = "\(rootclass.images.champion_skins)\(r.key)_\(num)\(rootclass.images.jpg)"
                 }
                 
                 r.skins.append(skin)
