@@ -123,7 +123,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             print("#R00T - ANTES - SALVOU SPELL CACHE - \(NSDate())")
                             let spellsd = try self.rt.readJsonLocal(file: rootclass.shared.spells)
                             if !spellsd.isEmpty {
-                                let spellsj = JSON(data: spellsd)
+                                let spellsj = try JSON(data: spellsd)
                                 self.rt.listarStaticSpell(jspell: spellsj)
                                 NSLog("R00T - CARREGOU SPELLS CACHE - \(spellsd)")
                             }
@@ -135,7 +135,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             print("#R00T - ANTES - SALVOU CHAMPION CACHE - \(NSDate())")
                             let championsd = try self.rt.readJsonLocal(file: rootclass.shared.champions)
                             if !championsd.isEmpty {
-                                let championsj = JSON(data:championsd)
+                                let championsj = try JSON(data:championsd)
                                 self.rt.listarStaticChampions(jchampions: championsj)
                                 NSLog("R00T - CARREGOU CHAMPIONS CACHE - \(championsd)")
                             }
@@ -147,7 +147,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             print("#R00T - ANTES - SALVOU RUNES CACHE - \(NSDate())")
                             let runesd = try self.rt.readJsonLocal(file: rootclass.shared.runes)
                             if !runesd.isEmpty {
-                                let runesj = JSON(data:runesd)
+                                let runesj = try JSON(data:runesd)
                                 self.rt.listarStaticRunes(jrunes: runesj)
                                 NSLog("R00T - CARREGOU RUNES CACHE - \(runesd)")
                             }
@@ -159,7 +159,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             print("#R00T - ANTES - SALVOU MASTERY CACHE - \(NSDate())")
                             let masterysd = try self.rt.readJsonLocal(file: rootclass.shared.masterys)
                             if !masterysd.isEmpty {
-                                let masterysj = JSON(data:masterysd)
+                                let masterysj = try JSON(data:masterysd)
                                 self.rt.listarStaticMastery(jmastery: masterysj)
                                 NSLog("R00T - CARREGOU MASTERYS CACHE - \(masterysd)")
                             }

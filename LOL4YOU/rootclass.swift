@@ -76,6 +76,7 @@ final class rootclass: NSObject {
         var name:String = ""
         var custo:String = ""
         var alcance:String = ""
+        var cooldown:String = ""
         var sandescricao:String = ""
         var descricao:String = ""
         var image_link:String = ""
@@ -139,7 +140,7 @@ final class rootclass: NSObject {
         static internal let profileicon:String = "https://ddragon.leagueoflegends.com/cdn/\(rootclass.lol.version)/img/profileicon/"
         static internal let rune:String = "https://ddragon.leagueoflegends.com/cdn/\(rootclass.lol.version)/img/rune/"
         static internal let spell:String = "https://ddragon.leagueoflegends.com/cdn/\(rootclass.lol.version)/img/spell/"
-        static internal let spell_champion:String = "http://ddragon.leagueoflegends.com/cdn/\(rootclass.lol.version)/img/spell/"
+        static internal let spell_champion:String = "https://ddragon.leagueoflegends.com/cdn/\(rootclass.lol.version)/img/spell/"
         static internal let mastery:String = "https://ddragon.leagueoflegends.com/cdn/\(rootclass.lol.version)/img/mastery/"
         static internal let passive:String = "https://ddragon.leagueoflegends.com/cdn/\(rootclass.lol.version)/img/passive/"
         
@@ -749,6 +750,10 @@ final class rootclass: NSObject {
                         
                         // VARS - FIM
                         
+                        if let cooldownBurn = value["spells"][i]["cooldownBurn"].string {
+                            spell.cooldown = cooldownBurn
+                        }
+                        
                         if let sanitizedDescription = value["spells"][i]["sanitizedDescription"].string {
                             spell.sandescricao = sanitizedDescription
                         }
@@ -772,6 +777,7 @@ final class rootclass: NSObject {
                         if let image_speel = value["spells"][i]["image"]["full"].string {
                             spell.image_link = "\(rootclass.images.spell_champion)\(image_speel)"
                         }
+                        
                         
                         for ( key, value) in variables {
                             spell.descricao = spell.descricao.replacingOccurrences(of: key, with: value, options: .literal, range: nil)
@@ -1068,6 +1074,10 @@ final class rootclass: NSObject {
                 }
                 
                 // VARS - FIM
+                
+                if let cooldownBurn = value["spells"][i]["cooldownBurn"].string {
+                    spell.cooldown = cooldownBurn
+                }
                 
                 if let sanitizedDescription = value["spells"][i]["sanitizedDescription"].string {
                     spell.sandescricao = sanitizedDescription

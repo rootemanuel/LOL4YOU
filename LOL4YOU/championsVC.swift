@@ -68,11 +68,5 @@ class championsVC: UIViewController, UICollectionViewDataSource, UICollectionVie
         self.champions = rt.listStaticChamp.sorted(by: { $0.name < $1.name })
         
         let videoURL = URL(string: "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0024/ability_0024_P1.webm")
-        let player = AVPlayer(url: videoURL!)
-        let playerViewController = AVPlayerViewController()
-        playerViewController.player = player
-        self.present(playerViewController, animated: true) {
-            playerViewController.player!.play()
-        }
     }
 }
