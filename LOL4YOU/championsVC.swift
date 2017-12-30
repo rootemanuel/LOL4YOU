@@ -34,7 +34,8 @@ class championsVC: UIViewController, UICollectionViewDataSource, UICollectionVie
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "champions") as! championsTVC
         
-        vc.champ = champ
+        let champfull = rt.listaChamp(id: champ.id)
+        vc.champ = champfull
         
         self.navigationController?.pushViewController(vc, animated: true) 
     }
@@ -45,7 +46,7 @@ class championsVC: UIViewController, UICollectionViewDataSource, UICollectionVie
         let champ = champions[indexPath.row]
         
         cell.lblChamNome.text = champ.name
-        cell.imgChamp.sd_setImage(with: URL(string: "\(rootclass.images.champion)\(champ.imagefull)"), placeholderImage: UIImage(named: "static_null_all"))
+        cell.imgChamp.sd_setImage(with: URL(string: "\(champ.imagelink)"), placeholderImage: UIImage(named: "static_null_all"))
         cell.imgChamp.layer.borderWidth = 1
         cell.imgChamp.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
         

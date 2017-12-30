@@ -31,6 +31,8 @@ class championstableTVCC: UITableViewCell, UITableViewDataSource, UITableViewDel
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch segControl.selectedSegmentIndex {
         case 0:
+            return 14
+        case 1:
             switch section {
             case 0:
                 return 1
@@ -39,7 +41,7 @@ class championstableTVCC: UITableViewCell, UITableViewDataSource, UITableViewDel
             default:
                 return 0
             }
-        case 1:
+        case 2:
             return champ.skins.count
         default:
             return 0
@@ -49,8 +51,10 @@ class championstableTVCC: UITableViewCell, UITableViewDataSource, UITableViewDel
     func numberOfSections(in tableView: UITableView) -> Int {
         switch segControl.selectedSegmentIndex {
         case 0:
-            return 2
+            return 1
         case 1:
+            return 2
+        case 2:
             return 1
         default:
             return 0
@@ -61,7 +65,60 @@ class championstableTVCC: UITableViewCell, UITableViewDataSource, UITableViewDel
         
         switch segControl.selectedSegmentIndex {
         case 0:
+            let cell = Bundle.main.loadNibNamed("infoTVCC", owner: self, options: nil)?.first as! infoTVCC
+                
+            cell.selectionStyle = UITableViewCellSelectionStyle.none
             
+            switch indexPath.row {
+            case 0:
+                cell.item.text = "Armor"
+                cell.valor.text = "\(champ.stats.armor)"
+            case 1:
+                cell.item.text = "Armor Per Level"
+                cell.valor.text = "\(champ.stats.armorperlevel)"
+            case 2:
+                cell.item.text = "Attack Damage"
+                cell.valor.text = "\(champ.stats.attackdamage)"
+            case 3:
+                cell.item.text = "Attack Damage Per Level"
+                cell.valor.text = "\(champ.stats.attackspeedperlevel)"
+            case 4:
+                cell.item.text = "Attack Range"
+                cell.valor.text = "\(champ.stats.attackrange)"
+            case 5:
+                cell.item.text = "Attack Speed"
+                cell.valor.text = "\(champ.stats.attackspeedoffset)"
+            case 6:
+                cell.item.text = "Attack Speed Per Level"
+                cell.valor.text = "\(champ.stats.attackspeedperlevel)"
+            case 7:
+                cell.item.text = "Crit"
+                cell.valor.text = "\(champ.stats.crit)"
+            case 8:
+                cell.item.text = "Crit Per Level"
+                cell.valor.text = "\(champ.stats.critperlevel)"
+            case 9:
+                cell.item.text = "Hp"
+                cell.valor.text = "\(champ.stats.hp)"
+            case 10:
+                cell.item.text = "Hp Per Level"
+                cell.valor.text = "\(champ.stats.hpperlevel)"
+            case 11:
+                cell.item.text = "Hp Regen"
+                cell.valor.text = "\(champ.stats.hpregen)"
+            case 12:
+                cell.item.text = "Hp Regen Per Level"
+                cell.valor.text = "\(champ.stats.hpregenperlevel)"
+            case 13:
+                cell.item.text = "Move Speed"
+                cell.valor.text = "\(champ.stats.movespeed)"
+            default:
+                cell.item.text = ""
+                cell.valor.text = ""
+            }
+            
+            return cell
+        case 1:
             switch indexPath.section {
             case 0:
                 let cell = Bundle.main.loadNibNamed("championspassiveTVCC", owner: self, options: nil)?.first as! championspassiveTVCC
@@ -98,7 +155,7 @@ class championstableTVCC: UITableViewCell, UITableViewDataSource, UITableViewDel
                 cell.selectionStyle = UITableViewCellSelectionStyle.none
                 return cell
             }
-        case 1:
+        case 2:
             let cell = Bundle.main.loadNibNamed("championsskinTVCC", owner: self, options: nil)?.first as! championsskinTVCC
             
             cell.selectionStyle = UITableViewCellSelectionStyle.none
@@ -122,6 +179,8 @@ class championstableTVCC: UITableViewCell, UITableViewDataSource, UITableViewDel
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch segControl.selectedSegmentIndex {
         case 0:
+            return 44
+        case 1:
             switch indexPath.section {
             case 0:
                 return 100
@@ -130,7 +189,7 @@ class championstableTVCC: UITableViewCell, UITableViewDataSource, UITableViewDel
             default:
                 return 0
             }
-        case 1:
+        case 2:
             return 200
         default:
             return 44

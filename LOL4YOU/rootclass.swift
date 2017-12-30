@@ -62,6 +62,7 @@ final class rootclass: NSObject {
         var info_magic:Int = 0
         var info_difficulty:Int = 0
         
+        var stats:championstats = championstats()
         var tags:Array<String> = Array<String>()
         var skins:Array<championskin> = Array<championskin>()
         var speels:Array<championspell> = Array<championspell>()
@@ -80,6 +81,29 @@ final class rootclass: NSObject {
         var sandescricao:String = ""
         var descricao:String = ""
         var image_link:String = ""
+    }
+    
+    class championstats {
+        var armor:Double = 0
+        var armorperlevel:Double = 0
+        var attackdamage:Double = 0
+        var attackdamageperlevel:Double = 0
+        var attackrange:Double = 0
+        var attackspeedoffset:Double = 0
+        var attackspeedperlevel:Double = 0
+        var crit:Double = 0
+        var critperlevel:Double = 0
+        var hp:Double = 0
+        var hpperlevel:Double = 0
+        var hpregen:Double = 0
+        var hpregenperlevel:Double = 0
+        var movespeed:Double = 0
+        var mp:Double = 0
+        var mpperlevel:Double = 0
+        var mpregen:Double = 0
+        var mpregenperlevel:Double = 0
+        var spellblock:Double = 0
+        var spellblockperlevel:Double = 0
     }
     
     // CHAMPION - FIM
@@ -616,7 +640,7 @@ final class rootclass: NSObject {
 //        
 //        let url = "https://na1.api.riotgames.com/lol/static-data/v3/champions?tags=image&tags=spells&tags=info&tags=skins&tags=lore&tags=tags&dataById=false&api_key=\(lol.api_key)"
         
-        let url = "https://br1.api.riotgames.com/lol/static-data/v3/champions?tags=image&locale=pt_BR&tags=passive&tags=spells&tags=info&tags=skins&tags=lore&tags=tags&dataById=false&api_key=\(lol.api_key)"
+        let url = "https://na1.api.riotgames.com/lol/static-data/v3/champions?tags=image&locale=pt_BR&tags=passive&tags=stats&tags=spells&tags=info&tags=skins&tags=lore&tags=tags&dataById=false&api_key=\(lol.api_key)"
         
         let queue = DispatchQueue.global(qos: .background)
         Alamofire.request(url).validate().responseJSON(queue: queue) { response in
@@ -678,6 +702,86 @@ final class rootclass: NSObject {
                     
                     if let passiva_link = value["passive"]["image"]["full"].string {
                         r.passiva_link = "\(rootclass.images.passive)\(passiva_link)"
+                    }
+                    
+                    if let armor = value["stats"]["armor"].double {
+                        r.stats.armor = armor
+                    }
+                    
+                    if let armorperlevel = value["stats"]["armorperlevel"].double {
+                        r.stats.armorperlevel = armorperlevel
+                    }
+                    
+                    if let attackdamage = value["stats"]["attackdamage"].double {
+                        r.stats.attackdamage = attackdamage
+                    }
+                    
+                    if let attackdamageperlevel = value["stats"]["attackdamageperlevel"].double {
+                        r.stats.attackdamageperlevel = attackdamageperlevel
+                    }
+                    
+                    if let attackrange = value["stats"]["attackrange"].double {
+                        r.stats.attackrange = attackrange
+                    }
+                    
+                    if let attackspeedoffset = value["stats"]["attackspeedoffset"].double {
+                        r.stats.attackspeedoffset = attackspeedoffset
+                    }
+                    
+                    if let attackspeedperlevel = value["stats"]["attackspeedperlevel"].double {
+                        r.stats.attackspeedperlevel = attackspeedperlevel
+                    }
+                    
+                    if let crit = value["stats"]["crit"].double {
+                        r.stats.crit = crit
+                    }
+                    
+                    if let critperlevel = value["stats"]["critperlevel"].double {
+                        r.stats.critperlevel = critperlevel
+                    }
+                    
+                    if let hp = value["stats"]["hp"].double {
+                        r.stats.hp = hp
+                    }
+                    
+                    if let hpperlevel = value["stats"]["hpperlevel"].double {
+                        r.stats.hpperlevel = hpperlevel
+                    }
+                    
+                    if let hpregen = value["stats"]["hpregen"].double {
+                        r.stats.hpregen = hpregen
+                    }
+                    
+                    if let hpregenperlevel = value["stats"]["hpregenperlevel"].double {
+                        r.stats.hpregenperlevel = hpregenperlevel
+                    }
+                    
+                    if let movespeed = value["stats"]["movespeed"].double {
+                        r.stats.movespeed = movespeed
+                    }
+                    
+                    if let mp = value["stats"]["mp"].double {
+                        r.stats.mp = mp
+                    }
+                    
+                    if let mpperlevel = value["stats"]["mpperlevel"].double {
+                        r.stats.mpperlevel = mpperlevel
+                    }
+                    
+                    if let mpregen = value["stats"]["mpregen"].double {
+                        r.stats.mpregen = mpregen
+                    }
+                    
+                    if let mpregenperlevel = value["stats"]["mpregenperlevel"].double {
+                        r.stats.mpregenperlevel = mpregenperlevel
+                    }
+                    
+                    if let spellblock = value["stats"]["spellblock"].double {
+                        r.stats.spellblock = spellblock
+                    }
+                    
+                    if let spellblockperlevel = value["stats"]["spellblockperlevel"].double {
+                        r.stats.spellblockperlevel = spellblockperlevel
                     }
                     
                     for i in 0 ..< value["tags"].count {
@@ -789,12 +893,6 @@ final class rootclass: NSObject {
                         
                         //Retira HTML
                         spell.descricao = spell.descricao.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
-//#R00T - DEBUGGER
-//                        print("CHAMPION => \(r.name)")
-//                        print("CHAMPION ID => \(r.id)")
-//                        print("DESCRICAO => \(spell.descricao)")
-//                        print("------------------------------------------------------")
-                        
                         r.speels.append(spell)
                         
                     }
@@ -803,14 +901,103 @@ final class rootclass: NSObject {
                         r.imagefull = imagefull
                         r.imagelink = "\(rootclass.images.champion)\(imagefull)"
                     }
-                    
+                
                     self.dicStaticChampions[r.id] = r
                     self.listStaticChamp.append(r)
                 }
                 
+                var champcustom = Array<[String:Any]>()
+                
+                for i in 0 ..< self.listStaticChamp.count {
+                    var skins = Array<[String:Any]>()
+                    var speels = Array<[String:Any]>()
+                    var tags = Array<[String:Any]>()
+                    
+                    for a in 0 ..< self.listStaticChamp[i].skins.count {
+                        var skin:[String:Any] = [
+                            "link":self.listStaticChamp[i].skins[a].link,
+                            "name":self.listStaticChamp[i].skins[a].name,
+                        ]
+                        
+                        skins.append(skin)
+                        
+                    }
+                    
+                    for a in 0 ..< self.listStaticChamp[i].speels.count {
+                        var speel:[String:Any] = [
+                            "alcance":self.listStaticChamp[i].speels[a].alcance,
+                            "cooldown":self.listStaticChamp[i].speels[a].cooldown,
+                            "custo":self.listStaticChamp[i].speels[a].custo,
+                            "descricao":self.listStaticChamp[i].speels[a].descricao,
+                            "image_link":self.listStaticChamp[i].speels[a].image_link,
+                            "name":self.listStaticChamp[i].speels[a].name,
+                            "sandescricao":self.listStaticChamp[i].speels[a].sandescricao
+                            ]
+                        
+                        speels.append(speel)
+                        
+                    }
+                    
+                    for a in 0 ..< self.listStaticChamp[i].tags.count {
+                        var tag:[String:Any] = [
+                            "valor":self.listStaticChamp[i].tags[a]
+                        ]
+                        
+                        tags.append(tag)
+                        
+                    }
+                    
+                    var stats:[String:Any] = [
+                        "armor":self.listStaticChamp[i].stats.armor,
+                        "armorperlevel":self.listStaticChamp[i].stats.armorperlevel,
+                        "attackdamage":self.listStaticChamp[i].stats.attackdamage,
+                        "attackdamageperlevel":self.listStaticChamp[i].stats.attackdamageperlevel,
+                        "attackrange":self.listStaticChamp[i].stats.attackrange,
+                        "attackspeedoffset":self.listStaticChamp[i].stats.attackspeedoffset,
+                        "attackspeedperlevel":self.listStaticChamp[i].stats.attackspeedperlevel,
+                        "crit":self.listStaticChamp[i].stats.crit,
+                        "critperlevel":self.listStaticChamp[i].stats.critperlevel,
+                        "hp":self.listStaticChamp[i].stats.hp,
+                        "hpperlevel":self.listStaticChamp[i].stats.hpperlevel,
+                        "hpregen":self.listStaticChamp[i].stats.hpregen,
+                        "hpregenperlevel":self.listStaticChamp[i].stats.hpregenperlevel,
+                        "movespeed":self.listStaticChamp[i].stats.movespeed,
+                        "mp":self.listStaticChamp[i].stats.mp,
+                        "mpperlevel":self.listStaticChamp[i].stats.mpperlevel,
+                        "mpregen":self.listStaticChamp[i].stats.mpregen,
+                        "mpregenperlevel":self.listStaticChamp[i].stats.mpregenperlevel,
+                        "spellblock":self.listStaticChamp[i].stats.spellblock,
+                        "spellblockperlevel":self.listStaticChamp[i].stats.spellblockperlevel
+                    ]
+                    
+                    
+                    var rowC:[String:Any] = [
+                        "id":self.listStaticChamp[i].id,
+                        "imagefull":self.listStaticChamp[i].imagefull,
+                        "imagelink":self.listStaticChamp[i].imagelink,
+                        "info_attack":self.listStaticChamp[i].info_attack,
+                        "info_defense":self.listStaticChamp[i].info_defense,
+                        "info_difficulty":self.listStaticChamp[i].info_difficulty,
+                        "key":self.listStaticChamp[i].key,
+                        "lore":self.listStaticChamp[i].lore,
+                        "name":self.listStaticChamp[i].name,
+                        "passiva_descricao":self.listStaticChamp[i].passiva_descricao,
+                        "passiva_link":self.listStaticChamp[i].passiva_link,
+                        "title":self.listStaticChamp[i].title,
+                        "skins":JSON(skins),
+                        "speels":JSON(speels),
+                        "tags":JSON(tags),
+                        "stats":JSON(stats)
+                    ]
+                    
+                    champcustom.append(rowC)
+                }
+                
+                let jchampcustom = JSON(champcustom)
+                
                 if self.dicStaticChampions.count > 0 {
                     NSLog("R00T - GET CHAMPIONS SUCESS")
-                    champions(jchampions)
+                    champions(jchampcustom)
                 }
                 
             case .failure(let error):
@@ -949,189 +1136,222 @@ final class rootclass: NSObject {
     }
     
     //#R00T
-    func listarStaticChampions(jchampions: JSON) {
+    func listarStaticChampionsList(jchampions: JSON) {
         
-        let dchampions: Dictionary<String, JSON> = jchampions["data"].dictionaryValue
-        self.listStaticChamp = Array<staticchampions>()
-        
-        for (_, value) in dchampions {
-            let r = staticchampions()
-            
-            if let id = value["id"].int {
-                r.id = id
-            }
-            
-            if let key = value["key"].string {
-                r.key = key
-            }
-            
-            if let name = value["name"].string {
-                r.name = name
-            }
-            
-            if let title = value["title"].string {
-                r.title = title
-            }
-            
-            if let lore = value["lore"].string {
-                r.lore = lore
-            }
-            
-            if let attack = value["info"]["attack"].int {
-                r.info_attack = attack
-            }
-            
-            if let defense = value["info"]["defense"].int {
-                r.info_defense = defense
-            }
-            
-            if let magic = value["info"]["magic"].int {
-                r.info_magic = magic
-            }
-            
-            if let difficulty = value["info"]["difficulty"].int {
-                r.info_difficulty = difficulty
-            }
-            
-            if let passiva_name = value["passive"]["name"].string {
-                r.passiva_name = passiva_name
-            }
-            
-            if let passiva_descricao = value["passive"]["sanitizedDescription"].string {
-                r.passiva_descricao = passiva_descricao
-            }
-            
-            if let passiva_link = value["passive"]["image"]["full"].string {
-                r.passiva_link = "\(rootclass.images.passive)\(passiva_link)"
-            }
-            
-            for i in 0 ..< value["tags"].count {
-                if let tag = value["tags"][i].string {
-                    r.tags.append(tag)
-                }
-            }
-            
-            for i in 0 ..< value["skins"].count {
+        if jchampions != JSON.null {
+            if(!jchampions.isEmpty){
                 
-                let skin = championskin()
+                self.dicStaticChampions = Dictionary<Int, staticchampions>()
+                self.listStaticChampMastery = Array<staticchampmastery>()
                 
-                if let name = value["skins"][i]["name"].string {
-                    skin.name = name
-                    if let num = value["skins"][i]["num"].int {
-                        if num == 0 {
-                            skin.name = r.name
+                for i in 0 ..< jchampions.count {
+                    
+                    let r = staticchampions()
+                    
+                    if let id = jchampions[i]["id"].int {
+                        r.id = id
+                    }
+                    
+                    if let key = jchampions[i]["key"].string {
+                        r.key = key
+                    }
+                    
+                    if let name = jchampions[i]["name"].string {
+                        r.name = name
+                    }
+                    
+                    if let imagefull = jchampions[i]["imagefull"].string {
+                        r.imagefull = imagefull
+                    }
+                    
+                    if let imagelink = jchampions[i]["imagelink"].string {
+                        r.imagelink = imagelink
+                    }
+                    
+                    if let lore = jchampions[i]["lore"].string {
+                        r.lore = lore
+                    }
+                    
+                    if let title = jchampions[i]["title"].string {
+                        r.title = title
+                    }
+                    
+                    if let passiva_name = jchampions[i]["passiva_name"].string {
+                        r.passiva_name = passiva_name
+                    }
+                    
+                    if let passiva_descricao = jchampions[i]["passiva_descricao"].string {
+                        r.passiva_descricao = passiva_descricao
+                    }
+                    
+                    if let passiva_link = jchampions[i]["passiva_link"].string {
+                        r.passiva_link = passiva_link
+                    }
+                    
+                    if let info_attack = jchampions[i]["info_attack"].int {
+                        r.info_attack = info_attack
+                    }
+                    
+                    if let info_defense = jchampions[i]["info_defense"].int {
+                        r.info_defense = info_defense
+                    }
+                    
+                    if let info_magic = jchampions[i]["info_magic"].int {
+                        r.info_magic = info_magic
+                    }
+                    
+                    if let info_difficulty = jchampions[i]["info_difficulty"].int {
+                        r.info_difficulty = info_difficulty
+                    }
+                    
+                    // STATS
+                    var stat = championstats()
+                    
+                    if let armor = jchampions[i]["stats"]["armor"].double {
+                        stat.armor = armor
+                    }
+                    
+                    if let armorperlevel = jchampions[i]["stats"]["armorperlevel"].double {
+                        stat.armorperlevel = armorperlevel
+                    }
+                    
+                    if let attackdamage = jchampions[i]["stats"]["attackdamage"].double {
+                        stat.armor = attackdamage
+                    }
+                    
+                    if let attackdamageperlevel = jchampions[i]["stats"]["attackdamageperlevel"].double {
+                        stat.attackdamageperlevel = attackdamageperlevel
+                    }
+                    
+                    if let attackrange = jchampions[i]["stats"]["attackrange"].double {
+                        stat.attackrange = attackrange
+                    }
+                    
+                    if let attackspeedoffset = jchampions[i]["stats"]["attackspeedoffset"].double {
+                        stat.attackspeedoffset = attackspeedoffset
+                    }
+                    
+                    if let attackspeedperlevel = jchampions[i]["stats"]["attackspeedperlevel"].double {
+                        stat.attackspeedperlevel = attackspeedperlevel
+                    }
+                    
+                    if let crit = jchampions[i]["stats"]["crit"].double {
+                        stat.crit = crit
+                    }
+                    
+                    if let critperlevel = jchampions[i]["stats"]["critperlevel"].double {
+                        stat.critperlevel = critperlevel
+                    }
+                    
+                    if let hp = jchampions[i]["stats"]["hp"].double {
+                        stat.hp = hp
+                    }
+                    
+                    if let hpperlevel = jchampions[i]["stats"]["hpperlevel"].double {
+                        stat.hpperlevel = hpperlevel
+                    }
+                    
+                    if let hpregen = jchampions[i]["stats"]["hpregen"].double {
+                        stat.hpregen = hpregen
+                    }
+                    
+                    if let hpregenperlevel = jchampions[i]["stats"]["hpregenperlevel"].double {
+                        stat.hpregenperlevel = hpregenperlevel
+                    }
+                    
+                    if let movespeed = jchampions[i]["stats"]["movespeed"].double {
+                        stat.movespeed = movespeed
+                    }
+                    
+                    if let mp = jchampions[i]["stats"]["mp"].double {
+                        stat.mp = mp
+                    }
+                    
+                    if let mpperlevel = jchampions[i]["stats"]["mpperlevel"].double {
+                        stat.mpperlevel = mpperlevel
+                    }
+                    
+                    if let mpregen = jchampions[i]["stats"]["mpregen"].double {
+                        stat.mpregen = mpregen
+                    }
+                    
+                    if let mpregenperlevel = jchampions[i]["stats"]["mpregenperlevel"].double {
+                        stat.mpregenperlevel = mpregenperlevel
+                    }
+                    
+                    if let spellblock = jchampions[i]["stats"]["spellblock"].double {
+                        stat.spellblock = spellblock
+                    }
+                    
+                    if let spellblockperlevel = jchampions[i]["stats"]["spellblockperlevel"].double {
+                        stat.spellblockperlevel = spellblockperlevel
+                    }
+                    
+                    r.stats = stat
+                    
+                    for i in 0 ..< jchampions[i]["tags"].count {
+                        if let valor = jchampions[i]["tags"]["valor"].string {
+                            r.tags.append(valor)
                         }
                     }
-                }
-                
-                if let num = value["skins"][i]["num"].int {
-                    skin.link = "\(rootclass.images.champion_skins)\(r.key)_\(num)\(rootclass.images.jpg)"
-                }
-                
-                r.skins.append(skin)
-            }
-            
-            for i in 0 ..< value["spells"].count {
-                
-                let spell = championspell()
-                
-                // VARS - INI
-                var variables = Dictionary<String, String>()
-                for a in 0 ..< value["spells"][i]["effectBurn"].count {
-                    if let effect = value["spells"][i]["effectBurn"][a].string {
-                        variables["{{ e\(a) }}"] = effect
-                    }
-                }
-                
-                var coeffs = Array<String>()
-                for a in 0 ..< value["spells"][i]["vars"].count {
-                    if let key = value["spells"][i]["vars"][a]["key"].string {
-                        for b in 0 ..< value["spells"][i]["vars"][a]["coeff"].count {
-                            if let coeff = value["spells"][i]["vars"][a]["coeff"][b].double {
-                                coeffs.append("\(coeff)")
-                            }
+                    
+                    for i in 0 ..< jchampions[i]["skins"].count {
+                        
+                        var skin = championskin()
+                        
+                        if let name = jchampions[i]["skins"]["name"].string {
+                            skin.name = name
                         }
-                        variables["{{ \(key) }}"] = coeffs.flatMap({$0}).joined(separator:"/")
-                    }
-                }
-                
-                var costs = Array<String>()
-                for a in 0 ..< value["spells"][i]["cost"].count {
-                    if let cost = value["spells"][i]["cost"][a].int {
-                        costs.append("\(cost)")
-                    }
-                    variables["{{ cost }}"] = costs.flatMap({$0}).joined(separator:"/")
-                }
-                
-                if let costBurn = value["spells"][i]["costBurn"].string {
-                    if let costType = value["spells"][i]["costType"].string {
-                        if costBurn == "0" {
-                            spell.custo = costType
-                        } else {
-                            spell.custo = "\(costBurn)\(costType)"
+                        
+                        if let link = jchampions[i]["skins"]["link"].string {
+                            skin.link = link
                         }
+                        
+                        r.skins.append(skin)
                     }
+                    
+                    for i in 0 ..< jchampions[i]["speels"].count {
+                        
+                        var spell = championspell()
+                        
+                        if let name = jchampions[i]["speels"]["name"].string {
+                            spell.name = name
+                        }
+                        
+                        if let custo = jchampions[i]["speels"]["custo"].string {
+                            spell.custo = custo
+                        }
+                        
+                        if let alcance = jchampions[i]["speels"]["alcance"].string {
+                            spell.alcance = alcance
+                        }
+                        
+                        if let cooldown = jchampions[i]["speels"]["cooldown"].string {
+                            spell.cooldown = cooldown
+                        }
+                        
+                        if let sandescricao = jchampions[i]["speels"]["sandescricao"].string {
+                            spell.sandescricao = sandescricao
+                        }
+                        
+                        if let descricao = jchampions[i]["speels"]["descricao"].string {
+                            spell.descricao = descricao
+                        }
+                        
+                        if let image_link = jchampions[i]["speels"]["image_link"].string {
+                            spell.image_link = image_link
+                        }
+                        
+                        r.speels.append(spell)
+                    }
+                    
+                    self.dicStaticChampions[r.id] = r
+                    self.listStaticChamp.append(r)
                 }
-                
-                // VARS - FIM
-                
-                if let cooldownBurn = value["spells"][i]["cooldownBurn"].string {
-                    spell.cooldown = cooldownBurn
-                }
-                
-                if let sanitizedDescription = value["spells"][i]["sanitizedDescription"].string {
-                    spell.sandescricao = sanitizedDescription
-                }
-                
-                if let sanitizedDescription = value["spells"][i]["sanitizedDescription"].string {
-                    spell.sandescricao = sanitizedDescription
-                }
-                
-                if let tooltip = value["spells"][i]["tooltip"].string {
-                    spell.descricao = tooltip
-                }
-                
-                if let name = value["spells"][i]["name"].string {
-                    spell.name = name
-                }
-                
-                if let rangeBurn = value["spells"][i]["rangeBurn"].string {
-                    spell.alcance = rangeBurn
-                }
-                
-                if let image_speel = value["spells"][i]["image"]["full"].string {
-                    spell.image_link = "\(rootclass.images.spell_champion)\(image_speel)"
-                }
-                
-                for ( key, value) in variables {
-                    spell.descricao = spell.descricao.replacingOccurrences(of: key, with: value, options: .literal, range: nil)
-                }
-                
-                if spell.descricao.contains("{{") {
-                    spell.descricao = spell.sandescricao
-                }
-                
-                //Retira HTML
-                spell.descricao = spell.descricao.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
-                //#R00T - DEBUGGER
-                //                        print("CHAMPION => \(r.name)")
-                //                        print("CHAMPION ID => \(r.id)")
-                //                        print("DESCRICAO => \(spell.descricao)")
-                //                        print("------------------------------------------------------")
-                
-                r.speels.append(spell)
-                
             }
-            
-            if let imagefull = value["image"]["full"].string {
-                r.imagefull = imagefull
-                r.imagelink = "\(rootclass.images.champion)\(imagefull)"
-            }
-            
-            self.dicStaticChampions[r.id] = r
-            self.listStaticChamp.append(r)
         }
     }
+
 
     func listarStaticMastery(jmastery:JSON) {
         

@@ -118,13 +118,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             }
                         }
                     } else {
-                        DispatchQueue.main.async {
                         do {
                             print("#R00T - ANTES - SALVOU SPELL CACHE - \(NSDate())")
                             let spellsd = try self.rt.readJsonLocal(file: rootclass.shared.spells)
                             if !spellsd.isEmpty {
                                 let spellsj = try JSON(data: spellsd)
-                                self.rt.listarStaticSpell(jspell: spellsj)
+                                DispatchQueue.main.async {
+                                    self.rt.listarStaticSpell(jspell: spellsj)
+                                }
                                 NSLog("R00T - CARREGOU SPELLS CACHE - \(spellsd)")
                             }
                         } catch {
@@ -136,7 +137,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             let championsd = try self.rt.readJsonLocal(file: rootclass.shared.champions)
                             if !championsd.isEmpty {
                                 let championsj = try JSON(data:championsd)
-                                self.rt.listarStaticChampions(jchampions: championsj)
+                                self.rt.listarStaticChampionsList(jchampions: championsj)
                                 NSLog("R00T - CARREGOU CHAMPIONS CACHE - \(championsd)")
                             }
                         } catch {
@@ -166,7 +167,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         } catch {
                             NSLog("R00T - MASTERYS CACHE - ERROR:  \(error)")
                         }
-                    }
                     }
                 }
             } else {
