@@ -12,7 +12,6 @@
 		4C0FD50F2E61BC48463FCE49 /* Pods_LOL4YOUTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62BEFD983671AB73E196863F /* Pods_LOL4YOUTests.framework */; };
 		A0027FF61E9D91BD003175A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0027FF51E9D91BD003175A7 /* AppDelegate.swift */; };
 		A0027FFB1E9D91BD003175A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0027FF91E9D91BD003175A7 /* Main.storyboard */; };
-		A0027FFD1E9D91BD003175A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0027FFC1E9D91BD003175A7 /* Assets.xcassets */; };
 		A00280001E9D91BD003175A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0027FFE1E9D91BD003175A7 /* LaunchScreen.storyboard */; };
 		A002800B1E9D91BE003175A7 /* LOL4YOUTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A002800A1E9D91BE003175A7 /* LOL4YOUTests.swift */; };
 		A00280161E9D91BE003175A7 /* LOL4YOUUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00280151E9D91BE003175A7 /* LOL4YOUUITests.swift */; };
@@ -26,6 +25,34 @@
 		A017A8741EA5456700C325F7 /* perfilCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A017A8731EA5456700C325F7 /* perfilCVC.swift */; };
 		A017A8761EA546B600C325F7 /* perfilVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A017A8751EA546B600C325F7 /* perfilVC.swift */; };
 		A01BB8F31F7857D400E1A52D /* dateextensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01BB8F21F7857D400E1A52D /* dateextensions.swift */; };
+		A032F9882000526000CD81AD /* champion-zh_MY.json in Resources */ = {isa = PBXBuildFile; fileRef = A032F96C2000525C00CD81AD /* champion-zh_MY.json */; };
+		A032F9892000526000CD81AD /* champion-en_US.json in Resources */ = {isa = PBXBuildFile; fileRef = A032F96D2000525C00CD81AD /* champion-en_US.json */; };
+		A032F98A2000526000CD81AD /* champion-ru_RU.json in Resources */ = {isa = PBXBuildFile; fileRef = A032F96E2000525D00CD81AD /* champion-ru_RU.json */; };
+		A032F98B2000526000CD81AD /* champion-zh_CN.json in Resources */ = {isa = PBXBuildFile; fileRef = A032F96F2000525D00CD81AD /* champion-zh_CN.json */; };
+		A032F98C2000526000CD81AD /* champion-pt_BR.json in Resources */ = {isa = PBXBuildFile; fileRef = A032F9702000525D00CD81AD /* champion-pt_BR.json */; };
+		A032F98D2000526000CD81AD /* champion-en_PH.json in Resources */ = {isa = PBXBuildFile; fileRef = A032F9712000525D00CD81AD /* champion-en_PH.json */; };
+		A032F98E2000526000CD81AD /* champion-es_AR.json in Resources */ = {isa = PBXBuildFile; fileRef = A032F9722000525D00CD81AD /* champion-es_AR.json */; };
+		A032F98F2000526000CD81AD /* champion-en_AU.json in Resources */ = {isa = PBXBuildFile; fileRef = A032F9732000525D00CD81AD /* champion-en_AU.json */; };
+		A032F9902000526000CD81AD /* champion-th_TH.json in Resources */ = {isa = PBXBuildFile; fileRef = A032F9742000525D00CD81AD /* champion-th_TH.json */; };
+		A032F9912000526000CD81AD /* champion-de_DE.json in Resources */ = {isa = PBXBuildFile; fileRef = A032F9752000525D00CD81AD /* champion-de_DE.json */; };
+		A032F9922000526000CD81AD /* champion-ko_KR.json in Resources */ = {isa = PBXBuildFile; fileRef = A032F9762000525E00CD81AD /* champion-ko_KR.json */; };
+		A032F9932000526000CD81AD /* champion-es_MX.json in Resources */ = {isa = PBXBuildFile; fileRef = A032F9772000525E00CD81AD /* champion-es_MX.json */; };
+		A032F9942000526000CD81AD /* champion-hu_HU.json in Resources */ = {isa = PBXBuildFile; fileRef = A032F9782000525E00CD81AD /* champion-hu_HU.json */; };
+		A032F9952000526000CD81AD /* champion-fr_FR.json in Resources */ = {isa = PBXBuildFile; fileRef = A032F9792000525E00CD81AD /* champion-fr_FR.json */; };
+		A032F9962000526000CD81AD /* champion-el_GR.json in Resources */ = {isa = PBXBuildFile; fileRef = A032F97A2000525E00CD81AD /* champion-el_GR.json */; };
+		A032F9972000526000CD81AD /* champion-cs_CZ.json in Resources */ = {isa = PBXBuildFile; fileRef = A032F97B2000525E00CD81AD /* champion-cs_CZ.json */; };
+		A032F9982000526000CD81AD /* champion-ja_JP.json in Resources */ = {isa = PBXBuildFile; fileRef = A032F97C2000525E00CD81AD /* champion-ja_JP.json */; };
+		A032F9992000526000CD81AD /* champion-ro_RO.json in Resources */ = {isa = PBXBuildFile; fileRef = A032F97D2000525F00CD81AD /* champion-ro_RO.json */; };
+		A032F99A2000526000CD81AD /* champion-it_IT.json in Resources */ = {isa = PBXBuildFile; fileRef = A032F97E2000525F00CD81AD /* champion-it_IT.json */; };
+		A032F99B2000526000CD81AD /* champion-vn_VN.json in Resources */ = {isa = PBXBuildFile; fileRef = A032F97F2000525F00CD81AD /* champion-vn_VN.json */; };
+		A032F99C2000526000CD81AD /* champion-id_ID.json in Resources */ = {isa = PBXBuildFile; fileRef = A032F9802000525F00CD81AD /* champion-id_ID.json */; };
+		A032F99D2000526000CD81AD /* champion-en_GB.json in Resources */ = {isa = PBXBuildFile; fileRef = A032F9812000525F00CD81AD /* champion-en_GB.json */; };
+		A032F99E2000526000CD81AD /* champion-en_SG.json in Resources */ = {isa = PBXBuildFile; fileRef = A032F9822000525F00CD81AD /* champion-en_SG.json */; };
+		A032F99F2000526000CD81AD /* champion-ms_MY.json in Resources */ = {isa = PBXBuildFile; fileRef = A032F9832000526000CD81AD /* champion-ms_MY.json */; };
+		A032F9A02000526000CD81AD /* champion-tr_TR.json in Resources */ = {isa = PBXBuildFile; fileRef = A032F9842000526000CD81AD /* champion-tr_TR.json */; };
+		A032F9A12000526000CD81AD /* champion-zh_TW.json in Resources */ = {isa = PBXBuildFile; fileRef = A032F9852000526000CD81AD /* champion-zh_TW.json */; };
+		A032F9A22000526000CD81AD /* champion-es_ES.json in Resources */ = {isa = PBXBuildFile; fileRef = A032F9862000526000CD81AD /* champion-es_ES.json */; };
+		A032F9A32000526000CD81AD /* champion-pl_PL.json in Resources */ = {isa = PBXBuildFile; fileRef = A032F9872000526000CD81AD /* champion-pl_PL.json */; };
 		A04A6CCC1EB100E8001D9770 /* perfilstatsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04A6CCB1EB100E8001D9770 /* perfilstatsTVC.swift */; };
 		A056E7711EAE2B92007FDB9F /* matchesdetplayersTVCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A056E76F1EAE2B92007FDB9F /* matchesdetplayersTVCC.swift */; };
 		A056E7721EAE2B92007FDB9F /* matchesdetplayersTVCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A056E7701EAE2B92007FDB9F /* matchesdetplayersTVCC.xib */; };
@@ -33,6 +60,34 @@
 		A056E7821EAE94DD007FDB9F /* matchesdetbansTVCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A056E7801EAE94DD007FDB9F /* matchesdetbansTVCC.swift */; };
 		A056E7831EAE94DD007FDB9F /* matchesdetbansTVCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A056E7811EAE94DD007FDB9F /* matchesdetbansTVCC.xib */; };
 		A06CD86D1E9E5FC000D4362E /* statsdetTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06CD86C1E9E5FC000D4362E /* statsdetTVC.swift */; };
+		A086BCFC200149A200B1E908 /* spells-es_AR.json in Resources */ = {isa = PBXBuildFile; fileRef = A086BCE02001499D00B1E908 /* spells-es_AR.json */; };
+		A086BCFD200149A200B1E908 /* spells-es_ES.json in Resources */ = {isa = PBXBuildFile; fileRef = A086BCE12001499D00B1E908 /* spells-es_ES.json */; };
+		A086BCFE200149A200B1E908 /* spells-ko_KR.json in Resources */ = {isa = PBXBuildFile; fileRef = A086BCE22001499D00B1E908 /* spells-ko_KR.json */; };
+		A086BCFF200149A200B1E908 /* spells-ro_RO.json in Resources */ = {isa = PBXBuildFile; fileRef = A086BCE32001499E00B1E908 /* spells-ro_RO.json */; };
+		A086BD00200149A200B1E908 /* spells-de_DE.json in Resources */ = {isa = PBXBuildFile; fileRef = A086BCE42001499E00B1E908 /* spells-de_DE.json */; };
+		A086BD01200149A200B1E908 /* spells-ru_RU.json in Resources */ = {isa = PBXBuildFile; fileRef = A086BCE52001499E00B1E908 /* spells-ru_RU.json */; };
+		A086BD02200149A200B1E908 /* spells-hu_HU.json in Resources */ = {isa = PBXBuildFile; fileRef = A086BCE62001499E00B1E908 /* spells-hu_HU.json */; };
+		A086BD03200149A200B1E908 /* spells-en_SG.json in Resources */ = {isa = PBXBuildFile; fileRef = A086BCE72001499E00B1E908 /* spells-en_SG.json */; };
+		A086BD04200149A200B1E908 /* spells-pt_BR.json in Resources */ = {isa = PBXBuildFile; fileRef = A086BCE82001499E00B1E908 /* spells-pt_BR.json */; };
+		A086BD05200149A200B1E908 /* spells-el_GR.json in Resources */ = {isa = PBXBuildFile; fileRef = A086BCE92001499E00B1E908 /* spells-el_GR.json */; };
+		A086BD06200149A200B1E908 /* spells-zh_MY.json in Resources */ = {isa = PBXBuildFile; fileRef = A086BCEA2001499F00B1E908 /* spells-zh_MY.json */; };
+		A086BD07200149A200B1E908 /* spells-es_MX.json in Resources */ = {isa = PBXBuildFile; fileRef = A086BCEB2001499F00B1E908 /* spells-es_MX.json */; };
+		A086BD08200149A200B1E908 /* spells-en_PH.json in Resources */ = {isa = PBXBuildFile; fileRef = A086BCEC2001499F00B1E908 /* spells-en_PH.json */; };
+		A086BD09200149A200B1E908 /* spells-en_US.json in Resources */ = {isa = PBXBuildFile; fileRef = A086BCED2001499F00B1E908 /* spells-en_US.json */; };
+		A086BD0A200149A200B1E908 /* spells-en_GB.json in Resources */ = {isa = PBXBuildFile; fileRef = A086BCEE2001499F00B1E908 /* spells-en_GB.json */; };
+		A086BD0B200149A200B1E908 /* spells-pl_PL.json in Resources */ = {isa = PBXBuildFile; fileRef = A086BCEF2001499F00B1E908 /* spells-pl_PL.json */; };
+		A086BD0C200149A200B1E908 /* spells-fr_FR.json in Resources */ = {isa = PBXBuildFile; fileRef = A086BCF0200149A000B1E908 /* spells-fr_FR.json */; };
+		A086BD0D200149A200B1E908 /* spells-cs_CZ.json in Resources */ = {isa = PBXBuildFile; fileRef = A086BCF1200149A000B1E908 /* spells-cs_CZ.json */; };
+		A086BD0E200149A200B1E908 /* spells-it_IT.json in Resources */ = {isa = PBXBuildFile; fileRef = A086BCF2200149A000B1E908 /* spells-it_IT.json */; };
+		A086BD0F200149A200B1E908 /* spells-vn_VN.json in Resources */ = {isa = PBXBuildFile; fileRef = A086BCF3200149A000B1E908 /* spells-vn_VN.json */; };
+		A086BD10200149A200B1E908 /* spells-zh_TW.json in Resources */ = {isa = PBXBuildFile; fileRef = A086BCF4200149A000B1E908 /* spells-zh_TW.json */; };
+		A086BD11200149A200B1E908 /* spells-ja_JP.json in Resources */ = {isa = PBXBuildFile; fileRef = A086BCF5200149A000B1E908 /* spells-ja_JP.json */; };
+		A086BD12200149A200B1E908 /* spells-ms_MY.json in Resources */ = {isa = PBXBuildFile; fileRef = A086BCF6200149A100B1E908 /* spells-ms_MY.json */; };
+		A086BD13200149A200B1E908 /* spells-id_ID.json in Resources */ = {isa = PBXBuildFile; fileRef = A086BCF7200149A100B1E908 /* spells-id_ID.json */; };
+		A086BD14200149A200B1E908 /* spells-en_AU.json in Resources */ = {isa = PBXBuildFile; fileRef = A086BCF8200149A100B1E908 /* spells-en_AU.json */; };
+		A086BD15200149A200B1E908 /* spells-th_TH.json in Resources */ = {isa = PBXBuildFile; fileRef = A086BCF9200149A100B1E908 /* spells-th_TH.json */; };
+		A086BD16200149A200B1E908 /* spells-zh_CN.json in Resources */ = {isa = PBXBuildFile; fileRef = A086BCFA200149A100B1E908 /* spells-zh_CN.json */; };
+		A086BD17200149A200B1E908 /* spells-tr_TR.json in Resources */ = {isa = PBXBuildFile; fileRef = A086BCFB200149A200B1E908 /* spells-tr_TR.json */; };
 		A08B8C1F1F8E65AB0063D155 /* specdetTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08B8C1E1F8E65AB0063D155 /* specdetTVC.swift */; };
 		A093D1791F6EC83400DCC466 /* champmasteryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A093D1781F6EC83400DCC466 /* champmasteryVC.swift */; };
 		A093D17B1F6EC85900DCC466 /* championmasteryCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A093D17A1F6EC85900DCC466 /* championmasteryCVC.swift */; };
@@ -70,6 +125,7 @@
 		A0BF02FF1EA6B20000DB84E9 /* matchesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BF02FE1EA6B20000DB84E9 /* matchesTVC.swift */; };
 		A0BF03011EA6B21900DB84E9 /* matchesTVCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BF03001EA6B21900DB84E9 /* matchesTVCC.swift */; };
 		A0C849401FC8D861009389B2 /* championsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C8493F1FC8D861009389B2 /* championsTVC.swift */; };
+		A0CC3CCB200152CD00C5B9BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0CC3CCA200152CD00C5B9BB /* Assets.xcassets */; };
 		A0D97AF31EA78FCE00273C10 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D97AF21EA78FCE00273C10 /* UIColorExtension.swift */; };
 		A0D97AF81EA792D300273C10 /* friz_quadrata_m.otf in Resources */ = {isa = PBXBuildFile; fileRef = A0D97AF61EA792D300273C10 /* friz_quadrata_m.otf */; };
 		A0D97AF91EA792D300273C10 /* friz_quadrata_r.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A0D97AF71EA792D300273C10 /* friz_quadrata_r.ttf */; };
@@ -107,7 +163,6 @@
 		A0027FF21E9D91BD003175A7 /* LOL4YOU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LOL4YOU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0027FF51E9D91BD003175A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0027FFA1E9D91BD003175A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		A0027FFC1E9D91BD003175A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0027FFF1E9D91BD003175A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A00280011E9D91BD003175A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A00280061E9D91BD003175A7 /* LOL4YOUTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LOL4YOUTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +181,34 @@
 		A017A8731EA5456700C325F7 /* perfilCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = perfilCVC.swift; sourceTree = "<group>"; };
 		A017A8751EA546B600C325F7 /* perfilVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = perfilVC.swift; sourceTree = "<group>"; };
 		A01BB8F21F7857D400E1A52D /* dateextensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dateextensions.swift; sourceTree = "<group>"; };
+		A032F96C2000525C00CD81AD /* champion-zh_MY.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-zh_MY.json"; sourceTree = "<group>"; };
+		A032F96D2000525C00CD81AD /* champion-en_US.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-en_US.json"; sourceTree = "<group>"; };
+		A032F96E2000525D00CD81AD /* champion-ru_RU.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-ru_RU.json"; sourceTree = "<group>"; };
+		A032F96F2000525D00CD81AD /* champion-zh_CN.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-zh_CN.json"; sourceTree = "<group>"; };
+		A032F9702000525D00CD81AD /* champion-pt_BR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-pt_BR.json"; sourceTree = "<group>"; };
+		A032F9712000525D00CD81AD /* champion-en_PH.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-en_PH.json"; sourceTree = "<group>"; };
+		A032F9722000525D00CD81AD /* champion-es_AR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-es_AR.json"; sourceTree = "<group>"; };
+		A032F9732000525D00CD81AD /* champion-en_AU.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-en_AU.json"; sourceTree = "<group>"; };
+		A032F9742000525D00CD81AD /* champion-th_TH.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-th_TH.json"; sourceTree = "<group>"; };
+		A032F9752000525D00CD81AD /* champion-de_DE.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-de_DE.json"; sourceTree = "<group>"; };
+		A032F9762000525E00CD81AD /* champion-ko_KR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-ko_KR.json"; sourceTree = "<group>"; };
+		A032F9772000525E00CD81AD /* champion-es_MX.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-es_MX.json"; sourceTree = "<group>"; };
+		A032F9782000525E00CD81AD /* champion-hu_HU.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-hu_HU.json"; sourceTree = "<group>"; };
+		A032F9792000525E00CD81AD /* champion-fr_FR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-fr_FR.json"; sourceTree = "<group>"; };
+		A032F97A2000525E00CD81AD /* champion-el_GR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-el_GR.json"; sourceTree = "<group>"; };
+		A032F97B2000525E00CD81AD /* champion-cs_CZ.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-cs_CZ.json"; sourceTree = "<group>"; };
+		A032F97C2000525E00CD81AD /* champion-ja_JP.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-ja_JP.json"; sourceTree = "<group>"; };
+		A032F97D2000525F00CD81AD /* champion-ro_RO.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-ro_RO.json"; sourceTree = "<group>"; };
+		A032F97E2000525F00CD81AD /* champion-it_IT.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-it_IT.json"; sourceTree = "<group>"; };
+		A032F97F2000525F00CD81AD /* champion-vn_VN.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-vn_VN.json"; sourceTree = "<group>"; };
+		A032F9802000525F00CD81AD /* champion-id_ID.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-id_ID.json"; sourceTree = "<group>"; };
+		A032F9812000525F00CD81AD /* champion-en_GB.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-en_GB.json"; sourceTree = "<group>"; };
+		A032F9822000525F00CD81AD /* champion-en_SG.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-en_SG.json"; sourceTree = "<group>"; };
+		A032F9832000526000CD81AD /* champion-ms_MY.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-ms_MY.json"; sourceTree = "<group>"; };
+		A032F9842000526000CD81AD /* champion-tr_TR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-tr_TR.json"; sourceTree = "<group>"; };
+		A032F9852000526000CD81AD /* champion-zh_TW.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-zh_TW.json"; sourceTree = "<group>"; };
+		A032F9862000526000CD81AD /* champion-es_ES.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-es_ES.json"; sourceTree = "<group>"; };
+		A032F9872000526000CD81AD /* champion-pl_PL.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-pl_PL.json"; sourceTree = "<group>"; };
 		A04A6CCB1EB100E8001D9770 /* perfilstatsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = perfilstatsTVC.swift; sourceTree = "<group>"; };
 		A056E76F1EAE2B92007FDB9F /* matchesdetplayersTVCC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matchesdetplayersTVCC.swift; sourceTree = "<group>"; };
 		A056E7701EAE2B92007FDB9F /* matchesdetplayersTVCC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = matchesdetplayersTVCC.xib; sourceTree = "<group>"; };
@@ -133,6 +216,34 @@
 		A056E7801EAE94DD007FDB9F /* matchesdetbansTVCC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matchesdetbansTVCC.swift; sourceTree = "<group>"; };
 		A056E7811EAE94DD007FDB9F /* matchesdetbansTVCC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = matchesdetbansTVCC.xib; sourceTree = "<group>"; };
 		A06CD86C1E9E5FC000D4362E /* statsdetTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = statsdetTVC.swift; sourceTree = "<group>"; };
+		A086BCE02001499D00B1E908 /* spells-es_AR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-es_AR.json"; sourceTree = "<group>"; };
+		A086BCE12001499D00B1E908 /* spells-es_ES.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-es_ES.json"; sourceTree = "<group>"; };
+		A086BCE22001499D00B1E908 /* spells-ko_KR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-ko_KR.json"; sourceTree = "<group>"; };
+		A086BCE32001499E00B1E908 /* spells-ro_RO.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-ro_RO.json"; sourceTree = "<group>"; };
+		A086BCE42001499E00B1E908 /* spells-de_DE.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-de_DE.json"; sourceTree = "<group>"; };
+		A086BCE52001499E00B1E908 /* spells-ru_RU.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-ru_RU.json"; sourceTree = "<group>"; };
+		A086BCE62001499E00B1E908 /* spells-hu_HU.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-hu_HU.json"; sourceTree = "<group>"; };
+		A086BCE72001499E00B1E908 /* spells-en_SG.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-en_SG.json"; sourceTree = "<group>"; };
+		A086BCE82001499E00B1E908 /* spells-pt_BR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-pt_BR.json"; sourceTree = "<group>"; };
+		A086BCE92001499E00B1E908 /* spells-el_GR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-el_GR.json"; sourceTree = "<group>"; };
+		A086BCEA2001499F00B1E908 /* spells-zh_MY.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-zh_MY.json"; sourceTree = "<group>"; };
+		A086BCEB2001499F00B1E908 /* spells-es_MX.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-es_MX.json"; sourceTree = "<group>"; };
+		A086BCEC2001499F00B1E908 /* spells-en_PH.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-en_PH.json"; sourceTree = "<group>"; };
+		A086BCED2001499F00B1E908 /* spells-en_US.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-en_US.json"; sourceTree = "<group>"; };
+		A086BCEE2001499F00B1E908 /* spells-en_GB.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-en_GB.json"; sourceTree = "<group>"; };
+		A086BCEF2001499F00B1E908 /* spells-pl_PL.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-pl_PL.json"; sourceTree = "<group>"; };
+		A086BCF0200149A000B1E908 /* spells-fr_FR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-fr_FR.json"; sourceTree = "<group>"; };
+		A086BCF1200149A000B1E908 /* spells-cs_CZ.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-cs_CZ.json"; sourceTree = "<group>"; };
+		A086BCF2200149A000B1E908 /* spells-it_IT.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-it_IT.json"; sourceTree = "<group>"; };
+		A086BCF3200149A000B1E908 /* spells-vn_VN.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-vn_VN.json"; sourceTree = "<group>"; };
+		A086BCF4200149A000B1E908 /* spells-zh_TW.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-zh_TW.json"; sourceTree = "<group>"; };
+		A086BCF5200149A000B1E908 /* spells-ja_JP.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-ja_JP.json"; sourceTree = "<group>"; };
+		A086BCF6200149A100B1E908 /* spells-ms_MY.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-ms_MY.json"; sourceTree = "<group>"; };
+		A086BCF7200149A100B1E908 /* spells-id_ID.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-id_ID.json"; sourceTree = "<group>"; };
+		A086BCF8200149A100B1E908 /* spells-en_AU.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-en_AU.json"; sourceTree = "<group>"; };
+		A086BCF9200149A100B1E908 /* spells-th_TH.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-th_TH.json"; sourceTree = "<group>"; };
+		A086BCFA200149A100B1E908 /* spells-zh_CN.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-zh_CN.json"; sourceTree = "<group>"; };
+		A086BCFB200149A200B1E908 /* spells-tr_TR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-tr_TR.json"; sourceTree = "<group>"; };
 		A08B8C1E1F8E65AB0063D155 /* specdetTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = specdetTVC.swift; sourceTree = "<group>"; };
 		A093D1781F6EC83400DCC466 /* champmasteryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = champmasteryVC.swift; sourceTree = "<group>"; };
 		A093D17A1F6EC85900DCC466 /* championmasteryCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = championmasteryCVC.swift; sourceTree = "<group>"; };
@@ -172,6 +283,7 @@
 		A0BF02FE1EA6B20000DB84E9 /* matchesTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matchesTVC.swift; sourceTree = "<group>"; };
 		A0BF03001EA6B21900DB84E9 /* matchesTVCC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matchesTVCC.swift; sourceTree = "<group>"; };
 		A0C8493F1FC8D861009389B2 /* championsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = championsTVC.swift; sourceTree = "<group>"; };
+		A0CC3CCA200152CD00C5B9BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0D97AF21EA78FCE00273C10 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		A0D97AF61EA792D300273C10 /* friz_quadrata_m.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = friz_quadrata_m.otf; sourceTree = "<group>"; };
 		A0D97AF71EA792D300273C10 /* friz_quadrata_r.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = friz_quadrata_r.ttf; sourceTree = "<group>"; };
@@ -260,8 +372,8 @@
 				A00280251E9D9F38003175A7 /* model */,
 				A0027FF51E9D91BD003175A7 /* AppDelegate.swift */,
 				A0027FF91E9D91BD003175A7 /* Main.storyboard */,
-				A0027FFC1E9D91BD003175A7 /* Assets.xcassets */,
 				A0027FFE1E9D91BD003175A7 /* LaunchScreen.storyboard */,
+				A0CC3CCA200152CD00C5B9BB /* Assets.xcassets */,
 				A00280011E9D91BD003175A7 /* Info.plist */,
 			);
 			path = LOL4YOU;
@@ -371,6 +483,85 @@
 				A056E7811EAE94DD007FDB9F /* matchesdetbansTVCC.xib */,
 			);
 			name = matchesdet;
+			sourceTree = "<group>";
+		};
+		A086BCDC2001445E00B1E908 /* spells */ = {
+			isa = PBXGroup;
+			children = (
+				A086BCF1200149A000B1E908 /* spells-cs_CZ.json */,
+				A086BCE42001499E00B1E908 /* spells-de_DE.json */,
+				A086BCE92001499E00B1E908 /* spells-el_GR.json */,
+				A086BCF8200149A100B1E908 /* spells-en_AU.json */,
+				A086BCEE2001499F00B1E908 /* spells-en_GB.json */,
+				A086BCEC2001499F00B1E908 /* spells-en_PH.json */,
+				A086BCE72001499E00B1E908 /* spells-en_SG.json */,
+				A086BCED2001499F00B1E908 /* spells-en_US.json */,
+				A086BCE02001499D00B1E908 /* spells-es_AR.json */,
+				A086BCE12001499D00B1E908 /* spells-es_ES.json */,
+				A086BCEB2001499F00B1E908 /* spells-es_MX.json */,
+				A086BCF0200149A000B1E908 /* spells-fr_FR.json */,
+				A086BCE62001499E00B1E908 /* spells-hu_HU.json */,
+				A086BCF7200149A100B1E908 /* spells-id_ID.json */,
+				A086BCF2200149A000B1E908 /* spells-it_IT.json */,
+				A086BCF5200149A000B1E908 /* spells-ja_JP.json */,
+				A086BCE22001499D00B1E908 /* spells-ko_KR.json */,
+				A086BCF6200149A100B1E908 /* spells-ms_MY.json */,
+				A086BCEF2001499F00B1E908 /* spells-pl_PL.json */,
+				A086BCE82001499E00B1E908 /* spells-pt_BR.json */,
+				A086BCE32001499E00B1E908 /* spells-ro_RO.json */,
+				A086BCE52001499E00B1E908 /* spells-ru_RU.json */,
+				A086BCF9200149A100B1E908 /* spells-th_TH.json */,
+				A086BCFB200149A200B1E908 /* spells-tr_TR.json */,
+				A086BCF3200149A000B1E908 /* spells-vn_VN.json */,
+				A086BCFA200149A100B1E908 /* spells-zh_CN.json */,
+				A086BCEA2001499F00B1E908 /* spells-zh_MY.json */,
+				A086BCF4200149A000B1E908 /* spells-zh_TW.json */,
+			);
+			name = spells;
+			sourceTree = "<group>";
+		};
+		A08A05881FFA6668001FEC39 /* json */ = {
+			isa = PBXGroup;
+			children = (
+				A086BCDC2001445E00B1E908 /* spells */,
+				A08A05891FFA6675001FEC39 /* champions */,
+			);
+			name = json;
+			sourceTree = "<group>";
+		};
+		A08A05891FFA6675001FEC39 /* champions */ = {
+			isa = PBXGroup;
+			children = (
+				A032F97B2000525E00CD81AD /* champion-cs_CZ.json */,
+				A032F9752000525D00CD81AD /* champion-de_DE.json */,
+				A032F97A2000525E00CD81AD /* champion-el_GR.json */,
+				A032F9732000525D00CD81AD /* champion-en_AU.json */,
+				A032F9812000525F00CD81AD /* champion-en_GB.json */,
+				A032F9712000525D00CD81AD /* champion-en_PH.json */,
+				A032F9822000525F00CD81AD /* champion-en_SG.json */,
+				A032F96D2000525C00CD81AD /* champion-en_US.json */,
+				A032F9722000525D00CD81AD /* champion-es_AR.json */,
+				A032F9862000526000CD81AD /* champion-es_ES.json */,
+				A032F9772000525E00CD81AD /* champion-es_MX.json */,
+				A032F9792000525E00CD81AD /* champion-fr_FR.json */,
+				A032F9782000525E00CD81AD /* champion-hu_HU.json */,
+				A032F9802000525F00CD81AD /* champion-id_ID.json */,
+				A032F97E2000525F00CD81AD /* champion-it_IT.json */,
+				A032F97C2000525E00CD81AD /* champion-ja_JP.json */,
+				A032F9762000525E00CD81AD /* champion-ko_KR.json */,
+				A032F9832000526000CD81AD /* champion-ms_MY.json */,
+				A032F9872000526000CD81AD /* champion-pl_PL.json */,
+				A032F9702000525D00CD81AD /* champion-pt_BR.json */,
+				A032F97D2000525F00CD81AD /* champion-ro_RO.json */,
+				A032F96E2000525D00CD81AD /* champion-ru_RU.json */,
+				A032F9742000525D00CD81AD /* champion-th_TH.json */,
+				A032F9842000526000CD81AD /* champion-tr_TR.json */,
+				A032F97F2000525F00CD81AD /* champion-vn_VN.json */,
+				A032F96F2000525D00CD81AD /* champion-zh_CN.json */,
+				A032F96C2000525C00CD81AD /* champion-zh_MY.json */,
+				A032F9852000526000CD81AD /* champion-zh_TW.json */,
+			);
+			name = champions;
 			sourceTree = "<group>";
 		};
 		A08B8C1D1F8E65900063D155 /* spectadordet */ = {
@@ -524,6 +715,7 @@
 		A0D97AF41EA7926500273C10 /* files */ = {
 			isa = PBXGroup;
 			children = (
+				A08A05881FFA6668001FEC39 /* json */,
 				A01218341EBA640000B45F0F /* plist */,
 				A0D97AF51EA7926B00273C10 /* fonts */,
 			);
@@ -650,6 +842,7 @@
 					A0027FF11E9D91BD003175A7 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = Z4U29JK2HG;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -696,27 +889,83 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A086BD15200149A200B1E908 /* spells-th_TH.json in Resources */,
+				A086BD02200149A200B1E908 /* spells-hu_HU.json in Resources */,
+				A086BD07200149A200B1E908 /* spells-es_MX.json in Resources */,
 				A0FC3D5E1F8B05AE005CE127 /* specTVCC.xib in Resources */,
+				A086BD08200149A200B1E908 /* spells-en_PH.json in Resources */,
 				A0B53D3A1FCCC6FB0068C816 /* championspassiveTVCC.xib in Resources */,
+				A086BD10200149A200B1E908 /* spells-zh_TW.json in Resources */,
+				A032F9A02000526000CD81AD /* champion-tr_TR.json in Resources */,
+				A086BD06200149A200B1E908 /* spells-zh_MY.json in Resources */,
+				A032F99A2000526000CD81AD /* champion-it_IT.json in Resources */,
+				A086BD14200149A200B1E908 /* spells-en_AU.json in Resources */,
+				A086BD13200149A200B1E908 /* spells-id_ID.json in Resources */,
+				A032F98C2000526000CD81AD /* champion-pt_BR.json in Resources */,
+				A086BCFD200149A200B1E908 /* spells-es_ES.json in Resources */,
+				A086BD0E200149A200B1E908 /* spells-it_IT.json in Resources */,
+				A032F9982000526000CD81AD /* champion-ja_JP.json in Resources */,
+				A086BCFE200149A200B1E908 /* spells-ko_KR.json in Resources */,
+				A086BD11200149A200B1E908 /* spells-ja_JP.json in Resources */,
 				A0B5F3E91FC97CB7002BA187 /* championstableTVCC.xib in Resources */,
+				A032F9942000526000CD81AD /* champion-hu_HU.json in Resources */,
+				A086BD00200149A200B1E908 /* spells-de_DE.json in Resources */,
+				A032F9952000526000CD81AD /* champion-fr_FR.json in Resources */,
 				A0A4995F1EB2877900977541 /* runesTVCC.xib in Resources */,
 				A0D97AF91EA792D300273C10 /* friz_quadrata_r.ttf in Resources */,
+				A086BCFC200149A200B1E908 /* spells-es_AR.json in Resources */,
 				A0A4995B1EB2313700977541 /* imageTVCC.xib in Resources */,
+				A032F98D2000526000CD81AD /* champion-en_PH.json in Resources */,
+				A086BD16200149A200B1E908 /* spells-zh_CN.json in Resources */,
+				A032F9962000526000CD81AD /* champion-el_GR.json in Resources */,
 				A00280001E9D91BD003175A7 /* LaunchScreen.storyboard in Resources */,
+				A086BCFF200149A200B1E908 /* spells-ro_RO.json in Resources */,
+				A032F9922000526000CD81AD /* champion-ko_KR.json in Resources */,
 				A0BCAA6A1EB13281008F4D01 /* perfilstatstiersnullTVCC.xib in Resources */,
+				A032F9932000526000CD81AD /* champion-es_MX.json in Resources */,
+				A086BD04200149A200B1E908 /* spells-pt_BR.json in Resources */,
+				A032F9992000526000CD81AD /* champion-ro_RO.json in Resources */,
+				A086BD03200149A200B1E908 /* spells-en_SG.json in Resources */,
+				A086BD0A200149A200B1E908 /* spells-en_GB.json in Resources */,
+				A032F99F2000526000CD81AD /* champion-ms_MY.json in Resources */,
 				A0A499631EB28FBD00977541 /* masteryTVCC.xib in Resources */,
 				A0B5F3ED1FC9887C002BA187 /* championsimgTVCC.xib in Resources */,
+				A086BD09200149A200B1E908 /* spells-en_US.json in Resources */,
+				A032F9972000526000CD81AD /* champion-cs_CZ.json in Resources */,
+				A086BD0F200149A200B1E908 /* spells-vn_VN.json in Resources */,
+				A086BD0D200149A200B1E908 /* spells-cs_CZ.json in Resources */,
 				A0BCAA6E1EB14785008F4D01 /* perfilstatusV.xib in Resources */,
+				A032F9A22000526000CD81AD /* champion-es_ES.json in Resources */,
+				A086BD0B200149A200B1E908 /* spells-pl_PL.json in Resources */,
 				A0D97AF81EA792D300273C10 /* friz_quadrata_m.otf in Resources */,
+				A0CC3CCB200152CD00C5B9BB /* Assets.xcassets in Resources */,
+				A032F9902000526000CD81AD /* champion-th_TH.json in Resources */,
+				A086BD12200149A200B1E908 /* spells-ms_MY.json in Resources */,
+				A032F98A2000526000CD81AD /* champion-ru_RU.json in Resources */,
+				A032F9912000526000CD81AD /* champion-de_DE.json in Resources */,
+				A032F99B2000526000CD81AD /* champion-vn_VN.json in Resources */,
+				A032F98B2000526000CD81AD /* champion-zh_CN.json in Resources */,
+				A086BD01200149A200B1E908 /* spells-ru_RU.json in Resources */,
+				A086BD17200149A200B1E908 /* spells-tr_TR.json in Resources */,
 				A01218361EBA641700B45F0F /* root.plist in Resources */,
 				A0A499571EB21C1400977541 /* headerTVH.xib in Resources */,
-				A0027FFD1E9D91BD003175A7 /* Assets.xcassets in Resources */,
+				A032F9882000526000CD81AD /* champion-zh_MY.json in Resources */,
+				A086BD05200149A200B1E908 /* spells-el_GR.json in Resources */,
+				A032F98F2000526000CD81AD /* champion-en_AU.json in Resources */,
+				A032F9A12000526000CD81AD /* champion-zh_TW.json in Resources */,
 				A056E7721EAE2B92007FDB9F /* matchesdetplayersTVCC.xib in Resources */,
 				A0B53D351FCCC6C10068C816 /* championsspellTVCC.xib in Resources */,
+				A032F9A32000526000CD81AD /* champion-pl_PL.json in Resources */,
+				A086BD0C200149A200B1E908 /* spells-fr_FR.json in Resources */,
 				A0FF0CA91F00009700A0ADFE /* GoogleService-Info.plist in Resources */,
+				A032F99C2000526000CD81AD /* champion-id_ID.json in Resources */,
+				A032F99D2000526000CD81AD /* champion-en_GB.json in Resources */,
 				A0027FFB1E9D91BD003175A7 /* Main.storyboard in Resources */,
 				A0BF02FA1EA6422600DB84E9 /* emptytableview.xib in Resources */,
+				A032F98E2000526000CD81AD /* champion-es_AR.json in Resources */,
 				A056E7831EAE94DD007FDB9F /* matchesdetbansTVCC.xib in Resources */,
+				A032F9892000526000CD81AD /* champion-en_US.json in Resources */,
+				A032F99E2000526000CD81AD /* champion-en_SG.json in Resources */,
 				A0B5F3F51FCA03FA002BA187 /* championsskinTVCC.xib in Resources */,
 				A0A499501EB2155300977541 /* infoTVCC.xib in Resources */,
 			);
@@ -1078,6 +1327,7 @@
 			baseConfigurationReference = AC8C668551E0C102D198AF48 /* Pods-LOL4YOU.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "app-lol4you";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = LOL4YOU/LOL4YOU.entitlements;
 				DEVELOPMENT_TEAM = Z4U29JK2HG;
 				ENABLE_BITCODE = NO;
@@ -1085,6 +1335,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = root.LOL4YOU;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -1094,6 +1345,7 @@
 			baseConfigurationReference = 4D8C7653D0AE1D6DD09A232E /* Pods-LOL4YOU.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "app-lol4you";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = LOL4YOU/LOL4YOU.entitlements;
 				DEVELOPMENT_TEAM = Z4U29JK2HG;
 				ENABLE_BITCODE = NO;
