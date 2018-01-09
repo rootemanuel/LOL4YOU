@@ -154,6 +154,8 @@ final class rootclass: NSObject {
         static internal var version:String = "7.9.2"
         static internal var api_key:String = "RGAPI-bf12658b-d9c8-45d1-8016-caca0b5d0d62"
         static internal var server:String = "BR"
+        static internal var language:String = "en_US"
+        static internal var language_description:String = "en_US"
     }
     
     struct images {
@@ -1149,7 +1151,7 @@ final class rootclass: NSObject {
     //#R00T
     func carregarChampionsLocal() {
         
-        if let url = Bundle.main.url(forResource:"champion-fr_FR", withExtension: "json") {
+        if let url = Bundle.main.url(forResource:"champion-\(rootclass.lol.language)", withExtension: "json") {
             do {
                 let data = try Data(contentsOf:url)
                 let jchampions = try JSON(data: data)
@@ -1443,9 +1445,21 @@ final class rootclass: NSObject {
         semaphore.wait(timeout: .distantFuture)
     }
     
+    func carregarLanguage() {
+        let defaults:UserDefaults = UserDefaults.standard
+        
+        if let language:String = defaults.string(forKey: "language" ) {
+            rootclass.lol.language = language
+        }
+        
+        if let language_description:String = defaults.string(forKey: "language_description" ) {
+            rootclass.lol.language_description = language_description
+        }
+    }
+
     func carregarSpellsLocal() {
         
-        if let url = Bundle.main.url(forResource:"spells-fr_FR", withExtension: "json") {
+        if let url = Bundle.main.url(forResource:"spells-\(rootclass.lol.language)", withExtension: "json") {
             do {
                 let data = try Data(contentsOf:url)
                 let jspells = try JSON(data: data)

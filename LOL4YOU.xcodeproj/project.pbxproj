@@ -88,6 +88,7 @@
 		A086BD15200149A200B1E908 /* spells-th_TH.json in Resources */ = {isa = PBXBuildFile; fileRef = A086BCF9200149A100B1E908 /* spells-th_TH.json */; };
 		A086BD16200149A200B1E908 /* spells-zh_CN.json in Resources */ = {isa = PBXBuildFile; fileRef = A086BCFA200149A100B1E908 /* spells-zh_CN.json */; };
 		A086BD17200149A200B1E908 /* spells-tr_TR.json in Resources */ = {isa = PBXBuildFile; fileRef = A086BCFB200149A200B1E908 /* spells-tr_TR.json */; };
+		A08B3123200307920070721C /* configTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08B3122200307920070721C /* configTVC.swift */; };
 		A08B8C1F1F8E65AB0063D155 /* specdetTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08B8C1E1F8E65AB0063D155 /* specdetTVC.swift */; };
 		A093D1791F6EC83400DCC466 /* champmasteryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A093D1781F6EC83400DCC466 /* champmasteryVC.swift */; };
 		A093D17B1F6EC85900DCC466 /* championmasteryCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A093D17A1F6EC85900DCC466 /* championmasteryCVC.swift */; };
@@ -244,6 +245,7 @@
 		A086BCF9200149A100B1E908 /* spells-th_TH.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-th_TH.json"; sourceTree = "<group>"; };
 		A086BCFA200149A100B1E908 /* spells-zh_CN.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-zh_CN.json"; sourceTree = "<group>"; };
 		A086BCFB200149A200B1E908 /* spells-tr_TR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-tr_TR.json"; sourceTree = "<group>"; };
+		A08B3122200307920070721C /* configTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = configTVC.swift; sourceTree = "<group>"; };
 		A08B8C1E1F8E65AB0063D155 /* specdetTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = specdetTVC.swift; sourceTree = "<group>"; };
 		A093D1781F6EC83400DCC466 /* champmasteryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = champmasteryVC.swift; sourceTree = "<group>"; };
 		A093D17A1F6EC85900DCC466 /* championmasteryCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = championmasteryCVC.swift; sourceTree = "<group>"; };
@@ -409,6 +411,7 @@
 		A00280261E9DADDD003175A7 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				A08B3121200307720070721C /* config */,
 				A0C8493E1FC8D830009389B2 /* champions */,
 				A0FC3D5A1F8B0537005CE127 /* spectador */,
 				A0E478AD1EB3630F00109F56 /* runes */,
@@ -562,6 +565,14 @@
 				A032F9852000526000CD81AD /* champion-zh_TW.json */,
 			);
 			name = champions;
+			sourceTree = "<group>";
+		};
+		A08B3121200307720070721C /* config */ = {
+			isa = PBXGroup;
+			children = (
+				A08B3122200307920070721C /* configTVC.swift */,
+			);
+			name = config;
 			sourceTree = "<group>";
 		};
 		A08B8C1D1F8E65900063D155 /* spectadordet */ = {
@@ -1143,6 +1154,7 @@
 				A093D17B1F6EC85900DCC466 /* championmasteryCVC.swift in Sources */,
 				A002802B1E9DAE27003175A7 /* statsTVCC.swift in Sources */,
 				A0B5F3EC1FC9887C002BA187 /* championsimgTVCC.swift in Sources */,
+				A08B3123200307920070721C /* configTVC.swift in Sources */,
 				A0027FF61E9D91BD003175A7 /* AppDelegate.swift in Sources */,
 				A0BF03011EA6B21900DB84E9 /* matchesTVCC.swift in Sources */,
 				A0E478AF1EB363A600109F56 /* runesTVC.swift in Sources */,

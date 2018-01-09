@@ -17,6 +17,7 @@ class championsVC: UIViewController, UICollectionViewDataSource, UICollectionVie
     let admob = rootadmob.sharedInstance
     let rt = rootclass.sharedInstance
     var champions = Array<rootclass.staticchampions>()
+    var language = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,8 +67,19 @@ class championsVC: UIViewController, UICollectionViewDataSource, UICollectionVie
         self.navigationController?.navigationBar.titleTextAttributes = attnav
         self.title = "Champions"
 
+        self.carregarChampions()
+    }
+    
+    func carregarChampions(){
+        self.champions = Array<rootclass.staticchampions>()
         self.champions = rt.listStaticChamp.sorted(by: { $0.name < $1.name })
-        
-        let videoURL = URL(string: "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0024/ability_0024_P1.webm")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if language != rootclass.lol.language {
+            self.carregarChampions()
+            self.collectionView.reloadData()
+            language = rootclass.lol.language
+        }
     }
 }

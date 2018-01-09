@@ -62,6 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         rt.listarStaticQueue()
         rt.listarStaticMaestryOrder()
         
+        rt.carregarLanguage()
         rt.carregarChampionsLocal();
         rt.carregarSpellsLocal();
     }
