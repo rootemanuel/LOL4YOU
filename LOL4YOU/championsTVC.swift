@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import GoogleMobileAds
+import FirebaseAnalytics
 
-class championsTVC: UITableViewController {
+class championsTVC: UITableViewController, GADBannerViewDelegate {
     
     @IBOutlet weak var segtables: UISegmentedControl!
     @IBOutlet weak var tableChamp: UITableView!
@@ -19,6 +21,7 @@ class championsTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.initAdMob()
         self.initView()
     }
 
@@ -96,6 +99,21 @@ class championsTVC: UITableViewController {
         self.navigationController?.navigationBar.barTintColor = UIColor(hex: rootclass.colors.FUNDO.rawValue)
         self.navigationController?.navigationBar.titleTextAttributes = attnav
         self.title = self.champ.name
+    }
+    
+    func initAdMob() {
+        Analytics.setScreenName(rootclass.screens.champions, screenClass: String(describing: championsTVC.self))
+        
+        if rt.viewbanner {
+            
+            let adBannerView = GADBannerView(adSize: kGADAdSizeSmartBannerPortrait)
+            adBannerView.adUnitID = rootadmob.admob.admob_banner
+            adBannerView.delegate = self
+            adBannerView.rootViewController = self
+            adBannerView.load(GADRequest())
+            
+            self.tableView.tableHeaderView = adBannerView
+        }
     }
     
     func spopViewController(){

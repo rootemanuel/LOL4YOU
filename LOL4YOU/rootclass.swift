@@ -19,7 +19,7 @@ final class rootclass: NSObject {
         super.init()
     }
     
-    var viewbanner = false
+    var viewbanner = true
     
     var dicStaticSpell = Dictionary<Int, staticspell>()
     var dicStaticRunes = Dictionary<Int, staticrunes>()
@@ -148,6 +148,9 @@ final class rootclass: NSObject {
         static internal var masteryschamp:String = "MASTERYS_CHAMP"
         static internal var spectador:String = "SPECTADOR"
         static internal var spectadordet:String = "SPECTADOR_DET"
+        static internal var champions:String = "CHAMPIONS"
+        static internal var config:String = "CONFIG"
+        static internal var language:String = "LANGUAGE"
     }
     
     struct lol {
@@ -409,6 +412,16 @@ final class rootclass: NSObject {
     class BERunesSlots {
         var runeSlotId:Int = 0
         var runeId:Int = 0
+    }
+    
+    class BELanguage {
+        var language:String = ""
+        var description:String = ""
+        
+        init(language:String, description:String) {
+            self.language = language
+            self.description = description
+        }
     }
     
     class BEErro {
@@ -1160,7 +1173,7 @@ final class rootclass: NSObject {
                     if(!jchampions.isEmpty){
                         
                         self.dicStaticChampions = Dictionary<Int, staticchampions>()
-                        self.listStaticChampMastery = Array<staticchampmastery>()
+                        self.listStaticChamp = Array<staticchampions>()
                         
                         for i in 0 ..< jchampions.count {
                             
@@ -3067,6 +3080,44 @@ final class rootclass: NSObject {
         self.dicStaticMasteryOrder["masterI"] = 25
         
         self.dicStaticMasteryOrder["challengerI"] = 26
+    }
+    
+    //#R00TAQUI
+    func listarStaticLanguage() -> Array<BELanguage> {
+        
+        var rtn = Array<BELanguage>()
+        
+        rtn.append(BELanguage(language:"cs_CZ", description:"Czech (Czech Republic)"))
+        rtn.append(BELanguage(language:"it_IT", description:"Italian (Italy)"))
+        rtn.append(BELanguage(language:"de_DE", description:"German (Germany)"))
+        rtn.append(BELanguage(language:"ja_JP", description:"Japanese (Japan)"))
+        rtn.append(BELanguage(language:"el_GR", description:"Greek (Greece)"))
+        rtn.append(BELanguage(language:"ko_KR", description:"Korean (Korea)"))
+        rtn.append(BELanguage(language:"en_AU", description:"English (Australia)"))
+        rtn.append(BELanguage(language:"ms_MY", description:"Malay (Malaysia)"))
+        rtn.append(BELanguage(language:"en_GB", description:"English (United Kingdom)"))
+        rtn.append(BELanguage(language:"pl_PL", description:"Polish (Poland)"))
+        rtn.append(BELanguage(language:"en_PH", description:"English (Republic of the Philippines)"))
+        rtn.append(BELanguage(language:"pt_BR", description:"Portuguese (Brazil)"))
+        rtn.append(BELanguage(language:"en_PL", description:"English (Poland)"))
+        rtn.append(BELanguage(language:"ro_RO", description:"Romanian (Romania)"))
+        rtn.append(BELanguage(language:"en_SG", description:"English (Singapore)"))
+        rtn.append(BELanguage(language:"ru_RU", description:"Russian (Russia)"))
+        rtn.append(BELanguage(language:"en_US", description:"English (United States)"))
+        rtn.append(BELanguage(language:"th_TH", description:"Thai (Thailand)"))
+        rtn.append(BELanguage(language:"es_AR", description:"Spanish (Argentina)"))
+        rtn.append(BELanguage(language:"tr_TR", description:"Turkish (Turkey)"))
+        rtn.append(BELanguage(language:"es_ES", description:"Spanish (Spain)"))
+        rtn.append(BELanguage(language:"vn_VN", description:"Vietnamese (Viet Nam)"))
+        rtn.append(BELanguage(language:"es_MX", description:"Spanish (Mexico)"))
+        rtn.append(BELanguage(language:"zh_CN", description:"Chinese (China)"))
+        rtn.append(BELanguage(language:"fr_FR", description:"French (France)"))
+        rtn.append(BELanguage(language:"zh_MY", description:"Chinese (Malaysia)"))
+        rtn.append(BELanguage(language:"hu_HU", description:"Hungarian (Hungary)"))
+        rtn.append(BELanguage(language:"zh_TW", description:"Chinese (Taiwan)"))
+        rtn.append(BELanguage(language:"id_ID", description:"Indonesian (Indonesia)"))
+
+        return rtn
     }
     
     func listaChampMastery(id:Int) -> staticchampmastery {

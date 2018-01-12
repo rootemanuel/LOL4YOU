@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LOL4YOU/rootclass.swift"
-            timestampString = "537157263.511166"
+            timestampString = "537410197.489303"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "643"
-            endingLineNumber = "643"
+            startingLineNumber = "656"
+            endingLineNumber = "656"
             landmarkName = "listarStaticChampions(champions:)"
             landmarkType = "7">
          </BreakpointContent>

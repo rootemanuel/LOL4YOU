@@ -1704,7 +1704,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="shM-aI-QIY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6737" y="599"/>
+            <point key="canvasLocation" x="7076" y="598.65067466266873"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tsy-5W-Cbq">
@@ -1722,7 +1722,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CME-6A-5pu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5798" y="599"/>
+            <point key="canvasLocation" x="6136.8000000000002" y="598.65067466266873"/>
         </scene>
         <!--MasterysdetTVC-->
         <scene sceneID="RVM-i1-vXV">
@@ -1753,7 +1753,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wi9-op-MsU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8562" y="598"/>
+            <point key="canvasLocation" x="8900" y="597.75112443778119"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7Ig-ef-qw6">
@@ -1771,7 +1771,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GGl-Ym-leq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7625" y="598"/>
+            <point key="canvasLocation" x="7964" y="597.75112443778119"/>
         </scene>
         <!--ChampmasteryVC-->
         <scene sceneID="29V-b0-It1">
@@ -1886,7 +1886,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iFv-Bh-9kk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6733.6000000000004" y="1336.2818590704649"/>
+            <point key="canvasLocation" x="7072.8000000000002" y="1336.2818590704649"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="byc-hi-KHK">
@@ -1904,7 +1904,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zvr-Mk-Mv2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5798" y="1340"/>
+            <point key="canvasLocation" x="6136.8000000000002" y="1339.8800599700151"/>
         </scene>
         <!--SpecTVC-->
         <scene sceneID="sk4-nV-jcv">
@@ -2183,8 +2183,7 @@
                                                         <color key="titleColor" red="0.92941176469999998" green="0.87843137250000003" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="btnLanguageSelect:" destination="BzB-9D-6l4" eventType="touchUpInside" id="E5J-jB-jO2"/>
-                                                        <action selector="btnServerPicker:" destination="ho0-kp-aqh" eventType="touchUpInside" id="kgt-yG-b7T"/>
+                                                        <action selector="btnLanguageSelect:" destination="BzB-9D-6l4" eventType="touchUpInside" id="MH0-Cl-OkZ"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -2308,11 +2307,59 @@
             </objects>
             <point key="canvasLocation" x="1761" y="742"/>
         </scene>
+        <!--LanguageTVC-->
+        <scene sceneID="lV7-ew-g4V">
+            <objects>
+                <tableViewController storyboardIdentifier="language" id="Fsf-iK-fT8" customClass="languageTVC" customModule="LOL4YOU" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="KZJ-nr-aUi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.0078431372550000003" green="0.039215686270000001" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" red="0.086274509799999996" green="0.10980392160000001" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="mlE-1m-cXh">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mlE-1m-cXh" id="ETX-9a-uDL">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Fsf-iK-fT8" id="D2y-EW-tN9"/>
+                            <outlet property="delegate" destination="Fsf-iK-fT8" id="pPq-r7-Liv"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Lmo-xd-Nb9"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="60D-19-iaa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4526" y="741"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ADU-p0-Dfz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="roe-mq-bdA" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sYd-9I-tpG">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Fsf-iK-fT8" kind="relationship" relationship="rootViewController" id="jgt-ei-7tD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mDY-P5-15m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3644.8000000000002" y="741.22938530734643"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="bar_champions" width="30" height="30"/>
-        <image name="bar_config" width="30" height="30"/>
-        <image name="bar_search" width="30" height="30"/>
+        <image name="bar_champions" width="25" height="25"/>
+        <image name="bar_config" width="25" height="25"/>
+        <image name="bar_search" width="25" height="25"/>
         <image name="lol4you-logo" width="500" height="500"/>
         <image name="static_gold" width="30" height="30"/>
         <image name="static_kda" width="30" height="30"/>

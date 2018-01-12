@@ -9,15 +9,17 @@
 import UIKit
 import AVKit
 import AVFoundation
+import GoogleMobileAds
+import FirebaseAnalytics
 
-class championsVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class championsVC: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, GADBannerViewDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
     let admob = rootadmob.sharedInstance
     let rt = rootclass.sharedInstance
     var champions = Array<rootclass.staticchampions>()
-    var language = ""
+    var langAtu = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +33,15 @@ class championsVC: UIViewController, UICollectionViewDataSource, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let champ = self.champions[indexPath.row]
+        
+        admob.addCountAdMobInterstitial();
+        
+        if admob.showAdMobInterstitial() {
+            if let adMobInterstitial = admob.getAdInterstitial() {
+                adMobInterstitial.present(fromRootViewController: self)
+                return
+            }
+        }
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "champions") as! championsTVC
@@ -76,10 +87,10 @@ class championsVC: UIViewController, UICollectionViewDataSource, UICollectionVie
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if language != rootclass.lol.language {
+        if langAtu != rootclass.lol.language {
             self.carregarChampions()
             self.collectionView.reloadData()
-            language = rootclass.lol.language
+            langAtu = rootclass.lol.language
         }
     }
 }

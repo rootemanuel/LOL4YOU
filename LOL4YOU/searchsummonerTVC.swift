@@ -171,7 +171,7 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerVi
         
         self.summonernick.delegate = self
         
-        self.title = "Search Summoner"
+        self.title = "Summoner"
         self.summonernick.addTarget(self, action: #selector(validadados(_:)), for: .editingChanged)
         
         self.navigationController?.navigationBar.barTintColor = UIColor(hex: rootclass.colors.FUNDO.rawValue)

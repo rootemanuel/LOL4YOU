@@ -37,7 +37,7 @@ class rootadmob: NSObject, GADRewardBasedVideoAdDelegate, GADInterstitialDelegat
     }
     
 
-    let const_admobcount = 9999
+    let const_admobcount = 5
     var adMobCountVideo = 0
     var adMobCountInterstitial = 0
     
