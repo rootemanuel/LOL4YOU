@@ -8,8 +8,9 @@
 
 import UIKit
 
-class championsspellTVCC: UITableViewCell {
+class championsspellTVCC: UITableViewCell, UITextViewDelegate {
 
+    @IBOutlet weak var txtDescriptionSpell: UITextView!
     @IBOutlet weak var lblDescriptionSpell: UILabel!
     @IBOutlet weak var lblRangeSpell: UILabel!
     @IBOutlet weak var lblCostSpell: UILabel!
@@ -20,7 +21,8 @@ class championsspellTVCC: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        self.txtDescriptionSpell.delegate = self
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

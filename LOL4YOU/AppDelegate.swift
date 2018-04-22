@@ -65,6 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         rt.carregarLanguage()
         rt.carregarChampionsLocal();
         rt.carregarSpellsLocal();
+        rt.carregarItensLocal();
     }
 }
 

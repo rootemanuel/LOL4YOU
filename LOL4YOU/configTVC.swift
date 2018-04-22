@@ -32,7 +32,7 @@ class configTVC: UITableViewController, languageDelegate, GADBannerViewDelegate 
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 5
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -90,6 +90,7 @@ class configTVC: UITableViewController, languageDelegate, GADBannerViewDelegate 
             self.rt.carregarLanguage();
             self.rt.carregarChampionsLocal()
             self.rt.carregarSpellsLocal()
+            self.rt.carregarItensLocal();
             
             DispatchQueue.main.async {
                 
@@ -114,6 +115,10 @@ class configTVC: UITableViewController, languageDelegate, GADBannerViewDelegate 
             
             self.tableView.tableHeaderView = adBannerView
         }
+    }
+    
+    @IBAction func touchDonate(_ sender: Any) {
+        UIApplication.shared.openURL(URL(string: "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=T9PWX4PMY2N24&lc=BR&item_name=LOL4YOU&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted")!)
     }
     
     func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {

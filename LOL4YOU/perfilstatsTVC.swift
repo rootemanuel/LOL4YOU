@@ -28,7 +28,7 @@ class perfilstatsTVC: UITableViewController, GADBannerViewDelegate{
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let statsaux = self.stats.filter{p in p.championID == 0 }
+        let statsaux = self.stats.filter{ p in p.championID == 0 }
 
         switch indexPath.section {
         case 0:

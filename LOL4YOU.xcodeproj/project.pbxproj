@@ -25,6 +25,9 @@
 		A017A8741EA5456700C325F7 /* perfilCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A017A8731EA5456700C325F7 /* perfilCVC.swift */; };
 		A017A8761EA546B600C325F7 /* perfilVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A017A8751EA546B600C325F7 /* perfilVC.swift */; };
 		A01BB8F31F7857D400E1A52D /* dateextensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01BB8F21F7857D400E1A52D /* dateextensions.swift */; };
+		A02FCB67203368B000FE64A9 /* itensVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02FCB66203368B000FE64A9 /* itensVC.swift */; };
+		A02FCB69203368DB00FE64A9 /* itensCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02FCB68203368DB00FE64A9 /* itensCVC.swift */; };
+		A02FCB6E2034457100FE64A9 /* itensdetalheTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02FCB6D2034457100FE64A9 /* itensdetalheTVC.swift */; };
 		A04A6CCC1EB100E8001D9770 /* perfilstatsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04A6CCB1EB100E8001D9770 /* perfilstatsTVC.swift */; };
 		A056E7711EAE2B92007FDB9F /* matchesdetplayersTVCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A056E76F1EAE2B92007FDB9F /* matchesdetplayersTVCC.swift */; };
 		A056E7721EAE2B92007FDB9F /* matchesdetplayersTVCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A056E7701EAE2B92007FDB9F /* matchesdetplayersTVCC.xib */; };
@@ -73,68 +76,97 @@
 		A0BF02FC1EA643DC00DB84E9 /* emptytableview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BF02FB1EA643DC00DB84E9 /* emptytableview.swift */; };
 		A0BF02FF1EA6B20000DB84E9 /* matchesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BF02FE1EA6B20000DB84E9 /* matchesTVC.swift */; };
 		A0BF03011EA6B21900DB84E9 /* matchesTVCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0BF03001EA6B21900DB84E9 /* matchesTVCC.swift */; };
+		A0C065042083C28A00F2412C /* itensdetalheCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C065032083C28A00F2412C /* itensdetalheCVC.swift */; };
 		A0C849401FC8D861009389B2 /* championsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C8493F1FC8D861009389B2 /* championsTVC.swift */; };
 		A0D97AF31EA78FCE00273C10 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0D97AF21EA78FCE00273C10 /* UIColorExtension.swift */; };
 		A0D97AF81EA792D300273C10 /* friz_quadrata_m.otf in Resources */ = {isa = PBXBuildFile; fileRef = A0D97AF61EA792D300273C10 /* friz_quadrata_m.otf */; };
 		A0D97AF91EA792D300273C10 /* friz_quadrata_r.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A0D97AF71EA792D300273C10 /* friz_quadrata_r.ttf */; };
-		A0DF92BB2008387F009273B5 /* spells-es_AR.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF929F20083879009273B5 /* spells-es_AR.json */; };
-		A0DF92BC2008387F009273B5 /* spells-es_ES.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92A02008387A009273B5 /* spells-es_ES.json */; };
-		A0DF92BD2008387F009273B5 /* spells-ko_KR.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92A12008387A009273B5 /* spells-ko_KR.json */; };
-		A0DF92BE2008387F009273B5 /* spells-ro_RO.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92A22008387A009273B5 /* spells-ro_RO.json */; };
-		A0DF92BF2008387F009273B5 /* spells-de_DE.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92A32008387A009273B5 /* spells-de_DE.json */; };
-		A0DF92C02008387F009273B5 /* spells-ru_RU.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92A42008387B009273B5 /* spells-ru_RU.json */; };
-		A0DF92C12008387F009273B5 /* spells-hu_HU.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92A52008387B009273B5 /* spells-hu_HU.json */; };
-		A0DF92C22008387F009273B5 /* spells-en_SG.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92A62008387B009273B5 /* spells-en_SG.json */; };
-		A0DF92C32008387F009273B5 /* spells-pt_BR.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92A72008387B009273B5 /* spells-pt_BR.json */; };
-		A0DF92C42008387F009273B5 /* spells-el_GR.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92A82008387B009273B5 /* spells-el_GR.json */; };
-		A0DF92C52008387F009273B5 /* spells-zh_MY.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92A92008387C009273B5 /* spells-zh_MY.json */; };
-		A0DF92C62008387F009273B5 /* spells-es_MX.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92AA2008387C009273B5 /* spells-es_MX.json */; };
-		A0DF92C72008387F009273B5 /* spells-en_PH.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92AB2008387C009273B5 /* spells-en_PH.json */; };
-		A0DF92C82008387F009273B5 /* spells-en_US.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92AC2008387C009273B5 /* spells-en_US.json */; };
-		A0DF92C92008387F009273B5 /* spells-en_GB.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92AD2008387C009273B5 /* spells-en_GB.json */; };
-		A0DF92CA2008387F009273B5 /* spells-pl_PL.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92AE2008387D009273B5 /* spells-pl_PL.json */; };
-		A0DF92CB2008387F009273B5 /* spells-fr_FR.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92AF2008387D009273B5 /* spells-fr_FR.json */; };
-		A0DF92CC2008387F009273B5 /* spells-cs_CZ.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92B02008387D009273B5 /* spells-cs_CZ.json */; };
-		A0DF92CD2008387F009273B5 /* spells-it_IT.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92B12008387D009273B5 /* spells-it_IT.json */; };
-		A0DF92CE2008387F009273B5 /* spells-vn_VN.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92B22008387D009273B5 /* spells-vn_VN.json */; };
-		A0DF92CF2008387F009273B5 /* spells-zh_TW.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92B32008387E009273B5 /* spells-zh_TW.json */; };
-		A0DF92D02008387F009273B5 /* spells-ja_JP.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92B42008387E009273B5 /* spells-ja_JP.json */; };
-		A0DF92D12008387F009273B5 /* spells-ms_MY.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92B52008387E009273B5 /* spells-ms_MY.json */; };
-		A0DF92D22008387F009273B5 /* spells-id_ID.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92B62008387E009273B5 /* spells-id_ID.json */; };
-		A0DF92D32008387F009273B5 /* spells-en_AU.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92B72008387F009273B5 /* spells-en_AU.json */; };
-		A0DF92D42008387F009273B5 /* spells-th_TH.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92B82008387F009273B5 /* spells-th_TH.json */; };
-		A0DF92D52008387F009273B5 /* spells-zh_CN.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92B92008387F009273B5 /* spells-zh_CN.json */; };
-		A0DF92D62008387F009273B5 /* spells-tr_TR.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92BA2008387F009273B5 /* spells-tr_TR.json */; };
-		A0DF92F420083A6D009273B5 /* champion-zh_MY.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92D820083A67009273B5 /* champion-zh_MY.json */; };
-		A0DF92F520083A6D009273B5 /* champion-en_US.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92D920083A67009273B5 /* champion-en_US.json */; };
-		A0DF92F620083A6D009273B5 /* champion-ru_RU.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92DA20083A67009273B5 /* champion-ru_RU.json */; };
-		A0DF92F720083A6D009273B5 /* champion-zh_CN.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92DB20083A67009273B5 /* champion-zh_CN.json */; };
-		A0DF92F820083A6D009273B5 /* champion-pt_BR.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92DC20083A68009273B5 /* champion-pt_BR.json */; };
-		A0DF92F920083A6D009273B5 /* champion-en_PH.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92DD20083A68009273B5 /* champion-en_PH.json */; };
-		A0DF92FA20083A6D009273B5 /* champion-es_AR.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92DE20083A69009273B5 /* champion-es_AR.json */; };
-		A0DF92FB20083A6D009273B5 /* champion-en_AU.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92DF20083A69009273B5 /* champion-en_AU.json */; };
-		A0DF92FC20083A6D009273B5 /* champion-th_TH.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92E020083A69009273B5 /* champion-th_TH.json */; };
-		A0DF92FD20083A6D009273B5 /* champion-de_DE.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92E120083A69009273B5 /* champion-de_DE.json */; };
-		A0DF92FE20083A6D009273B5 /* champion-ko_KR.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92E220083A6A009273B5 /* champion-ko_KR.json */; };
-		A0DF92FF20083A6D009273B5 /* champion-es_MX.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92E320083A6A009273B5 /* champion-es_MX.json */; };
-		A0DF930020083A6D009273B5 /* champion-hu_HU.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92E420083A6A009273B5 /* champion-hu_HU.json */; };
-		A0DF930120083A6D009273B5 /* champion-fr_FR.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92E520083A6A009273B5 /* champion-fr_FR.json */; };
-		A0DF930220083A6D009273B5 /* champion-el_GR.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92E620083A6A009273B5 /* champion-el_GR.json */; };
-		A0DF930320083A6D009273B5 /* champion-cs_CZ.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92E720083A6B009273B5 /* champion-cs_CZ.json */; };
-		A0DF930420083A6D009273B5 /* champion-ja_JP.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92E820083A6B009273B5 /* champion-ja_JP.json */; };
-		A0DF930520083A6D009273B5 /* champion-ro_RO.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92E920083A6B009273B5 /* champion-ro_RO.json */; };
-		A0DF930620083A6D009273B5 /* champion-it_IT.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92EA20083A6B009273B5 /* champion-it_IT.json */; };
-		A0DF930720083A6D009273B5 /* champion-vn_VN.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92EB20083A6B009273B5 /* champion-vn_VN.json */; };
-		A0DF930820083A6D009273B5 /* champion-id_ID.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92EC20083A6C009273B5 /* champion-id_ID.json */; };
-		A0DF930920083A6D009273B5 /* champion-en_GB.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92ED20083A6C009273B5 /* champion-en_GB.json */; };
-		A0DF930A20083A6D009273B5 /* champion-en_SG.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92EE20083A6C009273B5 /* champion-en_SG.json */; };
-		A0DF930B20083A6D009273B5 /* champion-ms_MY.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92EF20083A6C009273B5 /* champion-ms_MY.json */; };
-		A0DF930C20083A6D009273B5 /* champion-tr_TR.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92F020083A6C009273B5 /* champion-tr_TR.json */; };
-		A0DF930D20083A6D009273B5 /* champion-zh_TW.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92F120083A6D009273B5 /* champion-zh_TW.json */; };
-		A0DF930E20083A6D009273B5 /* champion-es_ES.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92F220083A6D009273B5 /* champion-es_ES.json */; };
-		A0DF930F20083A6D009273B5 /* champion-pl_PL.json in Resources */ = {isa = PBXBuildFile; fileRef = A0DF92F320083A6D009273B5 /* champion-pl_PL.json */; };
 		A0E478AF1EB363A600109F56 /* runesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E478AE1EB363A600109F56 /* runesTVC.swift */; };
 		A0E478B11EB36D9A00109F56 /* runesdetTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E478B01EB36D9A00109F56 /* runesdetTVC.swift */; };
+		A0E50466208CC87600DF2D37 /* champion-de_DE.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E5044A208CC85C00DF2D37 /* champion-de_DE.json */; };
+		A0E50467208CC87600DF2D37 /* champion-es_ES.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E5044B208CC85D00DF2D37 /* champion-es_ES.json */; };
+		A0E50468208CC87600DF2D37 /* champion-hu_HU.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E5044C208CC85E00DF2D37 /* champion-hu_HU.json */; };
+		A0E50469208CC87600DF2D37 /* champion-id_ID.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E5044D208CC85F00DF2D37 /* champion-id_ID.json */; };
+		A0E5046A208CC87600DF2D37 /* champion-ko_KR.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E5044E208CC85F00DF2D37 /* champion-ko_KR.json */; };
+		A0E5046B208CC87600DF2D37 /* champion-en_AU.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E5044F208CC86000DF2D37 /* champion-en_AU.json */; };
+		A0E5046C208CC87600DF2D37 /* champion-en_US.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50450208CC86100DF2D37 /* champion-en_US.json */; };
+		A0E5046D208CC87600DF2D37 /* champion-it_IT.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50451208CC86200DF2D37 /* champion-it_IT.json */; };
+		A0E5046E208CC87600DF2D37 /* champion-pt_BR.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50452208CC86300DF2D37 /* champion-pt_BR.json */; };
+		A0E5046F208CC87600DF2D37 /* champion-th_TH.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50453208CC86400DF2D37 /* champion-th_TH.json */; };
+		A0E50470208CC87600DF2D37 /* champion-es_MX.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50454208CC86500DF2D37 /* champion-es_MX.json */; };
+		A0E50471208CC87600DF2D37 /* champion-es_AR.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50455208CC86600DF2D37 /* champion-es_AR.json */; };
+		A0E50472208CC87600DF2D37 /* champion-en_PH.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50456208CC86700DF2D37 /* champion-en_PH.json */; };
+		A0E50473208CC87600DF2D37 /* champion-tr_TR.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50457208CC86800DF2D37 /* champion-tr_TR.json */; };
+		A0E50474208CC87600DF2D37 /* champion-el_GR.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50458208CC86900DF2D37 /* champion-el_GR.json */; };
+		A0E50475208CC87600DF2D37 /* champion-zh_MY.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50459208CC86A00DF2D37 /* champion-zh_MY.json */; };
+		A0E50476208CC87600DF2D37 /* champion-cs_CZ.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E5045A208CC86B00DF2D37 /* champion-cs_CZ.json */; };
+		A0E50477208CC87600DF2D37 /* champion-ru_RU.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E5045B208CC86C00DF2D37 /* champion-ru_RU.json */; };
+		A0E50478208CC87600DF2D37 /* champion-en_SG.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E5045C208CC86D00DF2D37 /* champion-en_SG.json */; };
+		A0E50479208CC87600DF2D37 /* champion-ms_MY.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E5045D208CC86E00DF2D37 /* champion-ms_MY.json */; };
+		A0E5047A208CC87600DF2D37 /* champion-ja_JP.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E5045E208CC86F00DF2D37 /* champion-ja_JP.json */; };
+		A0E5047B208CC87600DF2D37 /* champion-pl_PL.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E5045F208CC87000DF2D37 /* champion-pl_PL.json */; };
+		A0E5047C208CC87600DF2D37 /* champion-zh_TW.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50460208CC87100DF2D37 /* champion-zh_TW.json */; };
+		A0E5047D208CC87600DF2D37 /* champion-ro_RO.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50461208CC87200DF2D37 /* champion-ro_RO.json */; };
+		A0E5047E208CC87600DF2D37 /* champion-vn_VN.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50462208CC87300DF2D37 /* champion-vn_VN.json */; };
+		A0E5047F208CC87600DF2D37 /* champion-zh_CN.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50463208CC87300DF2D37 /* champion-zh_CN.json */; };
+		A0E50480208CC87600DF2D37 /* champion-fr_FR.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50464208CC87400DF2D37 /* champion-fr_FR.json */; };
+		A0E50481208CC87600DF2D37 /* champion-en_GB.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50465208CC87500DF2D37 /* champion-en_GB.json */; };
+		A0E5049E208CC8B000DF2D37 /* spells-ko_KR.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50482208CC89600DF2D37 /* spells-ko_KR.json */; };
+		A0E5049F208CC8B000DF2D37 /* spells-zh_CN.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50483208CC89700DF2D37 /* spells-zh_CN.json */; };
+		A0E504A0208CC8B000DF2D37 /* spells-ja_JP.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50484208CC89800DF2D37 /* spells-ja_JP.json */; };
+		A0E504A1208CC8B000DF2D37 /* spells-es_ES.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50485208CC89900DF2D37 /* spells-es_ES.json */; };
+		A0E504A2208CC8B000DF2D37 /* spells-en_SG.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50486208CC89A00DF2D37 /* spells-en_SG.json */; };
+		A0E504A3208CC8B000DF2D37 /* spells-en_PH.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50487208CC89B00DF2D37 /* spells-en_PH.json */; };
+		A0E504A4208CC8B000DF2D37 /* spells-hu_HU.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50488208CC89C00DF2D37 /* spells-hu_HU.json */; };
+		A0E504A5208CC8B000DF2D37 /* spells-zh_TW.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50489208CC89D00DF2D37 /* spells-zh_TW.json */; };
+		A0E504A6208CC8B000DF2D37 /* spells-en_GB.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E5048A208CC89E00DF2D37 /* spells-en_GB.json */; };
+		A0E504A7208CC8B000DF2D37 /* spells-th_TH.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E5048B208CC89F00DF2D37 /* spells-th_TH.json */; };
+		A0E504A8208CC8B000DF2D37 /* spells-vn_VN.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E5048C208CC8A000DF2D37 /* spells-vn_VN.json */; };
+		A0E504A9208CC8B000DF2D37 /* spells-tr_TR.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E5048D208CC8A100DF2D37 /* spells-tr_TR.json */; };
+		A0E504AA208CC8B000DF2D37 /* spells-pt_BR.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E5048E208CC8A200DF2D37 /* spells-pt_BR.json */; };
+		A0E504AB208CC8B000DF2D37 /* spells-en_US.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E5048F208CC8A300DF2D37 /* spells-en_US.json */; };
+		A0E504AC208CC8B000DF2D37 /* spells-de_DE.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50490208CC8A400DF2D37 /* spells-de_DE.json */; };
+		A0E504AD208CC8B000DF2D37 /* spells-en_AU.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50491208CC8A500DF2D37 /* spells-en_AU.json */; };
+		A0E504AE208CC8B000DF2D37 /* spells-ms_MY.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50492208CC8A600DF2D37 /* spells-ms_MY.json */; };
+		A0E504AF208CC8B000DF2D37 /* spells-id_ID.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50493208CC8A700DF2D37 /* spells-id_ID.json */; };
+		A0E504B0208CC8B000DF2D37 /* spells-pl_PL.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50494208CC8A800DF2D37 /* spells-pl_PL.json */; };
+		A0E504B1208CC8B000DF2D37 /* spells-el_GR.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50495208CC8A900DF2D37 /* spells-el_GR.json */; };
+		A0E504B2208CC8B000DF2D37 /* spells-fr_FR.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50496208CC8A900DF2D37 /* spells-fr_FR.json */; };
+		A0E504B3208CC8B000DF2D37 /* spells-es_AR.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50497208CC8AA00DF2D37 /* spells-es_AR.json */; };
+		A0E504B4208CC8B000DF2D37 /* spells-cs_CZ.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50498208CC8AB00DF2D37 /* spells-cs_CZ.json */; };
+		A0E504B5208CC8B000DF2D37 /* spells-ro_RO.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50499208CC8AC00DF2D37 /* spells-ro_RO.json */; };
+		A0E504B6208CC8B000DF2D37 /* spells-es_MX.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E5049A208CC8AD00DF2D37 /* spells-es_MX.json */; };
+		A0E504B7208CC8B000DF2D37 /* spells-zh_MY.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E5049B208CC8AE00DF2D37 /* spells-zh_MY.json */; };
+		A0E504B8208CC8B000DF2D37 /* spells-it_IT.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E5049C208CC8AF00DF2D37 /* spells-it_IT.json */; };
+		A0E504B9208CC8B000DF2D37 /* spells-ru_RU.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E5049D208CC8B000DF2D37 /* spells-ru_RU.json */; };
+		A0E5050E208CE2F900DF2D37 /* item-en_SG.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E504F2208CE2DD00DF2D37 /* item-en_SG.json */; };
+		A0E5050F208CE2F900DF2D37 /* item-el_GR.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E504F3208CE2DE00DF2D37 /* item-el_GR.json */; };
+		A0E50510208CE2F900DF2D37 /* item-de_DE.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E504F4208CE2DF00DF2D37 /* item-de_DE.json */; };
+		A0E50511208CE2F900DF2D37 /* item-es_AR.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E504F5208CE2E000DF2D37 /* item-es_AR.json */; };
+		A0E50512208CE2F900DF2D37 /* item-ru_RU.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E504F6208CE2E100DF2D37 /* item-ru_RU.json */; };
+		A0E50513208CE2F900DF2D37 /* item-pt_BR.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E504F7208CE2E200DF2D37 /* item-pt_BR.json */; };
+		A0E50514208CE2F900DF2D37 /* item-ko_KR.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E504F8208CE2E300DF2D37 /* item-ko_KR.json */; };
+		A0E50515208CE2F900DF2D37 /* item-cs_CZ.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E504F9208CE2E400DF2D37 /* item-cs_CZ.json */; };
+		A0E50516208CE2F900DF2D37 /* item-zh_TW.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E504FA208CE2E500DF2D37 /* item-zh_TW.json */; };
+		A0E50517208CE2F900DF2D37 /* item-id_ID.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E504FB208CE2E600DF2D37 /* item-id_ID.json */; };
+		A0E50518208CE2F900DF2D37 /* item-en_AU.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E504FC208CE2E700DF2D37 /* item-en_AU.json */; };
+		A0E50519208CE2F900DF2D37 /* item-ja_JP.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E504FD208CE2E800DF2D37 /* item-ja_JP.json */; };
+		A0E5051A208CE2F900DF2D37 /* item-zh_MY.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E504FE208CE2E900DF2D37 /* item-zh_MY.json */; };
+		A0E5051B208CE2F900DF2D37 /* item-en_GB.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E504FF208CE2EA00DF2D37 /* item-en_GB.json */; };
+		A0E5051C208CE2F900DF2D37 /* item-th_TH.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50500208CE2EB00DF2D37 /* item-th_TH.json */; };
+		A0E5051D208CE2F900DF2D37 /* item-ms_MY.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50501208CE2EC00DF2D37 /* item-ms_MY.json */; };
+		A0E5051E208CE2F900DF2D37 /* item-it_IT.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50502208CE2ED00DF2D37 /* item-it_IT.json */; };
+		A0E5051F208CE2F900DF2D37 /* item-es_ES.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50503208CE2EE00DF2D37 /* item-es_ES.json */; };
+		A0E50520208CE2F900DF2D37 /* item-en_US.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50504208CE2EF00DF2D37 /* item-en_US.json */; };
+		A0E50521208CE2F900DF2D37 /* item-vn_VN.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50505208CE2F000DF2D37 /* item-vn_VN.json */; };
+		A0E50522208CE2F900DF2D37 /* item-es_MX.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50506208CE2F100DF2D37 /* item-es_MX.json */; };
+		A0E50523208CE2F900DF2D37 /* item-pl_PL.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50507208CE2F200DF2D37 /* item-pl_PL.json */; };
+		A0E50524208CE2F900DF2D37 /* item-en_PH.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50508208CE2F400DF2D37 /* item-en_PH.json */; };
+		A0E50525208CE2F900DF2D37 /* item-tr_TR.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E50509208CE2F500DF2D37 /* item-tr_TR.json */; };
+		A0E50526208CE2F900DF2D37 /* item-ro_RO.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E5050A208CE2F600DF2D37 /* item-ro_RO.json */; };
+		A0E50527208CE2F900DF2D37 /* item-fr_FR.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E5050B208CE2F700DF2D37 /* item-fr_FR.json */; };
+		A0E50528208CE2F900DF2D37 /* item-hu_HU.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E5050C208CE2F800DF2D37 /* item-hu_HU.json */; };
+		A0E50529208CE2F900DF2D37 /* item-zh_CN.json in Resources */ = {isa = PBXBuildFile; fileRef = A0E5050D208CE2F900DF2D37 /* item-zh_CN.json */; };
 		A0FC3D5D1F8B05AE005CE127 /* specTVCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FC3D5B1F8B05AE005CE127 /* specTVCC.swift */; };
 		A0FC3D5E1F8B05AE005CE127 /* specTVCC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0FC3D5C1F8B05AE005CE127 /* specTVCC.xib */; };
 		A0FC3D601F8B05C5005CE127 /* specTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FC3D5F1F8B05C5005CE127 /* specTVC.swift */; };
@@ -185,6 +217,9 @@
 		A017A8731EA5456700C325F7 /* perfilCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = perfilCVC.swift; sourceTree = "<group>"; };
 		A017A8751EA546B600C325F7 /* perfilVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = perfilVC.swift; sourceTree = "<group>"; };
 		A01BB8F21F7857D400E1A52D /* dateextensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dateextensions.swift; sourceTree = "<group>"; };
+		A02FCB66203368B000FE64A9 /* itensVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itensVC.swift; sourceTree = "<group>"; };
+		A02FCB68203368DB00FE64A9 /* itensCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itensCVC.swift; sourceTree = "<group>"; };
+		A02FCB6D2034457100FE64A9 /* itensdetalheTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itensdetalheTVC.swift; sourceTree = "<group>"; };
 		A04A6CCB1EB100E8001D9770 /* perfilstatsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = perfilstatsTVC.swift; sourceTree = "<group>"; };
 		A056E76F1EAE2B92007FDB9F /* matchesdetplayersTVCC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matchesdetplayersTVCC.swift; sourceTree = "<group>"; };
 		A056E7701EAE2B92007FDB9F /* matchesdetplayersTVCC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = matchesdetplayersTVCC.xib; sourceTree = "<group>"; };
@@ -235,68 +270,97 @@
 		A0BF02FB1EA643DC00DB84E9 /* emptytableview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = emptytableview.swift; sourceTree = "<group>"; };
 		A0BF02FE1EA6B20000DB84E9 /* matchesTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matchesTVC.swift; sourceTree = "<group>"; };
 		A0BF03001EA6B21900DB84E9 /* matchesTVCC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = matchesTVCC.swift; sourceTree = "<group>"; };
+		A0C065032083C28A00F2412C /* itensdetalheCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itensdetalheCVC.swift; sourceTree = "<group>"; };
 		A0C8493F1FC8D861009389B2 /* championsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = championsTVC.swift; sourceTree = "<group>"; };
 		A0D97AF21EA78FCE00273C10 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		A0D97AF61EA792D300273C10 /* friz_quadrata_m.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = friz_quadrata_m.otf; sourceTree = "<group>"; };
 		A0D97AF71EA792D300273C10 /* friz_quadrata_r.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = friz_quadrata_r.ttf; sourceTree = "<group>"; };
-		A0DF929F20083879009273B5 /* spells-es_AR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-es_AR.json"; sourceTree = "<group>"; };
-		A0DF92A02008387A009273B5 /* spells-es_ES.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-es_ES.json"; sourceTree = "<group>"; };
-		A0DF92A12008387A009273B5 /* spells-ko_KR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-ko_KR.json"; sourceTree = "<group>"; };
-		A0DF92A22008387A009273B5 /* spells-ro_RO.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-ro_RO.json"; sourceTree = "<group>"; };
-		A0DF92A32008387A009273B5 /* spells-de_DE.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-de_DE.json"; sourceTree = "<group>"; };
-		A0DF92A42008387B009273B5 /* spells-ru_RU.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-ru_RU.json"; sourceTree = "<group>"; };
-		A0DF92A52008387B009273B5 /* spells-hu_HU.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-hu_HU.json"; sourceTree = "<group>"; };
-		A0DF92A62008387B009273B5 /* spells-en_SG.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-en_SG.json"; sourceTree = "<group>"; };
-		A0DF92A72008387B009273B5 /* spells-pt_BR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-pt_BR.json"; sourceTree = "<group>"; };
-		A0DF92A82008387B009273B5 /* spells-el_GR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-el_GR.json"; sourceTree = "<group>"; };
-		A0DF92A92008387C009273B5 /* spells-zh_MY.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-zh_MY.json"; sourceTree = "<group>"; };
-		A0DF92AA2008387C009273B5 /* spells-es_MX.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-es_MX.json"; sourceTree = "<group>"; };
-		A0DF92AB2008387C009273B5 /* spells-en_PH.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-en_PH.json"; sourceTree = "<group>"; };
-		A0DF92AC2008387C009273B5 /* spells-en_US.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-en_US.json"; sourceTree = "<group>"; };
-		A0DF92AD2008387C009273B5 /* spells-en_GB.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-en_GB.json"; sourceTree = "<group>"; };
-		A0DF92AE2008387D009273B5 /* spells-pl_PL.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-pl_PL.json"; sourceTree = "<group>"; };
-		A0DF92AF2008387D009273B5 /* spells-fr_FR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-fr_FR.json"; sourceTree = "<group>"; };
-		A0DF92B02008387D009273B5 /* spells-cs_CZ.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-cs_CZ.json"; sourceTree = "<group>"; };
-		A0DF92B12008387D009273B5 /* spells-it_IT.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-it_IT.json"; sourceTree = "<group>"; };
-		A0DF92B22008387D009273B5 /* spells-vn_VN.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-vn_VN.json"; sourceTree = "<group>"; };
-		A0DF92B32008387E009273B5 /* spells-zh_TW.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-zh_TW.json"; sourceTree = "<group>"; };
-		A0DF92B42008387E009273B5 /* spells-ja_JP.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-ja_JP.json"; sourceTree = "<group>"; };
-		A0DF92B52008387E009273B5 /* spells-ms_MY.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-ms_MY.json"; sourceTree = "<group>"; };
-		A0DF92B62008387E009273B5 /* spells-id_ID.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-id_ID.json"; sourceTree = "<group>"; };
-		A0DF92B72008387F009273B5 /* spells-en_AU.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-en_AU.json"; sourceTree = "<group>"; };
-		A0DF92B82008387F009273B5 /* spells-th_TH.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-th_TH.json"; sourceTree = "<group>"; };
-		A0DF92B92008387F009273B5 /* spells-zh_CN.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-zh_CN.json"; sourceTree = "<group>"; };
-		A0DF92BA2008387F009273B5 /* spells-tr_TR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-tr_TR.json"; sourceTree = "<group>"; };
-		A0DF92D820083A67009273B5 /* champion-zh_MY.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-zh_MY.json"; sourceTree = "<group>"; };
-		A0DF92D920083A67009273B5 /* champion-en_US.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-en_US.json"; sourceTree = "<group>"; };
-		A0DF92DA20083A67009273B5 /* champion-ru_RU.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-ru_RU.json"; sourceTree = "<group>"; };
-		A0DF92DB20083A67009273B5 /* champion-zh_CN.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-zh_CN.json"; sourceTree = "<group>"; };
-		A0DF92DC20083A68009273B5 /* champion-pt_BR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-pt_BR.json"; sourceTree = "<group>"; };
-		A0DF92DD20083A68009273B5 /* champion-en_PH.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-en_PH.json"; sourceTree = "<group>"; };
-		A0DF92DE20083A69009273B5 /* champion-es_AR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-es_AR.json"; sourceTree = "<group>"; };
-		A0DF92DF20083A69009273B5 /* champion-en_AU.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-en_AU.json"; sourceTree = "<group>"; };
-		A0DF92E020083A69009273B5 /* champion-th_TH.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-th_TH.json"; sourceTree = "<group>"; };
-		A0DF92E120083A69009273B5 /* champion-de_DE.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-de_DE.json"; sourceTree = "<group>"; };
-		A0DF92E220083A6A009273B5 /* champion-ko_KR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-ko_KR.json"; sourceTree = "<group>"; };
-		A0DF92E320083A6A009273B5 /* champion-es_MX.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-es_MX.json"; sourceTree = "<group>"; };
-		A0DF92E420083A6A009273B5 /* champion-hu_HU.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-hu_HU.json"; sourceTree = "<group>"; };
-		A0DF92E520083A6A009273B5 /* champion-fr_FR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-fr_FR.json"; sourceTree = "<group>"; };
-		A0DF92E620083A6A009273B5 /* champion-el_GR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-el_GR.json"; sourceTree = "<group>"; };
-		A0DF92E720083A6B009273B5 /* champion-cs_CZ.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-cs_CZ.json"; sourceTree = "<group>"; };
-		A0DF92E820083A6B009273B5 /* champion-ja_JP.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-ja_JP.json"; sourceTree = "<group>"; };
-		A0DF92E920083A6B009273B5 /* champion-ro_RO.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-ro_RO.json"; sourceTree = "<group>"; };
-		A0DF92EA20083A6B009273B5 /* champion-it_IT.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-it_IT.json"; sourceTree = "<group>"; };
-		A0DF92EB20083A6B009273B5 /* champion-vn_VN.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-vn_VN.json"; sourceTree = "<group>"; };
-		A0DF92EC20083A6C009273B5 /* champion-id_ID.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-id_ID.json"; sourceTree = "<group>"; };
-		A0DF92ED20083A6C009273B5 /* champion-en_GB.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-en_GB.json"; sourceTree = "<group>"; };
-		A0DF92EE20083A6C009273B5 /* champion-en_SG.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-en_SG.json"; sourceTree = "<group>"; };
-		A0DF92EF20083A6C009273B5 /* champion-ms_MY.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-ms_MY.json"; sourceTree = "<group>"; };
-		A0DF92F020083A6C009273B5 /* champion-tr_TR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-tr_TR.json"; sourceTree = "<group>"; };
-		A0DF92F120083A6D009273B5 /* champion-zh_TW.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-zh_TW.json"; sourceTree = "<group>"; };
-		A0DF92F220083A6D009273B5 /* champion-es_ES.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-es_ES.json"; sourceTree = "<group>"; };
-		A0DF92F320083A6D009273B5 /* champion-pl_PL.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-pl_PL.json"; sourceTree = "<group>"; };
 		A0E478AE1EB363A600109F56 /* runesTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = runesTVC.swift; sourceTree = "<group>"; };
 		A0E478B01EB36D9A00109F56 /* runesdetTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = runesdetTVC.swift; sourceTree = "<group>"; };
+		A0E5044A208CC85C00DF2D37 /* champion-de_DE.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-de_DE.json"; sourceTree = "<group>"; };
+		A0E5044B208CC85D00DF2D37 /* champion-es_ES.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-es_ES.json"; sourceTree = "<group>"; };
+		A0E5044C208CC85E00DF2D37 /* champion-hu_HU.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-hu_HU.json"; sourceTree = "<group>"; };
+		A0E5044D208CC85F00DF2D37 /* champion-id_ID.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-id_ID.json"; sourceTree = "<group>"; };
+		A0E5044E208CC85F00DF2D37 /* champion-ko_KR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-ko_KR.json"; sourceTree = "<group>"; };
+		A0E5044F208CC86000DF2D37 /* champion-en_AU.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-en_AU.json"; sourceTree = "<group>"; };
+		A0E50450208CC86100DF2D37 /* champion-en_US.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-en_US.json"; sourceTree = "<group>"; };
+		A0E50451208CC86200DF2D37 /* champion-it_IT.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-it_IT.json"; sourceTree = "<group>"; };
+		A0E50452208CC86300DF2D37 /* champion-pt_BR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-pt_BR.json"; sourceTree = "<group>"; };
+		A0E50453208CC86400DF2D37 /* champion-th_TH.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-th_TH.json"; sourceTree = "<group>"; };
+		A0E50454208CC86500DF2D37 /* champion-es_MX.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-es_MX.json"; sourceTree = "<group>"; };
+		A0E50455208CC86600DF2D37 /* champion-es_AR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-es_AR.json"; sourceTree = "<group>"; };
+		A0E50456208CC86700DF2D37 /* champion-en_PH.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-en_PH.json"; sourceTree = "<group>"; };
+		A0E50457208CC86800DF2D37 /* champion-tr_TR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-tr_TR.json"; sourceTree = "<group>"; };
+		A0E50458208CC86900DF2D37 /* champion-el_GR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-el_GR.json"; sourceTree = "<group>"; };
+		A0E50459208CC86A00DF2D37 /* champion-zh_MY.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-zh_MY.json"; sourceTree = "<group>"; };
+		A0E5045A208CC86B00DF2D37 /* champion-cs_CZ.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-cs_CZ.json"; sourceTree = "<group>"; };
+		A0E5045B208CC86C00DF2D37 /* champion-ru_RU.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-ru_RU.json"; sourceTree = "<group>"; };
+		A0E5045C208CC86D00DF2D37 /* champion-en_SG.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-en_SG.json"; sourceTree = "<group>"; };
+		A0E5045D208CC86E00DF2D37 /* champion-ms_MY.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-ms_MY.json"; sourceTree = "<group>"; };
+		A0E5045E208CC86F00DF2D37 /* champion-ja_JP.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-ja_JP.json"; sourceTree = "<group>"; };
+		A0E5045F208CC87000DF2D37 /* champion-pl_PL.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-pl_PL.json"; sourceTree = "<group>"; };
+		A0E50460208CC87100DF2D37 /* champion-zh_TW.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-zh_TW.json"; sourceTree = "<group>"; };
+		A0E50461208CC87200DF2D37 /* champion-ro_RO.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-ro_RO.json"; sourceTree = "<group>"; };
+		A0E50462208CC87300DF2D37 /* champion-vn_VN.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-vn_VN.json"; sourceTree = "<group>"; };
+		A0E50463208CC87300DF2D37 /* champion-zh_CN.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-zh_CN.json"; sourceTree = "<group>"; };
+		A0E50464208CC87400DF2D37 /* champion-fr_FR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-fr_FR.json"; sourceTree = "<group>"; };
+		A0E50465208CC87500DF2D37 /* champion-en_GB.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "champion-en_GB.json"; sourceTree = "<group>"; };
+		A0E50482208CC89600DF2D37 /* spells-ko_KR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-ko_KR.json"; sourceTree = "<group>"; };
+		A0E50483208CC89700DF2D37 /* spells-zh_CN.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-zh_CN.json"; sourceTree = "<group>"; };
+		A0E50484208CC89800DF2D37 /* spells-ja_JP.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-ja_JP.json"; sourceTree = "<group>"; };
+		A0E50485208CC89900DF2D37 /* spells-es_ES.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-es_ES.json"; sourceTree = "<group>"; };
+		A0E50486208CC89A00DF2D37 /* spells-en_SG.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-en_SG.json"; sourceTree = "<group>"; };
+		A0E50487208CC89B00DF2D37 /* spells-en_PH.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-en_PH.json"; sourceTree = "<group>"; };
+		A0E50488208CC89C00DF2D37 /* spells-hu_HU.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-hu_HU.json"; sourceTree = "<group>"; };
+		A0E50489208CC89D00DF2D37 /* spells-zh_TW.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-zh_TW.json"; sourceTree = "<group>"; };
+		A0E5048A208CC89E00DF2D37 /* spells-en_GB.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-en_GB.json"; sourceTree = "<group>"; };
+		A0E5048B208CC89F00DF2D37 /* spells-th_TH.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-th_TH.json"; sourceTree = "<group>"; };
+		A0E5048C208CC8A000DF2D37 /* spells-vn_VN.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-vn_VN.json"; sourceTree = "<group>"; };
+		A0E5048D208CC8A100DF2D37 /* spells-tr_TR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-tr_TR.json"; sourceTree = "<group>"; };
+		A0E5048E208CC8A200DF2D37 /* spells-pt_BR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-pt_BR.json"; sourceTree = "<group>"; };
+		A0E5048F208CC8A300DF2D37 /* spells-en_US.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-en_US.json"; sourceTree = "<group>"; };
+		A0E50490208CC8A400DF2D37 /* spells-de_DE.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-de_DE.json"; sourceTree = "<group>"; };
+		A0E50491208CC8A500DF2D37 /* spells-en_AU.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-en_AU.json"; sourceTree = "<group>"; };
+		A0E50492208CC8A600DF2D37 /* spells-ms_MY.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-ms_MY.json"; sourceTree = "<group>"; };
+		A0E50493208CC8A700DF2D37 /* spells-id_ID.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-id_ID.json"; sourceTree = "<group>"; };
+		A0E50494208CC8A800DF2D37 /* spells-pl_PL.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-pl_PL.json"; sourceTree = "<group>"; };
+		A0E50495208CC8A900DF2D37 /* spells-el_GR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-el_GR.json"; sourceTree = "<group>"; };
+		A0E50496208CC8A900DF2D37 /* spells-fr_FR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-fr_FR.json"; sourceTree = "<group>"; };
+		A0E50497208CC8AA00DF2D37 /* spells-es_AR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-es_AR.json"; sourceTree = "<group>"; };
+		A0E50498208CC8AB00DF2D37 /* spells-cs_CZ.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-cs_CZ.json"; sourceTree = "<group>"; };
+		A0E50499208CC8AC00DF2D37 /* spells-ro_RO.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-ro_RO.json"; sourceTree = "<group>"; };
+		A0E5049A208CC8AD00DF2D37 /* spells-es_MX.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-es_MX.json"; sourceTree = "<group>"; };
+		A0E5049B208CC8AE00DF2D37 /* spells-zh_MY.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-zh_MY.json"; sourceTree = "<group>"; };
+		A0E5049C208CC8AF00DF2D37 /* spells-it_IT.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-it_IT.json"; sourceTree = "<group>"; };
+		A0E5049D208CC8B000DF2D37 /* spells-ru_RU.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "spells-ru_RU.json"; sourceTree = "<group>"; };
+		A0E504F2208CE2DD00DF2D37 /* item-en_SG.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "item-en_SG.json"; sourceTree = "<group>"; };
+		A0E504F3208CE2DE00DF2D37 /* item-el_GR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "item-el_GR.json"; sourceTree = "<group>"; };
+		A0E504F4208CE2DF00DF2D37 /* item-de_DE.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "item-de_DE.json"; sourceTree = "<group>"; };
+		A0E504F5208CE2E000DF2D37 /* item-es_AR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "item-es_AR.json"; sourceTree = "<group>"; };
+		A0E504F6208CE2E100DF2D37 /* item-ru_RU.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "item-ru_RU.json"; sourceTree = "<group>"; };
+		A0E504F7208CE2E200DF2D37 /* item-pt_BR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "item-pt_BR.json"; sourceTree = "<group>"; };
+		A0E504F8208CE2E300DF2D37 /* item-ko_KR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "item-ko_KR.json"; sourceTree = "<group>"; };
+		A0E504F9208CE2E400DF2D37 /* item-cs_CZ.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "item-cs_CZ.json"; sourceTree = "<group>"; };
+		A0E504FA208CE2E500DF2D37 /* item-zh_TW.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "item-zh_TW.json"; sourceTree = "<group>"; };
+		A0E504FB208CE2E600DF2D37 /* item-id_ID.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "item-id_ID.json"; sourceTree = "<group>"; };
+		A0E504FC208CE2E700DF2D37 /* item-en_AU.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "item-en_AU.json"; sourceTree = "<group>"; };
+		A0E504FD208CE2E800DF2D37 /* item-ja_JP.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "item-ja_JP.json"; sourceTree = "<group>"; };
+		A0E504FE208CE2E900DF2D37 /* item-zh_MY.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "item-zh_MY.json"; sourceTree = "<group>"; };
+		A0E504FF208CE2EA00DF2D37 /* item-en_GB.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "item-en_GB.json"; sourceTree = "<group>"; };
+		A0E50500208CE2EB00DF2D37 /* item-th_TH.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "item-th_TH.json"; sourceTree = "<group>"; };
+		A0E50501208CE2EC00DF2D37 /* item-ms_MY.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "item-ms_MY.json"; sourceTree = "<group>"; };
+		A0E50502208CE2ED00DF2D37 /* item-it_IT.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "item-it_IT.json"; sourceTree = "<group>"; };
+		A0E50503208CE2EE00DF2D37 /* item-es_ES.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "item-es_ES.json"; sourceTree = "<group>"; };
+		A0E50504208CE2EF00DF2D37 /* item-en_US.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "item-en_US.json"; sourceTree = "<group>"; };
+		A0E50505208CE2F000DF2D37 /* item-vn_VN.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "item-vn_VN.json"; sourceTree = "<group>"; };
+		A0E50506208CE2F100DF2D37 /* item-es_MX.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "item-es_MX.json"; sourceTree = "<group>"; };
+		A0E50507208CE2F200DF2D37 /* item-pl_PL.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "item-pl_PL.json"; sourceTree = "<group>"; };
+		A0E50508208CE2F400DF2D37 /* item-en_PH.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "item-en_PH.json"; sourceTree = "<group>"; };
+		A0E50509208CE2F500DF2D37 /* item-tr_TR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "item-tr_TR.json"; sourceTree = "<group>"; };
+		A0E5050A208CE2F600DF2D37 /* item-ro_RO.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "item-ro_RO.json"; sourceTree = "<group>"; };
+		A0E5050B208CE2F700DF2D37 /* item-fr_FR.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "item-fr_FR.json"; sourceTree = "<group>"; };
+		A0E5050C208CE2F800DF2D37 /* item-hu_HU.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "item-hu_HU.json"; sourceTree = "<group>"; };
+		A0E5050D208CE2F900DF2D37 /* item-zh_CN.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "item-zh_CN.json"; sourceTree = "<group>"; };
 		A0FC3D5B1F8B05AE005CE127 /* specTVCC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = specTVCC.swift; sourceTree = "<group>"; };
 		A0FC3D5C1F8B05AE005CE127 /* specTVCC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = specTVCC.xib; sourceTree = "<group>"; };
 		A0FC3D5F1F8B05C5005CE127 /* specTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = specTVC.swift; sourceTree = "<group>"; };
@@ -417,6 +481,7 @@
 		A00280261E9DADDD003175A7 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				A02FCB652033688200FE64A9 /* itens */,
 				A08B3121200307720070721C /* config */,
 				A0C8493E1FC8D830009389B2 /* champions */,
 				A0FC3D5A1F8B0537005CE127 /* spectador */,
@@ -470,6 +535,52 @@
 			name = perfil;
 			sourceTree = "<group>";
 		};
+		A02FCB652033688200FE64A9 /* itens */ = {
+			isa = PBXGroup;
+			children = (
+				A02FCB66203368B000FE64A9 /* itensVC.swift */,
+				A02FCB68203368DB00FE64A9 /* itensCVC.swift */,
+				A02FCB6D2034457100FE64A9 /* itensdetalheTVC.swift */,
+				A0C065032083C28A00F2412C /* itensdetalheCVC.swift */,
+			);
+			name = itens;
+			sourceTree = "<group>";
+		};
+		A02FCB6A2033714800FE64A9 /* itens */ = {
+			isa = PBXGroup;
+			children = (
+				A0E504F9208CE2E400DF2D37 /* item-cs_CZ.json */,
+				A0E504F4208CE2DF00DF2D37 /* item-de_DE.json */,
+				A0E504F3208CE2DE00DF2D37 /* item-el_GR.json */,
+				A0E504FC208CE2E700DF2D37 /* item-en_AU.json */,
+				A0E504FF208CE2EA00DF2D37 /* item-en_GB.json */,
+				A0E50508208CE2F400DF2D37 /* item-en_PH.json */,
+				A0E504F2208CE2DD00DF2D37 /* item-en_SG.json */,
+				A0E50504208CE2EF00DF2D37 /* item-en_US.json */,
+				A0E504F5208CE2E000DF2D37 /* item-es_AR.json */,
+				A0E50503208CE2EE00DF2D37 /* item-es_ES.json */,
+				A0E50506208CE2F100DF2D37 /* item-es_MX.json */,
+				A0E5050B208CE2F700DF2D37 /* item-fr_FR.json */,
+				A0E5050C208CE2F800DF2D37 /* item-hu_HU.json */,
+				A0E504FB208CE2E600DF2D37 /* item-id_ID.json */,
+				A0E50502208CE2ED00DF2D37 /* item-it_IT.json */,
+				A0E504FD208CE2E800DF2D37 /* item-ja_JP.json */,
+				A0E504F8208CE2E300DF2D37 /* item-ko_KR.json */,
+				A0E50501208CE2EC00DF2D37 /* item-ms_MY.json */,
+				A0E50507208CE2F200DF2D37 /* item-pl_PL.json */,
+				A0E504F7208CE2E200DF2D37 /* item-pt_BR.json */,
+				A0E5050A208CE2F600DF2D37 /* item-ro_RO.json */,
+				A0E504F6208CE2E100DF2D37 /* item-ru_RU.json */,
+				A0E50500208CE2EB00DF2D37 /* item-th_TH.json */,
+				A0E50509208CE2F500DF2D37 /* item-tr_TR.json */,
+				A0E50505208CE2F000DF2D37 /* item-vn_VN.json */,
+				A0E5050D208CE2F900DF2D37 /* item-zh_CN.json */,
+				A0E504FE208CE2E900DF2D37 /* item-zh_MY.json */,
+				A0E504FA208CE2E500DF2D37 /* item-zh_TW.json */,
+			);
+			name = itens;
+			sourceTree = "<group>";
+		};
 		A04A6CCA1EB10098001D9770 /* perfilstats */ = {
 			isa = PBXGroup;
 			children = (
@@ -497,6 +608,7 @@
 		A08A05881FFA6668001FEC39 /* json */ = {
 			isa = PBXGroup;
 			children = (
+				A02FCB6A2033714800FE64A9 /* itens */,
 				A0DF92D7200838A4009273B5 /* champions */,
 				A0DF929E2008386C009273B5 /* spells */,
 			);
@@ -684,34 +796,34 @@
 		A0DF929E2008386C009273B5 /* spells */ = {
 			isa = PBXGroup;
 			children = (
-				A0DF92B02008387D009273B5 /* spells-cs_CZ.json */,
-				A0DF92A32008387A009273B5 /* spells-de_DE.json */,
-				A0DF92A82008387B009273B5 /* spells-el_GR.json */,
-				A0DF92B72008387F009273B5 /* spells-en_AU.json */,
-				A0DF92AD2008387C009273B5 /* spells-en_GB.json */,
-				A0DF92AB2008387C009273B5 /* spells-en_PH.json */,
-				A0DF92A62008387B009273B5 /* spells-en_SG.json */,
-				A0DF92AC2008387C009273B5 /* spells-en_US.json */,
-				A0DF929F20083879009273B5 /* spells-es_AR.json */,
-				A0DF92A02008387A009273B5 /* spells-es_ES.json */,
-				A0DF92AA2008387C009273B5 /* spells-es_MX.json */,
-				A0DF92AF2008387D009273B5 /* spells-fr_FR.json */,
-				A0DF92A52008387B009273B5 /* spells-hu_HU.json */,
-				A0DF92B62008387E009273B5 /* spells-id_ID.json */,
-				A0DF92B12008387D009273B5 /* spells-it_IT.json */,
-				A0DF92B42008387E009273B5 /* spells-ja_JP.json */,
-				A0DF92A12008387A009273B5 /* spells-ko_KR.json */,
-				A0DF92B52008387E009273B5 /* spells-ms_MY.json */,
-				A0DF92AE2008387D009273B5 /* spells-pl_PL.json */,
-				A0DF92A72008387B009273B5 /* spells-pt_BR.json */,
-				A0DF92A22008387A009273B5 /* spells-ro_RO.json */,
-				A0DF92A42008387B009273B5 /* spells-ru_RU.json */,
-				A0DF92B82008387F009273B5 /* spells-th_TH.json */,
-				A0DF92BA2008387F009273B5 /* spells-tr_TR.json */,
-				A0DF92B22008387D009273B5 /* spells-vn_VN.json */,
-				A0DF92B92008387F009273B5 /* spells-zh_CN.json */,
-				A0DF92A92008387C009273B5 /* spells-zh_MY.json */,
-				A0DF92B32008387E009273B5 /* spells-zh_TW.json */,
+				A0E50498208CC8AB00DF2D37 /* spells-cs_CZ.json */,
+				A0E50490208CC8A400DF2D37 /* spells-de_DE.json */,
+				A0E50495208CC8A900DF2D37 /* spells-el_GR.json */,
+				A0E50491208CC8A500DF2D37 /* spells-en_AU.json */,
+				A0E5048A208CC89E00DF2D37 /* spells-en_GB.json */,
+				A0E50487208CC89B00DF2D37 /* spells-en_PH.json */,
+				A0E50486208CC89A00DF2D37 /* spells-en_SG.json */,
+				A0E5048F208CC8A300DF2D37 /* spells-en_US.json */,
+				A0E50497208CC8AA00DF2D37 /* spells-es_AR.json */,
+				A0E50485208CC89900DF2D37 /* spells-es_ES.json */,
+				A0E5049A208CC8AD00DF2D37 /* spells-es_MX.json */,
+				A0E50496208CC8A900DF2D37 /* spells-fr_FR.json */,
+				A0E50488208CC89C00DF2D37 /* spells-hu_HU.json */,
+				A0E50493208CC8A700DF2D37 /* spells-id_ID.json */,
+				A0E5049C208CC8AF00DF2D37 /* spells-it_IT.json */,
+				A0E50484208CC89800DF2D37 /* spells-ja_JP.json */,
+				A0E50482208CC89600DF2D37 /* spells-ko_KR.json */,
+				A0E50492208CC8A600DF2D37 /* spells-ms_MY.json */,
+				A0E50494208CC8A800DF2D37 /* spells-pl_PL.json */,
+				A0E5048E208CC8A200DF2D37 /* spells-pt_BR.json */,
+				A0E50499208CC8AC00DF2D37 /* spells-ro_RO.json */,
+				A0E5049D208CC8B000DF2D37 /* spells-ru_RU.json */,
+				A0E5048B208CC89F00DF2D37 /* spells-th_TH.json */,
+				A0E5048D208CC8A100DF2D37 /* spells-tr_TR.json */,
+				A0E5048C208CC8A000DF2D37 /* spells-vn_VN.json */,
+				A0E50483208CC89700DF2D37 /* spells-zh_CN.json */,
+				A0E5049B208CC8AE00DF2D37 /* spells-zh_MY.json */,
+				A0E50489208CC89D00DF2D37 /* spells-zh_TW.json */,
 			);
 			name = spells;
 			sourceTree = "<group>";
@@ -719,34 +831,34 @@
 		A0DF92D7200838A4009273B5 /* champions */ = {
 			isa = PBXGroup;
 			children = (
-				A0DF92E720083A6B009273B5 /* champion-cs_CZ.json */,
-				A0DF92E120083A69009273B5 /* champion-de_DE.json */,
-				A0DF92E620083A6A009273B5 /* champion-el_GR.json */,
-				A0DF92DF20083A69009273B5 /* champion-en_AU.json */,
-				A0DF92ED20083A6C009273B5 /* champion-en_GB.json */,
-				A0DF92DD20083A68009273B5 /* champion-en_PH.json */,
-				A0DF92EE20083A6C009273B5 /* champion-en_SG.json */,
-				A0DF92D920083A67009273B5 /* champion-en_US.json */,
-				A0DF92DE20083A69009273B5 /* champion-es_AR.json */,
-				A0DF92F220083A6D009273B5 /* champion-es_ES.json */,
-				A0DF92E320083A6A009273B5 /* champion-es_MX.json */,
-				A0DF92E520083A6A009273B5 /* champion-fr_FR.json */,
-				A0DF92E420083A6A009273B5 /* champion-hu_HU.json */,
-				A0DF92EC20083A6C009273B5 /* champion-id_ID.json */,
-				A0DF92EA20083A6B009273B5 /* champion-it_IT.json */,
-				A0DF92E820083A6B009273B5 /* champion-ja_JP.json */,
-				A0DF92E220083A6A009273B5 /* champion-ko_KR.json */,
-				A0DF92EF20083A6C009273B5 /* champion-ms_MY.json */,
-				A0DF92F320083A6D009273B5 /* champion-pl_PL.json */,
-				A0DF92DC20083A68009273B5 /* champion-pt_BR.json */,
-				A0DF92E920083A6B009273B5 /* champion-ro_RO.json */,
-				A0DF92DA20083A67009273B5 /* champion-ru_RU.json */,
-				A0DF92E020083A69009273B5 /* champion-th_TH.json */,
-				A0DF92F020083A6C009273B5 /* champion-tr_TR.json */,
-				A0DF92EB20083A6B009273B5 /* champion-vn_VN.json */,
-				A0DF92DB20083A67009273B5 /* champion-zh_CN.json */,
-				A0DF92D820083A67009273B5 /* champion-zh_MY.json */,
-				A0DF92F120083A6D009273B5 /* champion-zh_TW.json */,
+				A0E5045A208CC86B00DF2D37 /* champion-cs_CZ.json */,
+				A0E5044A208CC85C00DF2D37 /* champion-de_DE.json */,
+				A0E50458208CC86900DF2D37 /* champion-el_GR.json */,
+				A0E5044F208CC86000DF2D37 /* champion-en_AU.json */,
+				A0E50465208CC87500DF2D37 /* champion-en_GB.json */,
+				A0E50456208CC86700DF2D37 /* champion-en_PH.json */,
+				A0E5045C208CC86D00DF2D37 /* champion-en_SG.json */,
+				A0E50450208CC86100DF2D37 /* champion-en_US.json */,
+				A0E50455208CC86600DF2D37 /* champion-es_AR.json */,
+				A0E5044B208CC85D00DF2D37 /* champion-es_ES.json */,
+				A0E50454208CC86500DF2D37 /* champion-es_MX.json */,
+				A0E50464208CC87400DF2D37 /* champion-fr_FR.json */,
+				A0E5044C208CC85E00DF2D37 /* champion-hu_HU.json */,
+				A0E5044D208CC85F00DF2D37 /* champion-id_ID.json */,
+				A0E50451208CC86200DF2D37 /* champion-it_IT.json */,
+				A0E5045E208CC86F00DF2D37 /* champion-ja_JP.json */,
+				A0E5044E208CC85F00DF2D37 /* champion-ko_KR.json */,
+				A0E5045D208CC86E00DF2D37 /* champion-ms_MY.json */,
+				A0E5045F208CC87000DF2D37 /* champion-pl_PL.json */,
+				A0E50452208CC86300DF2D37 /* champion-pt_BR.json */,
+				A0E50461208CC87200DF2D37 /* champion-ro_RO.json */,
+				A0E5045B208CC86C00DF2D37 /* champion-ru_RU.json */,
+				A0E50453208CC86400DF2D37 /* champion-th_TH.json */,
+				A0E50457208CC86800DF2D37 /* champion-tr_TR.json */,
+				A0E50462208CC87300DF2D37 /* champion-vn_VN.json */,
+				A0E50463208CC87300DF2D37 /* champion-zh_CN.json */,
+				A0E50459208CC86A00DF2D37 /* champion-zh_MY.json */,
+				A0E50460208CC87100DF2D37 /* champion-zh_TW.json */,
 			);
 			name = champions;
 			sourceTree = "<group>";
@@ -909,86 +1021,114 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0E50466208CC87600DF2D37 /* champion-de_DE.json in Resources */,
+				A0E504B6208CC8B000DF2D37 /* spells-es_MX.json in Resources */,
+				A0E50471208CC87600DF2D37 /* champion-es_AR.json in Resources */,
+				A0E50481208CC87600DF2D37 /* champion-en_GB.json in Resources */,
+				A0E504B2208CC8B000DF2D37 /* spells-fr_FR.json in Resources */,
+				A0E50474208CC87600DF2D37 /* champion-el_GR.json in Resources */,
+				A0E50521208CE2F900DF2D37 /* item-vn_VN.json in Resources */,
+				A0E5051A208CE2F900DF2D37 /* item-zh_MY.json in Resources */,
+				A0E5047A208CC87600DF2D37 /* champion-ja_JP.json in Resources */,
+				A0E50473208CC87600DF2D37 /* champion-tr_TR.json in Resources */,
+				A0E5049E208CC8B000DF2D37 /* spells-ko_KR.json in Resources */,
+				A0E504A7208CC8B000DF2D37 /* spells-th_TH.json in Resources */,
 				A0FC3D5E1F8B05AE005CE127 /* specTVCC.xib in Resources */,
-				A0DF930320083A6D009273B5 /* champion-cs_CZ.json in Resources */,
-				A0DF92F720083A6D009273B5 /* champion-zh_CN.json in Resources */,
-				A0DF930220083A6D009273B5 /* champion-el_GR.json in Resources */,
-				A0DF92D62008387F009273B5 /* spells-tr_TR.json in Resources */,
-				A0DF930D20083A6D009273B5 /* champion-zh_TW.json in Resources */,
-				A0DF92CA2008387F009273B5 /* spells-pl_PL.json in Resources */,
+				A0E50524208CE2F900DF2D37 /* item-en_PH.json in Resources */,
+				A0E5049F208CC8B000DF2D37 /* spells-zh_CN.json in Resources */,
+				A0E504B8208CC8B000DF2D37 /* spells-it_IT.json in Resources */,
+				A0E504A9208CC8B000DF2D37 /* spells-tr_TR.json in Resources */,
+				A0E50470208CC87600DF2D37 /* champion-es_MX.json in Resources */,
+				A0E504A5208CC8B000DF2D37 /* spells-zh_TW.json in Resources */,
 				A0B53D3A1FCCC6FB0068C816 /* championspassiveTVCC.xib in Resources */,
+				A0E5046E208CC87600DF2D37 /* champion-pt_BR.json in Resources */,
+				A0E5046C208CC87600DF2D37 /* champion-en_US.json in Resources */,
+				A0E5050E208CE2F900DF2D37 /* item-en_SG.json in Resources */,
+				A0E504A1208CC8B000DF2D37 /* spells-es_ES.json in Resources */,
 				A085B2482005A6850050ABAB /* Assets.xcassets in Resources */,
-				A0DF92CE2008387F009273B5 /* spells-vn_VN.json in Resources */,
-				A0DF92F920083A6D009273B5 /* champion-en_PH.json in Resources */,
-				A0DF92C12008387F009273B5 /* spells-hu_HU.json in Resources */,
-				A0DF92D22008387F009273B5 /* spells-id_ID.json in Resources */,
+				A0E50510208CE2F900DF2D37 /* item-de_DE.json in Resources */,
+				A0E5051D208CE2F900DF2D37 /* item-ms_MY.json in Resources */,
+				A0E50519208CE2F900DF2D37 /* item-ja_JP.json in Resources */,
+				A0E50472208CC87600DF2D37 /* champion-en_PH.json in Resources */,
+				A0E5046F208CC87600DF2D37 /* champion-th_TH.json in Resources */,
+				A0E504B3208CC8B000DF2D37 /* spells-es_AR.json in Resources */,
+				A0E50480208CC87600DF2D37 /* champion-fr_FR.json in Resources */,
+				A0E5047B208CC87600DF2D37 /* champion-pl_PL.json in Resources */,
+				A0E504A2208CC8B000DF2D37 /* spells-en_SG.json in Resources */,
+				A0E504A4208CC8B000DF2D37 /* spells-hu_HU.json in Resources */,
+				A0E504AD208CC8B000DF2D37 /* spells-en_AU.json in Resources */,
+				A0E504AF208CC8B000DF2D37 /* spells-id_ID.json in Resources */,
 				A0B5F3E91FC97CB7002BA187 /* championstableTVCC.xib in Resources */,
+				A0E50525208CE2F900DF2D37 /* item-tr_TR.json in Resources */,
 				A085B244200583A70050ABAB /* languageTVCC.xib in Resources */,
-				A0DF92BD2008387F009273B5 /* spells-ko_KR.json in Resources */,
 				A0A4995F1EB2877900977541 /* runesTVCC.xib in Resources */,
-				A0DF930920083A6D009273B5 /* champion-en_GB.json in Resources */,
-				A0DF930020083A6D009273B5 /* champion-hu_HU.json in Resources */,
+				A0E5051F208CE2F900DF2D37 /* item-es_ES.json in Resources */,
 				A0D97AF91EA792D300273C10 /* friz_quadrata_r.ttf in Resources */,
-				A0DF92F620083A6D009273B5 /* champion-ru_RU.json in Resources */,
-				A0DF92C32008387F009273B5 /* spells-pt_BR.json in Resources */,
 				A0A4995B1EB2313700977541 /* imageTVCC.xib in Resources */,
-				A0DF92F520083A6D009273B5 /* champion-en_US.json in Resources */,
-				A0DF92FF20083A6D009273B5 /* champion-es_MX.json in Resources */,
-				A0DF92C62008387F009273B5 /* spells-es_MX.json in Resources */,
-				A0DF92C52008387F009273B5 /* spells-zh_MY.json in Resources */,
+				A0E50515208CE2F900DF2D37 /* item-cs_CZ.json in Resources */,
 				A00280001E9D91BD003175A7 /* LaunchScreen.storyboard in Resources */,
-				A0DF92F820083A6D009273B5 /* champion-pt_BR.json in Resources */,
+				A0E5046A208CC87600DF2D37 /* champion-ko_KR.json in Resources */,
+				A0E50518208CE2F900DF2D37 /* item-en_AU.json in Resources */,
 				A0BCAA6A1EB13281008F4D01 /* perfilstatstiersnullTVCC.xib in Resources */,
-				A0DF930520083A6D009273B5 /* champion-ro_RO.json in Resources */,
 				A0A499631EB28FBD00977541 /* masteryTVCC.xib in Resources */,
-				A0DF92C42008387F009273B5 /* spells-el_GR.json in Resources */,
-				A0DF92FD20083A6D009273B5 /* champion-de_DE.json in Resources */,
-				A0DF92BF2008387F009273B5 /* spells-de_DE.json in Resources */,
-				A0DF92BB2008387F009273B5 /* spells-es_AR.json in Resources */,
-				A0DF930C20083A6D009273B5 /* champion-tr_TR.json in Resources */,
-				A0DF92FE20083A6D009273B5 /* champion-ko_KR.json in Resources */,
-				A0DF930B20083A6D009273B5 /* champion-ms_MY.json in Resources */,
-				A0DF92D12008387F009273B5 /* spells-ms_MY.json in Resources */,
 				A0B5F3ED1FC9887C002BA187 /* championsimgTVCC.xib in Resources */,
-				A0DF92BC2008387F009273B5 /* spells-es_ES.json in Resources */,
 				A0BCAA6E1EB14785008F4D01 /* perfilstatusV.xib in Resources */,
-				A0DF92FC20083A6D009273B5 /* champion-th_TH.json in Resources */,
-				A0DF92CC2008387F009273B5 /* spells-cs_CZ.json in Resources */,
+				A0E50517208CE2F900DF2D37 /* item-id_ID.json in Resources */,
+				A0E50477208CC87600DF2D37 /* champion-ru_RU.json in Resources */,
+				A0E50468208CC87600DF2D37 /* champion-hu_HU.json in Resources */,
+				A0E504A6208CC8B000DF2D37 /* spells-en_GB.json in Resources */,
 				A0D97AF81EA792D300273C10 /* friz_quadrata_m.otf in Resources */,
-				A0DF92BE2008387F009273B5 /* spells-ro_RO.json in Resources */,
-				A0DF930120083A6D009273B5 /* champion-fr_FR.json in Resources */,
-				A0DF92CD2008387F009273B5 /* spells-it_IT.json in Resources */,
+				A0E5047D208CC87600DF2D37 /* champion-ro_RO.json in Resources */,
+				A0E50469208CC87600DF2D37 /* champion-id_ID.json in Resources */,
+				A0E5051B208CE2F900DF2D37 /* item-en_GB.json in Resources */,
+				A0E50526208CE2F900DF2D37 /* item-ro_RO.json in Resources */,
+				A0E50512208CE2F900DF2D37 /* item-ru_RU.json in Resources */,
+				A0E50511208CE2F900DF2D37 /* item-es_AR.json in Resources */,
+				A0E50523208CE2F900DF2D37 /* item-pl_PL.json in Resources */,
+				A0E50475208CC87600DF2D37 /* champion-zh_MY.json in Resources */,
+				A0E50513208CE2F900DF2D37 /* item-pt_BR.json in Resources */,
+				A0E50479208CC87600DF2D37 /* champion-ms_MY.json in Resources */,
 				A01218361EBA641700B45F0F /* root.plist in Resources */,
-				A0DF92C72008387F009273B5 /* spells-en_PH.json in Resources */,
+				A0E5047F208CC87600DF2D37 /* champion-zh_CN.json in Resources */,
+				A0E504AC208CC8B000DF2D37 /* spells-de_DE.json in Resources */,
+				A0E504AA208CC8B000DF2D37 /* spells-pt_BR.json in Resources */,
+				A0E5051C208CE2F900DF2D37 /* item-th_TH.json in Resources */,
+				A0E50522208CE2F900DF2D37 /* item-es_MX.json in Resources */,
 				A0A499571EB21C1400977541 /* headerTVH.xib in Resources */,
-				A0DF92CF2008387F009273B5 /* spells-zh_TW.json in Resources */,
+				A0E504A0208CC8B000DF2D37 /* spells-ja_JP.json in Resources */,
+				A0E5046B208CC87600DF2D37 /* champion-en_AU.json in Resources */,
+				A0E50478208CC87600DF2D37 /* champion-en_SG.json in Resources */,
 				A056E7721EAE2B92007FDB9F /* matchesdetplayersTVCC.xib in Resources */,
 				A0B53D351FCCC6C10068C816 /* championsspellTVCC.xib in Resources */,
+				A0E5050F208CE2F900DF2D37 /* item-el_GR.json in Resources */,
+				A0E504B1208CC8B000DF2D37 /* spells-el_GR.json in Resources */,
+				A0E50520208CE2F900DF2D37 /* item-en_US.json in Resources */,
 				A0FF0CA91F00009700A0ADFE /* GoogleService-Info.plist in Resources */,
-				A0DF92C02008387F009273B5 /* spells-ru_RU.json in Resources */,
+				A0E5051E208CE2F900DF2D37 /* item-it_IT.json in Resources */,
+				A0E50527208CE2F900DF2D37 /* item-fr_FR.json in Resources */,
+				A0E5046D208CC87600DF2D37 /* champion-it_IT.json in Resources */,
+				A0E504AE208CC8B000DF2D37 /* spells-ms_MY.json in Resources */,
+				A0E504B0208CC8B000DF2D37 /* spells-pl_PL.json in Resources */,
 				A0027FFB1E9D91BD003175A7 /* Main.storyboard in Resources */,
-				A0DF930820083A6D009273B5 /* champion-id_ID.json in Resources */,
-				A0DF930720083A6D009273B5 /* champion-vn_VN.json in Resources */,
-				A0DF92F420083A6D009273B5 /* champion-zh_MY.json in Resources */,
-				A0DF930E20083A6D009273B5 /* champion-es_ES.json in Resources */,
-				A0DF92FA20083A6D009273B5 /* champion-es_AR.json in Resources */,
-				A0DF92FB20083A6D009273B5 /* champion-en_AU.json in Resources */,
-				A0DF92D02008387F009273B5 /* spells-ja_JP.json in Resources */,
-				A0DF92CB2008387F009273B5 /* spells-fr_FR.json in Resources */,
-				A0DF930620083A6D009273B5 /* champion-it_IT.json in Resources */,
+				A0E50529208CE2F900DF2D37 /* item-zh_CN.json in Resources */,
+				A0E5047E208CC87600DF2D37 /* champion-vn_VN.json in Resources */,
 				A0BF02FA1EA6422600DB84E9 /* emptytableview.xib in Resources */,
-				A0DF92C92008387F009273B5 /* spells-en_GB.json in Resources */,
-				A0DF92C22008387F009273B5 /* spells-en_SG.json in Resources */,
-				A0DF92D32008387F009273B5 /* spells-en_AU.json in Resources */,
-				A0DF930420083A6D009273B5 /* champion-ja_JP.json in Resources */,
-				A0DF92D52008387F009273B5 /* spells-zh_CN.json in Resources */,
+				A0E50528208CE2F900DF2D37 /* item-hu_HU.json in Resources */,
 				A056E7831EAE94DD007FDB9F /* matchesdetbansTVCC.xib in Resources */,
+				A0E50514208CE2F900DF2D37 /* item-ko_KR.json in Resources */,
 				A0B5F3F51FCA03FA002BA187 /* championsskinTVCC.xib in Resources */,
-				A0DF930A20083A6D009273B5 /* champion-en_SG.json in Resources */,
-				A0DF92D42008387F009273B5 /* spells-th_TH.json in Resources */,
+				A0E5047C208CC87600DF2D37 /* champion-zh_TW.json in Resources */,
+				A0E50467208CC87600DF2D37 /* champion-es_ES.json in Resources */,
+				A0E504A8208CC8B000DF2D37 /* spells-vn_VN.json in Resources */,
+				A0E504B5208CC8B000DF2D37 /* spells-ro_RO.json in Resources */,
+				A0E504B7208CC8B000DF2D37 /* spells-zh_MY.json in Resources */,
+				A0E504B9208CC8B000DF2D37 /* spells-ru_RU.json in Resources */,
+				A0E504A3208CC8B000DF2D37 /* spells-en_PH.json in Resources */,
+				A0E504B4208CC8B000DF2D37 /* spells-cs_CZ.json in Resources */,
+				A0E504AB208CC8B000DF2D37 /* spells-en_US.json in Resources */,
+				A0E50516208CE2F900DF2D37 /* item-zh_TW.json in Resources */,
 				A0A499501EB2155300977541 /* infoTVCC.xib in Resources */,
-				A0DF930F20083A6D009273B5 /* champion-pl_PL.json in Resources */,
-				A0DF92C82008387F009273B5 /* spells-en_US.json in Resources */,
+				A0E50476208CC87600DF2D37 /* champion-cs_CZ.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1060,9 +1200,28 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-LOL4YOU/Pods-LOL4YOU-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ActionSheetPicker-3.0/ActionSheetPicker_3_0.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyPlistManager/SwiftyPlistManager.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActionSheetPicker_3_0.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyPlistManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1075,13 +1234,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LOL4YOUTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A8892486F2DF5726620B4E2A /* [CP] Check Pods Manifest.lock */ = {
@@ -1090,13 +1252,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LOL4YOU-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CD62A63DBDDD7F194C291B16 /* [CP] Copy Pods Resources */ = {
@@ -1120,13 +1285,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LOL4YOUUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DE51FAD9C5569008B1E6B6D1 /* [CP] Copy Pods Resources */ = {
@@ -1160,6 +1328,7 @@
 				A0B5F3F41FCA03FA002BA187 /* championsskinTVCC.swift in Sources */,
 				A0A499551EB21BEA00977541 /* headerTVH.swift in Sources */,
 				A0FC3D601F8B05C5005CE127 /* specTVC.swift in Sources */,
+				A02FCB67203368B000FE64A9 /* itensVC.swift in Sources */,
 				A085B243200583A70050ABAB /* languageTVCC.swift in Sources */,
 				A0A499621EB28FBD00977541 /* masteryTVCC.swift in Sources */,
 				A093D17B1F6EC85900DCC466 /* championmasteryCVC.swift in Sources */,
@@ -1174,6 +1343,7 @@
 				A08B8C1F1F8E65AB0063D155 /* specdetTVC.swift in Sources */,
 				A0BCAA691EB13281008F4D01 /* perfilstatstiersnullTVCC.swift in Sources */,
 				A0E478B11EB36D9A00109F56 /* runesdetTVC.swift in Sources */,
+				A02FCB69203368DB00FE64A9 /* itensCVC.swift in Sources */,
 				A01578571EB8F1C400A30C41 /* masterysdetTVC.swift in Sources */,
 				A017A8761EA546B600C325F7 /* perfilVC.swift in Sources */,
 				A0FC3D5D1F8B05AE005CE127 /* specTVCC.swift in Sources */,
@@ -1183,6 +1353,7 @@
 				A0A499531EB21B0A00977541 /* matchesstatsdetTVC.swift in Sources */,
 				A0C849401FC8D861009389B2 /* championsTVC.swift in Sources */,
 				A06CD86D1E9E5FC000D4362E /* statsdetTVC.swift in Sources */,
+				A0C065042083C28A00F2412C /* itensdetalheCVC.swift in Sources */,
 				A056E7741EAE3901007FDB9F /* matchesdetTVC.swift in Sources */,
 				A01578551EB8F1B100A30C41 /* masterysTVC.swift in Sources */,
 				A056E7821EAE94DD007FDB9F /* matchesdetbansTVCC.swift in Sources */,
@@ -1196,6 +1367,7 @@
 				A01BB8F31F7857D400E1A52D /* dateextensions.swift in Sources */,
 				A0BF02FF1EA6B20000DB84E9 /* matchesTVC.swift in Sources */,
 				A0A4995E1EB2877900977541 /* runesTVCC.swift in Sources */,
+				A02FCB6E2034457100FE64A9 /* itensdetalheTVC.swift in Sources */,
 				A0B5F3E81FC97CB7002BA187 /* championstableTVCC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1350,7 +1522,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AC8C668551E0C102D198AF48 /* Pods-LOL4YOU.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "app-lol4you";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = LOL4YOU/LOL4YOU.entitlements;
 				DEVELOPMENT_TEAM = Z4U29JK2HG;
@@ -1368,7 +1540,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4D8C7653D0AE1D6DD09A232E /* Pods-LOL4YOU.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "app-lol4you";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = LOL4YOU/LOL4YOU.entitlements;
 				DEVELOPMENT_TEAM = Z4U29JK2HG;

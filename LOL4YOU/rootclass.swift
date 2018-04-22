@@ -26,10 +26,12 @@ final class rootclass: NSObject {
     var dicStaticChampions = Dictionary<Int, staticchampions>()
     var dicStaticMastery = Dictionary<Int, staticmastery>()
     var dicStaticChampMastery = Dictionary<Int, staticchampmastery>()
+    var dicStaticItens = Dictionary<Int, staticitem>()
     var dicStaticMasteryOrder = Dictionary<String, Int>()
     
     var listStaticChampMastery = Array<staticchampmastery>()
     var listStaticChamp = Array<staticchampions>()
+    var listStaticItem = Array<staticitem>()
     
     var listSessionMatches = Array<Int>()
     var dicSessionMatches = Dictionary<Int, BEMatch>()
@@ -108,6 +110,24 @@ final class rootclass: NSObject {
     
     // CHAMPION - FIM
     
+    class staticitem{
+        var id:Int = 0
+        var name:String = ""
+        var description:String = ""
+        var imagefull:String = ""
+        var imagelink:String = ""
+        var gold:staticitemgold = staticitemgold()
+        var into:Array<String> = Array<String>()
+        var from:Array<String> = Array<String>()
+    }
+    
+    class staticitemgold{
+        var base:Int = 0
+        var total:Int = 0
+        var sell:Int = 0
+        var purchasable:Bool = false
+    }
+    
     class staticrunes {
         var id:Int = 0
         var name:String = ""
@@ -151,6 +171,8 @@ final class rootclass: NSObject {
         static internal var champions:String = "CHAMPIONS"
         static internal var config:String = "CONFIG"
         static internal var language:String = "LANGUAGE"
+        static internal var itens:String = "ITENS"
+        static internal var itensdetalhe:String = "ITENS_DET"
     }
     
     struct lol {
@@ -1386,7 +1408,83 @@ final class rootclass: NSObject {
             }
         }
     }
-
+    
+    //#R00T
+    func carregarItensLocal() {
+        
+        if let url = Bundle.main.url(forResource:"item-\(rootclass.lol.language)", withExtension: "json") {
+            do {
+                let data = try Data(contentsOf:url)
+                let jitens = try JSON(data: data)
+                
+                if jitens != JSON.null {
+                    if(!jitens.isEmpty){
+                        
+                        self.dicStaticItens = Dictionary<Int, staticitem>()
+                        self.listStaticItem = Array<staticitem>()
+                        
+                        for i in 0 ..< jitens.count {
+                            
+                            let r = staticitem()
+                            
+                            if let id = jitens[i]["id"].int {
+                                r.id = id
+                            }
+                            
+                            if let name = jitens[i]["name"].string {
+                                r.name = name
+                            }
+                            
+                            if let description = jitens[i]["description"].string {
+                                r.description = description
+                            }
+                            
+                            if let imagefull = jitens[i]["imagefull"].string {
+                                r.imagefull = imagefull
+                            }
+                            
+                            if let imagelink = jitens[i]["imagelink"].string {
+                                r.imagelink = imagelink
+                            }
+                            
+                            if let goldbase = jitens[i]["gold"]["base"].int {
+                                r.gold.base = goldbase
+                            }
+                            
+                            if let goldtotal = jitens[i]["gold"]["total"].int {
+                                r.gold.total = goldtotal
+                            }
+                            
+                            if let goldsell = jitens[i]["gold"]["sell"].int {
+                                r.gold.sell = goldsell
+                            }
+                            
+                            if let goldpurchasable = jitens[i]["gold"]["purchasable"].bool {
+                                r.gold.purchasable = goldpurchasable
+                            }
+                            
+                            for a in 0 ..< jitens[i]["into"].count {
+                                if let valor = jitens[i]["into"][a].string {
+                                    r.into.append(valor)
+                                }
+                            }
+                            
+                            for a in 0 ..< jitens[i]["from"].count {
+                                if let valor = jitens[i]["from"][a].string {
+                                    r.from.append(valor)
+                                }
+                            }
+                            
+                            self.dicStaticItens[r.id] = r
+                            self.listStaticItem.append(r)
+                        }
+                    }
+                }
+            } catch {
+                print(error)
+            }
+        }
+    }
 
     func listarStaticMasteryJson(jmastery:JSON) {
         
@@ -3125,6 +3223,16 @@ final class rootclass: NSObject {
         
         if let champmastery = self.dicStaticChampMastery[id] {
             rtn = champmastery
+        }
+        
+        return rtn
+    }
+    
+    func listaItem(id:Int) -> staticitem {
+        var rtn = staticitem()
+        
+        if let item = self.dicStaticItens[id] {
+            rtn = item
         }
         
         return rtn

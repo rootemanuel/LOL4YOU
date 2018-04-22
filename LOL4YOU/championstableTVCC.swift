@@ -14,6 +14,7 @@ class championstableTVCC: UITableViewCell, UITableViewDataSource, UITableViewDel
     @IBOutlet weak var segControl: UISegmentedControl!
     
     var champ = rootclass.staticchampions()
+    var sizes = [0,0,0,0,0]
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -144,10 +145,13 @@ class championstableTVCC: UITableViewCell, UITableViewDataSource, UITableViewDel
                 cell.lblNameSpell.text = spell.name
                 cell.lblRangeSpell.text = spell.alcance
                 cell.lblDescriptionSpell.text = spell.descricao
+                cell.txtDescriptionSpell.text = spell.descricao
                 
                 cell.imgSpell.sd_setImage(with: URL(string: spell.image_link), placeholderImage: nil)
                 cell.imgSpell.layer.borderWidth = 1
                 cell.imgSpell.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
+                
+                resizeCell(cell: cell, indexPath: indexPath)
                 
                 return cell
             default:
@@ -185,7 +189,8 @@ class championstableTVCC: UITableViewCell, UITableViewDataSource, UITableViewDel
             case 0:
                 return 100
             case 1:
-                return 170
+                print("#AEEEEEEE PORRA ---- \(self.sizes[indexPath.row])")
+                return CGFloat(self.sizes[indexPath.row])
             default:
                 return 0
             }
@@ -204,7 +209,21 @@ class championstableTVCC: UITableViewCell, UITableViewDataSource, UITableViewDel
         
         self.segControl.setTitleTextAttributes(attnav, for: .normal)
     }
-
+    
+    func resizeCell(cell:championsspellTVCC, indexPath: IndexPath){
+        let width = cell.txtDescriptionSpell.frame.size.width
+        let newsize = cell.txtDescriptionSpell.sizeThatFits(CGSize(width: width, height: CGFloat(MAXFLOAT)))
+        var newframe = cell.txtDescriptionSpell.frame
+            
+        newframe.size = CGSize(width: CGFloat(fmaxf(Float(newsize.width), Float(width))), height: newsize.height)
+        cell.txtDescriptionSpell.frame = newframe
+        
+        if cell.txtDescriptionSpell.frame.size.height < 65 {
+            self.sizes[indexPath.row] = Int(170)
+        } else {
+            self.sizes[indexPath.row] = Int((170 + (cell.txtDescriptionSpell.frame.size.height - 65)))
+        }
+    }
     
     @IBAction func segControlChanged(_ sender: Any) {
         self.tableView.reloadData()
