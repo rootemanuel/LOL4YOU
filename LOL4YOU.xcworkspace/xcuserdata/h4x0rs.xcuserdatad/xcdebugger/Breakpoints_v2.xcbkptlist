@@ -74,12 +74,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LOL4YOU/rootclass.swift"
-            timestampString = "546105879.290985"
+            timestampString = "548015499.915898"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "677"
             endingLineNumber = "677"
-            landmarkName = "listarStaticChampions(champions:)"
+            landmarkName = "listarStaticRunes(runes:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -145,6 +145,54 @@
             endingLineNumber = "25"
             landmarkName = "awakeFromNib()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LOL4YOU/rootclass.swift"
+            timestampString = "548015499.916069"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "3066"
+            endingLineNumber = "3066"
+            landmarkName = "listarSpec(spec:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LOL4YOU.rootclass.listarSpec(spec: (LOL4YOU.rootclass.BESpec) -&gt; ()) -&gt; ()"
+                  moduleName = "LOL4YOU"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/h4x0rs/workspaces/workspace-IOS/LOL4YOU/LOL4YOU/rootclass.swift"
+                  timestampString = "548015500.530542"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "3066"
+                  endingLineNumber = "3066"
+                  offsetFromSymbolStart = "15084">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "function signature specialization &lt;Arg[2] = Value Promoted from Box&gt; of closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in LOL4YOU.rootclass.listarSpec(spec: (LOL4YOU.rootclass.BESpec) -&gt; ()) -&gt; ()"
+                  moduleName = "LOL4YOU"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/h4x0rs/workspaces/workspace-IOS/LOL4YOU/LOL4YOU/rootclass.swift"
+                  timestampString = "548015500.533093"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "3068"
+                  endingLineNumber = "3068"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

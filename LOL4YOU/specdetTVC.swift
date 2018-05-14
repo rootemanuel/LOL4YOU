@@ -12,7 +12,9 @@ import FirebaseAnalytics
 
 class specdetTVC: UITableViewController, GADBannerViewDelegate {
 
-    var sections = ["Runes","Masterys"]
+    //var sections = ["Runes","Masterys"]
+    var sections = ["Runes"]
+    var sizes = [0,0,0,0,0,0]
     
     let rt = rootclass.sharedInstance
     
@@ -34,29 +36,33 @@ class specdetTVC: UITableViewController, GADBannerViewDelegate {
             
             cell.selectionStyle = UITableViewCellSelectionStyle.none
             
-            let rune = rt.listaRune(id: participant.runes[indexPath.row].runeId)
-            cell.imgrune.sd_setImage(with: URL(string: rune.imagelink), placeholderImage: UIImage(named: "static_null"))
-            cell.qtd.text = "x \(participant.runes[indexPath.row].rank)"
-            cell.desc.text = rune.description
+            let rune = rt.listaRuneReforged(id: participant.runes[indexPath.row])
+            cell.name.text = rune.name
+            cell.desc.text = rune.longDesc
+            
+            resizeCell(cell: cell, indexPath: indexPath)
+            cell.imgrune.sd_setImage(with: URL(string: "\(rune.imagelink)"), placeholderImage: UIImage(named: "static_null_all"))
+            cell.imgrune.layer.borderWidth = 1
+            cell.imgrune.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
             
             return cell
-        case 1:
-            //Masterys
-            let cell = Bundle.main.loadNibNamed("masteryTVCC", owner: self, options: nil)?.first as! masteryTVCC
-            
-            cell.selectionStyle = UITableViewCellSelectionStyle.none
-            
-            let mast = rt.listaMastery(id: participant.masterys[indexPath.row].masteryId)
-            let count = participant.masterys[indexPath.row].rank
-            
-            cell.img.sd_setImage(with: URL(string: mast.imagelink), placeholderImage: UIImage(named: "static_null"))
-            cell.img.layer.borderWidth = 1
-            cell.img.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
-            cell.qtd.text = "x \(participant.masterys[indexPath.row].rank)"
-            cell.desc.text =  mast.description[ count - 1]
-            cell.name.text = mast.name
-            
-            return cell
+//        case 1:
+//            //Masterys
+//            let cell = Bundle.main.loadNibNamed("masteryTVCC", owner: self, options: nil)?.first as! masteryTVCC
+//
+//            cell.selectionStyle = UITableViewCellSelectionStyle.none
+//
+//            let mast = rt.listaMastery(id: participant.masterys[indexPath.row].masteryId)
+//            let count = participant.masterys[indexPath.row].rank
+//
+//            cell.img.sd_setImage(with: URL(string: mast.imagelink), placeholderImage: UIImage(named: "static_null"))
+//            cell.img.layer.borderWidth = 1
+//            cell.img.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
+//            cell.qtd.text = "x \(participant.masterys[indexPath.row].rank)"
+//            cell.desc.text =  mast.description[ count - 1]
+//            cell.name.text = mast.name
+//
+//            return cell
         default:
             let cell = Bundle.main.loadNibNamed("infoTVCC", owner: self, options: nil)?.first as! infoTVCC
             
@@ -74,8 +80,8 @@ class specdetTVC: UITableViewController, GADBannerViewDelegate {
         switch section {
         case 0:
             return participant.runes.count
-        case 1:
-            return participant.masterys.count
+//        case 1:
+//            return participant.masterys.count
         default:
             return 0
         }
@@ -100,7 +106,7 @@ class specdetTVC: UITableViewController, GADBannerViewDelegate {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+       return CGFloat(self.sizes[indexPath.row])
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -140,6 +146,21 @@ class specdetTVC: UITableViewController, GADBannerViewDelegate {
         
         self.navigationController?.navigationBar.barTintColor = UIColor(hex: rootclass.colors.FUNDO.rawValue)
         self.navigationController?.navigationBar.titleTextAttributes = attnav
+    }
+    
+    func resizeCell(cell:runesTVCC, indexPath: IndexPath){
+        let width = cell.desc.frame.size.width
+        let newsize = cell.desc.sizeThatFits(CGSize(width: width, height: CGFloat(MAXFLOAT)))
+        var newframe = cell.desc.frame
+        
+        newframe.size = CGSize(width: CGFloat(fmaxf(Float(newsize.width), Float(width))), height: newsize.height)
+        cell.desc.frame = newframe
+        
+        if cell.desc.frame.size.height < 47 {
+            self.sizes[indexPath.row] = Int(120)
+        } else {
+            self.sizes[indexPath.row] = Int((120 + (cell.desc.frame.size.height - 47)))
+        }
     }
     
     func spopViewController(){

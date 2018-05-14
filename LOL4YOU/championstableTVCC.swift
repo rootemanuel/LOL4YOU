@@ -14,7 +14,8 @@ class championstableTVCC: UITableViewCell, UITableViewDataSource, UITableViewDel
     @IBOutlet weak var segControl: UISegmentedControl!
     
     var champ = rootclass.staticchampions()
-    var sizes = [0,0,0,0,0]
+    var sizesPassive = [100];
+    var sizesSpell = [0,0,0,0]
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -129,6 +130,8 @@ class championstableTVCC: UITableViewCell, UITableViewDataSource, UITableViewDel
                 cell.lblPassiveName.text = champ.passiva_name
                 cell.lblPassiveDescription.text = champ.passiva_descricao
                 
+                resizeCellPassive(cell: cell, indexPath: indexPath)
+                
                 cell.imgPassive.sd_setImage(with: URL(string: champ.passiva_link), placeholderImage: nil)
                 cell.imgPassive.layer.borderWidth = 1
                 cell.imgPassive.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
@@ -147,11 +150,11 @@ class championstableTVCC: UITableViewCell, UITableViewDataSource, UITableViewDel
                 cell.lblDescriptionSpell.text = spell.descricao
                 cell.txtDescriptionSpell.text = spell.descricao
                 
+                resizeCellSpell(cell: cell, indexPath: indexPath)
+                
                 cell.imgSpell.sd_setImage(with: URL(string: spell.image_link), placeholderImage: nil)
                 cell.imgSpell.layer.borderWidth = 1
                 cell.imgSpell.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
-                
-                resizeCell(cell: cell, indexPath: indexPath)
                 
                 return cell
             default:
@@ -187,12 +190,11 @@ class championstableTVCC: UITableViewCell, UITableViewDataSource, UITableViewDel
         case 1:
             switch indexPath.section {
             case 0:
-                return 100
+                return CGFloat(self.sizesPassive[indexPath.row])
             case 1:
-                print("#AEEEEEEE PORRA ---- \(self.sizes[indexPath.row])")
-                return CGFloat(self.sizes[indexPath.row])
+                return CGFloat(self.sizesSpell[indexPath.row])
             default:
-                return 0
+                return 100
             }
         case 2:
             return 200
@@ -210,7 +212,7 @@ class championstableTVCC: UITableViewCell, UITableViewDataSource, UITableViewDel
         self.segControl.setTitleTextAttributes(attnav, for: .normal)
     }
     
-    func resizeCell(cell:championsspellTVCC, indexPath: IndexPath){
+    func resizeCellSpell(cell:championsspellTVCC, indexPath: IndexPath){
         let width = cell.txtDescriptionSpell.frame.size.width
         let newsize = cell.txtDescriptionSpell.sizeThatFits(CGSize(width: width, height: CGFloat(MAXFLOAT)))
         var newframe = cell.txtDescriptionSpell.frame
@@ -219,9 +221,24 @@ class championstableTVCC: UITableViewCell, UITableViewDataSource, UITableViewDel
         cell.txtDescriptionSpell.frame = newframe
         
         if cell.txtDescriptionSpell.frame.size.height < 65 {
-            self.sizes[indexPath.row] = Int(170)
+            self.sizesSpell[indexPath.row] = Int(170)
         } else {
-            self.sizes[indexPath.row] = Int((170 + (cell.txtDescriptionSpell.frame.size.height - 65)))
+            self.sizesSpell[indexPath.row] = Int((170 + (cell.txtDescriptionSpell.frame.size.height - 65)))
+        }
+    }
+    
+    func resizeCellPassive(cell:championspassiveTVCC, indexPath: IndexPath){
+        let width = cell.lblPassiveDescription.frame.size.width
+        let newsize = cell.lblPassiveDescription.sizeThatFits(CGSize(width: width, height: CGFloat(MAXFLOAT)))
+        var newframe = cell.lblPassiveDescription.frame
+        
+        newframe.size = CGSize(width: CGFloat(fmaxf(Float(newsize.width), Float(width))), height: newsize.height)
+        cell.lblPassiveDescription.frame = newframe
+        
+        if cell.lblPassiveDescription.frame.size.height < 40 {
+            self.sizesPassive[indexPath.row] = Int(100)
+        } else {
+            self.sizesPassive[indexPath.row] = Int((100 + (cell.lblPassiveDescription.frame.size.height - 40)))
         }
     }
     

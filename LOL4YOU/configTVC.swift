@@ -91,6 +91,7 @@ class configTVC: UITableViewController, languageDelegate, GADBannerViewDelegate 
             self.rt.carregarChampionsLocal()
             self.rt.carregarSpellsLocal()
             self.rt.carregarItensLocal();
+            self.rt.carregarRunesLocal();
             
             DispatchQueue.main.async {
                 

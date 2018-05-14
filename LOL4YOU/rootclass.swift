@@ -23,6 +23,7 @@ final class rootclass: NSObject {
     
     var dicStaticSpell = Dictionary<Int, staticspell>()
     var dicStaticRunes = Dictionary<Int, staticrunes>()
+    var dicStaticRunesReforged = Dictionary<Int, staticrune>()
     var dicStaticChampions = Dictionary<Int, staticchampions>()
     var dicStaticMastery = Dictionary<Int, staticmastery>()
     var dicStaticChampMastery = Dictionary<Int, staticchampmastery>()
@@ -32,6 +33,7 @@ final class rootclass: NSObject {
     var listStaticChampMastery = Array<staticchampmastery>()
     var listStaticChamp = Array<staticchampions>()
     var listStaticItem = Array<staticitem>()
+    var listStaticRunesReforged = Array<staticrune>()
     
     var listSessionMatches = Array<Int>()
     var dicSessionMatches = Dictionary<Int, BEMatch>()
@@ -126,6 +128,17 @@ final class rootclass: NSObject {
         var total:Int = 0
         var sell:Int = 0
         var purchasable:Bool = false
+    }
+    
+    class staticrune{
+        var id:Int = 0
+        var key:String = ""
+        var name:String = ""
+        var shortDesc:String = ""
+        var longDesc:String = ""
+        var runePathId:Int = 0
+        var imagefull:String = ""
+        var imagelink:String = ""
     }
     
     class staticrunes {
@@ -363,7 +376,7 @@ final class rootclass: NSObject {
         var participantId:Int = 0
         var stats:BEMatchStats = BEMatchStats()
         var masterys:Array<BEMastery> = Array<BEMastery>()
-        var runes:Array<BERune> = Array<BERune>()
+        var runes:Array<Int> = Array<Int>()
     }
     
     class BEParticipantsIdent {
@@ -1610,6 +1623,65 @@ final class rootclass: NSObject {
         }
     }
     
+    func carregarRunesLocal() {
+        
+        if let url = Bundle.main.url(forResource:"runes-\(rootclass.lol.language)", withExtension: "json") {
+            do {
+                let data = try Data(contentsOf:url)
+                let jrunes = try JSON(data: data)
+                
+                if jrunes != JSON.null {
+                    if(!jrunes.isEmpty){
+                        
+                        self.dicStaticRunesReforged = Dictionary<Int, staticrune>()
+                        self.listStaticRunesReforged = Array<staticrune>()
+                        
+                        for i in 0 ..< jrunes.count {
+                            
+                            let r = staticrune()
+                            
+                            if let id = jrunes[i]["id"].int {
+                                r.id = id
+                            }
+                            
+                            if let key = jrunes[i]["key"].string {
+                                r.key = key
+                            }
+                            
+                            if let name = jrunes[i]["name"].string {
+                                r.name = name
+                            }
+                            
+                            if let shortDesc = jrunes[i]["shortDesc"].string {
+                                r.shortDesc = shortDesc
+                            }
+                            
+                            if let longDesc = jrunes[i]["longDesc"].string {
+                                r.longDesc = longDesc
+                            }
+                            
+                            if let runePathId = jrunes[i]["runePathId"].int {
+                                r.runePathId = runePathId
+                            }
+                            
+                            if let imagefull = jrunes[i]["imagefull"].string {
+                                r.imagefull = imagefull
+                            }
+                            
+                            if let imagelink = jrunes[i]["imagelink"].string {
+                                r.imagelink = imagelink
+                            }
+                            
+                            self.dicStaticRunesReforged[r.id] = r
+                            self.listStaticRunesReforged.append(r)
+                        }
+                    }
+                }
+            } catch {
+                print(error)
+            }
+        }
+    }
     
     func listarStaticMastery(jmastery:JSON) {
         
@@ -2323,7 +2395,7 @@ final class rootclass: NSObject {
         switch lol.server {
         case Region.REGION_RU.rawValue,
              Region.REGION_KR.rawValue:
-            url = "https://\(lol.server).api.riotgames.com/lol/match/v3/matchlists/by-account/\(Summoner.accountId)/recent?api_key=\(lol.api_key)"
+            url = "https://\(lol.server).api.riotgames.com/lol/match/v3/matchlists/by-account/\(Summoner.accountId)?api_key=\(lol.api_key)"
         case Region.REGION_BR.rawValue,
              Region.REGION_OCE.rawValue,
              Region.REGION_JP.rawValue,
@@ -2332,9 +2404,9 @@ final class rootclass: NSObject {
              Region.REGION_EUW.rawValue,
              Region.REGION_TR.rawValue,
              Region.REGION_LAN.rawValue:
-            url = "https://\(lol.server)1.api.riotgames.com/lol/match/v3/matchlists/by-account/\(Summoner.accountId)/recent?api_key=\(lol.api_key)"
+            url = "https://\(lol.server)1.api.riotgames.com/lol/match/v3/matchlists/by-account/\(Summoner.accountId)?api_key=\(lol.api_key)"
         case Region.REGION_LAS.rawValue:
-            url = "https://\(lol.server)2.api.riotgames.com/lol/match/v3/matchlists/by-account/\(Summoner.accountId)/recent?api_key=\(lol.api_key)"
+            url = "https://\(lol.server)2.api.riotgames.com/lol/match/v3/matchlists/by-account/\(Summoner.accountId)?api_key=\(lol.api_key)"
         default:
             NSLog("#R00T - ERROR SERVER")
         }
@@ -2571,20 +2643,28 @@ final class rootclass: NSObject {
                             
                             //Runes
                             
-                            for b in 0 ..< jmatchdet["participants"][a]["runes"].count {
-                                
-                                let rune = rootclass.BERune()
-                                
-                                if let runeId = jmatchdet["participants"][a]["runes"][b]["runeId"].int {
-                                    rune.runeId = runeId
-                                }
-                                
-                                if let rank = jmatchdet["participants"][a]["runes"][b]["rank"].int {
-                                    rune.rank = rank
-                                }
-                                
-                                participant.runes.append(rune)
-                                
+                            if let perk0 = jmatchdet["participants"][a]["stats"]["perk0"].int {
+                                participant.runes.append(perk0)
+                            }
+                            
+                            if let perk1 = jmatchdet["participants"][a]["stats"]["perk1"].int {
+                                participant.runes.append(perk1)
+                            }
+                            
+                            if let perk2 = jmatchdet["participants"][a]["stats"]["perk2"].int {
+                                participant.runes.append(perk2)
+                            }
+                            
+                            if let perk3 = jmatchdet["participants"][a]["stats"]["perk3"].int {
+                                participant.runes.append(perk3)
+                            }
+                            
+                            if let perk4 = jmatchdet["participants"][a]["stats"]["perk4"].int {
+                                participant.runes.append(perk4)
+                            }
+                            
+                            if let perk5 = jmatchdet["participants"][a]["stats"]["perk5"].int {
+                                participant.runes.append(perk5)
                             }
                             
                             //Mastery
@@ -3027,32 +3107,11 @@ final class rootclass: NSObject {
                             }
                             
                             
-                            for b in 0 ..< jspec["participants"][a]["masteries"].count {
-                                let mastery = BEMastery()
+                            for b in 0 ..< jspec["participants"][a]["perks"]["perkIds"].count {
                                 
-                                if let masteryId = jspec["participants"][a]["masteries"][b]["masteryId"].int {
-                                    mastery.masteryId = masteryId
+                                if let perk = jspec["participants"][a]["perks"]["perkIds"][b].int {
+                                    participant.runes.append(perk)
                                 }
-                                
-                                if let rank = jspec["participants"][a]["masteries"][b]["rank"].int {
-                                    mastery.rank = rank
-                                }
-                                
-                                participant.masterys.append(mastery)
-                            }
-                            
-                            for b in 0 ..< jspec["participants"][a]["runes"].count {
-                                let rune = BERune()
-                                
-                                if let count = jspec["participants"][a]["runes"][b]["count"].int {
-                                    rune.rank = count
-                                }
-                                
-                                if let rank = jspec["participants"][a]["runes"][b]["runeId"].int {
-                                    rune.runeId = rank
-                                }
-                                
-                                participant.runes.append(rune)
                             }
                             
                             rtn.participants.append(participant)
@@ -3243,6 +3302,16 @@ final class rootclass: NSObject {
         
         if let champmastery = self.dicStaticChampions[id] {
             rtn = champmastery
+        }
+        
+        return rtn
+    }
+    
+    func listaRuneReforged(id:Int) -> staticrune {
+        var rtn = staticrune()
+        
+        if let runes = self.dicStaticRunesReforged[id] {
+            rtn = runes
         }
         
         return rtn

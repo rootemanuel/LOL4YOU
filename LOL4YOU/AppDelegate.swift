@@ -66,6 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         rt.carregarChampionsLocal();
         rt.carregarSpellsLocal();
         rt.carregarItensLocal();
+        rt.carregarRunesLocal();
     }
 }
 

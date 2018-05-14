@@ -12,7 +12,9 @@ import FirebaseAnalytics
 
 class matchesstatsdetTVC: UITableViewController, GADBannerViewDelegate{
 
-    var sections = ["Champion","Details","Runes","Masterys"]
+    //var sections = ["Champion","Details","Runes","Masterys"]
+    var sizes = [0,0,0,0,0,0]
+    var sections = ["Champion","Details","Runes"]
     
     let rt = rootclass.sharedInstance
     
@@ -189,30 +191,35 @@ class matchesstatsdetTVC: UITableViewController, GADBannerViewDelegate{
             let cell = Bundle.main.loadNibNamed("runesTVCC", owner: self, options: nil)?.first as! runesTVCC
             
             cell.selectionStyle = UITableViewCellSelectionStyle.none
+         
+            let rune = rt.listaRuneReforged(id: participant.runes[indexPath.row])
             
-            let rune = rt.listaRune(id: participant.runes[indexPath.row].runeId)
+            cell.name.text = rune.name
+            cell.desc.text = rune.longDesc
+            resizeCell(cell: cell, indexPath: indexPath)
+            
             cell.imgrune.sd_setImage(with: URL(string: rune.imagelink), placeholderImage: UIImage(named: "static_null"))
-            cell.qtd.text = "x \(participant.runes[indexPath.row].rank)"
-            cell.desc.text = rune.description
+            cell.imgrune.layer.borderWidth = 1
+            cell.imgrune.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
             
             return cell
-        case 3:
-            //Masterys
-            let cell = Bundle.main.loadNibNamed("masteryTVCC", owner: self, options: nil)?.first as! masteryTVCC
-            
-            cell.selectionStyle = UITableViewCellSelectionStyle.none
-            
-            let mast = rt.listaMastery(id: participant.masterys[indexPath.row].masteryId)
-            let count = participant.masterys[indexPath.row].rank
-            
-            cell.img.sd_setImage(with: URL(string: mast.imagelink), placeholderImage: UIImage(named: "static_null"))
-            cell.img.layer.borderWidth = 1
-            cell.img.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
-            cell.qtd.text = "x \(participant.masterys[indexPath.row].rank)"
-            cell.desc.text =  mast.description[ count - 1]
-            cell.name.text = mast.name
-            
-            return cell
+//        case 3:
+//            //Masterys
+//            let cell = Bundle.main.loadNibNamed("masteryTVCC", owner: self, options: nil)?.first as! masteryTVCC
+//
+//            cell.selectionStyle = UITableViewCellSelectionStyle.none
+//
+//            let mast = rt.listaMastery(id: participant.masterys[indexPath.row].masteryId)
+//            let count = participant.masterys[indexPath.row].rank
+//
+//            cell.img.sd_setImage(with: URL(string: mast.imagelink), placeholderImage: UIImage(named: "static_null"))
+//            cell.img.layer.borderWidth = 1
+//            cell.img.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
+//            cell.qtd.text = "x \(participant.masterys[indexPath.row].rank)"
+//            cell.desc.text =  mast.description[ count - 1]
+//            cell.name.text = mast.name
+//
+//            return cell
         default:
             let cell = Bundle.main.loadNibNamed("infoTVCC", owner: self, options: nil)?.first as! infoTVCC
             
@@ -234,8 +241,8 @@ class matchesstatsdetTVC: UITableViewController, GADBannerViewDelegate{
             return 14
         case 2:
             return participant.runes.count
-        case 3:
-            return participant.masterys.count
+//        case 3:
+//            return participant.masterys.count
         default:
             return 0
         }
@@ -266,9 +273,9 @@ class matchesstatsdetTVC: UITableViewController, GADBannerViewDelegate{
         case 1:
             return 55
         case 2:
-            return 60
-        case 3:
-            return 60
+            return CGFloat(self.sizes[indexPath.row])
+//        case 3:
+//            return 60
         default:
             return 0
         }
@@ -313,8 +320,22 @@ class matchesstatsdetTVC: UITableViewController, GADBannerViewDelegate{
         self.navigationController?.navigationBar.titleTextAttributes = attnav
     }
     
+    func resizeCell(cell:runesTVCC, indexPath: IndexPath){
+        let width = cell.desc.frame.size.width
+        let newsize = cell.desc.sizeThatFits(CGSize(width: width, height: CGFloat(MAXFLOAT)))
+        var newframe = cell.desc.frame
+        
+        newframe.size = CGSize(width: CGFloat(fmaxf(Float(newsize.width), Float(width))), height: newsize.height)
+        cell.desc.frame = newframe
+        
+        if cell.desc.frame.size.height < 47 {
+            self.sizes[indexPath.row] = Int(120)
+        } else {
+            self.sizes[indexPath.row] = Int((120 + (cell.desc.frame.size.height - 47)))
+        }
+    }
+    
     func spopViewController(){
         self.navigationController?.popViewController(animated: true)
     }
-    
 }

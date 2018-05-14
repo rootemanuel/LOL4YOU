@@ -8,21 +8,19 @@
 
 import UIKit
 
-class championspassiveTVCC: UITableViewCell {
+class championspassiveTVCC: UITableViewCell, UITextViewDelegate{
     
-    @IBOutlet weak var lblPassiveDescription: UILabel!
+    @IBOutlet weak var lblPassiveDescription: UITextView!
     @IBOutlet weak var lblPassiveName: UILabel!
     @IBOutlet weak var imgPassive: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        self.lblPassiveDescription.delegate = self
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
-    
 }

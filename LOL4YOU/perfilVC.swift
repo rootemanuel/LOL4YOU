@@ -31,8 +31,8 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
         menu.init(title: "Profile", image: "static_menu_profile"),
 //        menu.init(title: "Stats", image: "static_menu_stats"),
         menu.init(title: "Matches", image: "static_menu_matches"),
-        menu.init(title: "Runes", image: "static_menu_runes"),
-        menu.init(title: "Masteries", image: "static_menu_masterys"),
+//        menu.init(title: "Runes", image: "static_menu_runes"),
+//        menu.init(title: "Masteries", image: "static_menu_masterys"),
         menu.init(title: "Champion Mastery", image: "static_menu_masteries")
     ]
     
@@ -121,17 +121,17 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
             let vc = storyboard.instantiateViewController(withIdentifier: "matches") as! matchesTVC
             
             self.navigationController?.pushViewController(vc, animated: true)
+//        }else if indexPath.item == 2 {
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            let vc = storyboard.instantiateViewController(withIdentifier: "runes") as! runesTVC
+//
+//            self.navigationController?.pushViewController(vc, animated: true)
+//        }else if indexPath.item == 3 {
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            let vc = storyboard.instantiateViewController(withIdentifier: "masterys") as! masterysTVC
+//
+//            self.navigationController?.pushViewController(vc, animated: true)
         }else if indexPath.item == 2 {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "runes") as! runesTVC
-                
-            self.navigationController?.pushViewController(vc, animated: true)
-        }else if indexPath.item == 3 {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "masterys") as! masterysTVC
-            
-            self.navigationController?.pushViewController(vc, animated: true)
-        }else if indexPath.item == 4 {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "champmastery") as! champmasteryVC
     

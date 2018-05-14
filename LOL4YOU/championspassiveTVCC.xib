@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1611" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,15 +30,6 @@
                         <color key="textColor" red="0.99215686270000003" green="0.73333333329999995" blue="0.086274509799999996" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sLh-dP-603">
-                        <rect key="frame" x="66" y="41" width="246" height="47"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="47" id="236-PV-Jnf"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="10"/>
-                        <color key="textColor" red="0.92941176469999998" green="0.87843137250000003" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wFJ-OX-01Z">
                         <rect key="frame" x="8" y="41" width="50" height="50"/>
                         <constraints>
@@ -46,23 +37,31 @@
                             <constraint firstAttribute="height" constant="50" id="bGs-iw-sbd"/>
                         </constraints>
                     </imageView>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Description" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZiC-dk-3nN">
+                        <rect key="frame" x="66" y="41" width="246" height="50"/>
+                        <color key="backgroundColor" red="0.0078431372550000003" green="0.039215686270000001" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.92941176469999998" green="0.87843137250000003" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" name="FrizQuadrataTT" family="Friz Quadrata TT" pointSize="10"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
                 </subviews>
                 <color key="backgroundColor" red="0.0078431372550000003" green="0.039215686270000001" blue="0.058823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstItem="ei0-H8-LIR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="0dy-v9-Dxr"/>
-                    <constraint firstAttribute="trailing" secondItem="sLh-dP-603" secondAttribute="trailing" constant="8" id="7DH-ay-pXw"/>
+                    <constraint firstAttribute="bottom" secondItem="ZiC-dk-3nN" secondAttribute="bottom" constant="8.5" id="4Oi-AJ-7jz"/>
                     <constraint firstItem="wFJ-OX-01Z" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="41" id="FbL-L7-qZ8"/>
                     <constraint firstAttribute="trailing" secondItem="ei0-H8-LIR" secondAttribute="trailing" constant="8" id="HBI-Uv-i3q"/>
-                    <constraint firstItem="sLh-dP-603" firstAttribute="leading" secondItem="wFJ-OX-01Z" secondAttribute="trailing" constant="8" id="JDl-gP-phx"/>
-                    <constraint firstItem="sLh-dP-603" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="33" id="RpE-k4-KDP"/>
+                    <constraint firstItem="ZiC-dk-3nN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="41" id="I9j-eV-1Pj"/>
                     <constraint firstItem="ei0-H8-LIR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="dr1-7j-hN6"/>
+                    <constraint firstAttribute="trailing" secondItem="ZiC-dk-3nN" secondAttribute="trailing" constant="8" id="h6E-SO-qXx"/>
+                    <constraint firstItem="ZiC-dk-3nN" firstAttribute="leading" secondItem="wFJ-OX-01Z" secondAttribute="trailing" constant="8" id="r9u-pK-ja3"/>
                     <constraint firstItem="wFJ-OX-01Z" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="tBx-ki-5Mj"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.086274509799999996" green="0.10980392160000001" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="imgPassive" destination="wFJ-OX-01Z" id="Jpl-Sy-Lh9"/>
-                <outlet property="lblPassiveDescription" destination="sLh-dP-603" id="4DR-RL-1fz"/>
+                <outlet property="lblPassiveDescription" destination="ZiC-dk-3nN" id="nSR-LZ-X31"/>
                 <outlet property="lblPassiveName" destination="ei0-H8-LIR" id="fji-TI-32O"/>
             </connections>
         </tableViewCell>

@@ -13,11 +13,13 @@ import FirebaseAnalytics
 
 class runesTVC: UITableViewController, GADBannerViewDelegate{
     
-    var emptytableview:emptytableview? = nil
-    var runes = Array<rootclass.BERunes>()
-    
     let rt = rootclass.sharedInstance
     let admob = rootadmob.sharedInstance
+    
+    var emptytableview:emptytableview? = nil
+    var runes = Array<rootclass.staticrune>()
+    var sizesDesc = [Int](0...100);
+    var langAtu = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,56 +29,58 @@ class runesTVC: UITableViewController, GADBannerViewDelegate{
         self.loadingView()
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        admob.addCountAdMobInterstitial();
-        
-        if admob.showAdMobInterstitial() {
-            if let adMobInterstitial = admob.getAdInterstitial() {
-                adMobInterstitial.present(fromRootViewController: self)
-                return
-            }
-        }
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "runesdet") as! runesdetTVC
-        
-        let slots = self.runes[indexPath.row].slots
-        var runesvc = Array<rootclass.BERune>()
-        
-        var runeidant = 0
-        for i in 0 ..< slots.count {
-            if runeidant != slots[i].runeId {
-                let r = rootclass.BERune()
-                let runeaux = slots.filter{p in p.runeId == slots[i].runeId}
-                
-                if runeaux.count > 0 {
-                    r.runeId = slots[i].runeId
-                    r.rank = runeaux.count
-                    runesvc.append(r)
-                }
-                
-                runeidant = slots[i].runeId
-            }
-        }
-        
-        vc.title = runes[indexPath.row].name
-        vc.runesdet = runesvc
-        
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        
+//        admob.addCountAdMobInterstitial();
+//        
+//        if admob.showAdMobInterstitial() {
+//            if let adMobInterstitial = admob.getAdInterstitial() {
+//                adMobInterstitial.present(fromRootViewController: self)
+//                return
+//            }
+//        }
+//        
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let vc = storyboard.instantiateViewController(withIdentifier: "runesdet") as! runesdetTVC
+//        
+//        let slots = self.runes[indexPath.row].slots
+//        var runesvc = Array<rootclass.BERune>()
+//        
+//        var runeidant = 0
+//        for i in 0 ..< slots.count {
+//            if runeidant != slots[i].runeId {
+//                let r = rootclass.BERune()
+//                let runeaux = slots.filter{p in p.runeId == slots[i].runeId}
+//                
+//                if runeaux.count > 0 {
+//                    r.runeId = slots[i].runeId
+//                    r.rank = runeaux.count
+//                    runesvc.append(r)
+//                }
+//                
+//                runeidant = slots[i].runeId
+//            }
+//        }
+//        
+//        vc.title = runes[indexPath.row].name
+//        vc.runesdet = runesvc
+//        
+//        self.navigationController?.pushViewController(vc, animated: true)
+//    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = Bundle.main.loadNibNamed("infoTVCC", owner: self, options: nil)?.first as! infoTVCC
-        
+        let cell = Bundle.main.loadNibNamed("runesTVCC", owner: self, options: nil)?.first as! runesTVCC
+        let rune = runes[indexPath.row]
         cell.selectionStyle = UITableViewCellSelectionStyle.none
-        cell.item.text = runes[indexPath.row].name
-        if runes[indexPath.row].current {
-            cell.valor.text = "CURRENT"
-            cell.valor.textColor = UIColor(hex: rootclass.colors.TEXTO_VITORIA.rawValue)
-        } else {
-            cell.valor.isHidden = true
-        }
+        
+        cell.name.text = rune.name
+        cell.desc.text = rune.longDesc
+        
+        resizeCell(cell: cell, indexPath: indexPath)
+        
+        cell.imgrune.sd_setImage(with: URL(string: "\(rune.imagelink)"), placeholderImage: UIImage(named: "static_null_all"))
+        cell.imgrune.layer.borderWidth = 1
+        cell.imgrune.layer.borderColor = UIColor(hex: rootclass.colors.BORDA_BRILHANTE.rawValue).cgColor
         
         return cell
     }
@@ -103,22 +107,15 @@ class runesTVC: UITableViewController, GADBannerViewDelegate{
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 44
+        return CGFloat(self.sizesDesc[indexPath.row])
     }
     
     func loadingView() {
         SVProgressHUD.show()
         
-        rt.listarRunes() {(runes) in
-            if runes.count > 0 {
-                self.runes = runes
-                self.tableView.reloadData()
-                SVProgressHUD.dismiss()
-            } else {
-                self.initemptytableview()
-                SVProgressHUD.dismiss()
-            }
-        }
+        self.runes = rt.listStaticRunesReforged.sorted(by: { $0.name < $1.name })
+        
+        SVProgressHUD.dismiss()
     }
     
     func initemptytableview() {
@@ -147,13 +144,6 @@ class runesTVC: UITableViewController, GADBannerViewDelegate{
             NSFontAttributeName: UIFont(name: "Friz Quadrata TT", size: 17)!
         ]
         
-        let button = UIButton.init(type: .custom)
-        button.setImage(UIImage(named:"static_button_back"), for: UIControlState.normal)
-        button.addTarget(self, action:#selector(spopViewController), for: UIControlEvents.touchUpInside)
-        button.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
-        let barButton = UIBarButtonItem.init(customView: button)
-        self.navigationItem.leftBarButtonItem = barButton
-        
         self.navigationController?.navigationBar.barTintColor = UIColor(hex: rootclass.colors.FUNDO.rawValue)
         self.navigationController?.navigationBar.titleTextAttributes = attnav
         self.title = "Runes"
@@ -161,5 +151,28 @@ class runesTVC: UITableViewController, GADBannerViewDelegate{
     
     func spopViewController(){
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    func resizeCell(cell:runesTVCC, indexPath: IndexPath){
+        let width = cell.desc.frame.size.width
+        let newsize = cell.desc.sizeThatFits(CGSize(width: width, height: CGFloat(MAXFLOAT)))
+        var newframe = cell.desc.frame
+        
+        newframe.size = CGSize(width: CGFloat(fmaxf(Float(newsize.width), Float(width))), height: newsize.height)
+        cell.desc.frame = newframe
+        
+        if cell.desc.frame.size.height < 47 {
+            self.sizesDesc[indexPath.row] = Int(120)
+        } else {
+            self.sizesDesc[indexPath.row] = Int((120 + (cell.desc.frame.size.height - 47)))
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if langAtu != rootclass.lol.language {
+            self.runes = rt.listStaticRunesReforged.sorted(by: { $0.name < $1.name })
+            self.tableView.reloadData()
+            langAtu = rootclass.lol.language
+        }
     }
 }
