@@ -13,8 +13,8 @@ import SwiftyJSON
 import GoogleMobileAds
 import FirebaseAnalytics
 
-class matchesTVC: UITableViewController, GADBannerViewDelegate{
-
+class matchesTVC: UITableViewController, GADBannerViewDelegate {
+    
     let admob = rootadmob.sharedInstance
     let rt = rootclass.sharedInstance
     
@@ -194,21 +194,36 @@ class matchesTVC: UITableViewController, GADBannerViewDelegate{
     
     func loadingView() {
         SVProgressHUD.show()
-    
+        
         rt.listarMatches() {(match) in
             if match.count > 0 {
-                    DispatchQueue.main.async {
-                        self.matchs = match
-                        self.tableView.reloadData()
-                        SVProgressHUD.dismiss()
-                    }
+                DispatchQueue.main.async {
+                    self.matchs = match
+                    self.tableView.reloadData()
+                    SVProgressHUD.dismiss()
+                }
             } else {
-                 self.initemptytableview()
-                 SVProgressHUD.dismiss()
+                self.initemptytableview()
+                SVProgressHUD.dismiss()
             }
         }
     }
     
+    func updateemptytableview(){
+        self.initemptytableview()
+        
+        if matchs.count > 0 {
+            tableView.separatorStyle = .singleLine
+            tableView.backgroundView?.isHidden = true
+            tableView.backgroundColor = UIColor(hex: rootclass.colors.FUNDO.rawValue)
+        } else {
+            tableView.separatorStyle = .none
+            tableView.backgroundView?.isHidden = false
+            tableView.backgroundColor = UIColor(hex: rootclass.colors.FUNDO_EMPTY_TABLEVIEW.rawValue)
+        }
+        
+        self.tableView.reloadData()
+    }
     func initemptytableview() {
         emptytableview = Bundle.main.loadNibNamed("emptytableview", owner: self, options: nil)?.first as? emptytableview
         self.tableView.backgroundView = emptytableview
@@ -229,6 +244,7 @@ class matchesTVC: UITableViewController, GADBannerViewDelegate{
         
         self.navigationController?.navigationBar.barTintColor = UIColor(hex: rootclass.colors.FUNDO.rawValue)
         self.navigationController?.navigationBar.titleTextAttributes = attnav
+        
         self.title = "Matches"
     }
     

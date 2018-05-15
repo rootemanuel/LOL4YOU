@@ -11,9 +11,20 @@ import Alamofire
 import SwiftyJSON
 import Firebase
 
+protocol updateImagesSpec {
+    func updateImagesSpec()
+}
+
+protocol updateMatches {
+    func updateMatches()
+}
+
 final class rootclass: NSObject {
     
     static let sharedInstance: rootclass = rootclass()
+    
+    var delegateUpdateImagesSpec:updateImagesSpec! = nil
+    var delegateUpdateMatches:updateMatches! = nil
     
     private override init() {
         super.init()
@@ -36,6 +47,7 @@ final class rootclass: NSObject {
     var listStaticRunesReforged = Array<staticrune>()
     
     var listSessionMatches = Array<Int>()
+    var listSessionMatchesSmall = Array<BEMatchSmall>()
     var dicSessionMatches = Dictionary<Int, BEMatch>()
     var dicSessionMatchesQueue = Dictionary<Int, String>()
     
@@ -2322,6 +2334,7 @@ final class rootclass: NSObject {
         }
     }
     
+    //#AQUI
     func listarMaestrySync(summonerid:Int,champion:Int, maestry:@escaping (staticchampmastery) -> ()) {
         
         var rtn = staticchampmastery()
@@ -2387,10 +2400,9 @@ final class rootclass: NSObject {
         var rtn = Array<Int>()
         self.listSessionMatches = Array<Int>()
         self.dicSessionMatches = Dictionary<Int, BEMatch>()
+        self.listSessionMatchesSmall = Array<BEMatchSmall>()
         
         var url = ""
-        
-        NSLog("#R00T - TESTANDOOOOOOOOOOOOOOOOOOOOOOOOOO : \(NSDate())")
         
         switch lol.server {
         case Region.REGION_RU.rawValue,
@@ -2449,10 +2461,10 @@ final class rootclass: NSObject {
             
             self.listSessionMatches = rtn
             matchesid(rtn)
-            NSLog("#R00T - TESTANDOOOOOOOOOOOOOOOOOOOOOOOOOO - 1: \(NSDate())")
         }
     }
     
+    //#AQUI
     func listarMatchUni(matchid:Int) {
         
         let match = rootclass.BEMatch()
@@ -2767,6 +2779,7 @@ final class rootclass: NSObject {
                         }
                         NSLog("#R00T - TESTANDOOOOOOOOOOOOOOOOOOOOOOOOOO - 2: \(NSDate())")
                         self.dicSessionMatches[matchid] = match
+//                        self.listarMatchesTeste(match: match)
                     }
                 }
             case .failure(let error):
@@ -2835,7 +2848,6 @@ final class rootclass: NSObject {
                     r.stats.minionsKilled = participants[0].stats.totalMinionsKilled + participants[0].stats.neutralMinionsKilled
                     
                 } else {
-                    print("#R00T - EXCECAO AQUI - INI")
                     let participants = match.participants.filter { p in p.participantId == 1 }
                     
                     r.createDate = match.gameCreation
@@ -2879,8 +2891,103 @@ final class rootclass: NSObject {
                 rtn.append(r)
             }
         }
-        
         match(rtn)
+    }
+    
+    //#AQUI
+    func listarMatchesTeste(match:BEMatch) {
+        
+            let r = BEMatchSmall()
+        
+                let participantId = match.participantsIdentities.filter { p in p.summonerId == Summoner.summonerID }
+                
+                if participantId.count > 0 {
+                    
+                    let participants = match.participants.filter { p in p.participantId == participantId[0].participantId }
+                    
+                    r.createDate = match.gameCreation
+                    r.gameId = match.gameId
+                    r.queue = match.queueType
+                    r.championId = participants[0].championId
+                    r.spell1 = participants[0].spell1Id
+                    r.spell2 = participants[0].spell2Id
+                    
+                    r.stats.item0 = participants[0].stats.item0
+                    r.stats.item0imagelink = participants[0].stats.item0imagelink
+                    
+                    r.stats.item1 = participants[0].stats.item1
+                    r.stats.item1imagelink = participants[0].stats.item1imagelink
+                    
+                    r.stats.item2 = participants[0].stats.item2
+                    r.stats.item2imagelink = participants[0].stats.item2imagelink
+                    
+                    r.stats.item3 = participants[0].stats.item3
+                    r.stats.item3imagelink = participants[0].stats.item3imagelink
+                    
+                    r.stats.item4 = participants[0].stats.item4
+                    r.stats.item4imagelink = participants[0].stats.item4imagelink
+                    
+                    r.stats.item5 = participants[0].stats.item5
+                    r.stats.item5imagelink = participants[0].stats.item5imagelink
+                    
+                    r.stats.item6 = participants[0].stats.item6
+                    r.stats.item6imagelink = participants[0].stats.item6imagelink
+                    
+                    r.stats.goldEarned = participants[0].stats.goldEarned
+                    r.stats.championsKilled = participants[0].stats.kills
+                    r.stats.numDeaths = participants[0].stats.deaths
+                    r.stats.assists = participants[0].stats.assists
+                    r.stats.timePlayed = match.gameDuration
+                    r.stats.win = participants[0].stats.win
+                    r.stats.level = participants[0].stats.champLevel
+                    r.stats.minionsKilled = participants[0].stats.totalMinionsKilled + participants[0].stats.neutralMinionsKilled
+                    
+                } else {
+                    let participants = match.participants.filter { p in p.participantId == 1 }
+                    
+                    r.createDate = match.gameCreation
+                    r.gameId = match.gameId
+                    r.queue = match.queueType
+                    r.championId = participants[0].championId
+                    r.spell1 = participants[0].spell1Id
+                    r.spell2 = participants[0].spell2Id
+                    
+                    r.stats.item0 = participants[0].stats.item0
+                    r.stats.item0imagelink = participants[0].stats.item0imagelink
+                    
+                    r.stats.item1 = participants[0].stats.item1
+                    r.stats.item1imagelink = participants[0].stats.item1imagelink
+                    
+                    r.stats.item2 = participants[0].stats.item2
+                    r.stats.item2imagelink = participants[0].stats.item2imagelink
+                    
+                    r.stats.item3 = participants[0].stats.item3
+                    r.stats.item3imagelink = participants[0].stats.item3imagelink
+                    
+                    r.stats.item4 = participants[0].stats.item4
+                    r.stats.item4imagelink = participants[0].stats.item4imagelink
+                    
+                    r.stats.item5 = participants[0].stats.item5
+                    r.stats.item5imagelink = participants[0].stats.item5imagelink
+                    
+                    r.stats.item6 = participants[0].stats.item6
+                    r.stats.item6imagelink = participants[0].stats.item6imagelink
+                    
+                    r.stats.goldEarned = participants[0].stats.goldEarned
+                    r.stats.championsKilled = participants[0].stats.kills
+                    r.stats.numDeaths = participants[0].stats.deaths
+                    r.stats.assists = participants[0].stats.assists
+                    r.stats.timePlayed = match.gameDuration
+                    r.stats.win = participants[0].stats.win
+                    r.stats.level = participants[0].stats.champLevel
+                    r.stats.minionsKilled = participants[0].stats.totalMinionsKilled + participants[0].stats.neutralMinionsKilled
+                }
+        
+        self.listSessionMatchesSmall.append(r)
+        
+//        if self.delegateUpdateMatches != nil {
+//            self.delegateUpdateMatches.updateMatches()
+//        }
     }
     
     func listarRunes(runes:@escaping (Array<BERunes>) -> ()) {
@@ -3103,6 +3210,7 @@ final class rootclass: NSObject {
                                 
                                 self.listarMaestrySync(summonerid: participant.summonerId, champion: participant.championId) {(maestry) in
                                     participant.maestry = maestry
+                                    self.delegateUpdateImagesSpec.updateImagesSpec()
                                 }
                             }
                             

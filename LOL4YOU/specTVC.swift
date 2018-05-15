@@ -11,8 +11,8 @@ import SVProgressHUD
 import GoogleMobileAds
 import FirebaseAnalytics
 
-class specTVC: UITableViewController, GADBannerViewDelegate {
-
+class specTVC: UITableViewController, GADBannerViewDelegate, updateImagesSpec {
+    
     let rt = rootclass.sharedInstance
     let admob = rootadmob.sharedInstance
     
@@ -378,6 +378,8 @@ class specTVC: UITableViewController, GADBannerViewDelegate {
         self.navigationController?.navigationBar.barTintColor = UIColor(hex: rootclass.colors.FUNDO.rawValue)
         self.navigationController?.navigationBar.titleTextAttributes = attnav
         
+        self.rt.delegateUpdateImagesSpec = self
+        
         self.title = "Spectador"
     }
     
@@ -394,6 +396,12 @@ class specTVC: UITableViewController, GADBannerViewDelegate {
             
             self.tableView.tableHeaderView = adBannerView
         }
+    }
+    
+    func updateImagesSpec() {
+        UIView.transition(with: self.tableView, duration: 1.0, options: .transitionCrossDissolve, animations: {
+            self.tableView.reloadData() 
+        }, completion: nil)
     }
     
     func spopViewController(){

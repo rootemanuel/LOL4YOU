@@ -85,7 +85,6 @@ class runesdetTVC: UITableViewController, GADBannerViewDelegate {
     }
     
     func loadingView() {
-    
         if runesdet.count > 0 {
             self.tableView.reloadData()
         } else {
