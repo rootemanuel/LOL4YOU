@@ -74,13 +74,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LOL4YOU/rootclass.swift"
-            timestampString = "548093505.249104"
+            timestampString = "570401398.457269"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "689"
             endingLineNumber = "689"
-            landmarkName = "listarStaticRunes(runes:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -145,6 +145,70 @@
             endingLineNumber = "25"
             landmarkName = "awakeFromNib()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LOL4YOU/rootclass.swift"
+            timestampString = "570401398.457756"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "2426"
+            endingLineNumber = "2426"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LOL4YOU.rootclass.listarMatchesSession(matchesid: (Swift.Array&lt;Swift.Int&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "LOL4YOU"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/h4x0rs/workspaces/workspace-IOS/LOL4YOU/LOL4YOU/rootclass.swift"
+                  timestampString = "570401398.642445"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "2426"
+                  endingLineNumber = "2426"
+                  offsetFromSymbolStart = "4996">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in LOL4YOU.rootclass.listarMatchesSession(matchesid: (Swift.Array&lt;Swift.Int&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "LOL4YOU"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/h4x0rs/workspaces/workspace-IOS/LOL4YOU/LOL4YOU/rootclass.swift"
+                  timestampString = "570401398.644042"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "2400"
+                  endingLineNumber = "2400"
+                  offsetFromSymbolStart = "126">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LOL4YOU/rootclass.swift"
+            timestampString = "570401398.458015"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "2505"
+            endingLineNumber = "2505"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

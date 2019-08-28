@@ -68,8 +68,8 @@ class itensVC: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     
     func initView(){
         let attnav = [
-            NSForegroundColorAttributeName: UIColor(hex:rootclass.colors.TEXTO_TOP_BAR.rawValue),
-            NSFontAttributeName: UIFont(name: "Friz Quadrata TT", size: 17)!
+            NSAttributedStringKey.foregroundColor: UIColor(hex:rootclass.colors.TEXTO_TOP_BAR.rawValue),
+            NSAttributedStringKey.font: UIFont(name: "Friz Quadrata TT", size: 17)!
         ]
         
         self.collectionView.dataSource = self

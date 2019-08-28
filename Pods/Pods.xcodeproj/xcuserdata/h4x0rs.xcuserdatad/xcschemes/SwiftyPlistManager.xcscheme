@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'BF09A45A1639309844C0E91252AF613D'
-               BlueprintName = 'SwiftyPlistManager'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'SwiftyPlistManager.framework'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "41A15C130B8ED74C53495C541FB0FCA6"
+               BuildableName = "SwiftyPlistManager.framework"
+               BlueprintName = "SwiftyPlistManager"
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

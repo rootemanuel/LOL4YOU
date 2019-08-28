@@ -129,7 +129,7 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerVi
         }
     }
     
-    func validadados(_ textField: UITextField) {
+    @objc func validadados(_ textField: UITextField) {
         
         if (self.summonernick.text?.isEmpty)! {
             self.srchsummoner.isEnabled = false
@@ -165,8 +165,8 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerVi
     
     func initView(){
         let attnav = [
-            NSForegroundColorAttributeName: UIColor(hex:rootclass.colors.TEXTO_TOP_BAR.rawValue),
-            NSFontAttributeName: UIFont(name: "Friz Quadrata TT", size: 17)!
+            NSAttributedStringKey.foregroundColor: UIColor(hex:rootclass.colors.TEXTO_TOP_BAR.rawValue),
+            NSAttributedStringKey.font: UIFont(name: "Friz Quadrata TT", size: 17)!
         ]
         
         self.summonernick.delegate = self
@@ -235,12 +235,12 @@ class searchsummonerTVC: UITableViewController, UITextFieldDelegate, GADBannerVi
             }, origin: sender)
         
         let textTitleAtributes = [
-            NSForegroundColorAttributeName: UIColor(hex:rootclass.colors.TEXTO_TOP_BAR.rawValue),
-            NSFontAttributeName: UIFont(name: "Friz Quadrata TT", size: 17)!
+            NSAttributedStringKey.foregroundColor: UIColor(hex:rootclass.colors.TEXTO_TOP_BAR.rawValue),
+            NSAttributedStringKey.font: UIFont(name: "Friz Quadrata TT", size: 17)!
         ]
         
-        let pickerTextAttributes:NSMutableDictionary = [NSForegroundColorAttributeName:UIColor(hex:rootclass.colors.FUNDO.rawValue),
-                                    NSFontAttributeName: UIFont(name: "Friz Quadrata TT", size: 15)!]
+        let pickerTextAttributes:NSMutableDictionary = [NSAttributedStringKey.foregroundColor:UIColor(hex:rootclass.colors.FUNDO.rawValue),
+                                                        NSAttributedStringKey.font: UIFont(name: "Friz Quadrata TT", size: 15)!]
         
         let btDone = UIButton.init(type: .custom)
         btDone.setTitle("Done", for: .normal)

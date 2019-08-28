@@ -205,8 +205,8 @@ class championstableTVCC: UITableViewCell, UITableViewDataSource, UITableViewDel
     
     func initView(){
         let attnav = [
-            NSForegroundColorAttributeName: UIColor(hex:rootclass.colors.BORDA_BRILHANTE.rawValue),
-            NSFontAttributeName: UIFont(name: "Friz Quadrata TT", size: 14)!
+            NSAttributedStringKey.foregroundColor: UIColor(hex:rootclass.colors.BORDA_BRILHANTE.rawValue),
+            NSAttributedStringKey.font: UIFont(name: "Friz Quadrata TT", size: 14)!
         ]
         
         self.segControl.setTitleTextAttributes(attnav, for: .normal)

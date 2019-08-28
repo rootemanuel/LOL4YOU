@@ -140,8 +140,8 @@ class runesTVC: UITableViewController, GADBannerViewDelegate{
     
     func initView(){
         let attnav = [
-            NSForegroundColorAttributeName: UIColor(hex:rootclass.colors.TEXTO_TOP_BAR.rawValue),
-            NSFontAttributeName: UIFont(name: "Friz Quadrata TT", size: 17)!
+            NSAttributedStringKey.foregroundColor: UIColor(hex:rootclass.colors.TEXTO_TOP_BAR.rawValue),
+            NSAttributedStringKey.font: UIFont(name: "Friz Quadrata TT", size: 17)!
         ]
         
         self.navigationController?.navigationBar.barTintColor = UIColor(hex: rootclass.colors.FUNDO.rawValue)

@@ -125,8 +125,8 @@ class statsTVC: UITableViewController, GADBannerViewDelegate{
     
     func initView(){
         let attnav = [
-            NSForegroundColorAttributeName: UIColor(hex:rootclass.colors.TEXTO_TOP_BAR.rawValue),
-            NSFontAttributeName: UIFont(name: "Friz Quadrata TT", size: 17)!
+            NSAttributedStringKey.foregroundColor: UIColor(hex:rootclass.colors.TEXTO_TOP_BAR.rawValue),
+            NSAttributedStringKey.font: UIFont(name: "Friz Quadrata TT", size: 17)!
         ]
         
         let button = UIButton.init(type: .custom)
@@ -141,7 +141,7 @@ class statsTVC: UITableViewController, GADBannerViewDelegate{
         self.title = "Stats"
     }
     
-    func spopViewController(){
+    @objc func spopViewController(){
         self.navigationController?.popViewController(animated: true)
     }
 }

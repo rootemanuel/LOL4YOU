@@ -141,8 +141,8 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
 
     func initView(){
         let attnav = [
-            NSForegroundColorAttributeName: UIColor(hex:rootclass.colors.TEXTO_TOP_BAR.rawValue),
-            NSFontAttributeName: UIFont(name: "Friz Quadrata TT", size: 17)!
+            NSAttributedStringKey.foregroundColor: UIColor(hex:rootclass.colors.TEXTO_TOP_BAR.rawValue),
+            NSAttributedStringKey.font: UIFont(name: "Friz Quadrata TT", size: 17)!
         ]
         
         self.title = rootclass.Summoner.name
@@ -188,7 +188,7 @@ class perfilVC: UIViewController, UICollectionViewDataSource, UICollectionViewDe
         Analytics.setScreenName(rootclass.screens.menu, screenClass: String(describing: perfilVC.self))
     }
     
-    func spopViewController(){
+    @objc func spopViewController(){
         self.navigationController?.popViewController(animated: true)
     }
 }
